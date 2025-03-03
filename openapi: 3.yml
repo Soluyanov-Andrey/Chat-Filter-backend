@@ -1,0 +1,147 @@
+openapi: 3.0.0
+info:
+  title: Folder Management API
+  version: 1.0.0
+  description: |
+    API для управления сервисом
+  
+servers:
+  - url: http://localhost:3000 # Замените на реальный URL вашего сервера
+    description: Локальный сервер разработки
+paths:
+  /folder-structure:
+    get:
+      summary: Возвращает структуру папок в виде JSON
+      description: Возвращает структуру папок (и файлов) в указанном каталоге в виде JSON.
+      parameters:
+        - in: query
+          name: path
+          schema:
+            type: string
+          required: true
+          description: Абсолютный или относительный путь к папке.
+      responses:
+        '200':
+          description: Успешный запрос. Возвращает структуру папок в виде JSON.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  folders:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FolderItem'
+              example:
+                {
+                  "folders": [
+                    {
+                      "name": "папка1",
+                      "type": "folder+"
+                    },
+                    {
+                      "name": "файл1.txt",
+                      "type": "folder"
+                    }
+                  ]
+                }
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /create-folder:
+    get:  # Лучше использовать POST, но для соответствия запросу - GET
+      summary: Создает новую папку
+      description: Создает новую папку по указанному пути.
+      parameters:
+        - in: query
+          name: path
+          schema:
+            type: string
+          required: true
+          description: Абсолютный или относительный путь к новой папке.
+      responses:
+        '201': # Обычно для создания ресурса используют 201 Created
+          description: Папка успешно создана.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  message:
+                    type: string
+                    example: "Folder created successfully"
+              example:
+                {
+                  "status": "success",
+                  "message": "Folder created successfully"
+                }
+        '400': # Некорректный запрос (например, путь не указан или содержит недопустимые символы)
+          $ref: '#/components/responses/BadRequest'
+        '403': # Доступ запрещен (пользователь не имеет прав на создание папки в указанном месте)
+          $ref: '#/components/responses/Forbidden'
+        '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
+          $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+    FolderItem:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Имя папки или файла.
+          example: "document.pdf"
+        type:
+          type: string
+          enum: [folder, file]
+          description: Тип элемента. Может быть "folder" или "file".
+          example: "file"
+      required:
+        - name
+        - type
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Сообщение об ошибке.
+          example: "Something went wrong"
+      required:
+        - error
+  responses:  # Многократно используемые ответы
+    BadRequest:
+      description: Некорректный запрос.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            {
+              "error": "Invalid request"
+            }
+    Forbidden:
+      description: Доступ запрещен.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            {
+              "error": "Access denied"
+            }
+    InternalServerError:
+      description: Ошибка на сервере.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            {
+              "error": "Internal server error"
+            }
