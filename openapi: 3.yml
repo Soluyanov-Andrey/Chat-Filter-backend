@@ -40,7 +40,7 @@ paths:
                       "type": "folder+"
                     },
                     {
-                      "name": "файл1.txt",
+                      "name": "папка2",
                       "type": "folder"
                     }
                   ]
