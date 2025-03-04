@@ -1,16 +1,28 @@
-// Импортируем Express
 const express = require('express');
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const path = require('path');
 
-// Создаем приложение
 const app = express();
+const port = 3000;
 
-// Роут для главной страницы
-app.get('/', (req, res) => {
-  res.send('Привет, мир!');
+// Middleware для разбора JSON-тел запросов
+app.use(bodyParser.json());
+
+app.post('/create-folder', (req, res) => {
+    console.log(req.body);
+
+    const responseData = {
+        message: 'Данные успешно обработаны!',
+        receivedData: req.body,
+        timestamp: new Date()
+      };
+    
+      // Отправляем JSON-ответ
+      res.json(responseData);
 });
 
-// Запускаем сервер на порту 3000
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Сервер запущен на http://localhost:${PORT}`);
+app.listen(port, () => {
+  console.log(`Server listening at http://localhost:${port}`);
 });
+
