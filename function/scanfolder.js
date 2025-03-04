@@ -2,36 +2,63 @@ const fs = require('fs');
 const path = require('path');
 
 /**
- * Сканирует текущую директорию и возвращает список папок в формате JSON.
+ * Сканирует директорию, заходит внутрь каждой папки и проверяет наличие папки "document".
+ * Возвращает список папок с информацией о наличии "document".
  *
- * @param {string} directoryPath - Путь к директории для сканирования (по умолчанию "." - текущая директория).
- * @returns {Promise<object>} - Promise, разрешающийся в JSON-объект со списком папок.
- *                             В случае ошибки Promise отклоняется с сообщением об ошибке.
+ * @param {string} directoryPath - Путь к директории для сканирования (по умолчанию ".").
+ * @returns {Promise<object>} - Promise, разрешающийся в JSON-объект со списком папок и их типами.
+ *                             В случае ошибки Promise отклоняется.
  */
-async function scanDirectoryForFolders(directoryPath = '.') {
+
+async function scanFoldersForDocs(directoryPath = '/media/andrey/Рабочий/flash/help.ru') {
   try {
     const items = await fs.promises.readdir(directoryPath, { withFileTypes: true });
 
-    const folders = items
-      .filter(item => item.isDirectory())//Оставляем в масиве items только то что директория
-      .map(item => ({ name: item.name }));
+    const folders = [];
+
+    for (const item of items) {
+      if (item.isDirectory()) {
+        const folderPath = path.join(directoryPath, item.name);
+       
+        const documentFolderPath = path.join(folderPath, 'document');
+        
+        let hasDocumentFolder = false;
+        try {
+           
+          // Проверяем существование папки "document" вернет объект данных если такой путь есть если нет ничего не вернет
+          const documentFolderStats = await fs.promises.stat(documentFolderPath);
+          hasDocumentFolder = documentFolderStats.isDirectory();
+         
+        } catch (statErr) {
+          // Папка "document" не существует или произошла другая ошибка
+          hasDocumentFolder = false;
+        }
+
+        folders.push({
+          name: item.name,
+          type: hasDocumentFolder ? 'folder+' : 'folder-'
+        });
+      }
+    }
 
     return { folders: folders };
 
   } catch (err) {
     console.error('Error scanning directory:', err);
-    throw new Error(`Failed to scan directory: ${err.message}`); // Пробрасываем ошибку для обработки
+    throw new Error(`Failed to scan directory: ${err.message}`);
   }
 }
 
-// Пример использования:
-async function main() {
-  try {
-    const folderList = await scanDirectoryForFolders('.'); // Сканируем текущую директорию
-    console.log(JSON.stringify(folderList, null, 2)); // Выводим JSON в консоль
-  } catch (error) {
-    console.error('Error:', error.message); // Обрабатываем ошибку
-  }
-}
+module.exports = scanFoldersForDocs;
 
-main();
+// // Пример использования:
+// async function main() {
+//   try {
+//     const folderList = await scanFoldersForDocs();
+//     console.log(JSON.stringify(folderList, null, 2));
+//   } catch (error) {
+//     console.error('Error:', error.message);
+//   }
+// }
+
+// main();
