@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Folder Management API
+  title: API для сканера
   version: 1.0.0
   description: |
     API для управления сервисом
@@ -45,17 +45,91 @@ paths:
                     }
                   ]
                 }
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '403':
-          $ref: '#/components/responses/Forbidden'
+
+        '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
+          $ref: '#/components/responses/InternalServerError'
+
+  /delete-list:
+    get:
+      summary: Удаляем тему по ID
+      description: Удаляем тему по ID
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: integer
+            format: int64 #  (или int32, в зависимости от диапазона ваших ID)
+            description: Идентификатор папки (должен быть числом).
+            example: 123
+          required: true
+      responses:
+        '200':
+          description: Папка успешно открыта.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  message:
+                    type: string
+                    example: "Folder open"
+                example:
+                  {
+                    "status": "success",
+                    "message": "Folder open"
+                  }
+        '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
+          $ref: '#/components/responses/InternalServerError'
+
+
+
+
+  /create-folder:
+    post:
+      summary: Создает новую папку
+      description: Создает новую папку по указанному пути.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                path:
+                  type: string
+                  description: Абсолютный или относительный путь к новой папке.
+                  example: "/путь/к/новой/папке"
+              required:
+                - path
+      responses:
+        '201':
+          description: Папка успешно создана.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  message:
+                    type: string
+                    example: "Folder created successfully"
+                example:
+                  {
+                    "status": "success",
+                    "message": "Folder created successfully"
+                  }
         '500':
           $ref: '#/components/responses/InternalServerError'
 
-  /create-folder:
-    get:  # Лучше использовать POST, но для соответствия запросу - GET
-      summary: Создает новую папку
-      description: Создает новую папку по указанному пути.
+  /open-folder:
+    get:  
+      summary: Открыть папку 
+      description: Если папка содержит document папку внутри то читаем содержание в ней файлов и выводим
       parameters:
         - in: query
           name: path
@@ -80,31 +154,154 @@ paths:
               example:
                 {
                   "status": "success",
-                  "message": "Folder created successfully"
+                  "message": "Folder open"
                 }
-        '400': # Некорректный запрос (например, путь не указан или содержит недопустимые символы)
-          $ref: '#/components/responses/BadRequest'
-        '403': # Доступ запрещен (пользователь не имеет прав на создание папки в указанном месте)
-          $ref: '#/components/responses/Forbidden'
+    
         '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
           $ref: '#/components/responses/InternalServerError'
+
+  /scan:
+    get:  
+      summary: Сканируем документ
+      description: Сканируем документ в конкретной папки и выводим в форме li
+      responses:
+        '200': # Успешное открытие папки
+          description: Папка успешно открыта.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  message:
+                    type: string
+                    example: "Folder open"
+                example:
+                  {
+                    "status": "success",
+                    "message": "Folder open"
+                  }
+
+  /create_topic:
+    post:
+      summary: Создает новую тему
+      description: Создает новую тему на страницу
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  format: int64 # Или int32
+                  description: Идентификатор новой страницы.
+                  example: 123
+                path:
+                  type: string
+                  description: Абсолютный или относительный путь к новой странице.
+                  example: "/путь/к/новой/странице"
+              required:
+                - id
+                - path
+      responses:
+        '201':
+          description: Тема успешно создана.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  message:
+                    type: string
+                    example: "Folder created successfully"
+                example:
+                  {
+                    "status": "success",
+                    "message": "Folder open"
+                  }
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /create-page:
+    get:  
+      summary: Создаем страницу
+      description: создает папку в выбранном пути копируя по шаблону
+      parameters:
+        - in: query
+          name: path
+          schema:
+            type: string
+          required: true
+         
+          description: Абсолютный или относительный путь к новой папке.
+      responses:
+        '201': # Обычно для создания ресурса используют 201 Created
+          description: Папка успешно создана.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  message:
+                    type: string
+                    example: "Folder created successfully"
+              example:
+                {
+                  "status": "success",
+                  "message": "Folder open"
+                }
+    
+        '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
+          $ref: '#/components/responses/InternalServerError'
+  /view page:
+    get:
+      summary: Посмотреть содержаие страницы
+      description: Посмотреть содержаие страницы по ID
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: integer
+            format: int64 #  (или int32, в зависимости от диапазона ваших ID)
+            description: Идентификатор li (должен быть числом).
+            example: 1
+          required: true
+      responses:
+        '200':
+          description: Станица готова для просмотра
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  message:
+                    type: string
+                    example: "Folder open"
+                example:
+                  {
+                    "status": "success",
+                    "message": "pageview"
+                  }
+        '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
+          $ref: '#/components/responses/InternalServerError'
+
+
 components:
   schemas:
-    FolderItem:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Имя папки или файла.
-          example: "document.pdf"
-        type:
-          type: string
-          enum: [folder, file]
-          description: Тип элемента. Может быть "folder" или "file".
-          example: "file"
-      required:
-        - name
-        - type
+
     ErrorResponse:
       type: object
       properties:
