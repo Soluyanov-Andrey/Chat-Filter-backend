@@ -8,6 +8,7 @@ describe('POST /create-folder (подключение к существующе�
       "path": "/tmp/новая_папка"
     };
 
+  
     const response = await request(baseURL)
       .post('/create-folder') // Обновляем путь
       .set('Content-Type', 'application/json') // Явно устанавливаем Content-Type
