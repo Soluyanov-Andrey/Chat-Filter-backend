@@ -1,25 +1,20 @@
-//вот так функция сразу создаеи имя копируемой папки и в нее записывает
-
+//Вот так функция просто записывает создержание папки вовнутрь без создания самой папки
+// если нужно чтоб папка создалась то в destination нужно передовать с создоваемой папкой
+// например если есть папка test то чтоб в ней создалась папка document нужно передать
+// test/document
 const fs = require('fs-extra');
 const path = require('path');
 
-async function copyDirectory(source , destination) {
-  if (!destination) {
-    throw new Error('Не указан параметр destination');
-  }
+async function copyDirectory(source, destination) {
 
   try {
-    // Получаем имя папки из исходного пути
-    const folderName = path.basename(source);
-    // Создаем новый путь для назначения, включая имя папки
-    const newDestination = path.join(destination, folderName);
-console.log(newDestination);
-    // Копируем папку с её содержимым
-    await fs.copy(source, newDestination);
-    console.log(`Папка "${folderName}" скопирована успешно в "${newDestination}"!`);
+    await fs.copy(source, destination);
+    console.log('Папка скопирована успешно!');
   } catch (err) {
     console.error('Ошибка при копировании папки:', err);
   }
 }
 
-module.exports =  copyDirectory;
+module.exports = copyDirectory ;
+
+
