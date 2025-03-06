@@ -1,21 +1,21 @@
-const axios = require('axios');
+// const axios = require('axios');
 
-async function makeRequest(path) {
-  try {
-    const response = await axios.get('/folder-structure', {
-      baseURL: 'http://localhost:3000',
-      params: { // Параметры, которые будут автоматически URL-encoded
-        path: path
-      }
-    });
-    console.dir(response.data, { depth: null });
+// async function makeRequest(path) {
+//   try {
+//     const response = await axios.get('/folder-structure', {
+//       baseURL: 'http://localhost:3000',
+//       params: { // Параметры, которые будут автоматически URL-encoded
+//         path: path
+//       }
+//     });
+//     console.dir(response.data, { depth: null });
     
-  } catch (error) {
-    console.error(error);
-  }
-}
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 
-makeRequest('/media/andrey/Рабочий/flash/help.ru/javascript/help и заметки');
+// makeRequest('/media/andrey/Рабочий/flash/help.ru/javascript/help и заметки');
 
 
 // async function createFolder(path) {
@@ -31,5 +31,24 @@ makeRequest('/media/andrey/Рабочий/flash/help.ru/javascript/help и за�
 //     }
 //   }
   
-//   // Пример использования
+// //   // Пример использования
 //   createFolder('/tmp/новая папка');
+
+const axios = require('axios');
+
+async function deleteList(id) {
+  try {
+    const response = await axios.get('/delete-list', {
+      baseURL: 'http://localhost:3000',
+      params: { // Параметры, которые будут автоматически URL-encoded
+        id: id
+      }
+    });
+    console.dir(response.data, { depth: null });
+    
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+deleteList('150');

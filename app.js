@@ -1,29 +1,59 @@
-const scanFoldersForDocs = require('./function/scanfolder.js'); // Убедитесь, что путь правильный
+const scanFoldersForDocs = require('./function/folderStructure.js'); // Убедитесь, что путь правильный
 const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
 const port = 3000;
 
+
 // Middleware для разбора JSON-тел запросов
 app.use(bodyParser.urlencoded());
+
+//--------------------------------------
+///folder-structure
+//--------------------------------------
 
 app.get('/folder-structure',async  (req, res) => {
 
    // 1. Получаем параметр path из req.query
    const encodedPath = req.query.path;
-   console.log(req.query);
+//    console.log(req.query);
    // 2. URL-декодируем значение параметра
    const path = decodeURIComponent(encodedPath);
  
-   console.log('Полученный и декодированный path:', path);
+//    console.log('Полученный и декодированный path:', path);
 
   const responseData = {
-    message: 'Данные успешно обработаны!',
+    message: 'Данные /folder-structure!',
     receivedData: await scanFoldersForDocs(path)
   };
   res.json(responseData);
 });
+
+
+//--------------------------------------
+//delete-list
+//--------------------------------------
+app.get('/delete-list',async  (req, res) => {
+
+   
+   
+    const id = parseInt(req.query.id,10); 
+
+    // 2. URL-декодируем значение параметра
+    const path = decodeURIComponent(encodedPath);
+    
+   const responseData = {
+     message: 'Данные id приняты',
+     receivedData: id
+   };
+   res.json(responseData);
+ });
+
+
+//--------------------------------------
+//create-folder
+//--------------------------------------
 
 // Асинхронный обработчик POST-запроса
 app.post('/create-folder', async (req, res) => {
@@ -50,6 +80,31 @@ app.post('/create-folder', async (req, res) => {
     });
   }
 });
+
+//--------------------------------------
+///open-folder
+//--------------------------------------
+
+app.get('/open-folder',async  (req, res) => {
+
+  // 1. Получаем параметр path из req.query
+  const encodedPath = req.query.path;
+//    console.log(req.query);
+  // 2. URL-декодируем значение параметра
+  const path = decodeURIComponent(encodedPath);
+
+//    console.log('Полученный и декодированный path:', path);
+
+ const responseData = {
+   message: '/create-folder',
+   receivedData: 'папака создана'
+ };
+ res.json(responseData);
+});
+
+
+
+
 
 // Запуск сервера
 app.listen(port, () => {

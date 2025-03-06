@@ -139,7 +139,7 @@ paths:
           description: Абсолютный или относительный путь к новой папке.
       responses:
         '201': # Обычно для создания ресурса используют 201 Created
-          description: Папка успешно создана.
+          description: Открыли папку Document для анализа.
           content:
             application/json:
               schema:
@@ -153,8 +153,14 @@ paths:
                     example: "Folder created successfully"
               example:
                 {
-                  "status": "success",
-                  "message": "Folder open"
+                  "page": [
+                    {
+                      "name": "папка1"
+                    },
+                    {
+                      "name": "папка2"
+                    }
+                  ]
                 }
     
         '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
@@ -166,7 +172,7 @@ paths:
       description: Сканируем документ в конкретной папки и выводим в форме li
       responses:
         '200': # Успешное открытие папки
-          description: Папка успешно открыта.
+          description: Папка успешно открыта для анализа.
           content:
             application/json:
               schema:
