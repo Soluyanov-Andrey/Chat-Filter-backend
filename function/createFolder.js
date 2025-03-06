@@ -1,19 +1,3 @@
-// const fs = require('fs-extra');
-// const path = require('path');
-
-// async function copyDirectory(source, destination) {
-
-//   try {
-//     await fs.copy(source, destination);
-//     console.log('Папка скопирована успешно!');
-//   } catch (err) {
-//     console.error('Ошибка при копировании папки:', err);
-//   }
-// }
-
-// module.exports = copyDirectory ;
-
-
 const fs = require('fs-extra');
 const path = require('path');
 
