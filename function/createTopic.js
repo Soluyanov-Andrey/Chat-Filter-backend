@@ -35,6 +35,36 @@ function extractLastHrefNumber(htmlCode) {
     }
 }
 
+/**
+ * Добавляет новую ссылку после последнего элемента <a> в HTML.
+ *
+ * @param {string} htmlCode  Исходный HTML-код.
+ * @param {number} number  Цифра для вставки в href новой ссылки.
+ * @returns {string}  Измененный HTML-код с добавленной ссылкой.
+ */
 
+function insertNewLinkAfterLast(htmlCode, number) {
+    try {
+      const $ = cheerio.load(htmlCode);
+      const aElements = $('a'); // Находим все элементы <a>
+  
+      const newLink = `
+    <br>
+    <a href="./themes/in${number}.html" target="leftframe">Страница ${number}</a>`; // Формируем HTML новой ссылки
+  
+      if (aElements.length > 0) {
+        aElements.last().after(newLink); // Вставляем новую ссылку после последнего <a>
+      } else {
+        // Если нет существующих <a>, добавляем ссылку в конец <body>
+        $('body').append(newLink);
+      }
+  
+      return $.html(); // Возвращаем измененный HTML-код
+    } catch (error) {
+      console.error("Ошибка при обработке HTML:", error);
+      return htmlCode; // Возвращаем исходный HTML в случае ошибки
+    }
+  }
 
+module.exports.insertNewLinkAfterLast = insertNewLinkAfterLast;
 module.exports.extractLastHrefNumber = extractLastHrefNumber;
