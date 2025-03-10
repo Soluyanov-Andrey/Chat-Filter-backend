@@ -114,8 +114,7 @@ function createTopic(path,topic){
     saveHtmlToFile(path, insert);
 
 }
-// module.exports.createTopic = createTopic;
-// module.exports.insertNewLinkAfterLast = insertNewLinkAfterLast;
-
+module.exports.readFileContent = readFileContent;
+module.exports.createTopic = createTopic;
 module.exports.extractLastHrefNumber = extractLastHrefNumber;
 module.exports.insertNewLinkAfterLast = insertNewLinkAfterLast;
