@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`insertNewLinkAfterLast should handle errors gracefully and return original HTML 1`] = `
+"<!DOCTYPE html><html><head></head><body><html<head><title>Test</title></html<head>
+    <br>
+    <a href="./themes/in5.html" target="leftframe">undefined</a></body></html>"
+`;
+
+exports[`insertNewLinkAfterLast should insert a new link after the last <a> element when <a> elements exist 1`] = `
+"<!DOCTYPE html><html><head>
+    <title>Главная страница</title>
+</head>
+<body>
+    <h1>Навигация</h1>
+    <a href="./themes/in1.html" target="leftframe">Установка аапач</a>
+    <br>
+    <a href="./themes/in2.html" target="leftframe">Установка php</a>
+    <br>
+    <a href="./themes/in3.html" target="leftframe">Страница 2</a>
+    <br>
+    <a href="./themes/in4.html" target="leftframe">Данна</a>
+
+
+</body></html>"
+`;
+
+exports[`insertNewLinkAfterLast should insert a new link in the body when no <a> elements exist 1`] = `
+"<!DOCTYPE html><html><head>
+    <title>Главная страница</title>
+</head>
+<body>
+    <h1>Навигация</h1>
+
+
+
+    <br>
+    <a href="./themes/in1.html" target="leftframe">Тема</a></body></html>"
+`;
