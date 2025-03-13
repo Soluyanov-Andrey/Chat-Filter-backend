@@ -9,40 +9,9 @@
 // copyDirectory( sourcePath, destinationPath);
 
 
-const  {insertNewLinkAfterLast} = require('./function/createTopic');
+const  { extractHrefAndTopicFromFile } = require('./function/openFolder');
 
-// Примеры использования
-const htmlCode1 = `
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Главная страница</title>
-</head>
-<body>
-    <h1>Навигация</h1>
-    <a href="./themes/in1.html" target="leftframe">Установка аапач</a>
-    <br>
-    <a href="./themes/in2.html" target="leftframe">Установка php</a>
-    <br>
-    <a href="./themes/in3.html" target="leftframe">Страница 2</a>
-</body>
-</html>
-`;
+let path = '/media/andrey/project/project/servers/SERVER-node-chatGPT/test/document/root.html';
 
-const newHtml1 = insertNewLinkAfterLast(htmlCode1, 4);
-console.log(newHtml1);
+console.log(extractHrefAndTopicFromFile(path));
 
-const htmlCode2 = `
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Главная страница</title>
-</head>
-<body>
-    <h1>Навигация</h1>
-</body>
-</html>
-`;
-
-const newHtml2 = insertNewLinkAfterLast(htmlCode2, 1);
-console.log(newHtml2);

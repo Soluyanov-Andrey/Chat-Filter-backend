@@ -1,38 +1,54 @@
 const cheerio = require('cheerio');
 const fs = require('fs');
+
 /**
- * Извлекает цифру из href последнего элемента <a> в HTML.
+ * Извлекает числовой идентификатор из href последней ссылки в HTML-коде.
  *
- * @param {string} htmlCode HTML-код, включающий <!DOCTYPE html> ... </html>
- * @returns {number|null}  Цифра из href или null, если цифру извлечь не удалось.
+ * @param {string} htmlCode HTML-код для парсинга.
+ * @param {string} patternType Тип шаблона для извлечения. Доступные значения: 'inTheme', 'productItem', 'imageName'.
+ * @returns {number|null} Извлеченное число или null, если извлечение не удалось.
  */
-function extractLastHrefNumber(htmlCode) {
-    try {
-        const $ = cheerio.load(htmlCode);
-        const aElements = $('a'); // Выбираем все элементы <a>
+function extractLastHrefNumber(htmlCode, patternType) {
+  try {
+      const $ = cheerio.load(htmlCode);
+      const aElements = $('a');
 
-        if (aElements.length === 0) {
-            return null; // Нет ссылок в HTML
-        }
+      if (aElements.length === 0) {
+          return null;
+      }
 
-        const lastHref = aElements.last().attr('href'); // Получаем href последнего элемента
+      const lastHref = aElements.last().attr('href');
 
-        if (!lastHref) {
-            return null; // У последнего элемента нет href
-        }
+      if (!lastHref) {
+          return null;
+      }
 
-        const regex = /\.\/themes\/in(\d+)\.html/; // Регулярное выражение для извлечения цифры
-        const match = lastHref.match(regex);
+      let regex;
 
-        if (match && match[1]) {
-            return parseInt(match[1], 10); // Преобразуем захваченную цифру в число
-        }
+      switch (patternType) {
+          case 'inTheme':
+              regex = /\.\/themes\/in(\d+)\.html/;
+              break;
+          case 'html':
+              regex = /(\d+)\.html/; // Извлекаем цифры перед ".html"
+              break;
+      
+          default:
+              console.error("Ошибка: неизвестный patternType:", patternType);
+              return null;
+      }
 
-        return null; //  href не соответствует шаблону
-    } catch (error) {
-        console.error("Ошибка при парсинге HTML:", error);
-        return null; // Обрабатываем ошибки парсинга
-    }
+      const match = lastHref.match(regex);
+
+      if (match && match[1]) {
+          return parseInt(match[1], 10);
+      }
+
+      return null;
+  } catch (error) {
+      console.error("Ошибка при парсинге HTML:", error);
+      return null;
+  }
 }
 
 /**
@@ -109,12 +125,19 @@ function readFileContent(path, encoding = 'utf8') {
 
 function createTopic(path,topic){
     let htmlContent = readFileContent(path);
+console.log(htmlContent);
+
     let extractnumber = extractLastHrefNumber(htmlContent);
-    let insert = insertNewLinkAfterLast(extractnumber, number, topic);
+
+    console.log(extractnumber);
+    let insert = insertNewLinkAfterLast(htmlContent, extractnumber+1, topic);
     saveHtmlToFile(path, insert);
 
 }
+//Экспортируем для тестов
 module.exports.readFileContent = readFileContent;
-module.exports.createTopic = createTopic;
 module.exports.extractLastHrefNumber = extractLastHrefNumber;
 module.exports.insertNewLinkAfterLast = insertNewLinkAfterLast;
+
+//Экспортируем для приложения
+module.exports.createTopic = createTopic;

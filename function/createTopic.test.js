@@ -3,7 +3,7 @@ const { extractLastHrefNumber , insertNewLinkAfterLast } = require('./createTopi
 const cheerio = require('cheerio'); // Импортируем cheerio для работы с DOM
 
 // Проверяем как функция extractLastHrefNumber извелкает номер последний
-describe('extractLastHrefNumber', () => {
+describe('extractLastHrefNumber - patternType: inTheme', () => {
   it('should extract the number from the last href when it matches the pattern', () => {
     const htmlCode = `
       <!DOCTYPE html>
@@ -23,7 +23,7 @@ describe('extractLastHrefNumber', () => {
       </body>
       </html>
     `;
-    expect(extractLastHrefNumber(htmlCode)).toBe(4);
+    expect(extractLastHrefNumber(htmlCode,'inTheme')).toBe(4);
   });
 
   it('should extract the number from the last href when it is a larger number', () => {
@@ -45,7 +45,7 @@ describe('extractLastHrefNumber', () => {
       </body>
       </html>
     `;
-    expect(extractLastHrefNumber(htmlCode)).toBe(1234);
+    expect(extractLastHrefNumber(htmlCode,'inTheme')).toBe(1234);
   });
 
   it('should return null when there are no <a> elements', () => {
@@ -60,7 +60,7 @@ describe('extractLastHrefNumber', () => {
       </body>
       </html>
     `;
-    expect(extractLastHrefNumber(htmlCode)).toBeNull();
+    expect(extractLastHrefNumber(htmlCode,'inTheme')).toBeNull();
   });
 
   it('should return null when the last <a> element has no href attribute', () => {
@@ -82,7 +82,7 @@ describe('extractLastHrefNumber', () => {
       </body>
       </html>
     `;
-    expect(extractLastHrefNumber(htmlCode)).toBeNull();
+    expect(extractLastHrefNumber(htmlCode,'inTheme')).toBeNull();
   });
 
   it('should return null when the href does not match the expected pattern', () => {
@@ -104,7 +104,7 @@ describe('extractLastHrefNumber', () => {
       </body>
       </html>
     `;
-    expect(extractLastHrefNumber(htmlCode)).toBeNull();
+    expect(extractLastHrefNumber(htmlCode,'inTheme')).toBeNull();
   });
 
   it('should handle errors gracefully and return null for invalid HTML', () => {
@@ -126,8 +126,66 @@ describe('extractLastHrefNumber', () => {
       </body>
       </html>
     `;
-    expect(extractLastHrefNumber(htmlCode)).toBe(4);
+    expect(extractLastHrefNumber(htmlCode,'inTheme')).toBe(4);
   });
+});
+
+
+describe('extractLastHrefNumber - patternType: html', () => {
+  it('should extract the number before ".html" from the last href', () => {
+    const htmlCode = `
+      <a href="page1.html">Link 1</a>
+      <a href="page2.html">Link 2</a>
+      <a href="page345.html">Link 3</a>
+    `;
+    const result = extractLastHrefNumber(htmlCode, 'html');
+    expect(result).toBe(345);
+  });
+
+  it('should return null if no a elements exist', () => {
+    const htmlCode = '<div>Some content</div>';
+    const result = extractLastHrefNumber(htmlCode, 'html');
+    expect(result).toBeNull();
+  });
+
+  it('should return null if the last a element has no href', () => {
+    const htmlCode = '<a href="page1.html">Link 1</a><a >Link 2</a>';
+    const result = extractLastHrefNumber(htmlCode, 'html');
+    expect(result).toBeNull();
+  });
+
+  it('should return null if the last href does not match the pattern', () => {
+    const htmlCode = '<a href="page1.html">Link 1</a><a href="other.txt">Link 2</a>';
+    const result = extractLastHrefNumber(htmlCode, 'html');
+    expect(result).toBeNull();
+  });
+
+  it('should handle href with other attributes', () => {
+    const htmlCode = '<a href="page1.html" class="link">Link 1</a><a href="page23.html?param=value">Link 2</a>';
+    const result = extractLastHrefNumber(htmlCode, 'html');
+    expect(result).toBe(23);
+  });
+
+  it('should handle html with leading text', () => {
+      const htmlCode = '<p>Some Text</p><a href="page456.html">Link</a>';
+      const result = extractLastHrefNumber(htmlCode, 'html');
+      expect(result).toBe(456);
+  });
+
+  it('should handle html with trailing text', () => {
+      const htmlCode = '<a href="page789.html">Link</a><p>Some Text</p>';
+      const result = extractLastHrefNumber(htmlCode, 'html');
+      expect(result).toBe(789);
+  });
+
+    it('should return null if there are multiple matches and the last does not match', () => {
+        const htmlCode = `
+            <a href="123.html">Link 1</a>
+            <a href="other.txt">Link 2</a>
+        `;
+        const result = extractLastHrefNumber(htmlCode, 'html');
+        expect(result).toBeNull();
+    });
 });
 
 
@@ -217,6 +275,8 @@ const expectedHtml = `
     expect(newHtml).toMatchSnapshot(); 
   });
 
+  //Проверяем в лоб есть ли `<a href="./themes/in5.html" target="leftframe"' такая строка
+
     it('should insert a new link with a specified topic', () => {
         const htmlCode = `
     <!DOCTYPE html>
@@ -236,6 +296,8 @@ const expectedHtml = `
     `;
         const topic = 'Новая Тема';
         const newHtml = insertNewLinkAfterLast(htmlCode, 5, topic);
+        console.log(newHtml);
+        
         expect(newHtml).toContain(`<a href="./themes/in5.html" target="leftframe">${topic}`);
     });
 });
