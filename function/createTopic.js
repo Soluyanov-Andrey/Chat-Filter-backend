@@ -1,5 +1,8 @@
 const cheerio = require('cheerio');
 const fs = require('fs');
+const { readFileContent } = require('./fileUtils');
+const { saveHtmlToFile } = require('./fileUtils');
+
 
 /**
  * Извлекает числовой идентификатор из href последней ссылки в HTML-коде.
@@ -82,38 +85,38 @@ function insertNewLinkAfterLast(htmlCode, number, topic) {
     }
   }
 
-// Синхронная функция для сохранения файла
-function saveHtmlToFile(filePath, htmlContent) {
-    try {
-      fs.writeFileSync(filePath, htmlContent);
-      console.log('Файл успешно сохранен:', filePath);
-    } catch (err) {
-      console.error('Ошибка при записи файла:', err);
-    }
-  }
+// // Синхронная функция для сохранения файла
+// function saveHtmlToFile(filePath, htmlContent) {
+//     try {
+//       fs.writeFileSync(filePath, htmlContent);
+//       console.log('Файл успешно сохранен:', filePath);
+//     } catch (err) {
+//       console.error('Ошибка при записи файла:', err);
+//     }
+//   }
 
-function readFileContent(path, encoding = 'utf8') {
-    // Базовая проверка входных параметров
-    if (!path || typeof path !== 'string') {
-        throw new Error('Путь к файлу должен быть строкой и не может быть пустым');
-    }
+// function readFileContent(path, encoding = 'utf8') {
+//     // Базовая проверка входных параметров
+//     if (!path || typeof path !== 'string') {
+//         throw new Error('Путь к файлу должен быть строкой и не может быть пустым');
+//     }
     
-    try {
-        // Читаем файл
-        const content = fs.readFileSync(path, encoding);
+//     try {
+//         // Читаем файл
+//         const content = fs.readFileSync(path, encoding);
         
-        // Можно добавить дополнительную проверку содержимого
-        if (typeof content !== 'string') {
-            throw new Error('Не удалось прочитать файл как строку');
-        }
+//         // Можно добавить дополнительную проверку содержимого
+//         if (typeof content !== 'string') {
+//             throw new Error('Не удалось прочитать файл как строку');
+//         }
         
-        return content;
-    } catch (error) {
-        // Логируем ошибку
-        console.error('Ошибка при чтении файла:', error.message);
-        throw error; // Перебрасываем ошибку дальше, если нужно
-    }
-}
+//         return content;
+//     } catch (error) {
+//         // Логируем ошибку
+//         console.error('Ошибка при чтении файла:', error.message);
+//         throw error; // Перебрасываем ошибку дальше, если нужно
+//     }
+// }
 
 
 /**
@@ -134,8 +137,9 @@ console.log(htmlContent);
     saveHtmlToFile(path, insert);
 
 }
+
 //Экспортируем для тестов
-module.exports.readFileContent = readFileContent;
+// module.exports.readFileContent = readFileContent;
 module.exports.extractLastHrefNumber = extractLastHrefNumber;
 module.exports.insertNewLinkAfterLast = insertNewLinkAfterLast;
 
