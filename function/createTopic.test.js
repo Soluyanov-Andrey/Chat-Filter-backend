@@ -189,6 +189,7 @@ describe('extractLastHrefNumber - patternType: html', () => {
 });
 
 
+
 // Проверяем как функция insertNewLinkAfterLast делает добавление
 describe('insertNewLinkAfterLast', () => {
   

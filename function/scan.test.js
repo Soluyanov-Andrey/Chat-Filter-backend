@@ -23,3 +23,18 @@ describe('extractContextsFromChatPrompts', () => {
     expect(actualContexts).toEqual(expectedContexts);
   });
 });
+
+describe('extractContextsFromChatPromptsConsole', () => {
+    it('should extract chat prompts from the specified HTML file (console output only)', () => {
+      const path = '/media/andrey/project/project/servers/SERVER-node-chatGPT/test/ChatGPT _ ChatGPT 4o Free _ Support all countries.html';
+  
+      try {
+          const actualContexts = extractContextsFromChatPrompts(path);
+          
+          console.log(actualContexts);  // Просто выводим результат в консоль
+  
+      } catch (error) {
+          console.error("Error during test:", error);
+      }
+    });
+  });

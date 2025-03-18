@@ -19,6 +19,7 @@ describe('readFileContent', () => {
         expect(fs.readFileSync).toHaveBeenCalledWith(filePath, 'utf8');
         expect(result).toBe(fileContent);
     });
+    
 
     it('should read file content with specified encoding', () => {
         const filePath = 'test.txt';
