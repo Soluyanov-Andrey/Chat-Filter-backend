@@ -115,6 +115,6 @@ function copyFileSync(source, destination, newFileName = null) {
 
 
 
-
+module.exports.copyFileSync =  copyFileSync;
 module.exports.readFileContent = readFileContent;
 module.exports.saveHtmlToFile = saveHtmlToFile;

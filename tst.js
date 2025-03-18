@@ -9,9 +9,16 @@
 // copyDirectory( sourcePath, destinationPath);
 
 
-const  { extractHrefAndTopicFromFile } = require('./function/openFolder');
+const  { readFileContent } = require('./function/fileUtils');
+const  { saveHtmlToFile } = require('./function/fileUtils');
 
-let path = '/media/andrey/project/project/servers/SERVER-node-chatGPT/test/document/root.html';
+const  { removeSidebarNav } = require('./function/deleteNavBlock');
 
-console.log(extractHrefAndTopicFromFile(path));
+let path = '/media/andrey/project/project/servers/SERVER-node-chatGPT/test/ChatGPT _ ChatGPT 4o Free _ Support all countries.html';
+let pathNew = '/media/andrey/project/project/servers/SERVER-node-chatGPT/test/C1.html';
+let read = readFileContent(path);
+let contDel = removeSidebarNav(read);
+saveHtmlToFile(pathNew, contDel);
+
+// console.log(extractContextsFromChatPrompts(path));
 
