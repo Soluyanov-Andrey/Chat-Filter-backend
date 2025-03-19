@@ -3,8 +3,19 @@ const path = require('path');
 const copyDirectory  = require('./createFolder.js');
 const { exec } = require('child_process'); // Для запуска команд в терминале
 
-const sourceDir = '/media/andrey/project/project/servers/SERVER-node-chatGPT/document';
-const baseDir = '/media/andrey/project/project/servers/SERVER-node-chatGPT/test';
+// const sourceDir = '../../document';
+// const baseDir = '../../test';
+
+
+
+const currentDir = __dirname;
+
+console.log(currentDir);
+
+// Формируем абсолютные пути к нужным папкам, используя path.resolve()
+const sourceDir = path.resolve(currentDir, '../../document');
+const baseDir = path.resolve(currentDir, '../../test');
+
 baseDirPlus = baseDir + '/document';
 
 // Перед каждым тестом убедимся, что папка tmpTest пуста
