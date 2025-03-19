@@ -7,8 +7,8 @@ const path = require('path');
 const cheerio = require('cheerio');
 const isSimilar = require('./isSimilar');
 
-const { saveHtmlToFile } = require('./fileUtils'); 
-const { readFileContent } = require('./fileUtils');
+const { saveHtmlToFile } = require('./subsidiary/fileUtils'); 
+const { readFileContent } = require('./subsidiary/fileUtils');
 
 /**
  * Фильтрует блоки .chat-box__human--prompt, оставляя блоки
