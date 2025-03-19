@@ -50,15 +50,3 @@ async function scanFoldersForDocs(directoryPath = '/media/andrey/Рабочий/
 }
 
 module.exports = scanFoldersForDocs;
-
-// // Пример использования:
-// async function main() {
-//   try {
-//     const folderList = await scanFoldersForDocs();
-//     console.log(JSON.stringify(folderList, null, 2));
-//   } catch (error) {
-//     console.error('Error:', error.message);
-//   }
-// }
-
-// main();

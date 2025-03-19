@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { readFileContent } = require('./fileUtils'); // Замените на путь к вашему файлу
+const { readFileContent } = require('../subsidiary/fileUtils'); // Замените на путь к вашему файлу
 
 // Мокаем fs для изоляции тестов
 jest.mock('fs');

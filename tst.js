@@ -25,7 +25,7 @@
 // filterHTMLElementsByText(filePath, outputPath, targetTexts)
 
 const fs = require('fs');
-const { saveFilterHTML } = require('./function/deleteAllScaner');
+const { saveFilterHTML } = require('./function/subsidiary/deleteAllScaner');
 
  let pathFile = '/media/andrey/project/project/servers/SERVER-node-chatGPT/test/ChatGPT _ ChatGPT 4o Free _ Support all countries.html';
  let pathFileNew = '/media/andrey/project/project/servers/SERVER-node-chatGPT/test/C2.html';
@@ -46,4 +46,7 @@ const { saveFilterHTML } = require('./function/deleteAllScaner');
         'На node js например у меня '
     ];
 
-    saveFilterHTML(pathFile, pathFileNew,targetTexts)
+    saveFilterHTML(pathFile, pathFileNew,targetTexts);
+ 
+    
+   

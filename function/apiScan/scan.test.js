@@ -1,11 +1,12 @@
-const { extractContextsFromChatPrompts } = require('./scan'); // Замените 'yourFileName' на имя вашего файла
+const { extractContextsFromChatPrompts } = require('./scan');
+
+//Ожидаем идентичный массив: выполняем сравнение на эквивалентность.
 
 describe('extractContextsFromChatPrompts', () => {
   it('should extract chat prompts from the specified HTML file', () => {
-    const path = '/media/andrey/project/project/servers/SERVER-node-chatGPT/test/ChatGPT _ ChatGPT 4o Free _ Support all countries.html';
+    const path = '/media/andrey/project/project/servers/SERVER-node-chatGPT/rootDocument/ChatGPT _ ChatGPT 4o Free _ Support all countries.html';
 
-    // Assuming extractContextsFromChatPrompts reads the file correctly,
-    // this is the expected output based on your description. Adjust if needed.
+
     const expectedContexts = [
       'как в текстовом фармате обозначется перенос на следующую строку,',
       'На node js например у меня есть переменнаяя text = "привет мир", ее надо записать в файл и между словами привет и мир поставить знак разделитель',
@@ -24,9 +25,11 @@ describe('extractContextsFromChatPrompts', () => {
   });
 });
 
+//Просто смотрим через console что выводит
+
 describe('extractContextsFromChatPromptsConsole', () => {
     it('should extract chat prompts from the specified HTML file (console output only)', () => {
-      const path = '/media/andrey/project/project/servers/SERVER-node-chatGPT/test/ChatGPT _ ChatGPT 4o Free _ Support all countries.html';
+      const path = '/media/andrey/project/project/servers/SERVER-node-chatGPT/rootDocument/ChatGPT _ ChatGPT 4o Free _ Support all countries.html';
   
       try {
           const actualContexts = extractContextsFromChatPrompts(path);

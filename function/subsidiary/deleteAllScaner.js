@@ -5,10 +5,10 @@
 const fs = require('fs/promises');
 const path = require('path');
 const cheerio = require('cheerio');
-const isSimilar = require('./isSimilar');
+const isSimilar = require('../subsidiary/isSimilar');
 
-const { saveHtmlToFile } = require('./subsidiary/fileUtils'); 
-const { readFileContent } = require('./subsidiary/fileUtils');
+const { saveHtmlToFile } = require('../subsidiary/fileUtils.js'); 
+const { readFileContent } = require('../subsidiary/fileUtils.js');
 
 /**
  * Фильтрует блоки .chat-box__human--prompt, оставляя блоки
@@ -84,6 +84,7 @@ function saveFilterHTML(pathFile, pathFileNew,targetTexts){
     console.log(filterHTML);
 
     saveHtmlToFile(pathFileNew,filterHTML);
+   
 }
 
 // Экспорт функции

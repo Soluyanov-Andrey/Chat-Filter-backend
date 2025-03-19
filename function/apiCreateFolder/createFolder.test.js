@@ -3,11 +3,6 @@ const path = require('path');
 const copyDirectory  = require('./createFolder.js');
 const { exec } = require('child_process'); // Для запуска команд в терминале
 
-// const sourceDir = '../../document';
-// const baseDir = '../../test';
-
-
-
 const currentDir = __dirname;
 
 console.log(currentDir);

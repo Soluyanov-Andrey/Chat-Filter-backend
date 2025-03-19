@@ -2,11 +2,11 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 
 /**
- * Extracts href and topic from all <a> tags in an HTML file.
+ * Извлекает атрибут href и текст из всех тегов <a> в HTML-файле.
  *
- * @param {string} filePath - The path to the HTML file.
- * @returns {Array<Object>} An array of objects, each containing `href` and `topic`.
- *                           Returns an empty array if no <a> tags are found or if an error occurs.
+ * @param {string} filePath - Путь к HTML-файлу.
+ * @returns {Array<Object>} Массив объектов, каждый из которых содержит `href` и `topic`.
+ *                           Возвращает пустой массив, если теги <a> не найдены или если произошла ошибка.
  */
 function extractHrefAndTopicFromFile(filePath) {
   try {
@@ -16,14 +16,14 @@ function extractHrefAndTopicFromFile(filePath) {
 
     $('a').each((index, element) => {
       const href = $(element).attr('href');
-      const topic = $(element).text().trim(); // Extract text content of the <a> tag
+      const topic = $(element).text().trim(); // Извлекаем текстовое содержимое тега <a>
 
-      if (href && topic) { // Check if both href and topic are valid
-          // Extract just the filename "in*.html" from the relative path
+      if (href && topic) { // Проверяем, что и href, и topic являются допустимыми
+          // Извлекаем только имя файла "in*.html" из относительного пути
           const filename = href.split('/').pop();
 
           results.push({
-            href: filename,  // Store just the filename
+            href: filename,  // Сохраняем только имя файла
             topic: topic,
           });
       }
@@ -31,13 +31,13 @@ function extractHrefAndTopicFromFile(filePath) {
 
     return results;
   } catch (error) {
-    console.error("Error reading or parsing HTML file:", error);
-    return [];  // Return an empty array in case of errors.
+    console.error("Ошибка чтения или разбора HTML-файла:", error);
+    return [];  // Возвращаем пустой массив в случае ошибок.
   }
 }
 
-// Example usage:  (Assuming you save the HTML content in a file named 'index.html')
+// Пример использования: (Предполагается, что вы сохранили HTML-контент в файле с именем 'index.html')
 // const results = extractHrefAndTopicFromFile('index.html');
 // console.log(results);
 
-module.exports.extractHrefAndTopicFromFile = extractHrefAndTopicFromFile; // Export the function for testing
+module.exports.extractHrefAndTopicFromFile = extractHrefAndTopicFromFile; // Экспортируем функцию для тестирования
