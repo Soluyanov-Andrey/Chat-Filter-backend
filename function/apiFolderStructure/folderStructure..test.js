@@ -4,7 +4,7 @@ describe('scanFoldersForDocs Function Tests - Simple Test', () => {
       const testDir = '.'; //  Текущая директория, предполагаем что она существует
 
       try {
-        const result = await scanFoldersForDocs(testDir);
+        const result = await scanFoldersForDocs();
         console.log("Result from scanFoldersForDocs:", result);
         expect(result).toBeDefined();
         expect(typeof result).toBe('object');
