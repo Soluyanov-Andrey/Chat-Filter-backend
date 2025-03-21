@@ -1,4 +1,4 @@
-const scanFoldersForDocs = require('./function/folderStructure.js'); // Убедитесь, что путь правильный
+const scanFoldersForDocs = require('./function/apiFolderStructure/folderStructure'); 
 const express = require('express');
 const bodyParser = require('body-parser');
 

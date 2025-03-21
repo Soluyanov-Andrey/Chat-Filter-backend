@@ -1,4 +1,6 @@
-const scanFoldersForDocs = require('./folderStructure'); 
+const { scanFoldersForDocs } = require('./folderStructure'); 
+const { isLastFolderDocument } = require('./folderStructure'); // Замените на путь к вашему файлу
+
 describe('scanFoldersForDocs Function Tests - Simple Test', () => {
     it('should return a JSON object or throw an error', async () => {
       const testDir = '.'; //  Текущая директория, предполагаем что она существует
@@ -13,4 +15,18 @@ describe('scanFoldersForDocs Function Tests - Simple Test', () => {
         expect(error).toBeInstanceOf(Error);
       }
     });
+});
+
+describe('isLastFolderDocument', () => {
+  it('should return true when the last folder is "document"', () => {
+    expect(isLastFolderDocument('/media/andrey/Рабочий/flash/document')).toBe(true);
+    expect(isLastFolderDocument('папка/document')).toBe(true);
+    expect(isLastFolderDocument('document')).toBe(true);
+  });
+
+  it('should return false when the last folder is not "document"', () => {
+    expect(isLastFolderDocument('/media/andrey/Рабочий/flash/other')).toBe(false);
+    expect(isLastFolderDocument('папка/папка2')).toBe(false);
+    expect(isLastFolderDocument('')).toBe(false); // Пустая строка
+  });
 });

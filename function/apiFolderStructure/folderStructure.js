@@ -49,4 +49,16 @@ async function scanFoldersForDocs(directoryPath = '/media/andrey/Рабочий/
   }
 }
 
-module.exports = scanFoldersForDocs;
+/**
+ * Проверяет, является ли последняя папка в указанном пути "document".
+ *
+ * @param {string} filePath - Путь к файлу или папке.
+ * @returns {boolean} True, если последняя папка называется "document", иначе false.
+ */
+function isLastFolderDocument(filePath) {
+  const lastSegment = path.basename(filePath);
+  return lastSegment === 'document';
+}
+
+module.exports.scanFoldersForDocs = scanFoldersForDocs;
+module.exports.isLastFolderDocument = isLastFolderDocument;
