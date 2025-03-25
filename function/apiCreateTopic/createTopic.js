@@ -105,7 +105,7 @@ console.log(htmlContent);
 }
 
 //Экспортируем для тестов
-// module.exports.readFileContent = readFileContent;
+
 module.exports.extractLastHrefNumber = extractLastHrefNumber;
 module.exports.insertNewLinkAfterLast = insertNewLinkAfterLast;
 

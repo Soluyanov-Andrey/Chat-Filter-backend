@@ -1,36 +1,32 @@
 const fs = require('fs');
 const path = require('path');
 
+
 /**
- * Сканирует директорию, заходит внутрь каждой папки и проверяет наличие папки "document".
- * Возвращает список папок с информацией о наличии "document".
+ * Сканирует директорию (синхронно).
  *
  * @param {string} directoryPath - Путь к директории для сканирования (по умолчанию ".").
- * @returns {Promise<object>} - Promise, разрешающийся в JSON-объект со списком папок и их типами.
- *                             В случае ошибки Promise отклоняется.
+ * @returns {object|null} - JSON-объект со списком папок и их типами, или null в случае ошибки.
  */
-
-async function scanFoldersForDocs(directoryPath = '/media/andrey/Рабочий/flash/help.ru') {
+function scanFoldersForDocs(directoryPath = '/media/andrey/Рабочий/flash/help.ru') { // Убрали async
   try {
-    const items = await fs.promises.readdir(directoryPath, { withFileTypes: true });
+    const items = fs.readdirSync(directoryPath, { withFileTypes: true }); // Используем синхронную функцию
 
     const folders = [];
 
     for (const item of items) {
       if (item.isDirectory()) {
         const folderPath = path.join(directoryPath, item.name);
-       
+
         const documentFolderPath = path.join(folderPath, 'document');
-        
+
         let hasDocumentFolder = false;
         try {
-           
-          // Проверяем существование папки "document" вернет объект данных если такой путь есть если нет ничего не вернет
-          const documentFolderStats = await fs.promises.stat(documentFolderPath);
+          // Проверяем существование папки "document"
+          const documentFolderStats = fs.statSync(documentFolderPath); // Используем синхронную функцию
           hasDocumentFolder = documentFolderStats.isDirectory();
-         
         } catch (statErr) {
-          // Папка "document" не существует или произошла другая ошибка
+          // Папка "document" не существует
           hasDocumentFolder = false;
         }
 
@@ -41,11 +37,10 @@ async function scanFoldersForDocs(directoryPath = '/media/andrey/Рабочий/
       }
     }
 
-    return { folders: folders };
-
+    return { folders: folders }; // Возвращаем результат
   } catch (err) {
     console.error('Error scanning directory:', err);
-    throw new Error(`Failed to scan directory: ${err.message}`);
+    return null; // Возвращаем null в случае ошибки
   }
 }
 
@@ -59,6 +54,5 @@ function isLastFolderDocument(filePath) {
   const lastSegment = path.basename(filePath);
   return lastSegment === 'document';
 }
-
 module.exports.scanFoldersForDocs = scanFoldersForDocs;
 module.exports.isLastFolderDocument = isLastFolderDocument;

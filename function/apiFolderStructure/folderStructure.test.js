@@ -1,5 +1,5 @@
 const { scanFoldersForDocs } = require('./folderStructure'); 
-const { isLastFolderDocument } = require('./folderStructure'); // Замените на путь к вашему файлу
+const { isLastFolderDocument } = require('./folderStructure');
 
 describe('scanFoldersForDocs Function Tests - Simple Test', () => {
     it('should return a JSON object or throw an error', async () => {

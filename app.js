@@ -1,4 +1,4 @@
-const scanFoldersForDocs = require('./function/apiFolderStructure/folderStructure'); 
+const { scanFoldersForDocs } = require('./function/apiFolderStructure/folderStructure'); 
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -25,7 +25,7 @@ app.get('/folder-structure',async  (req, res) => {
 
   const responseData = {
     message: 'Данные /folder-structure!',
-    receivedData: await scanFoldersForDocs(path)
+    receivedData: scanFoldersForDocs()
   };
   res.json(responseData);
 });
@@ -62,7 +62,7 @@ app.post('/create-folder', async (req, res) => {
     console.log(' /folder-structure called');
     // Вызываем асинхронную функцию и ждем её завершения
     const scanResult = await scanFoldersForDocs();
-
+    
     const responseData = {
       message: 'Данные успешно обработаны!',
       receivedData: scanResult, // Результат сканирования
