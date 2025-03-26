@@ -1,4 +1,5 @@
 const { scanFoldersForDocs } = require('./function/apiFolderStructure/folderStructure'); 
+const  copyDirectory = require('./function/apiCreateFolder/createFolder'); 
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -7,7 +8,7 @@ const port = 3000;
 
 
 // Middleware для разбора JSON-тел запросов
-app.use(bodyParser.urlencoded());
+app.use(express.json());
 
 //--------------------------------------
 ///folder-structure
@@ -16,16 +17,19 @@ app.use(bodyParser.urlencoded());
 app.get('/folder-structure',async  (req, res) => {
 
    // 1. Получаем параметр path из req.query
-   const encodedPath = req.query.path;
+   const testData = {
+    "path": "/media/andrey/Рабочий/flash/linux/manul/7zip"
+};
+   console.log('Отправляемые данные (JSON):', JSON.stringify(testData));
 //    console.log(req.query);
    // 2. URL-декодируем значение параметра
    const path = decodeURIComponent(encodedPath);
  
-//    console.log('Полученный и декодированный path:', path);
+  // console.log('Полученный и декодированный path:', path);
 
   const responseData = {
     message: 'Данные /folder-structure!',
-    receivedData: scanFoldersForDocs()
+    receivedData: scanFoldersForDocs(path)
   };
   res.json(responseData);
 });
@@ -58,15 +62,19 @@ app.get('/delete-list',async  (req, res) => {
 // Асинхронный обработчик POST-запроса
 app.post('/create-folder', async (req, res) => {
   try {
-    console.log(req.body);
-    console.log(' /folder-structure called');
-    // Вызываем асинхронную функцию и ждем её завершения
-    const scanResult = await scanFoldersForDocs();
-    
-    const responseData = {
-      message: 'Данные успешно обработаны!',
-      receivedData: scanResult, // Результат сканирования
-      timestamp: new Date()
+    const filePath = req.body.path; // Получаем значение свойства "path" из req.body
+
+        console.log('Полученный путь:', filePath); // Выводим только путь
+    // console.log(' /folder-structure called');
+    // // Вызываем асинхронную функцию и ждем её завершения
+    // source = './test';
+    // destination = '';
+    source = '/media/andrey/project/project/servers/SERVER-node-chatGPT/document';
+
+    copyDirectory(source, filePath );
+
+      const responseData = {
+      message: 'Папка создана'
     };
 
     // Отправляем JSON-ответ

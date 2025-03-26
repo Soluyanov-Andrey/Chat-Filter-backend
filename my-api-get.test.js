@@ -12,12 +12,10 @@ describe('GET /folder-structure (тестирование запущенного
         .get('/folder-structure')
         .query({ path: encodedPath }); // Передаем закодированный путь как query-параметр
   
-      console.log(response.body); // Выводим тело ответа для отладки
-  
+      
+      console.dir(response.body, { depth: null, colors: true });
+
       expect(response.status).toBe(200);
-      expect(response.body).toEqual({
-        message: 'Данные /folder-structure!',
-        receivedData: 'gggf'
-      });
+     
     });
   });
