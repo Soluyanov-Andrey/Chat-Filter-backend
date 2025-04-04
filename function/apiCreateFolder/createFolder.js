@@ -33,7 +33,13 @@ function copyDirectory(source, destination) {
     const folderName = path.basename(source);
     // Создаем новый путь для назначения, включая имя папки
     const newDestination = path.join(destination, folderName);
-    console.log(newDestination);
+    console.log('newDestination--',newDestination);
+    console.log('source--',source);
+
+    console.log('Текущий рабочий каталог:', process.cwd());
+    console.log('Абсолютный путь к source:', path.resolve(source));
+    console.log('Файл/каталог document существует?', fs.existsSync(source));
+
 
     // Копируем папку с её содержимым
     fs.copySync(source, newDestination);

@@ -1,14 +1,23 @@
 const { scanFoldersForDocs } = require('./function/apiFolderStructure/folderStructure'); 
 const  copyDirectory = require('./function/apiCreateFolder/createFolder'); 
 const express = require('express');
+const cors = require('cors'); // Импортируем cors
 const bodyParser = require('body-parser');
 
 const app = express();
 const port = 3000;
 
-
+// Настройка CORS с помощью пакета cors
+const corsOptions = {
+  origin: ['http://localhost:9070'], // Укажите разрешенные домены
+  methods: 'GET,POST,OPTIONS', // Разрешенные методы
+  allowedHeaders: ['Content-Type', 'Authorization'] // Разрешенные заголовки
+};
+app.use(cors(corsOptions)); // Применяем middleware cors  <---- ЭТО ОЧЕНЬ ВАЖНО!
 // Middleware для разбора JSON-тел запросов
 app.use(express.json());
+
+app.use(express.static('public'));  // Важно: Создайте папку "public";
 
 //--------------------------------------
 ///folder-structure
@@ -16,22 +25,19 @@ app.use(express.json());
 
 app.get('/folder-structure',async  (req, res) => {
 
-   // 1. Получаем параметр path из req.query
-   const testData = {
-    "path": "/media/andrey/Рабочий/flash/linux/manul/7zip"
-};
-   console.log('Отправляемые данные (JSON):', JSON.stringify(testData));
-//    console.log(req.query);
-   // 2. URL-декодируем значение параметра
-   const path = decodeURIComponent(encodedPath);
- 
-  // console.log('Полученный и декодированный path:', path);
-
-  const responseData = {
-    message: 'Данные /folder-structure!',
-    receivedData: scanFoldersForDocs(path)
-  };
-  res.json(responseData);
+  // 1. Получаем параметр path из req.query
+  const encodedPath = req.query.path;
+  //    console.log(req.query);
+     // 2. URL-декодируем значение параметра
+     const path = decodeURIComponent(encodedPath);
+   
+     console.log('Полученный и декодированный path:', path);
+  
+    const responseData = {
+      message: 'Данные /folder-structure!',
+      receivedData: await scanFoldersForDocs(path)
+    };
+    res.json(responseData);
 });
 
 
@@ -69,9 +75,9 @@ app.post('/create-folder', async (req, res) => {
     // // Вызываем асинхронную функцию и ждем её завершения
     // source = './test';
     // destination = '';
-    source = '/media/andrey/project/project/servers/SERVER-node-chatGPT/document';
+    source = './document';
 
-    copyDirectory(source, filePath );
+      copyDirectory(source, filePath );
 
       const responseData = {
       message: 'Папка создана'
@@ -110,7 +116,20 @@ app.get('/open-folder',async  (req, res) => {
  res.json(responseData);
 });
 
+//--------------------------------------
+//scan
+//--------------------------------------
+app.get('/scan',async  (req, res) => {
 
+  const encodedPath = req.query.path;
+  const path = decodeURIComponent(encodedPath);
+  
+ const responseData = {
+   message: 'Данные приняты',
+   receivedData: encodedPath
+ };
+ res.json(responseData);
+});
 
 
 
