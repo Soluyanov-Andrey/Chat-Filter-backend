@@ -1,9 +1,9 @@
 const { scanFoldersForDocs } = require('./function/apiFolderStructure/folderStructure'); 
-const  copyDirectory = require('./function/apiCreateFolder/createFolder'); 
+const copyDirectory = require('./function/apiCreateFolder/createFolder'); 
+const { extractContextsFromChatPrompts } = require('./function/apiScan/scan');
 const express = require('express');
 const cors = require('cors'); // Импортируем cors
 const bodyParser = require('body-parser');
-
 const app = express();
 const port = 3000;
 
@@ -120,13 +120,13 @@ app.get('/open-folder',async  (req, res) => {
 //scan
 //--------------------------------------
 app.get('/scan',async  (req, res) => {
-
+  const rootDocument = '/media/andrey/project/project/servers/SERVER-node-chatGPT/rootDocument/ChatGPT _ ChatGPT 4o Free _ Support all countries.html';
   const encodedPath = req.query.path;
   const path = decodeURIComponent(encodedPath);
-  
+  const extractContexts = extractContextsFromChatPrompts(rootDocument);
  const responseData = {
    message: 'Данные приняты',
-   receivedData: encodedPath
+   receivedData:  extractContexts
  };
  res.json(responseData);
 });
