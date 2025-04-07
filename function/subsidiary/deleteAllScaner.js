@@ -32,8 +32,11 @@ function filterHTMLElementsByText(htmlContent, targetTexts) {
           
             let shouldKeep = false; // Флаг, указывающий, нужно ли оставить блок
 
+            // Преобразуем `targetTexts` в массив, если это строка
+            const targetTextsArray = Array.isArray(targetTexts) ? targetTexts : [targetTexts];
+
             // Проверяем, содержится ли текст блока в массиве targetTexts
-            for (const targetText of targetTexts) {
+            for (const targetText of targetTextsArray) {
                 // console.log("------------------------------------------------");
                 // console.log(boxText);
                 // console.log(targetText);
@@ -49,8 +52,8 @@ function filterHTMLElementsByText(htmlContent, targetTexts) {
                 // Если текст не совпадает ни с одним из targetTexts, добавляем блоки для удаления
                 let parentChatBox = $(element).closest('.chat-box.human');
                 let wrapAiCompleted = parentChatBox.next('.wrap-ai-completed');
-                console.log("------------------------------------------------");
-                console.log(parentChatBox);
+                // console.log("------------------------------------------------");
+                // console.log(parentChatBox);
                 if (wrapAiCompleted.length > 0) {
                     elementsToRemove.push(wrapAiCompleted[0]);
                 }
@@ -81,9 +84,12 @@ function filterHTMLElementsByText(htmlContent, targetTexts) {
 function saveFilterHTML(pathFile, pathFileNew,targetTexts){
     readFile = readFileContent(pathFile);
     filterHTML = filterHTMLElementsByText(readFile,targetTexts);
-    console.log(filterHTML);
-
+    // console.log(filterHTML);
+    console.log('---------------');
+    console.log('saveFilterHTML',pathFileNew);
     saveHtmlToFile(pathFileNew,filterHTML);
+    // console.log("путь из saveFilterHTML");
+    // console.log(pathFileNew);
    
 }
 
