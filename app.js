@@ -3,7 +3,9 @@ const copyDirectory = require('./function/apiCreateFolder/createFolder');
 const { extractContextsFromChatPrompts } = require('./function/apiScan/scan');
 const express = require('express');
 const cors = require('cors'); // Импортируем cors
-const bodyParser = require('body-parser');
+const { ROOT_DIR } = require('./config'); // Импортируем cors
+
+
 const app = express();
 const port = 3000;
 

@@ -1,5 +1,12 @@
 const cheerio = require('cheerio');
 
+const { readFileContent } = require('./fileUtils');
+const { saveHtmlToFile } = require('./fileUtils');
+const { removeSidebarNav } = require('./deleteNavBlock');
+
+const fs = require('fs');
+const path = require('path'); // Import the 'path' module
+
 /**
  * Удаляет элемент <nav> с определенными классами и id из HTML-строки, используя Cheerio.
  *
@@ -24,4 +31,22 @@ function removeSidebarNav(html){
 // const newHtml = removeSidebarNav(html);
 // console.log(newHtml);
 
+
+
+function saveNewFile(rootDocument){
+  // 1. Прочитать HTML-файл
+  const read = readFileContent(path);
+
+  // 2. Удалить боковую панель
+  const contDel = removeSidebarNav(read);
+
+  // 3. Сохранить измененный HTML в новый файл
+  saveHtmlToFile(pathNew, contDel);
+
+}
+
+
 module.exports.removeSidebarNav = removeSidebarNav; // Экспортируем для тестов
+
+
+
