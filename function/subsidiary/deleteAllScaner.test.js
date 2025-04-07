@@ -2,7 +2,7 @@ const fs = require('fs');
 const { saveFilterHTML } = require('./deleteAllScaner');
 
 describe('saveFilterHTML', () => {
-  const pathFile = '/media/andrey/project/project/servers/SERVER-node-chatGPT/test/ChatGPT _ ChatGPT 4o Free _ Support all countries.html';
+  const pathFile = '/media/andrey/project/project/servers/SERVER-node-chatGPT/rootDocument/ChatGPT _ ChatGPT 4o Free _ Support all countries.html';
   const pathFileNew = '/media/andrey/project/project/servers/SERVER-node-chatGPT/test/C2.html';
 
   const targetTexts = [

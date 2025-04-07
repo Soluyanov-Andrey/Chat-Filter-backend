@@ -1,11 +1,11 @@
-const { findMaxNumberInFilenames } = require('./createPage'); // Замените 'your-file-name'
+const { findMaxNumberInFilenames } = require('./additionalFunctions'); // Замените 'your-file-name'
 const assert = require('assert');
 
 describe('findMaxNumberInFilenames', () => {
     it('should return 110 when the directory contains files with numbers up to 110', () => {
       // Arrange: Prepare the directory to test (you still need to create this directory and files)
-      const directoryToTest = '/media/andrey/project/project/servers/SERVER-node-chatGPT/test/pages'; 
-      const expectedResult = 110;
+      const directoryToTest = '/media/andrey/project/project/servers/SERVER-node-chatGPT/document/themes/pages'; 
+      const expectedResult = 3;
   
       // Act: Call the function
       const actualResult = findMaxNumberInFilenames(directoryToTest);
