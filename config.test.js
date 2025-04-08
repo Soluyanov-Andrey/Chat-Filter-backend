@@ -1,5 +1,9 @@
 // config.test.js
-const { ROOT_DIR, DATA_DIR, FULL_PATH} = require('./config'); // Импортируем модуль config.js
+const { ROOT_DIR } = require('./config'); // Импортируем модуль config.js
+const { DATA_DIR } = require('./config'); 
+const { FULL_PATH } = require('./config'); 
+const { PATH_ILE_NAME_NEW } = require('./config'); 
+
 const path = require('path');
 
 describe('Config Module', () => {
@@ -20,6 +24,12 @@ describe('Config Module', () => {
   it('should correctly define FULL_PATH', () => {
      
     console.log('Actual FULL_PATH:', FULL_PATH);
+ 
+  });
+
+  it('should correctly define FULL_PATH', () => {
+     
+    console.log('Actual PATH_ILE_NAME_NEW:', PATH_ILE_NAME_NEW);
  
   });
 

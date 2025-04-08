@@ -113,8 +113,22 @@ function copyFileSync(source, destination, newFileName = null) {
   }
 }
 
+/**
+ * Синхронно проверяет существование файла по указанному пути.
+ *
+ * @param {string} filePath Путь к файлу.
+ * @returns {boolean} `true`, если файл существует, `false` в противном случае.
+ */
+function doesFileSyncExist(filePath) {
+  try {
+    fs.accessSync(filePath, fs.constants.F_OK);
+    return true; // Если fs.accessSync не выбрасывает исключение, файл существует
+  } catch (err) {
+    return false; // Файл не существует или нет прав доступа
+  }
+}
 
-
+module.exports.doesFileSyncExist =  doesFileSyncExist;
 module.exports.copyFileSync =  copyFileSync;
 module.exports.readFileContent = readFileContent;
 module.exports.saveHtmlToFile = saveHtmlToFile;

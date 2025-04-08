@@ -2,9 +2,11 @@ const { scanFoldersForDocs } = require('./function/apiFolderStructure/folderStru
 const copyDirectory = require('./function/apiCreateFolder/createFolder'); 
 const { extractContextsFromChatPrompts } = require('./function/apiScan/scan');
 const express = require('express');
-const cors = require('cors'); // Импортируем cors
-const { IP , FULL_PATH } = require('./config'); // Импортируем cors
 
+const { saveNewFile } = require('./function/subsidiary/deleteNavBlock');
+const cors = require('cors'); // Импортируем cors
+const { IP , FULL_PATH , PATH_ILE_NAME_NEW , PATH_FILE_NAME_NEW } = require('./config'); // Импортируем переменные
+const { doesFileSyncExist } = require('./function/subsidiary/fileUtils');
 
 const app = express();
 const port = 3000;
@@ -122,16 +124,41 @@ app.get('/open-folder',async  (req, res) => {
 //scan
 //--------------------------------------
 app.get('/scan',async  (req, res) => {
-  const rootDocument = FULL_PATH;
+
   const encodedPath = req.query.path;
   const path = decodeURIComponent(encodedPath);
-  
-  const extractContexts = extractContextsFromChatPrompts(rootDocument);
- const responseData = {
-   message: 'Данные приняты',
-   receivedData:  extractContexts
- };
- res.json(responseData);
+
+
+  try {
+    // 1. Проверяем, существует ли файл
+    const fileExists = await doesFileSyncExist(PATH_FILE_NAME_NEW);
+
+    // 2. Выполняем saveNewFile, если файл не существует (или пропускаем)
+    if (!fileExists) {
+      await saveNewFile(FULL_PATH, PATH_FILE_NAME_NEW);
+      console.log(`saveNewFile успешно завершена для path: ${path}`);
+    }  else {
+      console.log(`Файл по пути ${FULL_PATH} уже существует, saveNewFile пропущен.`);
+    }
+
+    // 3. Независимо от того, был ли файл обработан, извлекаем контексты
+    const extractContexts = extractContextsFromChatPrompts(FULL_PATH);
+
+    const responseData = {
+      message: 'Данные обработаны успешно',
+      receivedData: extractContexts,
+    };
+    res.json(responseData);
+
+  } catch (error) {
+    console.error('Ошибка при обработке /scan:', error);
+    res.status(500).json({
+      message: 'Произошла ошибка при обработке запроса',
+      error: error.message,
+    });
+  }
+
+
 });
 
 

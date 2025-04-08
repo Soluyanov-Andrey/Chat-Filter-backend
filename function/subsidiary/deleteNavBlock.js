@@ -67,8 +67,8 @@ function removeheaderNav(html) {
  * @returns {void} Ничего не возвращает. Функция выполняет операции чтения и записи файлов.
  */
 
-function saveNewFile(rootDocument, pathNew){
- 
+async function saveNewFile(rootDocument, pathNew){
+  try {
   const read = readFileContent(rootDocument);
 
 
@@ -77,7 +77,11 @@ function saveNewFile(rootDocument, pathNew){
   const headerNav = removeheaderNav(footerNav);
 
   saveHtmlToFile(pathNew, headerNav);
-
+  } catch (error) {
+  // Обработка ошибок: пробрасываем ошибку дальше, чтобы ее мог обработать вызывающий код.
+  console.error("Ошибка в saveNewFile:", error);
+  throw error; // Пробрасываем ошибку
+  }
 }
 
 

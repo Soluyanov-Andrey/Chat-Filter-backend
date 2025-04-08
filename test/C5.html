@@ -505,12 +505,195 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 
     <div class="wrapper d-flex align-items-stretch">
         <!-- Sidebar -->
+        <nav class="flex-shrink-0 overflow-x-hidden bg-token-sidebar-surface-primary" id="sidebar">
+    <div class="flex h-full min-h-0 flex-col">
+        <div class="px-2 wrap-header-sidebar">
+            <div class="flex justify-between flex h-14 items-center">
+                <span>
+                    <button type="button" id="sidebarCollapse" title="Close or open sidebar" class="btn-svg">
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 448 512" class="open-close-sidebar-computer">
+                            <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"></path>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="open-close-sidebar-mobi">
+                            <path fill="currentColor" fill-rule="evenodd" d="M3 8a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1m0 8a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </span>
+                <span>
+                    <button type="button" data-toggle="tooltip" data-bs-placement="bottom" class="btn-svg btn-new-chat" aria-label="New chat" data-bs-original-title="New chat">
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 512 512">
+                            <path d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160L0 416c0 53 43 96 96 96l256 0c53 0 96-43 96-96l0-96c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 96c0 17.7-14.3 32-32 32L96 448c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 64z"></path>
+                        </svg>
+                    </button>
+                </span>
+            </div>
+        </div>
+
+        <ul class="wrap-history-messages scrollbar" style="flex-grow: 4; order: 2;"><div class="history-message-item">
+
+                            <ul class="history-message-item__container">
+            <li class="history-message-list-item active" id="617115">
+                <a href="javascript:void(0)" class="history-message-link-item">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">
+                            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
+                        </svg>
+                        <div class="history-message-name animated-text" id="eejnp21" contenteditable="false">ллл</div>
+                    </div>
+                    <div class="history-message__action">
+                        <button type="button" title="Rename" class="btn-edit-history-message">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                                <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"></path>
+                            </svg>
+                        </button>
+                        <button type="button" title="Delete" class="btn-delete-history-message">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"></path>
+                                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </a>
+            </li></ul></div></ul>
+
+
         
+        <ul class="px-2 list-unstyled components menu-components mb-5" style="order: 3;">
+            <li class="menu-components--item ai-chat active">
+                <a data-savepage-href="https://chatbotchatapp.com" href="https://chatbotchatapp.com/">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                            <path d="M88.2 309.1c9.8-18.3 6.8-40.8-7.5-55.8C59.4 230.9 48 204 48 176c0-63.5 63.8-128 160-128s160 64.5 160 128s-63.8 128-160 128c-13.1 0-25.8-1.3-37.8-3.6c-10.4-2-21.2-.6-30.7 4.2c-4.1 2.1-8.3 4.1-12.6 6c-16 7.2-32.9 13.5-49.9 18c2.8-4.6 5.4-9.1 7.9-13.6c1.1-1.9 2.2-3.9 3.2-5.9zM208 352c114.9 0 208-78.8 208-176S322.9 0 208 0S0 78.8 0 176c0 41.8 17.2 80.1 45.9 110.3c-.9 1.7-1.9 3.5-2.8 5.1c-10.3 18.4-22.3 36.5-36.6 52.1c-6.6 7-8.3 17.2-4.6 25.9C5.8 378.3 14.4 384 24 384c43 0 86.5-13.3 122.7-29.7c4.8-2.2 9.6-4.5 14.2-6.8c15.1 3 30.9 4.5 47.1 4.5zM432 480c16.2 0 31.9-1.6 47.1-4.5c4.6 2.3 9.4 4.6 14.2 6.8C529.5 498.7 573 512 616 512c9.6 0 18.2-5.7 22-14.5c3.8-8.8 2-19-4.6-25.9c-14.2-15.6-26.2-33.7-36.6-52.1c-.9-1.7-1.9-3.4-2.8-5.1C622.8 384.1 640 345.8 640 304c0-94.4-87.9-171.5-198.2-175.8c4.1 15.2 6.2 31.2 6.2 47.8l0 .6c87.2 6.7 144 67.5 144 127.4c0 28-11.4 54.9-32.7 77.2c-14.3 15-17.3 37.6-7.5 55.8c1.1 2 2.2 4 3.2 5.9c2.5 4.5 5.2 9 7.9 13.6c-17-4.5-33.9-10.7-49.9-18c-4.3-1.9-8.5-3.9-12.6-6c-9.5-4.8-20.3-6.2-30.7-4.2c-12.1 2.4-24.8 3.6-37.8 3.6c-61.7 0-110-26.5-136.8-62.3c-16 5.4-32.8 9.4-50 11.8C279 439.8 350 480 432 480z"></path>
+                        </svg>
+                    </span>
+                    AI Chat
+                </a>
+            </li>
+            
+            <li class="menu-components--item about ">
+                <a href="https://chatbotchatapp.com/en/about">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 512 512">
+                            <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3l58.3 0c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24l0-13.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1l-58.3 0c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"></path>
+                        </svg>
+                    </span>
+                    About
+                </a>
+            </li>
+            <li class="menu-components--item contact ">
+                <a href="https://chatbotchatapp.com/en/contact">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                            <path d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376l0 103.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z"></path>
+                        </svg>
+                    </span>
+                    Contact
+                </a>
+            </li>
+            <li class="menu-components--item upgrade ">
+                <a href="https://chatbotchatapp.com/en/pricing">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                            <path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"></path>
+                        </svg>
+                    </span>
+                    Upgrade
+                </a>
+            </li>
+            
+            
+            
+        </ul>
+
+        <div class="px-2 footer">
+            
+
+            <p class="footer__copyright">
+                ©
+                Copyright 2023-2025 AI Assistant ChatBotChatApp
+            </p>
+            <!-- translate -->
+            
+            <div>
+                <a target="_blank" rel="noreferrer" href="https://t.me/chatgptchatapp" title="Group telegram ChatBotChatApp">
+                    <svg class="hover:scale-125 ease-in duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="28px" height="28px">
+                        <path fill="#29b6f6" d="M24 4A20 20 0 1 0 24 44A20 20 0 1 0 24 4Z"></path>
+                        <path fill="#fff" d="M33.95,15l-3.746,19.126c0,0-0.161,0.874-1.245,0.874c-0.576,0-0.873-0.274-0.873-0.274l-8.114-6.733 l-3.97-2.001l-5.095-1.355c0,0-0.907-0.262-0.907-1.012c0-0.625,0.933-0.923,0.933-0.923l21.316-8.468 c-0.001-0.001,0.651-0.235,1.126-0.234C33.667,14,34,14.125,34,14.5C34,14.75,33.95,15,33.95,15z">
+                        </path>
+                        <path fill="#b0bec5" d="M23,30.505l-3.426,3.374c0,0-0.149,0.115-0.348,0.12c-0.069,0.002-0.143-0.009-0.219-0.043 l0.964-5.965L23,30.505z">
+                        </path>
+                        <path fill="#cfd8dc" d="M29.897,18.196c-0.169-0.22-0.481-0.26-0.701-0.093L16,26c0,0,2.106,5.892,2.427,6.912 c0.322,1.021,0.58,1.045,0.58,1.045l0.964-5.965l9.832-9.096C30.023,18.729,30.064,18.416,29.897,18.196z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
 
         <!-- Page Content  -->
         <main id="content">
                     <div class="wrap-container container wrap-chat-message-gpt">
+        <div class="header wrap-header-chat-message-gpt">
+    <div class="wrap-btn-sidebar">
+        <span>
+            <button type="button" id="sidebarCollapse" title="Close or open sidebar" class="btn-svg">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 448 512" class="open-close-sidebar-computer">
+                    <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"></path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="open-close-sidebar-mobi">
+                    <path fill="currentColor" fill-rule="evenodd" d="M3 8a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1m0 8a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </span>
+        <span>
+            <button type="button" data-toggle="tooltip" data-bs-placement="bottom" class="btn-svg btn-new-chat" aria-label="New chat" data-bs-original-title="New chat">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 512 512">
+                    <path d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160L0 416c0 53 43 96 96 96l256 0c53 0 96-43 96-96l0-96c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 96c0 17.7-14.3 32-32 32L96 448c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 64z"></path>
+                </svg>
+            </button>
+        </span>
+    </div>
+
+    <div>
         
+    </div>
+
+    <div>
+        <div class="btn-group wrap-dropdown wrap-dropdown-action-user">
+            <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" title="Action account">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle image-avatar" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"></path>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"></path>
+                    </svg>
+                            </button>
+            <ul class="dropdown-menu">
+                                <li>
+                    <button type="button" class="dropdown-item" id="setting-modal" title="Setting">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+    <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"></path>
+    <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"></path>
+</svg>
+                        Setting
+                    </button>
+                </li>
+                <li class="line-divider-top"></li>
+                <li>
+                    <a class="dropdown-item" href="https://chatbotchatapp.com/en/login">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="h-5 w-5 shrink-0">
+                            <path fill="currentColor" fill-rule="evenodd" d="M6 4a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h4a1 1 0 1 1 0 2H6a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h4a1 1 0 1 1 0 2zm9.293 3.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414-1.414L17.586 13H11a1 1 0 1 1 0-2h6.586l-2.293-2.293a1 1 0 0 1 0-1.414" clip-rule="evenodd"></path>
+                        </svg>
+                        Log in
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
         <div class="content scrollbar">
             
             <div class="wrap_instruct gap-3.5 text-center" style="display: none;">
@@ -611,86 +794,9 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
                 <div class="container-message markdown-body" id="chat-box">
 
                 
-                <div class="chat-box human human-721855" timestamp="1744102652207">
-                    <div class="avatar">You</div>
-                    <div class="message-content">
-                        
-                        <div class="message scrollbar" id="59iajjx">
-                            <div class="chat-box__human--wrap-hint-tools">
-                            </div>
-                            <div class="chat-box__human--prompt">ллл</div>
-                        </div>
-                        <div class="chat-box-human-footer">
-                            <div class="wrap-btn-action">
-                                <button class="btn-edit-question" title="Edit message" aria-label="Edit message">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-md"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.2929 4.29291C15.0641 2.52167 17.9359 2.52167 19.7071 4.2929C21.4784 6.06414 21.4784 8.93588 19.7071 10.7071L18.7073 11.7069L11.6135 18.8007C10.8766 19.5376 9.92793 20.0258 8.89999 20.1971L4.16441 20.9864C3.84585 21.0395 3.52127 20.9355 3.29291 20.7071C3.06454 20.4788 2.96053 20.1542 3.01362 19.8356L3.80288 15.1C3.9742 14.0721 4.46243 13.1234 5.19932 12.3865L13.2929 4.29291ZM13 7.41422L6.61353 13.8007C6.1714 14.2428 5.87846 14.8121 5.77567 15.4288L5.21656 18.7835L8.57119 18.2244C9.18795 18.1216 9.75719 17.8286 10.1993 17.3865L16.5858 11L13 7.41422ZM18 9.5858L14.4142 6.00001L14.7071 5.70712C15.6973 4.71693 17.3027 4.71693 18.2929 5.70712C19.2831 6.69731 19.2831 8.30272 18.2929 9.29291L18 9.5858Z" fill="currentColor"></path></svg>
-                                </button>
-                            </div>
-                            <div class="wrap-btn-cancel-send">
-                                <button class="btn-cancel">Cancel</button>
-                                <button class="btn-send">Send</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             
-        <div class="wrap-ai-completed 721855" timestamp="1744102652209">
-            <div class="chat-box ai-completed">
-                <div class="avatar chatgpt-avatar">
-                    <img class="wrap-ai-completed--logo" data-savepage-currentsrc="https://chatbotchatapp.com/favicon_package/favicon.ico" data-savepage-src="/favicon_package/favicon.ico" src="data:image/x-icon;base64,AAABAAMAMDAAAAEAIACoJQAANgAAACAgAAABACAAqBAAAN4lAAAQEAAAAQAgAGgEAACGNgAAKAAAADAAAABgAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////Mv///2P///+R////uf///9b////y/////f////3////y////1v///7n///+R////Y////zIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////MP///3f///+7////9v////////////////////////////////////////////////////////////////////b///+7////d////zAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///0b///+2////9f/////+/v7///////////////////////////////////////////////////////////////////////////////////////////X///+2////RgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8e////vv///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////77///8eAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///3D+/v7w/////////////////v7+///////////////////////////////////////+///////+/////v/+/v7//v7+//7//v/+//7//////////////////v7+///////////////////////+/v7w////cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////oP7+/v/+/v7///////////////////////////////////////7+/v/8/Pv/+vn4//j29v/29fP/9vPx//Ty7//y8O3/8/Hu//Xz8P/29fP/9/f1//r5+P/8/Pv//v7+//7+/v/+/v7//////////////////v7+/////6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///+1///////////+/v7///////////////////////7+/v/9/f3/+/v6//X18v/f1dH/vKKb/6aAef+bcWn/lmhg/5NkW/+UY1r/lmVb/5lqYP+gc2n/q4J6/72dl//axsX/9PDw//r6+v/9/Pz//v7+//////////////////7+/v////+1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///7X////////////////////////////////+/v7//v7+//z9/P/t6OX/x6+p/590bf+EUUX/gU1D/4NORf+ET0b/h1BH/4hSSP+IU0n/jVNM/51VVv+xWWP/vFhp/8RWbf/HV3D/zmd+/9mTof/rztP/+fn5//7+/v/+////////////////////////tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////oP/////////////////////////////////////8/v3/8/Hv/825sv+cbWP/iVVL/3tHP/97Rzz/fEc+/35JQP+BS0H/g01E/5JQT/+wVGb/yld5/9RXff/TVnr/01d3/9JWdf/RVXP/z1Vw/81Wb//MW3H/0n+O/+3U2P/6+Pj//v7+/////////////////////6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///9w/v7+//////////////////7+/v/+/v7//v7+//v9/P/p4t//qoN7/5JgVv9/TEP/dD83/3VAOP93Qjr/eEM7/3xFPP+KSUj/uVJy/9VUh//XVYf/2VeE/9hXgf/VVn3/1FZ5/9JVdv/RVHT/z1Rw/85Tb//LU27/yVRs/8pdcv/cpa//9vDx//z8/P////////////7+/v////9wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///x7+/v7w/v7+//////////////////7+/v/+/v3/+fr4/97Uyf+gdGn/kFtS/4RORf9vOzP/bjoz/3E7Nv9zPTf/eUA7/59KXv/OU4f/2lWQ/9xUjv/bVYr/2VaF/9dWgf/VV3z/1FZ6/9JVdv/QVnL/z1ht/8xaaf/MXWb/y19k/8pdZP/KXmj/1IuU//Pp6v/9/Pz////////////+/v7w////HgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///77+/v7//v7+//7+/v/+/v7//v7+//7+/f/6+vj/4t3O/51zYf+QWU7/hlBH/2k3L/9oNC7/ajYw/204Mv91Ozn/rk1v/9hWlv/eVpb/3lWT/91Uj//bVYv/2VWG/9ZWgP/TWnf/z2Nr/8lzV//FhkT/x5o0/8qsLP/TvCr/28cs/+HKMv/jwDn/3KdL/9qnif/49e3//v79///////+/v7/////vgAAAAAAAAAAAAAAAAAAAAAAAAAA////Pv////////////////7+/v/+/v7//v7+//v8+P/s6t3/mnhX/4xWS/+MVEr/dEI3/2IxKv9jMCr/ZzMu/3E5N/+vUXb/4Vyg/99Ynf/eVZj/3VSU/9xVjv/ZV4j/02B5/8lvXf+9iTv/uKMi/7mwGP+9uhT/xsQU/8/QFv/Z2hn/4uUe/+3vIv/19yb/9vYo//DmN//q2aX//f33/////////////////////z4AAAAAAAAAAAAAAAAAAAAA////oP/////////////////////+/v7//f38//X06/+4rHL/ildJ/4lSSf+CTUP/Xy4m/1wsJv9eLij/ZTIv/55Na//saLX/5F2l/+BXnf/fVZj/3FeR/9ZchP/Edlb/s5ol/7CnF/+xrRL/tLIS/7q5Ev/BwRP/ysoV/9TVFv/e4Rr/6Osg//P2JP/3+Cf/+Pkp//j5Kv/3903//f3u/////////////v7+/////6AAAAAAAAAAAAAAAAD///8w////7P///////////v7+//7+/v/+/v7/+fv1/9jVrP+Qaz3/h1FH/4dQR/9xPjb/Vygj/1gpI/9dLCf/ezpI/+htu//qZbL/4lqi/99Xmv/aWZD/xXdh/7GZK/+rpBr/rqgY/7GsF/+zsBT/uLYU/76+FP/HxxX/0NEX/9vbGv/k5x//7/Mj//b5J//4+Sn/+Pkr//j5M//3+oT//f7y/////v/+/v7//////////+z///8wAAAAAAAAAAD///93///////////+/v7//v7+//7+/v/9/v3/8fPi/7CkUf+FUUL/hExF/4JMRP9jMyz/UyQf/1QlIP9hLCz/uVuM/+5rvP/jXqb/3lif/9Rngv+8lFH/wr5j/87OhP/X15X/09SH/8vLZ/+9vjL/vLwX/8PEFf/MzRf/1dga/+HjHv/r7iL/9Pgl//f6KP/4+Sn/9vk4//n7mv/8/vD//v7+/////////////v7+//////////93AAAAAAAAAAD///+7///////////+/v7//v7+//7+/v/6/Pb/1tWf/5mBLf+BS0H/gElC/31IP/9ZKiT/TyIc/1EjHv9xMTz/4miu/+Rgqf/dWJ3/2HmU/97Oqf/19Of/+/z2//v9+f/8/fr//P36//v99//4+u3/4uai/9DTP//T1Rz/3d8d/+jrIf/x9SX/9/kn//j5Kf/2+kj/+Py7//z+9f/+//3//v7+///////+/v7//v7+//////////+7AAAAAP///zL////2/////////////////v7+//3+/f/09+j/vLhX/4tpMP99SD//e0Y+/3hDPP9PJB3/Sh4Z/1AjH/+jRGv/3luh/91doP/hiLL/9u/u//v7+P/9/vv//v7+//7+/v/+/v7//v7+//7+/v/9/v3//P34//f65P/i5mL/5Ogm/+7yI//1+Sb/9voq//X6VP/5/dz//P72//7+/f///////v7+//7+/v/////////////////////2////Mv///2P////////////////+/v7//v7+//39/P/v8dX/sKkt/4FUN/96RT3/ekQ9/3ZCOv9LIBv/RhsX/1UiI/+8TH7/2VmZ/+GLtf/48/T//f79//7//v/+/v7//v7+//////////////////7+/v/+/v7//v7+//3++//6/Ob/7vNg//P4Mf/1+zL/9/uE//v95v/8/vj//f78//7+/v//////////////////////////////////////////Y////5H///////////7+/v/+/v7//f39//v89//Z2pT/qp8i/3pJOf94Qjv/d0I7/3VAOf9NIRz/RBkW/1YhJP/GUIb/2nKl//Xn7v/9/v3//v7+//7+/v///////v7+//7+/v/////////////////+/v7//v7+//7+/v/+/vv/+/3s//j8uv/5/cX//P7w//3++//+/v7//v7+//7+/v////////////7+/v///////v7+////////////////kf///7n///////////7+/v/+/v7//v7+//r68P/MzFj/p5gg/3dFN/91QDn/c0A4/3M/OP9TJiL/QxgV/1YfJf/MVoz/6LPL//z8/P/+/v7//v7+//7+/v///////v7+//7+/v/+/v7////////////+/v7//v7+//7+/v/+/v7//v7+//3+/f/9/v3//v7+//7+/v/+/v7//v7+//7+/v/+/v7//////////////////v7+////////////////uf///9b////////////////+/v7//v7+//j55//Lyzr/qZkf/3RDNv9yPjf/cj43/3E+Nv9eLyj/QxgV/1ogKP/LXIz/9OPp//7+/v////////////7+/v/////////////////+/v7//v7+/////////////v7+//7+/v/+/v7////////////+/v7//v7+//7+/v////////////7+/v/+/v7/////////////////////////////////////1v////L///////////7+/v/+/v7//f7+//b43f/S0TT/rZ4g/3RCNP9xPTb/cT02/3A9Nf9qOTH/RRsW/1IfI//MdZj/+fb3//7//v/////////////////////////////////////////////////+/v7/////////////////////////////////////////////////////////////////////////////////////////////////////8v////3///////////7+/v/+/v7//f79//X41//a2jP/uq0g/3RCM/9vOzT/bjsz/246NP9tOjP/Wiwm/08iIf/GiqD/+/n6//7+/v///////////////////////v7+//////////////////////////////////////////////////7+/v///////////////////////////////////////////////////////////////////////////f////3///////////7+/v/+/v7//f79//f61v/k5TT/y8Qh/3FCMP9tOjL/bToz/205Mv9sOTL/aDcw/1orKf+zgpD/+vn5//7+/v/+/v7//v7+/////////////v7+//7+/v/+/v7//////////////////v7+/////////////v7+//7+/v/+/v7////////////+/v7//v7+//7+/v/////////////////+/v7//v7+/////////////////f////L///////////7+/v/+/v7//f79//j72v/r7zn/2tch/35VLf9rODH/ajgy/2k3Mf9pODD/aTcw/2k4Mv+IX2L/9fXz//3+/f/+/v7//v7+//7+/v////////////7+/v/+/v7//////////////////v7+//7+/v/////////////////+/v7//v7+//7+/v///////v7+//7+/v/+/v7////////////+/v7//v7+////////////////8v///9b///////////7+/v/+/v7//f79//r94//w9ED/5uYk/5x/Kv9pNy//aTYw/2k2MP9oNjD/ZzYw/2c1L/9zR0H/4NrZ//39/f/+/v7///////7+/v///////////////////////v7+//////////////////7+/v///////////////////////v7+//7+/v/////////////////+/v7/////////////////////////////////////1v///7n///////////7+/v/+/v7//v7+//z97f/091L/7/En/7+wJv9oOS3/ZzYu/2c1L/9mNC//ZjQu/2Y0Lv9sPTf/sp2Z//r6+v/+/v7//////////////////////////////////////////////////////////////////v/+//z+/f/8/v3//v////////////////////////////////////7+/v//////////////////////////uf///5H///////////7+/v/+/v7//v7+//3+9f/2+oP/9vcr/+PfJv96USr/ZjUs/2Y0Lv9lMy3/ZTMt/2QzLf9lNS//d1BK/9/Z1//8/fz//v/+///////+/v7////////////////////////////////////////////8+/v/6OPh/7urp//Jvrv/9PLx//39/f/9/v7//v7+//////////////////7+/v//////////////////////////kf///2P////////////////+/v7//v7+//3++//5/MT/+Pox//PyJ//Dsij/Zzgr/2UzLf9kMiz/ZDIs/2IxK/9iMSv/ZTYx/4dmYP/r6uj//P38//7+/v/+//7//v7+///////////////////////+/v7//v7+//38/P/u5OT/eVJO/2I1Mf9lODL/oYmE/+zo5//5+fn//f39//7+/v///////v7+//7+/v/+/v7//v7+////////////////Y////zL////2///////////+/v7//v7+//3+/f/7/eT/9/pP//j5KP/t6iX/jGwl/2Q1Kv9hMSr/YTAr/2EvK/9gLyr/Xy8q/2I0L/99W1X/5uPh//n49//9/fz//v7+//7+/v/+/v7///////7+/v/+/v3//Pr5//Xk5//Fd4L/bDo1/2ExK/9iMiz/ZDQv/35aVP/j3tv/+fj3//39/f/+/v7//v7+//7+/v/+/v7//v7+///////////2////MgAAAAD///+7///////////+/v7//v7+//7+/v/8/vP/9fWG//f6K//2+Sf/6ukm/4lpJf9iMyj/Xy8p/2AuKv9eLin/XS0o/10tKP9dLin/bkdB/7Cdmf/p6OX/+fn4//v7+v/8/Pr//Pz6//v89//z9Ob/3cGp/9lxg/+uTFr/ajUw/2U0Lv9mNC7/ZTUv/2g1MP97UEv/yby5//b29f/9/f3//v7+//7+/v/+/v7//v7+//////////+7AAAAAAAAAAD///93/////////////////v7+//7+/v/9/fv/9OrR/+nWQ//3+yn/+Pon/+zsJP+giST/aT0m/14uJv9dLSf/XCwn/1wrJ/9cKyf/Wywm/1stKP9nPzr/iW1k/6aYe//BwYL/xch8/7a3XP+1i0r/2Ghz/9pfe/+KQUX/azcx/2o4Mv9rODL/azgy/205M/9tOTT/ckU+/7agm//08/H//f79//7+/v/+/v7//v7+//////////93AAAAAAAAAAD///8w////7P///////////v7+//7+/v/9/v3/+fbx/+C3mv/r1Dj/9/oo//f6J//y8yX/1dAk/5N6If9yTSP/ZDkj/2E0JP9gNST/Yjgj/2hEIf96Xx7/lIsb/5+gGP+dnxj/pZkh/8KAUP/gY3z/5mSF/8dac/94PTn/bzk0/246NP9vOzT/cDs1/3A8N/9xPDf/cz45/3ZFPv+ojon/9/X0//7+/v/+/v7//v7+/////+z///8wAAAAAAAAAAAAAAAA////oP7+/v/+/v7//v7+//7+/v/+//7//Pz7//Pl4v/Ob2X/5Lw7//b3K//3+Sj/8fUl/+jrIv/e3yD/0M8e/8TBHP+9uhv/u7oZ/7O0F/+trhX/q6sV/6qmGf+5iTr/2Glt/+Rngv/saI7/62iT/5dJUv92Pjn/cjw3/3M9OP91Pjj/dj85/3U/Ov91QDv/dkA7/3ZDPf+LYVz/8/Hw//7+/v/+/v7//v7+/////6AAAAAAAAAAAAAAAAAAAAAA////Pv/////+/v7//v7+//7+/v/+/v7//v7+//v39//qycr/zGNl/9aFT//pyjf/8vAq//D0JP/q8CH/4+kd/9rfGv/S1Rr/yssZ/8TAHP+/qif/xodE/9VxZv/gZnn/5mSF/+1okf/xbp7/u1p0/3xBPv92Pzr/dkA6/3dAO/95QTz/eUE8/3lCPf95Qz3/eUM+/4BPSP/Kurb/+fn4//7+/v/+/v7//v7+/////z4AAAAAAAAAAAAAAAAAAAAAAAAAAP///77//////v7+//7+/v///////v7+//39/P/59PX/4Kqy/8tZZ//NYV//1X5V/92eRf/gtDz/3bc3/9uzOP/Wpjz/0Y5G/9V6Wv/ZaWz/3mF3/+Fgfv/mZIX/7WiR//Btnf/MYoT/hkdG/3tDPP96Qjz/ekM9/3tEPf98RD3/fEU+/31GP/98Rz//fk1G/7OZlP/z8u///f79////////////////vgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///x7////w///////////+/v7//v7+//7+/v/9/f3/+vT1/96jrf/NXnH/zFNo/81TZv/PV2f/0Vho/9NZav/VWm3/11lw/9tadv/eXXn/4mB+/+Rjgv/pZ4z/62qX/8xjg/+DSEX/fEY+/3xFPv99RT//fUY//35HQP9/R0D/f0hB/35JQv+BUEj/sJWP//Hv7f/8/fz//v/+//7+/v/+/v7w////HgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///9w/////////////////v7+//7+/v///////v39//r49//mvsT/zWF0/85VbP/OU2v/0VNt/9NUbv/WVXH/2Vh1/9xbeP/dXXv/4GF//+Nlhv/hZov/q1Vj/4JIQv9+R0D/fkdA/39IQP9/SEH/gElC/4FJQv+BSkP/gkxE/4VUTf++qKL/8/Lw//z9/f////////////7+/v////9wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////oP///////////v7+//7+/v/+/v7//v7+//7////8/Pz/8t/i/9mUof/PXXL/z1du/9BVbf/UVnD/1lh0/9lbd//aXnr/y1xy/6xVYP+PTUv/gElB/4BJQf+BSUL/gUlC/4FKQ/+BS0P/g0xF/4ROR/+GUUn/l21m/9nOyf/39/b//f39//7+/v///////////////6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///7X///////////7+/v/+/v7//v7+///////+/v7//P7+//r6+v/r1Nb/x4+U/61cY/+pUlj/o09V/5tPUf+PTUn/g0pD/39KQP+BSkL/gktD/4NMRP+DTET/hE1F/4RNRf+FT0b/h1JJ/5tya//Is67/8vDu//39/P/+/v3//v7+//7+/v/+/v7/////tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///+1/////////////////v7+///////+/v7//v7+//7+/v/9/Pz/+fn4/+3o5v/GsKv/pYJ7/5VnYP+LWVD/h1JJ/4RPRf+DTkX/hE9G/4dTSf+LWVD/kmRb/594cP+4nJb/3dLN//X18v/6+/r//f39//7+/v/+/v7///////7+/v////+1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////oP////////////////////////////////7+/v///////v7+//39/f/6+vn/9/f1//X08v/v7On/5d3a/9zSzf/azsr/3NHM/+LZ1P/q5uP/8/Pu//b29P/6+Pj//Pv7//39/f/+/v7//v7+/////////////////////6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///3D+/v7w//////7+/v///////v7+//////////////////7+/v/+/////v7+//7+/v/9/f3//f38//z8+//8/Pv//Pz7//z8/P/9/f3//v79//7+/v/+/v7//v7+//7+/v/////////////////+/v7w////cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8e////vv/////+/v7//v7+//7+/v/////////////////+/v7///////7+/v///////v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+///////+/v7////////////+/v7//////////77///8eAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///0b///+2/v7+9f7+/v///////////////////////v7+//7+/v////////////7+/v/+/v7//////////////////v7+//7+/v////////////////X///+2////RgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////MP///3f///+7////9v////////////////////////////////////////////////////////////////////b///+7////d////zAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////Mv///2P///+R////uf///9b////y/////f////3////y////1v///7n///+R////Y////zIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//gAH//wAA//wAAD//AAD/8AAAD/8AAP/AAAAD/wAA/4AAAAH/AAD/AAAAAP8AAP4AAAAAfwAA/AAAAAA/AAD4AAAAAB8AAPAAAAAADwAA4AAAAAAHAADgAAAAAAcAAMAAAAAAAwAAwAAAAAADAACAAAAAAAEAAIAAAAAAAQAAgAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAABAACAAAAAAAEAAIAAAAAAAQAAwAAAAAADAADAAAAAAAMAAOAAAAAABwAA4AAAAAAHAADwAAAAAA8AAPgAAAAAHwAA/AAAAAA/AAD+AAAAAH8AAP8AAAAA/wAA/4AAAAH/AAD/wAAAA/8AAP/wAAAP/wAA//wAAD//AAD//4AB//8AACgAAAAgAAAAQAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////Jf///2T///+a////xP///+z////7////+////+z////E////mv///2T///8lAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////Uv///7D+/v7v/////////////////////////////////////////////////////////+////+w////UgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////Iv///8r//////v7+///////////////////////////////////////+/v7//////////////////v7+////////////////yv///yIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///2r+/v7x///////////+/v7//v7+///////+/v7//v7+//z+/v/8/fv/+/z6//v7+f/7/vv//P78//7+/v///////v7+//7+/v///////v7+8f///2oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///95/v7+/P7+/v/+/v7///////7+/v/8/Pz/7urn/9bIw/+1mZL/nXVt/5VnX/+RYlj/lGJY/55qY/+xenj/xpWY/+PAxv/y4OT/+/j4//7//////////v7+/P///3kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////av7+/vz///////////7+/v/+/v7/8/Du/8mzrP+fdWz/g1FI/31JP/+AS0H/hE1E/5dRVP+0Vmn/xFZx/8tXc//OVnL/zlhz/9FsgP/ZlKH/79zf//39/f/+/v7//v7+/P///2oAAAAAAAAAAAAAAAAAAAAAAAAAAP///yL+/v7x///////////+/v7//v7+/+7q5/+rhn3/iFRL/3I+Nv91Pzj/d0I5/4BGQP+6UXP/11WJ/9hWhf/XVoD/1FZ6/9JVdv/QVHH/zVJu/8lTbP/IXXL/47nA//r6+v///////v7+8f///yIAAAAAAAAAAAAAAAAAAAAA////yv7+/v/+/v7//v7+//3+/f/o5dv/o3ts/4dSSP9tOjL/ajYv/3E6Nf+SRVX/0VSN/91Vk//cVI7/2VWH/9RYfP/PYW3/y2pf/8l7Tv/MkUH/1KI+/9mjQ//XlVj/58uz//v9/P///////v7+ygAAAAAAAAAAAAAAAP///0r//////v7+//7+/v/+/v3/7u7g/6aGbP+JVEn/dEE3/2EwKf9lMi3/kkZa/9ZamP/eV5v/3VWU/9hYiP/MbGf/voc//7mdJ/+6sRr/xMEU/9HTFv/g4xz/7/Ii//X0KP/v5EH/+Pja//7+/v/+/v7/////SgAAAAAAAAAA////of/////+/v7//v7+//n79f/CtYr/ildH/4JMQ/9gMCn/Wiok/200OP/YY6b/416n/99Wmv/QZXr/s44z/6yiF/+wqxP/tbMT/76+E//LzBX/2twa/+ntIP/1+Cb/+Pgp//b5M//6/ND//v/9//7+/v/9/f2hAAAAAP///yX////o/v7+//7+/v/+/v7/6OnO/5x/S/+DTUL/dkM6/1QnIP9VJiD/qFF4/+dlsP/dYp7/0ouE/8zDf//b3KT/3uCo/9PUfv/GyEP/x8ke/9PWGf/j5x//8fUk//f5Kf/2+kr/+vy7//z+/P/+/v7//v7+/////+j///8l////ZP///////////v7+//z+/P/MyYz/h2A4/3xHP/9rOzL/SyEa/14oK//WXJz/4G2o/+i5xv/09Oj//f77//3+/f/9/v7//P78//b55//n653/4OQy/+3yIv/1+Sn/9vtk//n9z//9/vr//v7+//7+/v///////////////2T///+a//////7+/v/9/f3/+fz1/7KoRP9/UTj/eUQ8/2c2L/9GGxb/fDJF/9hbmv/swNX/+/v7//7+/v/+/v7////////////+/v7//v7+//3++v/2+rr/8/lR//f7jv/6/u3//P77//7+/v///////v7+////////////////mv///8T//////v7+//39/f/w8tT/qZwo/3pJNv90QTn/aTcw/0UaF/+ROFj/3oiv//r4+f/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v/8/vz//f/9//7+/v/+/v7//v7+//7+/v/+/v7//v7+///////////E////7P/////+/v7//f/9/+nsr/+snx//dkY0/3E+Nv9sOTL/Sx8b/5M6WP/tztr//f/+///////+/v7////////////+/v7//v7+//7+/v/+/v7//v7+///////+/v7//v7+///////+/v7//////////////////////////+z////7//////7+/v/8/v3/6eyT/7irIP92RjL/bjsz/206M/9YKyT/hD9Q//Xp7v/+//7////////////+/v7////////////+/v7//////////////////v7+/////////////v7+////////////////////////////////+/////v//////v7+//z+/f/v8pH/ycEi/3ZKL/9sOTL/azgx/2c2L/9tOjz/7+fp//3+/v/+/v7///////7+/v/+/v7//v7+//7+/v/+/v7///////7+/v/+/v7//v7+///////+/v7//v7+/////////////v7+///////////7////7P/////+/v7//P79//X4qP/c2iT/hF0s/2k3Mf9pNzD/aDYv/2c3Mf/Owr7//f79//7+/v/+/v7///////7+/v/+/v7///////7+/v/+/v7////////////+/v7//v7+///////+/v7//v7+///////+/v7//////////+z////E//////7+/v/+/v7/+fzN/+7wK/+ghij/Zzct/2Y0Lv9lNC7/ZDQt/41sZv/09PP//v7+//7+/v/////////////////////////////////9/v7/+fv5//z9/f///////////////////////v7+////////////////xP///5r//////v7+//7+/v/7/e7/9/pC/9XLJ/9wQyr/ZDMt/2QyLP9iMSv/Zjkz/7iopP/3+Pf//v7+//7+/v////////////7+/v/+/v7//fv7/8Kwrf9wSkT/p5GM//Px7//8/f3//v7+//7+/v/+/v7//v7+//////////+a////ZP/////+/v7//v7+//z+/P/3+nz/8/Uo/7WjJv9pPSj/XzAp/18vKf9eLin/bEI8/66alv/r6OX//P38//7+/v/+/v7//f37//Xu6P/nsbr/hktK/2EyK/9kNC7/jWtm/9vS0P/6+/r//v7+//7+/v/+/v7//////////2T///8l////6P7+/v/+/v7//v7+//Xww//x7jv/8/Um/7+xJP9vRyb/XS4n/10sJ/9cLCb/YDMt/3RQSv+ag3z/wLma/9LWnv/Gvnz/0Yl6/89fdP9xOTX/aDcw/2k3Mf9sOTP/f1ZQ/87AvP/8/vz//v7+//7+/v/////o////JQAAAAD9/f2h/v7+//7+/v/+/v7/9/Pw/+K5gf/y6i//9vkn/+LhI/+lkyH/eFUh/2xHIv9uTCD/fmYc/5aPF/+fnxX/ppMi/9JyZv/lZIX/qE9c/3A6M/9vOzT/cDw1/3E9N/9yPjj/dkZA/9/Y1P/+/v7//v7+//39/aEAAAAAAAAAAP///0r+/v7//v7+//7+/v/9/v3/79bX/9SFaP/kuz3/7uMt/+zwI//h6B3/1Nga/8rKGv/AtSH/vJkx/8t+U//gZnv/62iP/9Fig/9/QkH/dT85/3Y/Ov93QTv/dkI7/3dDPf+GWVP/5+Lg//7+/v/+/v7/////SgAAAAAAAAAAAAAAAP///8r+/v7//v7+//7+/v/8+/v/68rP/81mbf/Rb1r/14RQ/9iRSv/WjEz/03tW/9duZf/cZXP/4mKA/+1pkP/cZ4//kk1R/3pDPP96Qzz/fEQ9/31FPv98Rj//hVdP/82+uf/8/vz//v7+//7+/soAAAAAAAAAAAAAAAAAAAAA////Iv////H//////v7+//7+/v/+/v7/7tXY/9Bpe//NU2n/z1Nr/9NVbv/XWHP/21t4/+Bgff/lZoj/0mKB/4tMSf98Rz7/fkdA/39HQP+ASEH/gEpC/4ZWT//Mvbj/+vv7///////+/v7x////IgAAAAAAAAAAAAAAAAAAAAAAAAAA////av7+/vz+/v7//v7+//7+/v/9/f3/8+Tn/9+eqf/ObHz/xldq/8dWav/FWGv/uVdm/51SVf+CS0L/gEpB/4FKQv+BS0P/gk1F/41dVf+ohn//4NjT//v8+//+/v7//v7+/P///2oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////ef////z//////v7+//7////9/v7/+/r6/+3g3//Tt7b/r4SA/5ZhXP+HU0r/gk1E/4NNRP+HU0n/j19V/554cP+/pp//3tTP//Xz8v/9/v3//v7+//7+/vz///95AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////av////H//////v7+///////+/v7//v7+//3+/v/7/vz/+/37//Pz8P/s6eX/6+jl//Lw7P/5+/j//P/8//7+/v/+/v7//v7+//7+/v/////x////agAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////Iv///8r+/v7//v7+//7+/v///////v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v//////////yv///yIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///1L+/v6w/v7+7//////////////////////////////////////////////////////////v/v7+sP///1IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8l////ZP///5r////E////7P////v////7////7P///8T///+a////ZP///yUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/8AD//8AAP/8AAA/+AAAH/AAAA/gAAAHwAAAA8AAAAOAAAABgAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAGAAAABwAAAA8AAAAPgAAAH8AAAD/gAAB/8AAA//wAA///AA/8oAAAAEAAAACAAAAABACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///1D///+h////3/////n////5////3////6H///9QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////J/7+/tP+/v7//f79//f19P/s5+T/6uLf/+3n5P/29fP//f79//7+/tP///8nAAAAAAAAAAAAAAAA////J/7+/un+/v7/+Pj3/826tP+deG7/lGhf/6Zqav/Ab3z/0XqM/+Cps//26+z//v7+6f///ycAAAAAAAAAAP7+/tP+/v7/8u/q/6aBd/91Qjn/fkFB/7tQdf/YVYf/01l5/81eav/Lblr/0oZw/+/c1f/+/v3TAAAAAP///0v+/v7/8vLp/6+Tff90Qjj/cDc6/8FVhv/VY4r/yYBo/7ydM//BvBj/2dwa//DyJ//0833//Pzy/////0v///+Z/P37/9XPsP+HXEf/Wi0m/49BW//dhK3/6dHK/+rqzP/l6LL/295P/+rwI//1+mL/+v3T//3++/////+Z////3Pj57/+8rXj/eko4/1MlIP+wZYH/9ebs//7+/v/+/v7//v79//z+7f/4/Lf/+/71//3+/f/+/v7/////3P7//vn3+eb/uatc/3VGMv9fMCr/uY2Z//v6+v/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/vn+/v75+fzl/8vCWv91SC7/Zzgw/6aLiP/5+fj//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v75////3P397//p6HL/hmQq/2QyLP99WVL/497b//7+/v/+/v7//v7+/+3q6P/AtLD/9/j2//3+/v/+/v7/////3P///5n9/vr/9/eo/9DGMv97Vyf/ZTkp/4BgVf/Lw7P/5uTK/+jQxP+rcHL/ZjYw/49tZ//f2NX/+/v7/////5n///9L/v7+//jz5v/kwHD/2cYu/7qvIf+llx7/poot/8OEWP/PbXX/jUhJ/3I+Nv91Qzv/qY2H//b08/////9LAAAAAP7+/tP+/v3/9Obl/9J2ev/PZF//1GRm/9tidP/dZYH/olNc/35FP/98Rz//j2Vd/9/X0//9/v3TAAAAAAAAAAD///8n/v7+6f3+/v/49PT/37C1/8V4gf+yaW7/lmFb/49hWP+XbmX/tpuU/+zo5f/9/v3p////JwAAAAAAAAAAAAAAAP///yf+/v7T/v7+//z9/P/z8e//59/d/+LY1f/n3tv/8e7s//z9/P/+/v7T////JwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///1D///+h////3/////n////5////3////6H///9QAAAAAAAAAAAAAAAAAAAAAPAPAADAAwAAgAEAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAACAAQAAwAMAAPAPAAA=">
-                </div>
-                <div class="wrap-ai-completed--box">
-                    <div>
-                        <b>ChatBotChatApp</b>
-                    </div>
-                    <div class="wrap-ai-completed--content">
-                        <div class="message-completed" id="721855"><p>Вы написали “ллл”. Это просто три буквы “л” подряд. </p>
-<p>В зависимости от контекста, это может быть:</p>
-<ul>
-<li><strong>Бессмысленное повторение букв:</strong> Иногда люди просто печатают случайные буквы.</li>
-<li><strong>Часть более длинного слова или фразы:</strong> “Ллл” может быть частью слова на каком-либо языке.</li>
-<li><strong>Эхо сообщения (в чате):</strong> Иногда люди повторяют часть сообщения для подчеркивания или в качестве ответа.</li>
-</ul>
-<p class="">Без дополнительной информации, я не могу точно сказать, что вы имели в виду.</p>
-</div>
-                    </div>
-                </div>
-            </div>
-            <div class="ai-completed-footer" style="display: flex;">
-                <div class="ai-completed-footer__left">
-                    <span class="ai-completed-footer__left--item">
-                        <span class="ai-completed-footer__left--clipboard-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard ai-completed-footer__left--clipboard" viewBox="0 0 16 16">
-                                <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
-                                <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
-                            </svg>
-                        </span>
-                        <div class="btn-group wrap-dropdown">
-                            <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" title="">
-                                <span class="ai-completed-footer__left--chevronDown-btn"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"></path>
-            </svg></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-item ai-completed-footer__left--clipboard-text-btn">Copy text</li>
-                                <li class="dropdown-item ai-completed-footer__left--clipboard-markdown-btn">Copy markdown</li>
-                            </ul>
-                        </div>
-                    </span>
-                    <span class="ai-completed-footer__left--item">
-                        <span class="btn-regenerate-response">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"></path>
-                                <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"></path>
-                            </svg>
-                        </span>
-                        
-                    </span>
-                </div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
+        
     
                 <div class="chat-box human human-619736" timestamp="1744102656970">
                     <div class="avatar">You</div>
@@ -768,7 +874,171 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
     </div>
             </div>
         </div>
-        
+        <div class="footer">
+            <div class="wrap-chat-form">
+                <div id="chat-form" class="input-box">
+                    <div class="top-bar">
+                        <div class="top-bar-left">
+                            <div class="btn-group wrap-dropdown wrap-chatgpt-model model-selector">
+                                <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" title="Change model">
+                                    <span id="model-name">Auto</span>
+                                    <svg class="chevron-down" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 512 512">
+    <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path>
+</svg>
+                                </button>
+                                <ul class="dropdown-menu">
+                                                                            <li class="dropdown-item-model" id="model-chatgpt-4">
+                                            <div class="dropdown-item">
+                                                
+                                                <div class="info-model">
+                                                    <h2 class="info-model--title">GPT-4o</h2>
+                                                    <p>Smart and fast for everyday tasks
+                                                    </p>
+                                                </div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="svg-checked">
+            <path fill="currentColor" fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12m14.076-4.068a1 1 0 0 1 .242 1.393l-4.75 6.75a1 1 0 0 1-1.558.098l-2.5-2.75a1 1 0 0 1 1.48-1.346l1.66 1.827 4.032-5.73a1 1 0 0 1 1.394-.242" clip-rule="evenodd"></path>
+        </svg></div>
+                                        </li>
+                                                                            <li class="dropdown-item-model" id="model-chatgpt-3-5">
+                                            <div class="dropdown-item">
+                                                
+                                                <div class="info-model">
+                                                    <h2 class="info-model--title">GPT-3.5</h2>
+                                                    <p>Perfect for everyday tasks
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                                                            <li class="dropdown-item-model" id="model-deepseek-v3-0324">
+                                            <div class="dropdown-item">
+                                                
+                                                <div class="info-model">
+                                                    <h2 class="info-model--title">DeepSeek V3 0324</h2>
+                                                    <p>Great at varied tasks
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                                                            <li class="dropdown-item-model" id="model-mistral-large">
+                                            <div class="dropdown-item">
+                                                
+                                                <div class="info-model">
+                                                    <h2 class="info-model--title">Mistral large 2</h2>
+                                                    <p>Top reasoning capabilities
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                                                            <li class="dropdown-item-model" id="model-pixtral">
+                                            <div class="dropdown-item">
+                                                
+                                                <div class="info-model">
+                                                    <h2 class="info-model--title">Pixtral</h2>
+                                                    <p>Prompt text and images
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                                                            <li class="dropdown-item-model" id="model-codestral">
+                                            <div class="dropdown-item">
+                                                
+                                                <div class="info-model">
+                                                    <h2 class="info-model--title">Codestral</h2>
+                                                    <p>Fast and specialized in code
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                        </div>
+                        <div class="top-bar-right">
+                            <button class="top-bar-right--btn export-chat-session-btn" type="button" data-toggle="tooltip" aria-label="Export this entire conversation to a file. You can then import this file to restore the conversation later, or use it to sync your conversations across different devices." data-bs-original-title="Export this entire conversation to a file. You can then import this file to restore the conversation later, or use it to sync your conversations across different devices."><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M14.4697 7.53033C14.7626 7.82322 15.2374 7.82322 15.5303 7.53033C15.8232 7.23744 15.8232 6.76256 15.5303 6.46967L12.5303 3.46967C12.2374 3.17678 11.7626 3.17678 11.4697 3.46967L8.46967 6.46967C8.17678 6.76256 8.17678 7.23744 8.46967 7.53033C8.76256 7.82322 9.23744 7.82322 9.53033 7.53033L11.25 5.81066V14C11.25 14.4142 11.5858 14.75 12 14.75C12.4142 14.75 12.75 14.4142 12.75 14V5.81066L14.4697 7.53033Z" fill="currentColor"></path>
+    <path d="M20.75 12C20.75 11.5858 20.4142 11.25 20 11.25C19.5858 11.25 19.25 11.5858 19.25 12C19.25 16.0041 16.0041 19.25 12 19.25C7.99593 19.25 4.75 16.0041 4.75 12C4.75 11.5858 4.41421 11.25 4 11.25C3.58579 11.25 3.25 11.5858 3.25 12C3.25 16.8325 7.16751 20.75 12 20.75C16.8325 20.75 20.75 16.8325 20.75 12Z" fill="currentColor"></path>
+</svg>
+</button>
+                            <button class="top-bar-right--btn file-attach-button import-chat-session-btn" type="button" data-toggle="tooltip" aria-label="Import a saved chat file to view or continue a conversation, e.g., one moved from another device." data-bs-original-title="Import a saved chat file to view or continue a conversation, e.g., one moved from another device." style="margin-top: 0px;">
+                                <input multiple="" type="file" tabindex="-1" aria-label="Import a saved chat file to view or continue a conversation, e.g., one moved from another device." value="">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M14.4697 10.4697C14.7626 10.1768 15.2374 10.1768 15.5303 10.4697C15.8232 10.7626 15.8232 11.2374 15.5303 11.5303L12.5303 14.5303C12.2374 14.8232 11.7626 14.8232 11.4697 14.5303L8.46967 11.5303C8.17678 11.2374 8.17678 10.7626 8.46967 10.4697C8.76256 10.1768 9.23744 10.1768 9.53033 10.4697L11.25 12.1893V4C11.25 3.58579 11.5858 3.25 12 3.25C12.4142 3.25 12.75 3.58579 12.75 4V12.1893L14.4697 10.4697Z" fill="currentColor"></path>
+    <path d="M20.75 12C20.75 11.5858 20.4142 11.25 20 11.25C19.5858 11.25 19.25 11.5858 19.25 12C19.25 16.0041 16.0041 19.25 12 19.25C7.99593 19.25 4.75 16.0041 4.75 12C4.75 11.5858 4.41421 11.25 4 11.25C3.58579 11.25 3.25 11.5858 3.25 12C3.25 16.8325 7.16751 20.75 12 20.75C16.8325 20.75 20.75 16.8325 20.75 12Z" fill="currentColor"></path>
+</svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <form class="chat-form-container" data-gtm-form-interact-id="0">
+                        <div class="form-data">
+                            <div class="form-data--files scrollbar" attachments="">
+
+                            </div>
+                            <div class="container-prompt">
+                                <textarea class="textarea scrollbar" id="chat-input" role="textbox" aria-label="chat-input-prompt" aria-labelledby="chat-input-prompt" placeholder="Ask me anything..." contenteditable="true" rows="1" cols="50" style="height: auto;" data-gtm-form-interact-field-id="0"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="chat-form_btns">
+                            <div class="chat-form__btns--left">
+                                <div class="wrap-file-attach">
+                                    <button type="button" class="file-attach-button" data-toggle="tooltip" aria-label="File attach" data-bs-original-title="File attach" style="margin-top: 0px;">
+                                        <input multiple="" type="file" tabindex="-1" aria-label="File attach" value="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path fill="currentColor" fill-rule="evenodd" d="M9 7a5 5 0 0 1 10 0v8a7 7 0 1 1-14 0V9a1 1 0 0 1 2 0v6a5 5 0 0 0 10 0V7a3 3 0 1 0-6 0v8a1 1 0 1 0 2 0V9a1 1 0 1 1 2 0v6a3 3 0 1 1-6 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="wrap-btn-hint-tools">
+                                                                                                                                                            <button class="item-btn-hint-tool" tool="generateImage" data-toggle="tooltip" type="button" aria-pressed="true" data-state="on" aria-label="Transform your text prompts into stunning visuals with AI-powered image generation." tabindex="0" data-bs-original-title="Generate image">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="23" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
+    <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"></path>
+    <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z"></path>
+</svg>
+                                            <span class="item-btn-hint-tool--title">Generate image</span>
+                                        </button>
+                                                                                                                    <button class="item-btn-hint-tool" tool="searchWeb" data-toggle="tooltip" type="button" aria-pressed="true" data-state="on" aria-label="Search for information in real time on the internet." tabindex="0" data-bs-original-title="Search">
+                                            <svg width="21" height="23" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.8"></circle>
+    <path d="M10 1c1.657 0 3 4.03 3 9s-1.343 9-3 9M10 19c-1.657 0-3-4.03-3-9s1.343-9 3-9M1 10h18" stroke="currentColor" stroke-width="1.8"></path>
+</svg>
+                                            <span class="item-btn-hint-tool--title">Search</span>
+                                        </button>
+                                                                    </div>
+                            </div>
+                            
+                            <div class="chat-form__btns--right">
+                                <div class="wrap-count-word" style="display: none;">
+                                    <span id="length-text-chat-input">3</span>/<span id="max-length">3000</span>
+                                </div>
+                                <button class="btn-open-microphone" data-toggle="tooltip" type="button" aria-label="Voice chat" data-bs-original-title="Voice chat" style="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+                                        <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"></path>
+                                        <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"></path>
+                                    </svg>
+                                </button>
+                                <button id="btn-send-message" class="btn-send-message" data-toggle="tooltip" type="button" aria-label="Send" data-bs-original-title="Send" style="display: none;">
+                                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1.3em" width="1.3em" xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                    </svg>
+                                </button>
+                                <button class="btn-stop-response" data-toggle="tooltip" type="button" aria-label="Stop" data-bs-original-title="Stop" style="display: none;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" fill="currentColor" class="bi bi-stop-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"></path>
+                                        <path d="M5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="chat-form-footer">
+                        <p class="chat-form-footer__des">
+                            Smart AI Chatbot: Get fast, simple answers. Vast knowledge base. Your AI chat online assistant.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <span id="btn-back-to-top">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16" style="color: white;">
