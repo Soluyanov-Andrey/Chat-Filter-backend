@@ -9,7 +9,7 @@ const ROOT_DOCUMENT = path.join(ROOT_DIR, 'rootDocument');
 const FOLDER_DOCUMENT =  path.join(ROOT_DIR, 'document');
 const SCANNED_FOLDER = '/media/andrey/Рабочий/flash/linux/manul';
 const IP = 'http://localhost:9070';
-const FULL_PATH = path.join(ROOT_DIR, ROOT_DOCUMENT, FILE_NAME);
+const FULL_PATH = path.join(ROOT_DIR,'rootDocument', FILE_NAME);
 
 
 module.exports = {

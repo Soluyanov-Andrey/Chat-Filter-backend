@@ -26,6 +26,12 @@ function removeSidebarNav(html){
   return $.html();
 }
 
+/**
+ * Удаляет элемент с классом 'footer' из HTML-кода.
+ *
+ * @param {string} html HTML-код, из которого нужно удалить элемент.
+ * @returns {string} Измененный HTML-код, в котором удален элемент.
+ */
 
 function removeFooterNav(html) {
   const $ = cheerio.load(html);
@@ -33,6 +39,14 @@ function removeFooterNav(html) {
   return $.html();
 }
 
+
+
+/**
+ * Удаляет элемент с классами 'header' и 'wrap-header-chat-message-gpt' из HTML-кода.
+ *
+ * @param {string} html HTML-код, из которого нужно удалить элемент.
+ * @returns {string} Измененный HTML-код, в котором удален элемент.
+ */
 
 function removeheaderNav(html) {
   const $ = cheerio.load(html);
@@ -43,7 +57,15 @@ function removeheaderNav(html) {
 
 
 
-
+/**
+ * Выполняет последовательную обработку HTML-файла, удаляя из него боковую навигацию,
+ * футер и хедер, а затем сохраняет измененный HTML в новый файл.
+ *
+ * @param {string} rootDocument Путь к исходному HTML-файлу, который нужно обработать.
+ * @param {string} pathNew Путь к новому HTML-файлу, в который будет сохранен измененный контент.
+ *
+ * @returns {void} Ничего не возвращает. Функция выполняет операции чтения и записи файлов.
+ */
 
 function saveNewFile(rootDocument, pathNew){
  
@@ -57,6 +79,10 @@ function saveNewFile(rootDocument, pathNew){
   saveHtmlToFile(pathNew, headerNav);
 
 }
+
+
+
+
 
 module.exports.saveNewFile = saveNewFile;
 

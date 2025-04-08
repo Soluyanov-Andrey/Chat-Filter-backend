@@ -3,7 +3,7 @@ const copyDirectory = require('./function/apiCreateFolder/createFolder');
 const { extractContextsFromChatPrompts } = require('./function/apiScan/scan');
 const express = require('express');
 const cors = require('cors'); // Импортируем cors
-const { IP , FULL_PATH} = require('./config'); // Импортируем cors
+const { IP , FULL_PATH } = require('./config'); // Импортируем cors
 
 
 const app = express();
@@ -125,6 +125,7 @@ app.get('/scan',async  (req, res) => {
   const rootDocument = FULL_PATH;
   const encodedPath = req.query.path;
   const path = decodeURIComponent(encodedPath);
+  
   const extractContexts = extractContextsFromChatPrompts(rootDocument);
  const responseData = {
    message: 'Данные приняты',
