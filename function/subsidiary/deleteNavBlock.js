@@ -2,7 +2,7 @@ const cheerio = require('cheerio');
 
 const { readFileContent } = require('./fileUtils');
 const { saveHtmlToFile } = require('./fileUtils');
-const { removeSidebarNav } = require('./deleteNavBlock');
+
 
 const fs = require('fs');
 const path = require('path'); // Import the 'path' module
@@ -26,27 +26,43 @@ function removeSidebarNav(html){
   return $.html();
 }
 
-// Пример использования:
-// const html = `<html-строка с элементом <nav> внутри>`;
-// const newHtml = removeSidebarNav(html);
-// console.log(newHtml);
 
-
-
-function saveNewFile(rootDocument){
-  // 1. Прочитать HTML-файл
-  const read = readFileContent(path);
-
-  // 2. Удалить боковую панель
-  const contDel = removeSidebarNav(read);
-
-  // 3. Сохранить измененный HTML в новый файл
-  saveHtmlToFile(pathNew, contDel);
-
+function removeFooterNav(html) {
+  const $ = cheerio.load(html);
+  $('.footer').empty().remove(); // Сначала очищаем содержимое, потом удаляем элемент
+  return $.html();
 }
 
 
-module.exports.removeSidebarNav = removeSidebarNav; // Экспортируем для тестов
+function removeheaderNav(html) {
+  const $ = cheerio.load(html);
+  $('.header.wrap-header-chat-message-gpt').empty().remove(); // Сначала очищаем содержимое, потом удаляем элемент
+  return $.html();
+}
 
+
+
+
+
+
+function saveNewFile(rootDocument, pathNew){
+ 
+  const read = readFileContent(rootDocument);
+
+
+  const contDel = removeSidebarNav(read);
+  const footerNav = removeFooterNav(contDel);
+  const headerNav = removeheaderNav(footerNav);
+
+  saveHtmlToFile(pathNew, headerNav);
+
+}
+
+module.exports.saveNewFile = saveNewFile;
+
+; // Экспортируем для тестов
+module.exports.removeSidebarNav = removeSidebarNav
+module.exports.removeFooterNav =  removeFooterNav;
+module.exports.removeheaderNav =  removeheaderNav;
 
 

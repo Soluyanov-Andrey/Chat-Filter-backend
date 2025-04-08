@@ -3,7 +3,7 @@ const copyDirectory = require('./function/apiCreateFolder/createFolder');
 const { extractContextsFromChatPrompts } = require('./function/apiScan/scan');
 const express = require('express');
 const cors = require('cors'); // Импортируем cors
-const { ROOT_DIR } = require('./config'); // Импортируем cors
+const { IP , FULL_PATH} = require('./config'); // Импортируем cors
 
 
 const app = express();
@@ -11,7 +11,7 @@ const port = 3000;
 
 // Настройка CORS с помощью пакета cors
 const corsOptions = {
-  origin: ['http://localhost:9070'], // Укажите разрешенные домены
+  origin: [IP], //  Разрешенные домены
   methods: 'GET,POST,OPTIONS', // Разрешенные методы
   allowedHeaders: ['Content-Type', 'Authorization'] // Разрешенные заголовки
 };
@@ -122,7 +122,7 @@ app.get('/open-folder',async  (req, res) => {
 //scan
 //--------------------------------------
 app.get('/scan',async  (req, res) => {
-  const rootDocument = '/media/andrey/project/project/servers/SERVER-node-chatGPT/rootDocument/ChatGPT _ ChatGPT 4o Free _ Support all countries.html';
+  const rootDocument = FULL_PATH;
   const encodedPath = req.query.path;
   const path = decodeURIComponent(encodedPath);
   const extractContexts = extractContextsFromChatPrompts(rootDocument);

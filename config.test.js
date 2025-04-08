@@ -1,5 +1,5 @@
 // config.test.js
-const { ROOT_DIR, DATA_DIR} = require('./config'); // Импортируем модуль config.js
+const { ROOT_DIR, DATA_DIR, FULL_PATH} = require('./config'); // Импортируем модуль config.js
 const path = require('path');
 
 describe('Config Module', () => {
@@ -16,4 +16,11 @@ describe('Config Module', () => {
     console.log('Actual DATA_DIR:', DATA_DIR);
     expect(DATA_DIR).toBe(expectedDataDir);
   });
+
+  it('should correctly define FULL_PATH', () => {
+     
+    console.log('Actual FULL_PATH:', FULL_PATH);
+ 
+  });
+
 });
