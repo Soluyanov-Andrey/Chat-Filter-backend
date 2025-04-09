@@ -48,21 +48,27 @@ app.get('/folder-structure',async  (req, res) => {
 //--------------------------------------
 //delete-list
 //--------------------------------------
-app.get('/delete-list',async  (req, res) => {
-
-   
-   
-    const id = parseInt(req.query.id,10); 
-
-    // 2. URL-декодируем значение параметра
+app.get('/delete-list', async (req, res) => {
+  try {
+    const id = parseInt(req.query.id, 10);
+    const encodedPath = req.query.path;
     const path = decodeURIComponent(encodedPath);
     
-   const responseData = {
-     message: 'Данные id приняты',
-     receivedData: id
-   };
-   res.json(responseData);
- });
+    // Implement actual deletion logic here
+    
+    const responseData = {
+      message: 'Item deleted successfully',
+      id: id
+    };
+    res.json(responseData);
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({
+      message: 'An error occurred while processing the request',
+      error: error.message
+    });
+  }
+});
 
 
 //--------------------------------------
@@ -98,6 +104,38 @@ app.post('/create-folder', async (req, res) => {
     });
   }
 });
+
+// Асинхронный обработчик POST-запроса
+app.post('/delete_select', async (req, res) => {
+  try {
+    const filePath = req.body.path; // Получаем значение свойства "path" из req.body
+
+        console.log('Полученный путь:', filePath); // Выводим только путь
+    // console.log(' /folder-structure called');
+    // // Вызываем асинхронную функцию и ждем её завершения
+    // source = './test';
+    // destination = '';
+    source = './document';
+
+      copyDirectory(source, filePath );
+
+      const responseData = {
+      message: 'Папка создана'
+    };
+
+    // Отправляем JSON-ответ
+    res.json(responseData);
+  } catch (error) {
+    // Обработка ошибок
+    console.error('Error:', error);
+    res.status(500).json({
+      message: 'Произошла ошибка при обработке запроса',
+      error: error.message
+    });
+  }
+});
+
+
 
 //--------------------------------------
 ///open-folder

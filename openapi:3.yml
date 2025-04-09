@@ -31,22 +31,34 @@ paths:
                   folders:
                     type: array
                     items:
-                      $ref: '#/components/responses/InternalServerError'
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: Название папки или файла
+                        type:
+                          type: string
+                          description: Тип элемента (folder+ для папок с подпапками, folder для обычных папок)
+                      required:
+                        - name
+                        - type
               example:
-                {
-                  "folders": [
-                    {
-                      "name": "папка1",
-                      "type": "folder+"
-                    },
-                    {
-                      "name": "папка2",
-                      "type": "folder"
-                    }
-                  ]
-                }
-
-        '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
+                folders:
+                  - name: "папка1"
+                    type: "folder+"
+                  - name: "папка2"
+                    type: "folder"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          description: Папка не найдена
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: "Folder not found"
+        '500':
           $ref: '#/components/responses/InternalServerError'
 
   /delete-list:
@@ -138,32 +150,43 @@ paths:
           required: true
           description: Абсолютный или относительный путь к новой папке.
       responses:
-        '201': # Обычно для создания ресурса используют 201 Created
-          description: Открыли папку Document для анализа.
+        '200':
+          description: Папка успешно открыта для анализа.
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  status:
-                    type: string
-                    example: "success"
-                  message:
-                    type: string
-                    example: "Folder created successfully"
+                  page:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: Название элемента
+                      required:
+                        - name
               example:
-                {
-                  "page": [
-                    {
-                      "name": "папка1"
-                    },
-                    {
-                      "name": "папка2"
-                    }
-                  ]
-                }
-    
-        '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
+                page: [
+                  {
+                    "name": "папка1"
+                  },
+                  {
+                    "name": "папка2"
+                  }
+                ]
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          description: Папка не найдена
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: "Folder not found"
+        '500':
           $ref: '#/components/responses/InternalServerError'
 
   /scan:
@@ -237,19 +260,25 @@ paths:
 
   /delete_select:
     post:
-      summary: Удалит все что выделено галочками
-      description: Создает новую тему на страницу
+      summary: Удаляет выбранные элементы
+      description: Удаляет все элементы, отмеченные галочками
       requestBody:
         required: true
         content:
           application/json:
             schema:
-             type: array  # Изменяем тип на array
-             items:  # Описываем элементы массива
-              type: string
+              type: object
+              properties:
+                selectedItems:
+                  type: array
+                  items:
+                    type: string
+                  description: Массив идентификаторов выбранных элементов
+              required:
+                - selectedItems
       responses:
-        '201':
-          description: Удалили все выделенное галочками успешно.
+        '200':
+          description: Элементы успешно удалены
           content:
             application/json:
               schema:
@@ -257,33 +286,50 @@ paths:
                 properties:
                   status:
                     type: string
-                    example: "success"
+                    enum: [success]
                   message:
                     type: string
-                    example: "File modified"
-                example:
-                  {
-                    "status": "success",
-                    "message": "File modified"
-                  }
+                  deletedCount:
+                    type: integer
+                    description: Количество удаленных элементов
+              example:
+                status: "success"
+                message: "Items deleted successfully"
+                deletedCount: 5
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          description: Один или несколько элементов не найдены
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: "Some items were not found"
         '500':
           $ref: '#/components/responses/InternalServerError'
 
   /leave_selected:
     post:
-      summary: Оставим выделеное остальное удаляем
-      description: Оставим выделеное остальное удаляем
+      summary: Оставляет только выбранные элементы
+      description: Удаляет все элементы кроме тех, что отмечены галочками
       requestBody:
         required: true
         content:
           application/json:
             schema:
-             type: array  # Изменяем тип на array
-             items:  # Описываем элементы массива
-              type: string
+              type: object
+              properties:
+                selectedItems:
+                  type: array
+                  items:
+                    type: string
+                  description: Массив идентификаторов элементов, которые нужно оставить
+              required:
+                - selectedItems
       responses:
-        '201':
-          description: Удалили все выделенное галочками успешно.
+        '200':
+          description: Операция выполнена успешно
           content:
             application/json:
               schema:
@@ -291,34 +337,52 @@ paths:
                 properties:
                   status:
                     type: string
-                    example: "success"
+                    enum: [success]
                   message:
                     type: string
-                    example: "File modified"
-                example:
-                  {
-                    "status": "success",
-                    "message": "File modified"
-                  }
+                  remainingCount:
+                    type: integer
+                    description: Количество оставшихся элементов
+              example:
+                status: "success"
+                message: "Operation completed successfully"
+                remainingCount: 3
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          description: Один или несколько элементов не найдены
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: "Some items were not found"
         '500':
           $ref: '#/components/responses/InternalServerError'
 
 
   /create-page:
-    get:  
-      summary: Создаем страницу
-      description: создает папку в выбранном пути копируя по шаблону
-      parameters:
-        - in: query
-          name: path
-          schema:
-            type: string
-          required: true
-         
-          description: Абсолютный или относительный путь к новой папке.
+    post:  
+      summary: Создает страницу
+      description: Создает папку в выбранном пути, копируя содержимое по шаблону
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                path:
+                  type: string
+                  description: Абсолютный или относительный путь к новой папке
+                template:
+                  type: string
+                  description: Идентификатор шаблона для копирования (опционально)
+              required:
+                - path
       responses:
-        '201': # Обычно для создания ресурса используют 201 Created
-          description: Папка успешно создана.
+        '201':
+          description: Страница успешно создана
           content:
             application/json:
               schema:
@@ -326,34 +390,43 @@ paths:
                 properties:
                   status:
                     type: string
-                    example: "success"
+                    enum: [success]
                   message:
                     type: string
-                    example: "Folder created successfully"
+                  pageId:
+                    type: string
+                    description: Идентификатор созданной страницы
               example:
-                {
-                  "status": "success",
-                  "message": "Folder open"
-                }
-    
-        '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
+                status: "success"
+                message: "Page created successfully"
+                pageId: "page_123"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '409':
+          description: Страница уже существует
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: "Page already exists at this path"
+        '500':
           $ref: '#/components/responses/InternalServerError'
-  /view page:
+
+  /view-page:
     get:
-      summary: Посмотреть содержаие страницы
-      description: Посмотреть содержаие страницы по ID
+      summary: Просмотр содержимого страницы
+      description: Получение содержимого страницы по её идентификатору
       parameters:
         - in: query
           name: id
           schema:
-            type: integer
-            format: int64 #  (или int32, в зависимости от диапазона ваших ID)
-            description: Идентификатор li (должен быть числом).
-            example: 1
+            type: string
           required: true
+          description: Идентификатор страницы
       responses:
         '200':
-          description: Станица готова для просмотра
+          description: Содержимое страницы успешно получено
           content:
             application/json:
               schema:
@@ -361,16 +434,60 @@ paths:
                 properties:
                   status:
                     type: string
-                    example: "success"
-                  message:
-                    type: string
-                    example: "Folder open"
-                example:
-                  {
-                    "status": "success",
-                    "message": "pageview"
-                  }
-        '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
+                    enum: [success]
+                  content:
+                    type: object
+                    properties:
+                      title:
+                        type: string
+                      sections:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            content:
+                              type: string
+                            type:
+                              type: string
+                              enum: [text, image, code]
+                  metadata:
+                    type: object
+                    properties:
+                      created:
+                        type: string
+                        format: date-time
+                      modified:
+                        type: string
+                        format: date-time
+              example:
+                status: "success"
+                content: {
+                  title: "Sample Page",
+                  sections: [
+                    {
+                      id: "section_1",
+                      content: "Sample content",
+                      type: "text"
+                    }
+                  ]
+                }
+                metadata: {
+                  created: "2024-03-20T10:00:00Z",
+                  modified: "2024-03-20T10:00:00Z"
+                }
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          description: Страница не найдена
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: "Page not found"
+        '500':
           $ref: '#/components/responses/InternalServerError'
 
 
