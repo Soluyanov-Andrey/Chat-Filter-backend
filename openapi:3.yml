@@ -235,6 +235,75 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
 
+  /delete_select:
+    post:
+      summary: Удалит все что выделено галочками
+      description: Создает новую тему на страницу
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+             type: array  # Изменяем тип на array
+             items:  # Описываем элементы массива
+              type: string
+      responses:
+        '201':
+          description: Удалили все выделенное галочками успешно.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  message:
+                    type: string
+                    example: "File modified"
+                example:
+                  {
+                    "status": "success",
+                    "message": "File modified"
+                  }
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /leave_selected:
+    post:
+      summary: Оставим выделеное остальное удаляем
+      description: Оставим выделеное остальное удаляем
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+             type: array  # Изменяем тип на array
+             items:  # Описываем элементы массива
+              type: string
+      responses:
+        '201':
+          description: Удалили все выделенное галочками успешно.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  message:
+                    type: string
+                    example: "File modified"
+                example:
+                  {
+                    "status": "success",
+                    "message": "File modified"
+                  }
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+
   /create-page:
     get:  
       summary: Создаем страницу
