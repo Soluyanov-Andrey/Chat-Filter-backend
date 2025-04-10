@@ -7,7 +7,7 @@ const { saveNewFile } = require('./function/subsidiary/deleteNavBlock');
 const cors = require('cors'); // Импортируем cors
 const { IP , FULL_PATH , PATH_ILE_NAME_NEW , PATH_FILE_NAME_NEW } = require('./config'); // Импортируем переменные
 const { doesFileSyncExist } = require('./function/subsidiary/fileUtils');
-
+const { delete_select } = require('./function/deleteList/delete_select');
 const app = express();
 const port = 3000;
 
@@ -105,28 +105,24 @@ app.post('/create-folder', async (req, res) => {
   }
 });
 
+
 // Асинхронный обработчик POST-запроса
 app.post('/delete_select', async (req, res) => {
   try {
-    const filePath = req.body.path; // Получаем значение свойства "path" из req.body
-
-        console.log('Полученный путь:', filePath); // Выводим только путь
-    // console.log(' /folder-structure called');
-    // // Вызываем асинхронную функцию и ждем её завершения
-    // source = './test';
-    // destination = '';
-    source = './document';
-
-      copyDirectory(source, filePath );
-
-      const responseData = {
-      message: 'Папка создана'
+    const selectedIds = req.body; // Получаем массив ID напрямую из req.body
+    
+    console.log('Полученные ID:', selectedIds); // Выводим массив ID для отладки
+    
+    // Здесь будет логика удаления элементов по их ID
+    // TODO: Реализовать удаление элементов по их ID
+    
+    const responseData = {
+      message: 'Элементы успешно удалены',
+      deletedIds: selectedIds
     };
 
-    // Отправляем JSON-ответ
     res.json(responseData);
   } catch (error) {
-    // Обработка ошибок
     console.error('Error:', error);
     res.status(500).json({
       message: 'Произошла ошибка при обработке запроса',
