@@ -16,7 +16,7 @@ describe('array_select with real path', () => {
 
   it('delete_select with real path ', () => {
   
-    const indicesToSelect = [5, 6];
+    const indicesToSelect = [5];
     success = delete_select(indicesToSelect);
     if (success) {
       console.log("delete_select в файле выполнена успешно");
