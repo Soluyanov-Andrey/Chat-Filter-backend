@@ -102,7 +102,7 @@ async function saveListedHTML(pathFile, pathFileNew, targetTexts) {
   try {
     const readFile = await readFileContent(pathFile);
     const filterHTML = filterChatBoxesRemoveListed(readFile, targetTexts);
-    console.log(filterHTML);
+    // console.log(filterHTML);
 
     await saveHtmlToFile(pathFileNew, filterHTML);
 

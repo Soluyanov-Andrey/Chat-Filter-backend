@@ -1,7 +1,8 @@
 const fs = require('fs');
 const { saveHtmlToFile } = require('./fileUtils'); 
 const { readFileContent } = require('./fileUtils');
-
+const { replaceFile } = require('./fileUtils');
+const { PATH_FILE_NAME_NEW, PATH_FILE_TEMP_NEW}  = require('../../config');
 // Mock the fs module to prevent actual file writes during tests
 jest.mock('fs');
 
@@ -107,3 +108,4 @@ describe('readFileContent', () => {
     expect(() => readFileContent(filePath, encoding)).toThrowError('Не удалось прочитать файл как строку');
   });
 });
+

@@ -128,6 +128,83 @@ function doesFileSyncExist(filePath) {
   }
 }
 
+
+/**
+ * Заменяет существующий файл, удаляя старую версию и переименовывая временный файл.
+ *
+ * Эта функция выполняет следующие действия:
+ * 1. Пытается удалить файл, указанный в `finalFilePath`. Если файл не существует,
+ *    функция продолжает выполнение без ошибок.  Если происходит другая ошибка при
+ *    удалении файла, функция прекращает выполнение и возвращает `false`.
+ * 2. Переименовывает файл, указанный в `tempFilePath`, в `finalFilePath`.
+ *    Если происходит ошибка во время переименования, функция прекращает выполнение
+ *    и возвращает `false`.
+ *
+ * **Важно:** Эта функция использует синхронные методы модуля `fs`, что может
+ *           привести к блокировке основного потока выполнения Node.js.
+ *           Рекомендуется использовать асинхронные методы для неблокирующей работы с файлами,
+ *           если это возможно.
+ *
+ * @param {string} tempFilePath - Путь к временному файлу, который нужно переименовать.
+ * @param {string} finalFilePath - Путь к финальному файлу, который должен быть заменен.
+ * @returns {boolean} - `true`, если замена файла выполнена успешно, `false` в случае ошибки.
+ *
+ * @throws {Error} - Возможные ошибки файловой системы (например, отсутствие прав доступа,
+ *                 несуществующий файл или директория, и т.д.), которые могут быть
+ *                 выброшены синхронными методами `fs.unlinkSync` и `fs.renameSync`.
+ *                 Однако, функция перехватывает и обрабатывает эти ошибки, возвращая `false`.
+ *
+ * @example
+ * // Пример использования:
+ * const TEMP_FILE = 'ChatGPT_NEW_TEMP.html';
+ * const FINAL_FILE = 'ChatGPT_NEW.html';
+ *
+ * const success = replaceFile(TEMP_FILE, FINAL_FILE);
+ *
+ * if (success) {
+ *   console.log("Замена файла выполнена успешно.");
+ * } else {
+ *   console.error("Замена файла не удалась.");
+ * }
+ */
+
+function replaceFile(tempFilePath, finalFilePath) {
+  console.log(finalFilePath);
+  // if (fs.existsSync(finalFilePath)) {
+  //   console.log("Файл существует. Попытка удаления.");
+  //   // fs.unlinkSync(finalFilePath);
+  // } else {
+  //   console.log("Файл не существует.");
+  // }
+  
+  try {
+    // 1. Пытаемся удалить финальный файл (если он существует)
+    try {
+      fs.unlinkSync(finalFilePath);
+      console.log(`Файл ${finalFilePath} успешно удален.`);
+    } catch (unlinkError) {
+      // Если файла не существует, то это не ошибка. Просто продолжаем.
+      if (unlinkError.code !== 'ENOENT') {
+        // Если это другая ошибка, то выбрасываем её.
+        console.error(`Ошибка при удалении файла ${finalFilePath}:`, unlinkError);
+        return false; // Прекращаем выполнение из-за ошибки
+      } else {
+        console.log(`Файл ${finalFilePath} не существует, продолжаем.`);
+      }
+    }
+
+    // // 2. Переименовываем временный файл в финальный файл
+    fs.renameSync(tempFilePath, finalFilePath);
+    console.log(`Файл ${tempFilePath} успешно переименован в ${finalFilePath}.`);
+
+    return true; // Успешное выполнение
+  } catch (error) {
+    console.error("Ошибка при замене файла:", error);
+    return false; // Неудача
+  }
+}
+
+module.exports.replaceFile =  replaceFile;
 module.exports.doesFileSyncExist =  doesFileSyncExist;
 module.exports.copyFileSync =  copyFileSync;
 module.exports.readFileContent = readFileContent;

@@ -1,27 +1,25 @@
 const fs = require('fs');
 const { saveListedHTML } = require('./deleteBlokScaner');
+const { FULL_PATH_FILE_TEST , FULL_PATH } = require('../../config');
 
 describe('saveFilterHTML', () => {
-  const pathFile = '/media/andrey/project/project/servers/SERVER-node-chatGPT/test/ChatGPT _ ChatGPT 4o Free _ Support all countries.html';
-  const pathFileNew = '/media/andrey/project/project/servers/SERVER-node-chatGPT/test/C3.html';
-
+ 
   const targetTexts = [
-    'как в текстовом '
+    'как в текстовом ',
+    'На node js например у меня есть переменнаяя text = '
   ];
 
   it('should read, filter, and save HTML based on target texts', async () => {
     // Вызываем функцию
     try {
-      await saveListedHTML(pathFile, pathFileNew, targetTexts);
+      await saveListedHTML( FULL_PATH, FULL_PATH_FILE_TEST, targetTexts);
 
       // Проверка: убедимся, что файл был создан
-      expect(fs.existsSync(pathFileNew)).toBe(true);
+      expect(fs.existsSync(FULL_PATH_FILE_TEST)).toBe(true);
 
-      // Дальнейшие проверки (например, содержимого файла)
-      // Добавьте код для чтения содержимого файла и проверки,
-      // что оно соответствует вашим ожиданиям.
+      
 
-      const savedContent = fs.readFileSync(pathFileNew, 'utf-8');
+      const savedContent = fs.readFileSync(FULL_PATH_FILE_TEST, 'utf-8');
       expect(typeof savedContent).toBe('string');  // Sanity check: is it a string?
 
       // TODO: Add more specific assertions about the file content here,

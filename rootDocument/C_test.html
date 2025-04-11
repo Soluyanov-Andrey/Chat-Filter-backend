@@ -1339,13 +1339,262 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 
     <div class="wrapper d-flex align-items-stretch">
         <!-- Sidebar -->
+        <nav class="flex-shrink-0 overflow-x-hidden bg-token-sidebar-surface-primary" id="sidebar">
+    <div class="flex h-full min-h-0 flex-col">
+        <div class="px-2 wrap-header-sidebar">
+            <div class="flex justify-between flex h-14 items-center">
+                <span>
+                    <button type="button" id="sidebarCollapse" title="Close or open sidebar" class="btn-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="open-close-sidebar-computer">
+                            <path fill="currentColor" fill-rule="evenodd" d="M8.857 3h6.286c1.084 0 1.958 0 2.666.058.729.06 1.369.185 1.961.487a5 5 0 0 1 2.185 2.185c.302.592.428 1.233.487 1.961.058.708.058 1.582.058 2.666v3.286c0 1.084 0 1.958-.058 2.666-.06.729-.185 1.369-.487 1.961a5 5 0 0 1-2.185 2.185c-.592.302-1.232.428-1.961.487C17.1 21 16.227 21 15.143 21H8.857c-1.084 0-1.958 0-2.666-.058-.728-.06-1.369-.185-1.96-.487a5 5 0 0 1-2.186-2.185c-.302-.592-.428-1.232-.487-1.961C1.5 15.6 1.5 14.727 1.5 13.643v-3.286c0-1.084 0-1.958.058-2.666.06-.728.185-1.369.487-1.96A5 5 0 0 1 4.23 3.544c.592-.302 1.233-.428 1.961-.487C6.9 3 7.773 3 8.857 3M6.354 5.051c-.605.05-.953.142-1.216.276a3 3 0 0 0-1.311 1.311c-.134.263-.226.611-.276 1.216-.05.617-.051 1.41-.051 2.546v3.2c0 1.137 0 1.929.051 2.546.05.605.142.953.276 1.216a3 3 0 0 0 1.311 1.311c.263.134.611.226 1.216.276.617.05 1.41.051 2.546.051h.6V5h-.6c-1.137 0-1.929 0-2.546.051M11.5 5v14h3.6c1.137 0 1.929 0 2.546-.051.605-.05.953-.142 1.216-.276a3 3 0 0 0 1.311-1.311c.134-.263.226-.611.276-1.216.05-.617.051-1.41.051-2.546v-3.2c0-1.137 0-1.929-.051-2.546-.05-.605-.142-.953-.276-1.216a3 3 0 0 0-1.311-1.311c-.263-.134-.611-.226-1.216-.276C17.029 5.001 16.236 5 15.1 5zM5 8.5a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1M5 12a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1" clip-rule="evenodd"></path>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="open-close-sidebar-mobi">
+                            <path fill="currentColor" fill-rule="evenodd" d="M3 8a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1m0 8a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </span>
+                <span>
+                    <button type="button" data-toggle="tooltip" data-bs-placement="bottom" class="btn-svg btn-new-chat" aria-label="New chat" data-bs-original-title="New chat">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M15.673 3.913a3.121 3.121 0 1 1 4.414 4.414l-5.937 5.937a5 5 0 0 1-2.828 1.415l-2.18.31a1 1 0 0 1-1.132-1.13l.311-2.18A5 5 0 0 1 9.736 9.85zm3 1.414a1.12 1.12 0 0 0-1.586 0l-5.937 5.937a3 3 0 0 0-.849 1.697l-.123.86.86-.122a3 3 0 0 0 1.698-.849l5.937-5.937a1.12 1.12 0 0 0 0-1.586M11 4A1 1 0 0 1 10 5c-.998 0-1.702.008-2.253.06-.54.052-.862.141-1.109.267a3 3 0 0 0-1.311 1.311c-.134.263-.226.611-.276 1.216C5.001 8.471 5 9.264 5 10.4v3.2c0 1.137 0 1.929.051 2.546.05.605.142.953.276 1.216a3 3 0 0 0 1.311 1.311c.263.134.611.226 1.216.276.617.05 1.41.051 2.546.051h3.2c1.137 0 1.929 0 2.546-.051.605-.05.953-.142 1.216-.276a3 3 0 0 0 1.311-1.311c.126-.247.215-.569.266-1.108.053-.552.06-1.256.06-2.255a1 1 0 1 1 2 .002c0 .978-.006 1.78-.069 2.442-.064.673-.192 1.27-.475 1.827a5 5 0 0 1-2.185 2.185c-.592.302-1.232.428-1.961.487C15.6 21 14.727 21 13.643 21h-3.286c-1.084 0-1.958 0-2.666-.058-.728-.06-1.369-.185-1.96-.487a5 5 0 0 1-2.186-2.185c-.302-.592-.428-1.233-.487-1.961C3 15.6 3 14.727 3 13.643v-3.286c0-1.084 0-1.958.058-2.666.06-.729.185-1.369.487-1.961A5 5 0 0 1 5.73 3.545c.556-.284 1.154-.411 1.827-.475C8.22 3.007 9.021 3 10 3A1 1 0 0 1 11 4">
+                            </path>
+                        </svg>
+                    </button>
+                </span>
+            </div>
+        </div>
+
+        <ul class="wrap-history-messages scrollbar" style="flex-grow: 4; order: 2;"><div class="history-message-item">
+
+                            <ul class="history-message-item__container">
+            <li class="history-message-list-item active" id="396158">
+                <a href="javascript:void(0)" class="history-message-link-item">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">
+                            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
+                        </svg>
+                        <div class="history-message-name animated-text" id="vwqujdlf" contenteditable="false">как в текстовом фармате обозначется перенос на следующую строку,</div>
+                    </div>
+                    <div class="history-message__action">
+                        <button type="button" title="Rename" class="btn-edit-history-message">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                                <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"></path>
+                            </svg>
+                        </button>
+                        <button type="button" title="Delete" class="btn-delete-history-message">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"></path>
+                                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </a>
+            </li></ul></div></ul>
+
+
         
+        <ul class="px-2 list-unstyled components menu-components mb-5" style="order: 3;">
+            <li class="ai-chat active">
+                <a data-savepage-href="https://chatgptchatapp.com" href="https://chatgptchatapp.com/">AI Chat</a>
+            </li>
+            
+            <li class="about ">
+                <a href="https://chatgptchatapp.com/en/about">About</a>
+            </li>
+            <li class="contact ">
+                <a href="https://chatgptchatapp.com/en/contact">Contact</a>
+            </li>
+            <li class="upgrade ">
+                <a href="https://chatgptchatapp.com/en/pricing">Upgrade</a>
+            </li>
+            
+            
+        </ul>
+
+        <div class="px-2 footer">
+            
+
+            <p class="footer__copyright">
+                ©
+                Copyright 2023-2025 Free ChatGPT platform
+            </p>
+            <!-- translate -->
+            
+            <div>
+                <a target="_blank" rel="noreferrer" href="https://t.me/chatgptchatapp" title="Group telegram ChatGPTChatApp">
+                    <svg class="hover:scale-125 ease-in duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="28px" height="28px">
+                        <path fill="#29b6f6" d="M24 4A20 20 0 1 0 24 44A20 20 0 1 0 24 4Z"></path>
+                        <path fill="#fff" d="M33.95,15l-3.746,19.126c0,0-0.161,0.874-1.245,0.874c-0.576,0-0.873-0.274-0.873-0.274l-8.114-6.733 l-3.97-2.001l-5.095-1.355c0,0-0.907-0.262-0.907-1.012c0-0.625,0.933-0.923,0.933-0.923l21.316-8.468 c-0.001-0.001,0.651-0.235,1.126-0.234C33.667,14,34,14.125,34,14.5C34,14.75,33.95,15,33.95,15z">
+                        </path>
+                        <path fill="#b0bec5" d="M23,30.505l-3.426,3.374c0,0-0.149,0.115-0.348,0.12c-0.069,0.002-0.143-0.009-0.219-0.043 l0.964-5.965L23,30.505z">
+                        </path>
+                        <path fill="#cfd8dc" d="M29.897,18.196c-0.169-0.22-0.481-0.26-0.701-0.093L16,26c0,0,2.106,5.892,2.427,6.912 c0.322,1.021,0.58,1.045,0.58,1.045l0.964-5.965l9.832-9.096C30.023,18.729,30.064,18.416,29.897,18.196z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
 
         <!-- Page Content  -->
         <main id="content">
                         <script data-savepage-type="text/javascript" type="text/plain"></script>
         <div class="wrap-container container wrap-chat-message-gpt">
-        
+        <div class="header wrap-header-chat-message-gpt">
+    <div class="wrap-btn-sidebar" style="display: none;">
+        <span>
+            <button type="button" id="sidebarCollapse" title="Close or open sidebar" class="btn-svg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="open-close-sidebar-computer">
+                    <path fill="currentColor" fill-rule="evenodd" d="M8.857 3h6.286c1.084 0 1.958 0 2.666.058.729.06 1.369.185 1.961.487a5 5 0 0 1 2.185 2.185c.302.592.428 1.233.487 1.961.058.708.058 1.582.058 2.666v3.286c0 1.084 0 1.958-.058 2.666-.06.729-.185 1.369-.487 1.961a5 5 0 0 1-2.185 2.185c-.592.302-1.232.428-1.961.487C17.1 21 16.227 21 15.143 21H8.857c-1.084 0-1.958 0-2.666-.058-.728-.06-1.369-.185-1.96-.487a5 5 0 0 1-2.186-2.185c-.302-.592-.428-1.232-.487-1.961C1.5 15.6 1.5 14.727 1.5 13.643v-3.286c0-1.084 0-1.958.058-2.666.06-.728.185-1.369.487-1.96A5 5 0 0 1 4.23 3.544c.592-.302 1.233-.428 1.961-.487C6.9 3 7.773 3 8.857 3M6.354 5.051c-.605.05-.953.142-1.216.276a3 3 0 0 0-1.311 1.311c-.134.263-.226.611-.276 1.216-.05.617-.051 1.41-.051 2.546v3.2c0 1.137 0 1.929.051 2.546.05.605.142.953.276 1.216a3 3 0 0 0 1.311 1.311c.263.134.611.226 1.216.276.617.05 1.41.051 2.546.051h.6V5h-.6c-1.137 0-1.929 0-2.546.051M11.5 5v14h3.6c1.137 0 1.929 0 2.546-.051.605-.05.953-.142 1.216-.276a3 3 0 0 0 1.311-1.311c.134-.263.226-.611.276-1.216.05-.617.051-1.41.051-2.546v-3.2c0-1.137 0-1.929-.051-2.546-.05-.605-.142-.953-.276-1.216a3 3 0 0 0-1.311-1.311c-.263-.134-.611-.226-1.216-.276C17.029 5.001 16.236 5 15.1 5zM5 8.5a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1M5 12a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1" clip-rule="evenodd"></path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="open-close-sidebar-mobi">
+                    <path fill="currentColor" fill-rule="evenodd" d="M3 8a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1m0 8a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </span>
+        <span>
+            <button type="button" data-toggle="tooltip" data-bs-placement="bottom" class="btn-svg btn-new-chat" aria-label="New chat" data-bs-original-title="New chat">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M15.673 3.913a3.121 3.121 0 1 1 4.414 4.414l-5.937 5.937a5 5 0 0 1-2.828 1.415l-2.18.31a1 1 0 0 1-1.132-1.13l.311-2.18A5 5 0 0 1 9.736 9.85zm3 1.414a1.12 1.12 0 0 0-1.586 0l-5.937 5.937a3 3 0 0 0-.849 1.697l-.123.86.86-.122a3 3 0 0 0 1.698-.849l5.937-5.937a1.12 1.12 0 0 0 0-1.586M11 4A1 1 0 0 1 10 5c-.998 0-1.702.008-2.253.06-.54.052-.862.141-1.109.267a3 3 0 0 0-1.311 1.311c-.134.263-.226.611-.276 1.216C5.001 8.471 5 9.264 5 10.4v3.2c0 1.137 0 1.929.051 2.546.05.605.142.953.276 1.216a3 3 0 0 0 1.311 1.311c.263.134.611.226 1.216.276.617.05 1.41.051 2.546.051h3.2c1.137 0 1.929 0 2.546-.051.605-.05.953-.142 1.216-.276a3 3 0 0 0 1.311-1.311c.126-.247.215-.569.266-1.108.053-.552.06-1.256.06-2.255a1 1 0 1 1 2 .002c0 .978-.006 1.78-.069 2.442-.064.673-.192 1.27-.475 1.827a5 5 0 0 1-2.185 2.185c-.592.302-1.232.428-1.961.487C15.6 21 14.727 21 13.643 21h-3.286c-1.084 0-1.958 0-2.666-.058-.728-.06-1.369-.185-1.96-.487a5 5 0 0 1-2.186-2.185c-.302-.592-.428-1.233-.487-1.961C3 15.6 3 14.727 3 13.643v-3.286c0-1.084 0-1.958.058-2.666.06-.729.185-1.369.487-1.961A5 5 0 0 1 5.73 3.545c.556-.284 1.154-.411 1.827-.475C8.22 3.007 9.021 3 10 3A1 1 0 0 1 11 4">
+                    </path>
+                </svg>
+            </button>
+        </span>
+    </div>
+
+    <div>
+                    <div class="btn-group wrap-dropdown wrap-chatgpt-model">
+                <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" title="Change model">
+                    <h1 id="model-name">ChatGPT</h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"></path>
+</svg>
+                </button>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item-model" id="model-chatgpt-4">
+                        <div class="dropdown-item">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path fill="currentColor" fill-rule="evenodd" d="M12 7.42a22 22 0 0 0-2.453 2.127A22 22 0 0 0 7.42 12a22 22 0 0 0 2.127 2.453c.807.808 1.636 1.52 2.453 2.128a22 22 0 0 0 2.453-2.128A22 22 0 0 0 16.58 12a22 22 0 0 0-2.127-2.453A22 22 0 0 0 12 7.42m1.751-1.154a25 25 0 0 1 2.104 1.88 25 25 0 0 1 1.88 2.103c.316-.55.576-1.085.779-1.59.35-.878.507-1.625.503-2.206-.003-.574-.16-.913-.358-1.111-.199-.199-.537-.356-1.112-.36-.58-.003-1.328.153-2.205.504-.506.203-1.04.464-1.59.78Zm3.983 7.485a25 25 0 0 1-1.88 2.104 25 25 0 0 1-2.103 1.88 13 13 0 0 0 1.59.779c.878.35 1.625.507 2.206.503.574-.003.913-.16 1.111-.358.199-.199.356-.538.36-1.112.003-.58-.154-1.328-.504-2.205a13 13 0 0 0-.78-1.59ZM12 18.99c.89.57 1.768 1.03 2.605 1.364 1.026.41 2.036.652 2.955.646.925-.006 1.828-.267 2.5-.94.673-.672.934-1.575.94-2.5.006-.919-.236-1.929-.646-2.954A15.7 15.7 0 0 0 18.99 12a15.6 15.6 0 0 0 1.364-2.606c.41-1.025.652-2.035.646-2.954-.006-.925-.267-1.828-.94-2.5-.672-.673-1.575-.934-2.5-.94-.919-.006-1.929.235-2.954.646-.838.335-1.716.795-2.606 1.364a15.7 15.7 0 0 0-2.606-1.364C8.37 3.236 7.36 2.994 6.44 3c-.925.006-1.828.267-2.5.94-.673.672-.934 1.575-.94 2.5-.006.919.235 1.929.646 2.955A15.7 15.7 0 0 0 5.01 12c-.57.89-1.03 1.768-1.364 2.605-.41 1.026-.652 2.036-.646 2.955.006.925.267 1.828.94 2.5.672.673 1.575.934 2.5.94.92.006 1.93-.235 2.955-.646A15.7 15.7 0 0 0 12 18.99m-1.751-1.255a25 25 0 0 1-2.104-1.88 25 25 0 0 1-1.88-2.104c-.315.55-.576 1.085-.779 1.59-.35.878-.507 1.625-.503 2.206.003.574.16.913.359 1.111.198.199.537.356 1.111.36.58.003 1.328-.153 2.205-.504.506-.203 1.04-.463 1.59-.78Zm-3.983-7.486a25 25 0 0 1 1.88-2.104 25 25 0 0 1 2.103-1.88 13 13 0 0 0-1.59-.779c-.878-.35-1.625-.507-2.206-.503-.574.003-.913.16-1.111.359-.199.198-.356.537-.36 1.111-.003.58.153 1.328.504 2.205.203.506.464 1.04.78 1.59Z" clip-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            <div class="info-model">
+                                <h2 class="info-model--title">ChatGPT 4o</h2>
+                                <p>Smart and fast for everyday tasks</p>
+                            </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="svg-checked">
+            <path fill="currentColor" fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12m14.076-4.068a1 1 0 0 1 .242 1.393l-4.75 6.75a1 1 0 0 1-1.558.098l-2.5-2.75a1 1 0 0 1 1.48-1.346l1.66 1.827 4.032-5.73a1 1 0 0 1 1.394-.242" clip-rule="evenodd"></path>
+        </svg></div>
+                    </li>
+                    <li class="dropdown-item-model" id="model-chatgpt-3-5">
+                        <div class="dropdown-item">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-layers-half" viewBox="0 0 16 16">
+                                    <path d="M8.235 1.559a.5.5 0 0 0-.47 0l-7.5 4a.5.5 0 0 0 0 .882L3.188 8 .264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l2.922-1.559a.5.5 0 0 0 0-.882zM8 9.433 1.562 6 8 2.567 14.438 6z"></path>
+                                </svg>
+                            </span>
+                            <div class="info-model">
+                                <h2 class="info-model--title">ChatGPT 3.5</h2>
+                                <p>Perfect for everyday tasks</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown-item-model" id="model-mistral-large">
+                        <div class="dropdown-item">
+                            <span>
+                                <svg width="36px" height="36px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" stroke-width="3" stroke="currentColor" fill="currentColor" style="font-size: 18px; margin-left: 7px; margin-top: -1px;">
+                                    <circle cx="34.52" cy="11.43" r="5.82"></circle>
+                                    <circle cx="53.63" cy="31.6" r="5.82"></circle>
+                                    <circle cx="34.52" cy="50.57" r="5.82"></circle>
+                                    <circle cx="15.16" cy="42.03" r="5.82"></circle>
+                                    <circle cx="15.16" cy="19.27" r="5.82"></circle>
+                                    <circle cx="34.51" cy="29.27" r="4.7"></circle>
+                                    <line x1="20.17" y1="16.3" x2="28.9" y2="12.93"></line>
+                                    <line x1="38.6" y1="15.59" x2="49.48" y2="27.52"></line>
+                                    <line x1="50.07" y1="36.2" x2="38.67" y2="46.49"></line>
+                                    <line x1="18.36" y1="24.13" x2="30.91" y2="46.01"></line>
+                                    <line x1="20.31" y1="44.74" x2="28.7" y2="48.63"></line>
+                                    <line x1="17.34" y1="36.63" x2="31.37" y2="16.32"></line>
+                                    <line x1="20.52" y1="21.55" x2="30.34" y2="27.1"></line>
+                                    <line x1="39.22" y1="29.8" x2="47.81" y2="30.45"></line>
+                                    <line x1="34.51" y1="33.98" x2="34.52" y2="44.74"></line>
+                                </svg>
+                            </span>
+                            <div class="info-model">
+                                <h2 class="info-model--title">Mistral large 2</h2>
+                                <p>Top reasoning capabilities</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown-item-model" id="model-pixtral">
+                        <div class="dropdown-item">
+                            <span>
+                                <svg fill="currentColor" width="36px" height="36px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22.365 8.729c.9 0 1.635-.735 1.635-1.635s-.735-1.636-1.635-1.636-1.636.735-1.636 1.636.723 1.635 1.636 1.635m-4.907 5.452a3.27 3.27 0 1 0 0-6.542 3.27 3.27 0 0 0 0 6.542m0 8.722c2.105 0 3.816-1.711 3.816-3.829s-1.711-3.816-3.829-3.816a3.82 3.82 0 0 0-3.816 3.816 3.825 3.825 0 0 0 3.829 3.83M6.542 14.18a6.542 6.542 0 1 0 0-13.084 6.542 6.542 0 1 0 0 13.084"></path>
+                                </svg>
+                            </span>
+                            <div class="info-model">
+                                <h2 class="info-model--title">Pixtral</h2>
+                                <p>Prompt text and images</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown-item-model" id="model-codestral">
+                        <div class="dropdown-item">
+                            <span>
+                                <svg width="36px" height="36px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size: 23px; margin-left: 5px; margin-top: -1px;">
+                                    <path d="M9 8L5 11.6923L9 16M15 8L19 11.6923L15 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </span>
+                            <div class="info-model">
+                                <h2 class="info-model--title">Codestral</h2>
+                                <p>Fast and specialized in code</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            </div>
+
+    <div>
+        <div class="btn-group wrap-dropdown wrap-dropdown-action-user">
+            <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" title="Action account">
+                                    <img data-savepage-src="https://lh3.googleusercontent.com/a/ACg8ocI6Pv-D_ZJjE5D_lWkPNtygGqjPp_Xi5MH1m5vwRa23zlqu9A=s96-c" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAIAAABt+uBvAAAAA3NCSVQICAjb4U/gAAAABmJLR0QAvwA2AAxChPGzAAAFMklEQVR4nO2aa2xTZRjHT3vWe13Xy85mx+i6CzJhbGKcLBjIAoLxkqlTYzBmS1DDYvTDNJFIAh8mMS6EmEgwI9GEiNHBjHGKDCOBCNMlOOaAhY0K7W7djXWlXe89PX4gnp22sqe17dt9eH7fnifv5Z9fds56znlF52vVFHJ/xNkOsNJBQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAeRkOwBFUZS2tl63abu8sJhWqCiRiPUuhj0uv31s5uxJv92W3WyiLJ7uUBSXm9/8UFNTJ2OKKJEofgAXDgVmJ51XLtm++CRbprImqLy1vfCZXTlqTSKDWY9r7nz3cFtLplPFQzcXSQlvKdEaqj/9jtneKJbKE5wilsrUazYYtj67aLkWmLVnNF4MpP+CaKX6kc/PqNfWxPRZj9s3cTvkdnLBAK1USTR6udEklilihvnGbw2++zzJy420oKrDXfrNO4WdsGth+vTX1mMHWe+isE8r1WXvfJRf3yDRGoR9942B/uYtJLLei0HyEjPt3mtsaBLej722kesfvDb90wkuFIwZzIWC8709C5cvaNbXSvUM35flPygSi539F8lkJvc7SKI1FL/aQomXdvRPjQ3ta3LfuLLMrMWRwautjTHXVOFzr2coZDzkBJW2HMjJ1fElFw5ZO9o8fw+BEwOzdtuX7VQkwndkTFHh07sykjIOcoL0m58SlguXL8yc+TbBudM/fuWxDgs7uugbWeYgJMj44htSQyFfciw7eaojqRUWLdeEpcJoSk8yCEKC8jY+ISx9Y5b53rNJreC13RSWtEKVhlgJQOhZTFXykLD0jlmSXcE/NRp2OfgyEvCnIVYCEBIk0eULy0XL9WRXmOnpnOnpTF+iRCF0iYllUU8VvvFbZPZNHUKC6OiHBp99lMy+qUNIkEgS9XvddbWPzL6pg28UAVAQAAoCQEEAKAgABQEQEsSFQ8Iyd8MmMvumDiFBkYBPWBJ7Fk8dQoJYf7SgVaVk9k0dQg+rIee8VF/Al6rydcmuwOx8uaK1nS/9U2P9zVvTE25ZCAny2kZUZQ/zpdK0JtkVFEazJG/p80bQMZeeZBCELjHnX73CUmmq0NbWJ7WCYnWZsIz5RpQ5CAmaPNkRdMzypYjOWfXKnqRWUFdUCUvv6M37jUwv5H4HOX7/RVhqH9+Wv+2FBOcyTzaqSiuXao6bO/d9GrMtAzlB1o62sNu5tLFUVtpyQMYYwYm0Ul2ye6+IXrpdeqzDyb7S/t+QExSYtU92HaM4ju8oisuqDnfJjSXLzJIxxurPflCa1/IdjmUnvjmSuZwxEP307PzzN011naLIzHek+gJmx0tiufLuwKX48eY9+yveP6QyVwqb8xdP3z6yP+NZ/4X04QWJ1lBz9OeoGwpFURQVct7xjlrCroVIMEArVFIdIzeacnK1McPuDv4x8NYOUmEpKisHqGSMcd3HJ3LXP5bctEjE0ffr0L4mYv/g75GFA1Ssxz3VfVzGGJWry8WShHYPLdyZ6Dw6cvDt+EMgmSabZxQfqNy4uqlVU10n1TH/OYALBf3T446+c5ZD7xHOxpNNQTz59Q15j26RFRTRSjVFUazHzXrcvknrVPdxwgfu4lkRglYy+EYRAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCCAfwDgjXVc/01o7wAAAABJRU5ErkJggg==" class="image-avatar" alt="avatar" width="20" height="20" style="margin-right: 5px;">
+                            </button>
+            <ul class="dropdown-menu">
+                                    <li><span class="dropdown-item text-token-text-secondary" style="pointer-events: none;">pismo.home7@gmail.com</span></li>
+                    <li class="line-divider-bottom"></li>
+                    <li>
+                        <a class="dropdown-item" href="https://chatgptchatapp.com/en/your-upgraded-plan">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
+                                <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"></path>
+                            </svg>
+                            Your upgraded plan
+                        </a>
+                    </li>
+                                <li>
+                    <button type="button" class="dropdown-item" id="setting-modal" title="Setting">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+    <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"></path>
+    <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"></path>
+</svg>
+                        Setting
+                    </button>
+                </li>
+                <li class="line-divider-top"></li>
+                <li>
+                    <a class="dropdown-item" href="https://chatgptchatapp.com/en/logout">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="h-5 w-5 shrink-0">
+                            <path fill="currentColor" fill-rule="evenodd" d="M6 4a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h4a1 1 0 1 1 0 2H6a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h4a1 1 0 1 1 0 2zm9.293 3.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414-1.414L17.586 13H11a1 1 0 1 1 0-2h6.586l-2.293-2.293a1 1 0 0 1 0-1.414" clip-rule="evenodd"></path>
+                        </svg>
+                        Log out
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
         <div class="content scrollbar">
             
             <div class="wrap_instruct gap-3.5 text-center" style="display: none;">
@@ -1453,278 +1702,13 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
                 </div>
                         <div class="wrap-message">
                 <div class="container-message markdown-body" id="chat-box">
-                <div class="chat-box human">
-                    <div class="avatar-img"><img data-savepage-src="https://lh3.googleusercontent.com/a/ACg8ocI6Pv-D_ZJjE5D_lWkPNtygGqjPp_Xi5MH1m5vwRa23zlqu9A=s96-c" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAIAAABt+uBvAAAAA3NCSVQICAjb4U/gAAAABmJLR0QAvwA2AAxChPGzAAAFMklEQVR4nO2aa2xTZRjHT3vWe13Xy85mx+i6CzJhbGKcLBjIAoLxkqlTYzBmS1DDYvTDNJFIAh8mMS6EmEgwI9GEiNHBjHGKDCOBCNMlOOaAhY0K7W7djXWlXe89PX4gnp22sqe17dt9eH7fnifv5Z9fds56znlF52vVFHJ/xNkOsNJBQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAeRkOwBFUZS2tl63abu8sJhWqCiRiPUuhj0uv31s5uxJv92W3WyiLJ7uUBSXm9/8UFNTJ2OKKJEofgAXDgVmJ51XLtm++CRbprImqLy1vfCZXTlqTSKDWY9r7nz3cFtLplPFQzcXSQlvKdEaqj/9jtneKJbKE5wilsrUazYYtj67aLkWmLVnNF4MpP+CaKX6kc/PqNfWxPRZj9s3cTvkdnLBAK1USTR6udEklilihvnGbw2++zzJy420oKrDXfrNO4WdsGth+vTX1mMHWe+isE8r1WXvfJRf3yDRGoR9942B/uYtJLLei0HyEjPt3mtsaBLej722kesfvDb90wkuFIwZzIWC8709C5cvaNbXSvUM35flPygSi539F8lkJvc7SKI1FL/aQomXdvRPjQ3ta3LfuLLMrMWRwautjTHXVOFzr2coZDzkBJW2HMjJ1fElFw5ZO9o8fw+BEwOzdtuX7VQkwndkTFHh07sykjIOcoL0m58SlguXL8yc+TbBudM/fuWxDgs7uugbWeYgJMj44htSQyFfciw7eaojqRUWLdeEpcJoSk8yCEKC8jY+ISx9Y5b53rNJreC13RSWtEKVhlgJQOhZTFXykLD0jlmSXcE/NRp2OfgyEvCnIVYCEBIk0eULy0XL9WRXmOnpnOnpTF+iRCF0iYllUU8VvvFbZPZNHUKC6OiHBp99lMy+qUNIkEgS9XvddbWPzL6pg28UAVAQAAoCQEEAKAgABQEQEsSFQ8Iyd8MmMvumDiFBkYBPWBJ7Fk8dQoJYf7SgVaVk9k0dQg+rIee8VF/Al6rydcmuwOx8uaK1nS/9U2P9zVvTE25ZCAny2kZUZQ/zpdK0JtkVFEazJG/p80bQMZeeZBCELjHnX73CUmmq0NbWJ7WCYnWZsIz5RpQ5CAmaPNkRdMzypYjOWfXKnqRWUFdUCUvv6M37jUwv5H4HOX7/RVhqH9+Wv+2FBOcyTzaqSiuXao6bO/d9GrMtAzlB1o62sNu5tLFUVtpyQMYYwYm0Ul2ye6+IXrpdeqzDyb7S/t+QExSYtU92HaM4ju8oisuqDnfJjSXLzJIxxurPflCa1/IdjmUnvjmSuZwxEP307PzzN011naLIzHek+gJmx0tiufLuwKX48eY9+yveP6QyVwqb8xdP3z6yP+NZ/4X04QWJ1lBz9OeoGwpFURQVct7xjlrCroVIMEArVFIdIzeacnK1McPuDv4x8NYOUmEpKisHqGSMcd3HJ3LXP5bctEjE0ffr0L4mYv/g75GFA1Ssxz3VfVzGGJWry8WShHYPLdyZ6Dw6cvDt+EMgmSabZxQfqNy4uqlVU10n1TH/OYALBf3T446+c5ZD7xHOxpNNQTz59Q15j26RFRTRSjVFUazHzXrcvknrVPdxwgfu4lkRglYy+EYRAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCCAfwDgjXVc/01o7wAAAABJRU5ErkJggg==" class="image-avatar" alt="avatar" width="35" height="35"></div>
-                    <div class="message-content">
-                        
-                        <div class="message scrollbar" id="7dthvsz">
-                            <div class="chat-box__human--wrap-hint-tools">
-                            </div>
-                            <div class="chat-box__human--prompt">как в текстовом фармате обозначется перенос на следующую строку,</div>
-                        </div>
-                        <div class="chat-box-human-footer">
-                            <div class="wrap-btn-action">
-                                <button class="btn-edit-question" title="Edit message" aria-label="Edit message">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-md"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.2929 4.29291C15.0641 2.52167 17.9359 2.52167 19.7071 4.2929C21.4784 6.06414 21.4784 8.93588 19.7071 10.7071L18.7073 11.7069L11.6135 18.8007C10.8766 19.5376 9.92793 20.0258 8.89999 20.1971L4.16441 20.9864C3.84585 21.0395 3.52127 20.9355 3.29291 20.7071C3.06454 20.4788 2.96053 20.1542 3.01362 19.8356L3.80288 15.1C3.9742 14.0721 4.46243 13.1234 5.19932 12.3865L13.2929 4.29291ZM13 7.41422L6.61353 13.8007C6.1714 14.2428 5.87846 14.8121 5.77567 15.4288L5.21656 18.7835L8.57119 18.2244C9.18795 18.1216 9.75719 17.8286 10.1993 17.3865L16.5858 11L13 7.41422ZM18 9.5858L14.4142 6.00001L14.7071 5.70712C15.6973 4.71693 17.3027 4.71693 18.2929 5.70712C19.2831 6.69731 19.2831 8.30272 18.2929 9.29291L18 9.5858Z" fill="currentColor"></path></svg>
-                                </button>
-                            </div>
-                            <div class="wrap-btn-cancel-send">
-                                <button class="btn-cancel">Cancel</button>
-                                <button class="btn-send">Send</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             
-        <div class="wrap-ai-completed 723816">
-            <div class="chat-box ai-completed">
-                <div class="avatar">
-                    <svg width="28" height="28" viewBox="0 0 41 41" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="icon-sm icon-chatgpt" role="img">
-                        <path d="M37.5324 16.8707C37.9808 15.5241 38.1363 14.0974 37.9886 12.6859C37.8409 11.2744 37.3934 9.91076 36.676 8.68622C35.6126 6.83404 33.9882 5.3676 32.0373 4.4985C30.0864 3.62941 27.9098 3.40259 25.8215 3.85078C24.8796 2.7893 23.7219 1.94125 22.4257 1.36341C21.1295 0.785575 19.7249 0.491269 18.3058 0.500197C16.1708 0.495044 14.0893 1.16803 12.3614 2.42214C10.6335 3.67624 9.34853 5.44666 8.6917 7.47815C7.30085 7.76286 5.98686 8.3414 4.8377 9.17505C3.68854 10.0087 2.73073 11.0782 2.02839 12.312C0.956464 14.1591 0.498905 16.2988 0.721698 18.4228C0.944492 20.5467 1.83612 22.5449 3.268 24.1293C2.81966 25.4759 2.66413 26.9026 2.81182 28.3141C2.95951 29.7256 3.40701 31.0892 4.12437 32.3138C5.18791 34.1659 6.8123 35.6322 8.76321 36.5013C10.7141 37.3704 12.8907 37.5973 14.9789 37.1492C15.9208 38.2107 17.0786 39.0587 18.3747 39.6366C19.6709 40.2144 21.0755 40.5087 22.4946 40.4998C24.6307 40.5054 26.7133 39.8321 28.4418 38.5772C30.1704 37.3223 31.4556 35.5506 32.1119 33.5179C33.5027 33.2332 34.8167 32.6547 35.9659 31.821C37.115 30.9874 38.0728 29.9178 38.7752 28.684C39.8458 26.8371 40.3023 24.6979 40.0789 22.5748C39.8556 20.4517 38.9639 18.4544 37.5324 16.8707ZM22.4978 37.8849C20.7443 37.8874 19.0459 37.2733 17.6994 36.1501C17.7601 36.117 17.8666 36.0586 17.936 36.0161L25.9004 31.4156C26.1003 31.3019 26.2663 31.137 26.3813 30.9378C26.4964 30.7386 26.5563 30.5124 26.5549 30.2825V19.0542L29.9213 20.998C29.9389 21.0068 29.9541 21.0198 29.9656 21.0359C29.977 21.052 29.9842 21.0707 29.9867 21.0902V30.3889C29.9842 32.375 29.1946 34.2791 27.7909 35.6841C26.3872 37.0892 24.4838 37.8806 22.4978 37.8849ZM6.39227 31.0064C5.51397 29.4888 5.19742 27.7107 5.49804 25.9832C5.55718 26.0187 5.66048 26.0818 5.73461 26.1244L13.699 30.7248C13.8975 30.8408 14.1233 30.902 14.3532 30.902C14.583 30.902 14.8088 30.8408 15.0073 30.7248L24.731 25.1103V28.9979C24.7321 29.0177 24.7283 29.0376 24.7199 29.0556C24.7115 29.0736 24.6988 29.0893 24.6829 29.1012L16.6317 33.7497C14.9096 34.7416 12.8643 35.0097 10.9447 34.4954C9.02506 33.9811 7.38785 32.7263 6.39227 31.0064ZM4.29707 13.6194C5.17156 12.0998 6.55279 10.9364 8.19885 10.3327C8.19885 10.4013 8.19491 10.5228 8.19491 10.6071V19.808C8.19351 20.0378 8.25334 20.2638 8.36823 20.4629C8.48312 20.6619 8.64893 20.8267 8.84863 20.9404L18.5723 26.5542L15.206 28.4979C15.1894 28.5089 15.1703 28.5155 15.1505 28.5173C15.1307 28.5191 15.1107 28.516 15.0924 28.5082L7.04046 23.8557C5.32135 22.8601 4.06716 21.2235 3.55289 19.3046C3.03862 17.3858 3.30624 15.3413 4.29707 13.6194ZM31.955 20.0556L22.2312 14.4411L25.5976 12.4981C25.6142 12.4872 25.6333 12.4805 25.6531 12.4787C25.6729 12.4769 25.6928 12.4801 25.7111 12.4879L33.7631 17.1364C34.9967 17.849 36.0017 18.8982 36.6606 20.1613C37.3194 21.4244 37.6047 22.849 37.4832 24.2684C37.3617 25.6878 36.8382 27.0432 35.9743 28.1759C35.1103 29.3086 33.9415 30.1717 32.6047 30.6641C32.6047 30.5947 32.6047 30.4733 32.6047 30.3889V21.188C32.6066 20.9586 32.5474 20.7328 32.4332 20.5338C32.319 20.3348 32.154 20.1698 31.955 20.0556ZM35.3055 15.0128C35.2464 14.9765 35.1431 14.9142 35.069 14.8717L27.1045 10.2712C26.906 10.1554 26.6803 10.0943 26.4504 10.0943C26.2206 10.0943 25.9948 10.1554 25.7963 10.2712L16.0726 15.8858V11.9982C16.0715 11.9783 16.0753 11.9585 16.0837 11.9405C16.0921 11.9225 16.1048 11.9068 16.1207 11.8949L24.1719 7.25025C25.4053 6.53903 26.8158 6.19376 28.2383 6.25482C29.6608 6.31589 31.0364 6.78077 32.2044 7.59508C33.3723 8.40939 34.2842 9.53945 34.8334 10.8531C35.3826 12.1667 35.5464 13.6095 35.3055 15.0128ZM14.2424 21.9419L10.8752 19.9981C10.8576 19.9893 10.8423 19.9763 10.8309 19.9602C10.8195 19.9441 10.8122 19.9254 10.8098 19.9058V10.6071C10.8107 9.18295 11.2173 7.78848 11.9819 6.58696C12.7466 5.38544 13.8377 4.42659 15.1275 3.82264C16.4173 3.21869 17.8524 2.99464 19.2649 3.1767C20.6775 3.35876 22.0089 3.93941 23.1034 4.85067C23.0427 4.88379 22.937 4.94215 22.8668 4.98473L14.9024 9.58517C14.7025 9.69878 14.5366 9.86356 14.4215 10.0626C14.3065 10.2616 14.2466 10.4877 14.2479 10.7175L14.2424 21.9419ZM16.071 17.9991L20.4018 15.4978L24.7325 17.9975V22.9985L20.4018 25.4983L16.071 22.9985V17.9991Z" fill="currentColor"></path>
-                    </svg>
-                </div>
-                <div class="wrap-ai-completed--content">
-                    <div class="message-completed" id="723816"><p>В текстовом формате перенос на следующую строку обычно обозначается комбинацией символов:</p>
-<ul>
-<li><strong>Windows:</strong> <code>\r\n</code> (carriage return + line feed)</li>
-<li><strong>Unix/Linux/macOS:</strong> <code>\n</code> (line feed)</li>
-<li><strong>Старый Mac (до macOS X):</strong> <code>\r</code> (carriage return)</li>
-</ul>
-<p><strong>Объяснение:</strong></p>
-<ul>
-<li><strong>Carriage Return (CR, <code>\r</code>)</strong>:  Изначально означал возврат каретки печатающей машинки в начало строки.</li>
-<li><strong>Line Feed (LF, <code>\n</code>)</strong>:  Изначально означал прокрутку бумаги на одну строку.</li>
-</ul>
-<p><strong>Почему разные системы используют разные символы?</strong></p>
-<p>Это историческое наследие разных подходов к печати и обработки текста.  Разные операционные системы выбрали разные стандарты, которые, к сожалению, остались с нами до сих пор.</p>
-<p><strong>Как это проявляется на практике?</strong></p>
-<ul>
-<li>Если вы откроете текстовый файл, созданный в Windows, в текстовом редакторе на Unix/Linux, вы можете увидеть символы <code>^M</code> (представление <code>\r</code>) в конце каждой строки.</li>
-<li>Если вы откроете текстовый файл, созданный в Unix/Linux, в Notepad на Windows, весь текст может отображаться в одну строку, потому что Notepad не понимает только символ <code>\n</code> как перенос строки.</li>
-</ul>
-<p><strong>Как это исправить?</strong></p>
-<p>Существуют инструменты и редакторы, которые умеют конвертировать переносы строк из одного формата в другой. Например, в Linux есть утилита <code>dos2unix</code> и <code>unix2dos</code>.  Многие продвинутые текстовые редакторы, такие как Notepad++, VS Code, Sublime Text, имеют встроенную функцию для автоматического определения и конвертации переносов строк.</p>
-<p><strong>В программировании:</strong></p>
-<p>Во многих языках программирования для создания переноса строки используется символ <code>\n</code>.  Языки программирования часто абстрагируют разницу между платформами, преобразуя <code>\n</code> в правильную комбинацию символов для текущей операционной системы.  Например, в Python:</p>
-<div class="code-block-wrapper">
-                <pre><code class="hljs language-python scrollbar">text = <span class="hljs-string">"Это первая строка.\nЭто вторая строка."</span>
-<span class="hljs-built_in">print</span>(text)</code></pre>
-                <div class="code-block-wrapper__footer">
-                    <div>
-                        <button class="btn-copy-code">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="code-block-wrapper__footer--title">
-                        <span>python</span>
-                    </div>
-                </div>
-            </div><p>Этот код выведет:</p>
-<div class="code-block-wrapper">
-                <pre><code class="hljs language- scrollbar">Это первая строка.
-Это вторая строка.</code></pre>
-                <div class="code-block-wrapper__footer">
-                    <div>
-                        <button class="btn-copy-code">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="code-block-wrapper__footer--title">
-                        <span></span>
-                    </div>
-                </div>
-            </div><p>Независимо от операционной системы.</p>
-<p><strong>В HTML:</strong></p>
-<p>В HTML перенос строки в тексте не обрабатывается автоматически.  Для добавления переноса строки используется тег <code>&lt;br&gt;</code>.</p>
-<p>В заключение, хотя <code class="">\n</code> является наиболее распространенным представлением переноса строки в современных системах, важно понимать, что существуют и другие варианты, особенно при работе с файлами, созданными на других платформах.</p>
-</div>
-                </div>
-            </div>
-            <div class="ai-completed-footer" style="display: flex;">
-                <div class="ai-completed-footer__left">
-                    <span class="ai-completed-footer__left--item">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard ai-completed-footer__left--clipboard" viewBox="0 0 16 16">
-                            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
-                            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
-                        </svg>
-                    </span>
-                </div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
+        
     
-                <div class="chat-box human">
-                    <div class="avatar-img"><img data-savepage-src="https://lh3.googleusercontent.com/a/ACg8ocI6Pv-D_ZJjE5D_lWkPNtygGqjPp_Xi5MH1m5vwRa23zlqu9A=s96-c" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAIAAABt+uBvAAAAA3NCSVQICAjb4U/gAAAABmJLR0QAvwA2AAxChPGzAAAFMklEQVR4nO2aa2xTZRjHT3vWe13Xy85mx+i6CzJhbGKcLBjIAoLxkqlTYzBmS1DDYvTDNJFIAh8mMS6EmEgwI9GEiNHBjHGKDCOBCNMlOOaAhY0K7W7djXWlXe89PX4gnp22sqe17dt9eH7fnifv5Z9fds56znlF52vVFHJ/xNkOsNJBQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAeRkOwBFUZS2tl63abu8sJhWqCiRiPUuhj0uv31s5uxJv92W3WyiLJ7uUBSXm9/8UFNTJ2OKKJEofgAXDgVmJ51XLtm++CRbprImqLy1vfCZXTlqTSKDWY9r7nz3cFtLplPFQzcXSQlvKdEaqj/9jtneKJbKE5wilsrUazYYtj67aLkWmLVnNF4MpP+CaKX6kc/PqNfWxPRZj9s3cTvkdnLBAK1USTR6udEklilihvnGbw2++zzJy420oKrDXfrNO4WdsGth+vTX1mMHWe+isE8r1WXvfJRf3yDRGoR9942B/uYtJLLei0HyEjPt3mtsaBLej722kesfvDb90wkuFIwZzIWC8709C5cvaNbXSvUM35flPygSi539F8lkJvc7SKI1FL/aQomXdvRPjQ3ta3LfuLLMrMWRwautjTHXVOFzr2coZDzkBJW2HMjJ1fElFw5ZO9o8fw+BEwOzdtuX7VQkwndkTFHh07sykjIOcoL0m58SlguXL8yc+TbBudM/fuWxDgs7uugbWeYgJMj44htSQyFfciw7eaojqRUWLdeEpcJoSk8yCEKC8jY+ISx9Y5b53rNJreC13RSWtEKVhlgJQOhZTFXykLD0jlmSXcE/NRp2OfgyEvCnIVYCEBIk0eULy0XL9WRXmOnpnOnpTF+iRCF0iYllUU8VvvFbZPZNHUKC6OiHBp99lMy+qUNIkEgS9XvddbWPzL6pg28UAVAQAAoCQEEAKAgABQEQEsSFQ8Iyd8MmMvumDiFBkYBPWBJ7Fk8dQoJYf7SgVaVk9k0dQg+rIee8VF/Al6rydcmuwOx8uaK1nS/9U2P9zVvTE25ZCAny2kZUZQ/zpdK0JtkVFEazJG/p80bQMZeeZBCELjHnX73CUmmq0NbWJ7WCYnWZsIz5RpQ5CAmaPNkRdMzypYjOWfXKnqRWUFdUCUvv6M37jUwv5H4HOX7/RVhqH9+Wv+2FBOcyTzaqSiuXao6bO/d9GrMtAzlB1o62sNu5tLFUVtpyQMYYwYm0Ul2ye6+IXrpdeqzDyb7S/t+QExSYtU92HaM4ju8oisuqDnfJjSXLzJIxxurPflCa1/IdjmUnvjmSuZwxEP307PzzN011naLIzHek+gJmx0tiufLuwKX48eY9+yveP6QyVwqb8xdP3z6yP+NZ/4X04QWJ1lBz9OeoGwpFURQVct7xjlrCroVIMEArVFIdIzeacnK1McPuDv4x8NYOUmEpKisHqGSMcd3HJ3LXP5bctEjE0ffr0L4mYv/g75GFA1Ssxz3VfVzGGJWry8WShHYPLdyZ6Dw6cvDt+EMgmSabZxQfqNy4uqlVU10n1TH/OYALBf3T446+c5ZD7xHOxpNNQTz59Q15j26RFRTRSjVFUazHzXrcvknrVPdxwgfu4lkRglYy+EYRAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCCAfwDgjXVc/01o7wAAAABJRU5ErkJggg==" class="image-avatar" alt="avatar" width="35" height="35"></div>
-                    <div class="message-content">
-                        
-                        <div class="message scrollbar" id="coctvlf">
-                            <div class="chat-box__human--wrap-hint-tools">
-                            </div>
-                            <div class="chat-box__human--prompt">На node js например у меня есть переменнаяя text = "привет мир", ее надо записать в файл и между словами привет и мир поставить знак разделитель</div>
-                        </div>
-                        <div class="chat-box-human-footer">
-                            <div class="wrap-btn-action">
-                                <button class="btn-edit-question" title="Edit message" aria-label="Edit message">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-md"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.2929 4.29291C15.0641 2.52167 17.9359 2.52167 19.7071 4.2929C21.4784 6.06414 21.4784 8.93588 19.7071 10.7071L18.7073 11.7069L11.6135 18.8007C10.8766 19.5376 9.92793 20.0258 8.89999 20.1971L4.16441 20.9864C3.84585 21.0395 3.52127 20.9355 3.29291 20.7071C3.06454 20.4788 2.96053 20.1542 3.01362 19.8356L3.80288 15.1C3.9742 14.0721 4.46243 13.1234 5.19932 12.3865L13.2929 4.29291ZM13 7.41422L6.61353 13.8007C6.1714 14.2428 5.87846 14.8121 5.77567 15.4288L5.21656 18.7835L8.57119 18.2244C9.18795 18.1216 9.75719 17.8286 10.1993 17.3865L16.5858 11L13 7.41422ZM18 9.5858L14.4142 6.00001L14.7071 5.70712C15.6973 4.71693 17.3027 4.71693 18.2929 5.70712C19.2831 6.69731 19.2831 8.30272 18.2929 9.29291L18 9.5858Z" fill="currentColor"></path></svg>
-                                </button>
-                            </div>
-                            <div class="wrap-btn-cancel-send">
-                                <button class="btn-cancel">Cancel</button>
-                                <button class="btn-send">Send</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             
-        <div class="wrap-ai-completed 916393">
-            <div class="chat-box ai-completed">
-                <div class="avatar">
-                    <svg width="28" height="28" viewBox="0 0 41 41" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="icon-sm icon-chatgpt" role="img">
-                        <path d="M37.5324 16.8707C37.9808 15.5241 38.1363 14.0974 37.9886 12.6859C37.8409 11.2744 37.3934 9.91076 36.676 8.68622C35.6126 6.83404 33.9882 5.3676 32.0373 4.4985C30.0864 3.62941 27.9098 3.40259 25.8215 3.85078C24.8796 2.7893 23.7219 1.94125 22.4257 1.36341C21.1295 0.785575 19.7249 0.491269 18.3058 0.500197C16.1708 0.495044 14.0893 1.16803 12.3614 2.42214C10.6335 3.67624 9.34853 5.44666 8.6917 7.47815C7.30085 7.76286 5.98686 8.3414 4.8377 9.17505C3.68854 10.0087 2.73073 11.0782 2.02839 12.312C0.956464 14.1591 0.498905 16.2988 0.721698 18.4228C0.944492 20.5467 1.83612 22.5449 3.268 24.1293C2.81966 25.4759 2.66413 26.9026 2.81182 28.3141C2.95951 29.7256 3.40701 31.0892 4.12437 32.3138C5.18791 34.1659 6.8123 35.6322 8.76321 36.5013C10.7141 37.3704 12.8907 37.5973 14.9789 37.1492C15.9208 38.2107 17.0786 39.0587 18.3747 39.6366C19.6709 40.2144 21.0755 40.5087 22.4946 40.4998C24.6307 40.5054 26.7133 39.8321 28.4418 38.5772C30.1704 37.3223 31.4556 35.5506 32.1119 33.5179C33.5027 33.2332 34.8167 32.6547 35.9659 31.821C37.115 30.9874 38.0728 29.9178 38.7752 28.684C39.8458 26.8371 40.3023 24.6979 40.0789 22.5748C39.8556 20.4517 38.9639 18.4544 37.5324 16.8707ZM22.4978 37.8849C20.7443 37.8874 19.0459 37.2733 17.6994 36.1501C17.7601 36.117 17.8666 36.0586 17.936 36.0161L25.9004 31.4156C26.1003 31.3019 26.2663 31.137 26.3813 30.9378C26.4964 30.7386 26.5563 30.5124 26.5549 30.2825V19.0542L29.9213 20.998C29.9389 21.0068 29.9541 21.0198 29.9656 21.0359C29.977 21.052 29.9842 21.0707 29.9867 21.0902V30.3889C29.9842 32.375 29.1946 34.2791 27.7909 35.6841C26.3872 37.0892 24.4838 37.8806 22.4978 37.8849ZM6.39227 31.0064C5.51397 29.4888 5.19742 27.7107 5.49804 25.9832C5.55718 26.0187 5.66048 26.0818 5.73461 26.1244L13.699 30.7248C13.8975 30.8408 14.1233 30.902 14.3532 30.902C14.583 30.902 14.8088 30.8408 15.0073 30.7248L24.731 25.1103V28.9979C24.7321 29.0177 24.7283 29.0376 24.7199 29.0556C24.7115 29.0736 24.6988 29.0893 24.6829 29.1012L16.6317 33.7497C14.9096 34.7416 12.8643 35.0097 10.9447 34.4954C9.02506 33.9811 7.38785 32.7263 6.39227 31.0064ZM4.29707 13.6194C5.17156 12.0998 6.55279 10.9364 8.19885 10.3327C8.19885 10.4013 8.19491 10.5228 8.19491 10.6071V19.808C8.19351 20.0378 8.25334 20.2638 8.36823 20.4629C8.48312 20.6619 8.64893 20.8267 8.84863 20.9404L18.5723 26.5542L15.206 28.4979C15.1894 28.5089 15.1703 28.5155 15.1505 28.5173C15.1307 28.5191 15.1107 28.516 15.0924 28.5082L7.04046 23.8557C5.32135 22.8601 4.06716 21.2235 3.55289 19.3046C3.03862 17.3858 3.30624 15.3413 4.29707 13.6194ZM31.955 20.0556L22.2312 14.4411L25.5976 12.4981C25.6142 12.4872 25.6333 12.4805 25.6531 12.4787C25.6729 12.4769 25.6928 12.4801 25.7111 12.4879L33.7631 17.1364C34.9967 17.849 36.0017 18.8982 36.6606 20.1613C37.3194 21.4244 37.6047 22.849 37.4832 24.2684C37.3617 25.6878 36.8382 27.0432 35.9743 28.1759C35.1103 29.3086 33.9415 30.1717 32.6047 30.6641C32.6047 30.5947 32.6047 30.4733 32.6047 30.3889V21.188C32.6066 20.9586 32.5474 20.7328 32.4332 20.5338C32.319 20.3348 32.154 20.1698 31.955 20.0556ZM35.3055 15.0128C35.2464 14.9765 35.1431 14.9142 35.069 14.8717L27.1045 10.2712C26.906 10.1554 26.6803 10.0943 26.4504 10.0943C26.2206 10.0943 25.9948 10.1554 25.7963 10.2712L16.0726 15.8858V11.9982C16.0715 11.9783 16.0753 11.9585 16.0837 11.9405C16.0921 11.9225 16.1048 11.9068 16.1207 11.8949L24.1719 7.25025C25.4053 6.53903 26.8158 6.19376 28.2383 6.25482C29.6608 6.31589 31.0364 6.78077 32.2044 7.59508C33.3723 8.40939 34.2842 9.53945 34.8334 10.8531C35.3826 12.1667 35.5464 13.6095 35.3055 15.0128ZM14.2424 21.9419L10.8752 19.9981C10.8576 19.9893 10.8423 19.9763 10.8309 19.9602C10.8195 19.9441 10.8122 19.9254 10.8098 19.9058V10.6071C10.8107 9.18295 11.2173 7.78848 11.9819 6.58696C12.7466 5.38544 13.8377 4.42659 15.1275 3.82264C16.4173 3.21869 17.8524 2.99464 19.2649 3.1767C20.6775 3.35876 22.0089 3.93941 23.1034 4.85067C23.0427 4.88379 22.937 4.94215 22.8668 4.98473L14.9024 9.58517C14.7025 9.69878 14.5366 9.86356 14.4215 10.0626C14.3065 10.2616 14.2466 10.4877 14.2479 10.7175L14.2424 21.9419ZM16.071 17.9991L20.4018 15.4978L24.7325 17.9975V22.9985L20.4018 25.4983L16.071 22.9985V17.9991Z" fill="currentColor"></path>
-                    </svg>
-                </div>
-                <div class="wrap-ai-completed--content">
-                    <div class="message-completed" id="916393"><p>Вот несколько способов сделать это на Node.js, добавляя разделитель между словами “привет” и “мир” и записывая результат в файл:</p>
-<p><strong>1. Используя <code>fs.writeFile</code> (простой, но не подходит для больших файлов):</strong></p>
-<div class="code-block-wrapper">
-                <pre><code class="hljs language-javascript scrollbar"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
-
-<span class="hljs-keyword">const</span> text = <span class="hljs-string">"привет мир"</span>;
-<span class="hljs-keyword">const</span> separator = <span class="hljs-string">","</span>; <span class="hljs-comment">// Замените на нужный разделитель</span>
-
-<span class="hljs-keyword">const</span> parts = text.<span class="hljs-title function_">split</span>(<span class="hljs-string">" "</span>); <span class="hljs-comment">// Разбиваем строку на слова</span>
-<span class="hljs-keyword">const</span> newText = parts.<span class="hljs-title function_">join</span>(separator); <span class="hljs-comment">// Соединяем слова с разделителем</span>
-
-fs.<span class="hljs-title function_">writeFile</span>(<span class="hljs-string">'output.txt'</span>, newText, <span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
-  <span class="hljs-keyword">if</span> (err) {
-    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">'Ошибка при записи в файл:'</span>, err);
-  } <span class="hljs-keyword">else</span> {
-    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Файл успешно записан!'</span>);
-  }
-});</code></pre>
-                <div class="code-block-wrapper__footer">
-                    <div>
-                        <button class="btn-copy-code">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="code-block-wrapper__footer--title">
-                        <span>javascript</span>
-                    </div>
-                </div>
-            </div><ul>
-<li><strong><code>fs.writeFile('output.txt', newText, (err) =&gt; { ... });</code></strong>: Записывает содержимое <code>newText</code> в файл <code>output.txt</code>.  Обратите внимание, что <code>writeFile</code> перезапишет файл, если он уже существует.</li>
-<li><strong><code>parts.join(separator)</code></strong>: Соединяет элементы массива <code>parts</code> в одну строку, используя <code>separator</code> в качестве разделителя.</li>
-</ul>
-<p><strong>2. Используя <code>fs.appendFile</code> (для добавления в файл):</strong></p>
-<div class="code-block-wrapper">
-                <pre><code class="hljs language-javascript scrollbar"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
-
-<span class="hljs-keyword">const</span> text = <span class="hljs-string">"привет мир"</span>;
-<span class="hljs-keyword">const</span> separator = <span class="hljs-string">"-"</span>;
-
-<span class="hljs-keyword">const</span> parts = text.<span class="hljs-title function_">split</span>(<span class="hljs-string">" "</span>);
-<span class="hljs-keyword">const</span> newText = parts.<span class="hljs-title function_">join</span>(separator);
-
-fs.<span class="hljs-title function_">appendFile</span>(<span class="hljs-string">'output.txt'</span>, newText + <span class="hljs-string">'\n'</span>, <span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> { <span class="hljs-comment">// Добавляем перенос строки</span>
-  <span class="hljs-keyword">if</span> (err) {
-    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">'Ошибка при записи в файл:'</span>, err);
-  } <span class="hljs-keyword">else</span> {
-    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Файл успешно дописан!'</span>);
-  }
-});</code></pre>
-                <div class="code-block-wrapper__footer">
-                    <div>
-                        <button class="btn-copy-code">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="code-block-wrapper__footer--title">
-                        <span>javascript</span>
-                    </div>
-                </div>
-            </div><ul>
-<li><strong><code>fs.appendFile('output.txt', newText + '\n', (err) =&gt; { ... });</code></strong>:  Добавляет <code>newText</code> и перенос строки (<code>\n</code>) в конец файла <code>output.txt</code>.  Если файл не существует, он будет создан.  Важно добавить <code>\n</code>, если вы хотите, чтобы каждое новое значение было на отдельной строке.</li>
-</ul>
-<p><strong>3. Используя <code>fs.createWriteStream</code> (для больших файлов, потоковая запись):</strong></p>
-<div class="code-block-wrapper">
-                <pre><code class="hljs language-javascript scrollbar"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
-
-<span class="hljs-keyword">const</span> text = <span class="hljs-string">"привет мир"</span>;
-<span class="hljs-keyword">const</span> separator = <span class="hljs-string">";"</span>;
-
-<span class="hljs-keyword">const</span> parts = text.<span class="hljs-title function_">split</span>(<span class="hljs-string">" "</span>);
-<span class="hljs-keyword">const</span> newText = parts.<span class="hljs-title function_">join</span>(separator);
-
-<span class="hljs-keyword">const</span> stream = fs.<span class="hljs-title function_">createWriteStream</span>(<span class="hljs-string">'output.txt'</span>, { <span class="hljs-attr">flags</span>: <span class="hljs-string">'a'</span> }); <span class="hljs-comment">// 'a' для append</span>
-
-stream.<span class="hljs-title function_">write</span>(newText + <span class="hljs-string">'\n'</span>); <span class="hljs-comment">// Добавляем перенос строки</span>
-stream.<span class="hljs-title function_">end</span>();
-
-stream.<span class="hljs-title function_">on</span>(<span class="hljs-string">'finish'</span>, <span class="hljs-function">() =&gt;</span> {
-  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Файл успешно записан!'</span>);
-});
-
-stream.<span class="hljs-title function_">on</span>(<span class="hljs-string">'error'</span>, <span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
-  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">'Ошибка при записи в файл:'</span>, err);
-});</code></pre>
-                <div class="code-block-wrapper__footer">
-                    <div>
-                        <button class="btn-copy-code">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="code-block-wrapper__footer--title">
-                        <span>javascript</span>
-                    </div>
-                </div>
-            </div><ul>
-<li><strong><code>fs.createWriteStream('output.txt', { flags: 'a' });</code></strong>: Создает поток для записи в файл <code>output.txt</code>.  <code>flags: 'a'</code> указывает, что мы хотим добавлять данные в конец файла (append).  Если файл не существует, он будет создан.</li>
-<li><strong><code>stream.write(newText + '\n');</code></strong>: Записывает строку <code>newText</code> и перенос строки в поток.</li>
-<li><strong><code>stream.end();</code></strong>: Закрывает поток. Важно закрыть поток, чтобы данные были окончательно записаны в файл.</li>
-<li><strong><code>stream.on('finish', ...)</code> и <code>stream.on('error', ...)</code></strong>:  Обработчики событий, которые позволяют узнать об успешном завершении записи или возникновении ошибки.</li>
-</ul>
-<p><strong>Выбор метода:</strong></p>
-<ul>
-<li>Для небольших файлов и простых задач, <code>fs.writeFile</code> или <code>fs.appendFile</code> вполне подойдут.</li>
-<li>Если вы работаете с большими файлами или хотите более контролируемый процесс записи, используйте <code>fs.createWriteStream</code>.  Потоковая запись позволяет обрабатывать данные порциями, что более эффективно по памяти.</li>
-</ul>
-<p><strong>Как запустить код:</strong></p>
-<ol>
-<li>Установите Node.js (если еще не установлен).</li>
-<li>Создайте файл JavaScript (например, <code>write_file.js</code>) и скопируйте в него один из вышеприведенных примеров кода.</li>
-<li>Откройте терминал или командную строку в той же папке, где находится файл <code>write_file.js</code>.</li>
-<li>Выполните команду <code>node write_file.js</code>.</li>
-<li>После выполнения команды в той же папке должен появиться файл <code>output.txt</code> с содержимым “привет[разделитель]мир”.</li>
-</ol>
-<p>Обязательно замените <code>" "</code> на нужный вам разделитель (например, <code>","</code>, <code>"-"</code>, <code>";"</code>, <code>"_"</code>, и т.д.) в переменной <code>separator</code>.  Также, если вам нужно добавить перенос строки после каждой записи, добавьте <code>\n</code> в строку, записываемую в файл (как показано в примерах с <code>appendFile</code> и <code class="">createWriteStream</code>).</p>
-</div>
-                </div>
-            </div>
-            <div class="ai-completed-footer" style="display: flex;">
-                <div class="ai-completed-footer__left">
-                    <span class="ai-completed-footer__left--item">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard ai-completed-footer__left--clipboard" viewBox="0 0 16 16">
-                            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
-                            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
-                        </svg>
-                    </span>
-                </div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
+        
     
                 <div class="chat-box human">
                     <div class="avatar-img"><img data-savepage-src="https://lh3.googleusercontent.com/a/ACg8ocI6Pv-D_ZJjE5D_lWkPNtygGqjPp_Xi5MH1m5vwRa23zlqu9A=s96-c" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAIAAABt+uBvAAAAA3NCSVQICAjb4U/gAAAABmJLR0QAvwA2AAxChPGzAAAFMklEQVR4nO2aa2xTZRjHT3vWe13Xy85mx+i6CzJhbGKcLBjIAoLxkqlTYzBmS1DDYvTDNJFIAh8mMS6EmEgwI9GEiNHBjHGKDCOBCNMlOOaAhY0K7W7djXWlXe89PX4gnp22sqe17dt9eH7fnifv5Z9fds56znlF52vVFHJ/xNkOsNJBQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAeRkOwBFUZS2tl63abu8sJhWqCiRiPUuhj0uv31s5uxJv92W3WyiLJ7uUBSXm9/8UFNTJ2OKKJEofgAXDgVmJ51XLtm++CRbprImqLy1vfCZXTlqTSKDWY9r7nz3cFtLplPFQzcXSQlvKdEaqj/9jtneKJbKE5wilsrUazYYtj67aLkWmLVnNF4MpP+CaKX6kc/PqNfWxPRZj9s3cTvkdnLBAK1USTR6udEklilihvnGbw2++zzJy420oKrDXfrNO4WdsGth+vTX1mMHWe+isE8r1WXvfJRf3yDRGoR9942B/uYtJLLei0HyEjPt3mtsaBLej722kesfvDb90wkuFIwZzIWC8709C5cvaNbXSvUM35flPygSi539F8lkJvc7SKI1FL/aQomXdvRPjQ3ta3LfuLLMrMWRwautjTHXVOFzr2coZDzkBJW2HMjJ1fElFw5ZO9o8fw+BEwOzdtuX7VQkwndkTFHh07sykjIOcoL0m58SlguXL8yc+TbBudM/fuWxDgs7uugbWeYgJMj44htSQyFfciw7eaojqRUWLdeEpcJoSk8yCEKC8jY+ISx9Y5b53rNJreC13RSWtEKVhlgJQOhZTFXykLD0jlmSXcE/NRp2OfgyEvCnIVYCEBIk0eULy0XL9WRXmOnpnOnpTF+iRCF0iYllUU8VvvFbZPZNHUKC6OiHBp99lMy+qUNIkEgS9XvddbWPzL6pg28UAVAQAAoCQEEAKAgABQEQEsSFQ8Iyd8MmMvumDiFBkYBPWBJ7Fk8dQoJYf7SgVaVk9k0dQg+rIee8VF/Al6rydcmuwOx8uaK1nS/9U2P9zVvTE25ZCAny2kZUZQ/zpdK0JtkVFEazJG/p80bQMZeeZBCELjHnX73CUmmq0NbWJ7WCYnWZsIz5RpQ5CAmaPNkRdMzypYjOWfXKnqRWUFdUCUvv6M37jUwv5H4HOX7/RVhqH9+Wv+2FBOcyTzaqSiuXao6bO/d9GrMtAzlB1o62sNu5tLFUVtpyQMYYwYm0Ul2ye6+IXrpdeqzDyb7S/t+QExSYtU92HaM4ju8oisuqDnfJjSXLzJIxxurPflCa1/IdjmUnvjmSuZwxEP307PzzN011naLIzHek+gJmx0tiufLuwKX48eY9+yveP6QyVwqb8xdP3z6yP+NZ/4X04QWJ1lBz9OeoGwpFURQVct7xjlrCroVIMEArVFIdIzeacnK1McPuDv4x8NYOUmEpKisHqGSMcd3HJ3LXP5bctEjE0ffr0L4mYv/g75GFA1Ssxz3VfVzGGJWry8WShHYPLdyZ6Dw6cvDt+EMgmSabZxQfqNy4uqlVU10n1TH/OYALBf3T446+c5ZD7xHOxpNNQTz59Q15j26RFRTRSjVFUazHzXrcvknrVPdxwgfu4lkRglYy+EYRAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCCAfwDgjXVc/01o7wAAAABJRU5ErkJggg==" class="image-avatar" alt="avatar" width="35" height="35"></div>
@@ -1905,13 +1889,229 @@ fs.<span class="hljs-title function_">writeFile</span>(<span class="hljs-string"
             </div>
         </div>
     
-                
+                <div class="chat-box human">
+                    <div class="avatar-img"><img data-savepage-src="https://lh3.googleusercontent.com/a/ACg8ocI6Pv-D_ZJjE5D_lWkPNtygGqjPp_Xi5MH1m5vwRa23zlqu9A=s96-c" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAIAAABt+uBvAAAAA3NCSVQICAjb4U/gAAAABmJLR0QAvwA2AAxChPGzAAAFMklEQVR4nO2aa2xTZRjHT3vWe13Xy85mx+i6CzJhbGKcLBjIAoLxkqlTYzBmS1DDYvTDNJFIAh8mMS6EmEgwI9GEiNHBjHGKDCOBCNMlOOaAhY0K7W7djXWlXe89PX4gnp22sqe17dt9eH7fnifv5Z9fds56znlF52vVFHJ/xNkOsNJBQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAeRkOwBFUZS2tl63abu8sJhWqCiRiPUuhj0uv31s5uxJv92W3WyiLJ7uUBSXm9/8UFNTJ2OKKJEofgAXDgVmJ51XLtm++CRbprImqLy1vfCZXTlqTSKDWY9r7nz3cFtLplPFQzcXSQlvKdEaqj/9jtneKJbKE5wilsrUazYYtj67aLkWmLVnNF4MpP+CaKX6kc/PqNfWxPRZj9s3cTvkdnLBAK1USTR6udEklilihvnGbw2++zzJy420oKrDXfrNO4WdsGth+vTX1mMHWe+isE8r1WXvfJRf3yDRGoR9942B/uYtJLLei0HyEjPt3mtsaBLej722kesfvDb90wkuFIwZzIWC8709C5cvaNbXSvUM35flPygSi539F8lkJvc7SKI1FL/aQomXdvRPjQ3ta3LfuLLMrMWRwautjTHXVOFzr2coZDzkBJW2HMjJ1fElFw5ZO9o8fw+BEwOzdtuX7VQkwndkTFHh07sykjIOcoL0m58SlguXL8yc+TbBudM/fuWxDgs7uugbWeYgJMj44htSQyFfciw7eaojqRUWLdeEpcJoSk8yCEKC8jY+ISx9Y5b53rNJreC13RSWtEKVhlgJQOhZTFXykLD0jlmSXcE/NRp2OfgyEvCnIVYCEBIk0eULy0XL9WRXmOnpnOnpTF+iRCF0iYllUU8VvvFbZPZNHUKC6OiHBp99lMy+qUNIkEgS9XvddbWPzL6pg28UAVAQAAoCQEEAKAgABQEQEsSFQ8Iyd8MmMvumDiFBkYBPWBJ7Fk8dQoJYf7SgVaVk9k0dQg+rIee8VF/Al6rydcmuwOx8uaK1nS/9U2P9zVvTE25ZCAny2kZUZQ/zpdK0JtkVFEazJG/p80bQMZeeZBCELjHnX73CUmmq0NbWJ7WCYnWZsIz5RpQ5CAmaPNkRdMzypYjOWfXKnqRWUFdUCUvv6M37jUwv5H4HOX7/RVhqH9+Wv+2FBOcyTzaqSiuXao6bO/d9GrMtAzlB1o62sNu5tLFUVtpyQMYYwYm0Ul2ye6+IXrpdeqzDyb7S/t+QExSYtU92HaM4ju8oisuqDnfJjSXLzJIxxurPflCa1/IdjmUnvjmSuZwxEP307PzzN011naLIzHek+gJmx0tiufLuwKX48eY9+yveP6QyVwqb8xdP3z6yP+NZ/4X04QWJ1lBz9OeoGwpFURQVct7xjlrCroVIMEArVFIdIzeacnK1McPuDv4x8NYOUmEpKisHqGSMcd3HJ3LXP5bctEjE0ffr0L4mYv/g75GFA1Ssxz3VfVzGGJWry8WShHYPLdyZ6Dw6cvDt+EMgmSabZxQfqNy4uqlVU10n1TH/OYALBf3T446+c5ZD7xHOxpNNQTz59Q15j26RFRTRSjVFUazHzXrcvknrVPdxwgfu4lkRglYy+EYRAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCCAfwDgjXVc/01o7wAAAABJRU5ErkJggg==" class="image-avatar" alt="avatar" width="35" height="35"></div>
+                    <div class="message-content">
+                        
+                        <div class="message scrollbar" id="8yqowx7">
+                            <div class="chat-box__human--wrap-hint-tools">
+                            </div>
+                            <div class="chat-box__human--prompt">Ты пишишь что во всех операционых системах знак переноса разный, но как тогда они открываются в разных системах. Например я создал файл под линуксом текстовый с переносом но он открывается замечательно и в виндоус редакторе</div>
+                        </div>
+                        <div class="chat-box-human-footer">
+                            <div class="wrap-btn-action">
+                                <button class="btn-edit-question" title="Edit message" aria-label="Edit message">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-md"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.2929 4.29291C15.0641 2.52167 17.9359 2.52167 19.7071 4.2929C21.4784 6.06414 21.4784 8.93588 19.7071 10.7071L18.7073 11.7069L11.6135 18.8007C10.8766 19.5376 9.92793 20.0258 8.89999 20.1971L4.16441 20.9864C3.84585 21.0395 3.52127 20.9355 3.29291 20.7071C3.06454 20.4788 2.96053 20.1542 3.01362 19.8356L3.80288 15.1C3.9742 14.0721 4.46243 13.1234 5.19932 12.3865L13.2929 4.29291ZM13 7.41422L6.61353 13.8007C6.1714 14.2428 5.87846 14.8121 5.77567 15.4288L5.21656 18.7835L8.57119 18.2244C9.18795 18.1216 9.75719 17.8286 10.1993 17.3865L16.5858 11L13 7.41422ZM18 9.5858L14.4142 6.00001L14.7071 5.70712C15.6973 4.71693 17.3027 4.71693 18.2929 5.70712C19.2831 6.69731 19.2831 8.30272 18.2929 9.29291L18 9.5858Z" fill="currentColor"></path></svg>
+                                </button>
+                            </div>
+                            <div class="wrap-btn-cancel-send">
+                                <button class="btn-cancel">Cancel</button>
+                                <button class="btn-send">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             
-        
+        <div class="wrap-ai-completed 82730">
+            <div class="chat-box ai-completed">
+                <div class="avatar">
+                    <svg width="28" height="28" viewBox="0 0 41 41" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="icon-sm icon-chatgpt" role="img">
+                        <path d="M37.5324 16.8707C37.9808 15.5241 38.1363 14.0974 37.9886 12.6859C37.8409 11.2744 37.3934 9.91076 36.676 8.68622C35.6126 6.83404 33.9882 5.3676 32.0373 4.4985C30.0864 3.62941 27.9098 3.40259 25.8215 3.85078C24.8796 2.7893 23.7219 1.94125 22.4257 1.36341C21.1295 0.785575 19.7249 0.491269 18.3058 0.500197C16.1708 0.495044 14.0893 1.16803 12.3614 2.42214C10.6335 3.67624 9.34853 5.44666 8.6917 7.47815C7.30085 7.76286 5.98686 8.3414 4.8377 9.17505C3.68854 10.0087 2.73073 11.0782 2.02839 12.312C0.956464 14.1591 0.498905 16.2988 0.721698 18.4228C0.944492 20.5467 1.83612 22.5449 3.268 24.1293C2.81966 25.4759 2.66413 26.9026 2.81182 28.3141C2.95951 29.7256 3.40701 31.0892 4.12437 32.3138C5.18791 34.1659 6.8123 35.6322 8.76321 36.5013C10.7141 37.3704 12.8907 37.5973 14.9789 37.1492C15.9208 38.2107 17.0786 39.0587 18.3747 39.6366C19.6709 40.2144 21.0755 40.5087 22.4946 40.4998C24.6307 40.5054 26.7133 39.8321 28.4418 38.5772C30.1704 37.3223 31.4556 35.5506 32.1119 33.5179C33.5027 33.2332 34.8167 32.6547 35.9659 31.821C37.115 30.9874 38.0728 29.9178 38.7752 28.684C39.8458 26.8371 40.3023 24.6979 40.0789 22.5748C39.8556 20.4517 38.9639 18.4544 37.5324 16.8707ZM22.4978 37.8849C20.7443 37.8874 19.0459 37.2733 17.6994 36.1501C17.7601 36.117 17.8666 36.0586 17.936 36.0161L25.9004 31.4156C26.1003 31.3019 26.2663 31.137 26.3813 30.9378C26.4964 30.7386 26.5563 30.5124 26.5549 30.2825V19.0542L29.9213 20.998C29.9389 21.0068 29.9541 21.0198 29.9656 21.0359C29.977 21.052 29.9842 21.0707 29.9867 21.0902V30.3889C29.9842 32.375 29.1946 34.2791 27.7909 35.6841C26.3872 37.0892 24.4838 37.8806 22.4978 37.8849ZM6.39227 31.0064C5.51397 29.4888 5.19742 27.7107 5.49804 25.9832C5.55718 26.0187 5.66048 26.0818 5.73461 26.1244L13.699 30.7248C13.8975 30.8408 14.1233 30.902 14.3532 30.902C14.583 30.902 14.8088 30.8408 15.0073 30.7248L24.731 25.1103V28.9979C24.7321 29.0177 24.7283 29.0376 24.7199 29.0556C24.7115 29.0736 24.6988 29.0893 24.6829 29.1012L16.6317 33.7497C14.9096 34.7416 12.8643 35.0097 10.9447 34.4954C9.02506 33.9811 7.38785 32.7263 6.39227 31.0064ZM4.29707 13.6194C5.17156 12.0998 6.55279 10.9364 8.19885 10.3327C8.19885 10.4013 8.19491 10.5228 8.19491 10.6071V19.808C8.19351 20.0378 8.25334 20.2638 8.36823 20.4629C8.48312 20.6619 8.64893 20.8267 8.84863 20.9404L18.5723 26.5542L15.206 28.4979C15.1894 28.5089 15.1703 28.5155 15.1505 28.5173C15.1307 28.5191 15.1107 28.516 15.0924 28.5082L7.04046 23.8557C5.32135 22.8601 4.06716 21.2235 3.55289 19.3046C3.03862 17.3858 3.30624 15.3413 4.29707 13.6194ZM31.955 20.0556L22.2312 14.4411L25.5976 12.4981C25.6142 12.4872 25.6333 12.4805 25.6531 12.4787C25.6729 12.4769 25.6928 12.4801 25.7111 12.4879L33.7631 17.1364C34.9967 17.849 36.0017 18.8982 36.6606 20.1613C37.3194 21.4244 37.6047 22.849 37.4832 24.2684C37.3617 25.6878 36.8382 27.0432 35.9743 28.1759C35.1103 29.3086 33.9415 30.1717 32.6047 30.6641C32.6047 30.5947 32.6047 30.4733 32.6047 30.3889V21.188C32.6066 20.9586 32.5474 20.7328 32.4332 20.5338C32.319 20.3348 32.154 20.1698 31.955 20.0556ZM35.3055 15.0128C35.2464 14.9765 35.1431 14.9142 35.069 14.8717L27.1045 10.2712C26.906 10.1554 26.6803 10.0943 26.4504 10.0943C26.2206 10.0943 25.9948 10.1554 25.7963 10.2712L16.0726 15.8858V11.9982C16.0715 11.9783 16.0753 11.9585 16.0837 11.9405C16.0921 11.9225 16.1048 11.9068 16.1207 11.8949L24.1719 7.25025C25.4053 6.53903 26.8158 6.19376 28.2383 6.25482C29.6608 6.31589 31.0364 6.78077 32.2044 7.59508C33.3723 8.40939 34.2842 9.53945 34.8334 10.8531C35.3826 12.1667 35.5464 13.6095 35.3055 15.0128ZM14.2424 21.9419L10.8752 19.9981C10.8576 19.9893 10.8423 19.9763 10.8309 19.9602C10.8195 19.9441 10.8122 19.9254 10.8098 19.9058V10.6071C10.8107 9.18295 11.2173 7.78848 11.9819 6.58696C12.7466 5.38544 13.8377 4.42659 15.1275 3.82264C16.4173 3.21869 17.8524 2.99464 19.2649 3.1767C20.6775 3.35876 22.0089 3.93941 23.1034 4.85067C23.0427 4.88379 22.937 4.94215 22.8668 4.98473L14.9024 9.58517C14.7025 9.69878 14.5366 9.86356 14.4215 10.0626C14.3065 10.2616 14.2466 10.4877 14.2479 10.7175L14.2424 21.9419ZM16.071 17.9991L20.4018 15.4978L24.7325 17.9975V22.9985L20.4018 25.4983L16.071 22.9985V17.9991Z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                <div class="wrap-ai-completed--content">
+                    <div class="message-completed" id="82730"><p>Вы абсолютно правы, и это отличный вопрос! То, что вы наблюдаете, вполне типично, и вот почему:</p>
+<ol>
+<li><p><strong>Современные текстовые редакторы “умные”.</strong>  Большинство современных текстовых редакторов (Notepad++, VS Code, Sublime Text, Atom, TextEdit на macOS и т.д.) обладают способностью автоматически определять тип переноса строки (CR, LF, или CRLF) в файле и отображать его правильно.  Они анализируют файл и пытаются определить, какой тип переноса строк используется наиболее часто.  Таким образом, они могут правильно отобразить файл, даже если он был создан в другой операционной системе.</p>
+</li>
+<li><p><strong>Автоматическая конвертация переносов строк.</strong> Некоторые редакторы автоматически преобразуют переносы строк при открытии или сохранении файла, чтобы соответствовать формату, используемому в текущей операционной системе.  Например, редактор может автоматически заменить все <code>\n</code> на <code>\r\n</code> при сохранении файла в Windows, если он был открыт из Linux.  Этот функционал часто можно настроить в настройках редактора.</p>
+</li>
+<li><p><strong>Эмуляция переносов строк.</strong> Некоторые редакторы эмулируют переносы строк, даже если они не соответствуют формату операционной системы. Например, Notepad (стандартный текстовый редактор Windows) ранее не поддерживал <code>\n</code> как перенос строки и отображал все в одну строку, но теперь он может интерпретировать <code>\n</code> как перенос строки, хотя нативно использует <code>\r\n</code>.</p>
+</li>
+<li><p><strong>Программная обработка.</strong> Многие языки программирования (включая Node.js) и библиотеки абстрагируются от различий в переносах строк, чтобы упростить разработку кроссплатформенного программного обеспечения.  Например, Node.js при записи в файл с использованием <code>\n</code> обычно преобразует его в правильный символ переноса строки для текущей операционной системы.</p>
+</li>
+</ol>
+<p><strong>Почему тогда эта разница вообще важна?</strong></p>
+<p>Хотя редакторы часто справляются с разными типами переносов строк, эта разница все еще важна в определенных ситуациях:</p>
+<ul>
+<li><strong>Скрипты и утилиты командной строки:</strong>  Скрипты, написанные на Bash, Python, Perl и т.д., которые обрабатывают текстовые файлы, могут быть чувствительны к типу переноса строки.  Например, скрипт, который ожидает <code>\n</code> в конце каждой строки, может неправильно работать с файлом, использующим <code>\r\n</code>.</li>
+<li><strong>Системы контроля версий (Git).</strong> Git может автоматически конвертировать переносы строк при коммите и выгрузке файлов, чтобы избежать проблем с кроссплатформенной разработкой.  Однако неправильная настройка может привести к неожиданным изменениям в файлах.</li>
+<li><strong>Старые системы и приложения.</strong> Некоторые старые системы и приложения могут не поддерживать автоматическое определение или конвертацию переносов строк и могут неправильно отображать или обрабатывать файлы, созданные в других операционных системах.</li>
+<li><strong>Бинарные файлы.</strong>  Если вы случайно добавите перенос строки (особенно <code>\r\n</code>) в бинарный файл, это может повредить файл и сделать его неработоспособным.</li>
+</ul>
+<p><strong>Пример проблемы и решения:</strong></p>
+<p>Представьте, что у вас есть Bash-скрипт, который обрабатывает файл с построчными данными, и этот файл был создан в Windows (и использует <code>\r\n</code>).  Если скрипт ожидает только <code>\n</code>, то он может обрабатывать каждую строку до <code>\r</code>, а остальную часть строки – как следующую строку.  Это приведет к неправильным результатам.</p>
+<p>Решением в этом случае будет либо конвертировать файл в формат Unix (с использованием утилиты <code>dos2unix</code>), либо изменить скрипт, чтобы он учитывал <code>\r</code>.</p>
+<p class="">В заключение, хотя современные текстовые редакторы и системы часто “скрывают” разницу в переносах строк, это все еще важная деталь, которую следует учитывать при работе с текстовыми файлами, особенно в контексте скриптов, старых систем или кроссплатформенной разработки.</p>
+</div>
+                </div>
+            </div>
+            <div class="ai-completed-footer" style="display: flex;">
+                <div class="ai-completed-footer__left">
+                    <span class="ai-completed-footer__left--item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard ai-completed-footer__left--clipboard" viewBox="0 0 16 16">
+                            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+                            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+                        </svg>
+                    </span>
+                </div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
     
-                
+                <div class="chat-box human">
+                    <div class="avatar-img"><img data-savepage-src="https://lh3.googleusercontent.com/a/ACg8ocI6Pv-D_ZJjE5D_lWkPNtygGqjPp_Xi5MH1m5vwRa23zlqu9A=s96-c" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAIAAABt+uBvAAAAA3NCSVQICAjb4U/gAAAABmJLR0QAvwA2AAxChPGzAAAFMklEQVR4nO2aa2xTZRjHT3vWe13Xy85mx+i6CzJhbGKcLBjIAoLxkqlTYzBmS1DDYvTDNJFIAh8mMS6EmEgwI9GEiNHBjHGKDCOBCNMlOOaAhY0K7W7djXWlXe89PX4gnp22sqe17dt9eH7fnifv5Z9fds56znlF52vVFHJ/xNkOsNJBQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAeRkOwBFUZS2tl63abu8sJhWqCiRiPUuhj0uv31s5uxJv92W3WyiLJ7uUBSXm9/8UFNTJ2OKKJEofgAXDgVmJ51XLtm++CRbprImqLy1vfCZXTlqTSKDWY9r7nz3cFtLplPFQzcXSQlvKdEaqj/9jtneKJbKE5wilsrUazYYtj67aLkWmLVnNF4MpP+CaKX6kc/PqNfWxPRZj9s3cTvkdnLBAK1USTR6udEklilihvnGbw2++zzJy420oKrDXfrNO4WdsGth+vTX1mMHWe+isE8r1WXvfJRf3yDRGoR9942B/uYtJLLei0HyEjPt3mtsaBLej722kesfvDb90wkuFIwZzIWC8709C5cvaNbXSvUM35flPygSi539F8lkJvc7SKI1FL/aQomXdvRPjQ3ta3LfuLLMrMWRwautjTHXVOFzr2coZDzkBJW2HMjJ1fElFw5ZO9o8fw+BEwOzdtuX7VQkwndkTFHh07sykjIOcoL0m58SlguXL8yc+TbBudM/fuWxDgs7uugbWeYgJMj44htSQyFfciw7eaojqRUWLdeEpcJoSk8yCEKC8jY+ISx9Y5b53rNJreC13RSWtEKVhlgJQOhZTFXykLD0jlmSXcE/NRp2OfgyEvCnIVYCEBIk0eULy0XL9WRXmOnpnOnpTF+iRCF0iYllUU8VvvFbZPZNHUKC6OiHBp99lMy+qUNIkEgS9XvddbWPzL6pg28UAVAQAAoCQEEAKAgABQEQEsSFQ8Iyd8MmMvumDiFBkYBPWBJ7Fk8dQoJYf7SgVaVk9k0dQg+rIee8VF/Al6rydcmuwOx8uaK1nS/9U2P9zVvTE25ZCAny2kZUZQ/zpdK0JtkVFEazJG/p80bQMZeeZBCELjHnX73CUmmq0NbWJ7WCYnWZsIz5RpQ5CAmaPNkRdMzypYjOWfXKnqRWUFdUCUvv6M37jUwv5H4HOX7/RVhqH9+Wv+2FBOcyTzaqSiuXao6bO/d9GrMtAzlB1o62sNu5tLFUVtpyQMYYwYm0Ul2ye6+IXrpdeqzDyb7S/t+QExSYtU92HaM4ju8oisuqDnfJjSXLzJIxxurPflCa1/IdjmUnvjmSuZwxEP307PzzN011naLIzHek+gJmx0tiufLuwKX48eY9+yveP6QyVwqb8xdP3z6yP+NZ/4X04QWJ1lBz9OeoGwpFURQVct7xjlrCroVIMEArVFIdIzeacnK1McPuDv4x8NYOUmEpKisHqGSMcd3HJ3LXP5bctEjE0ffr0L4mYv/g75GFA1Ssxz3VfVzGGJWry8WShHYPLdyZ6Dw6cvDt+EMgmSabZxQfqNy4uqlVU10n1TH/OYALBf3T446+c5ZD7xHOxpNNQTz59Q15j26RFRTRSjVFUazHzXrcvknrVPdxwgfu4lkRglYy+EYRAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCCAfwDgjXVc/01o7wAAAABJRU5ErkJggg==" class="image-avatar" alt="avatar" width="35" height="35"></div>
+                    <div class="message-content">
+                        
+                        <div class="message scrollbar" id="ehd69rp">
+                            <div class="chat-box__human--wrap-hint-tools">
+                            </div>
+                            <div class="chat-box__human--prompt">Есть длинная строка которая может быть с любым количеством символов. Нужно написать функцию на node чтоб она перебирала эту строку и через 70 символов в стреченый пробел заменяла знаком переноса от линукс системы.Возвращаемая строка должна быть с переносами</div>
+                        </div>
+                        <div class="chat-box-human-footer">
+                            <div class="wrap-btn-action">
+                                <button class="btn-edit-question" title="Edit message" aria-label="Edit message">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-md"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.2929 4.29291C15.0641 2.52167 17.9359 2.52167 19.7071 4.2929C21.4784 6.06414 21.4784 8.93588 19.7071 10.7071L18.7073 11.7069L11.6135 18.8007C10.8766 19.5376 9.92793 20.0258 8.89999 20.1971L4.16441 20.9864C3.84585 21.0395 3.52127 20.9355 3.29291 20.7071C3.06454 20.4788 2.96053 20.1542 3.01362 19.8356L3.80288 15.1C3.9742 14.0721 4.46243 13.1234 5.19932 12.3865L13.2929 4.29291ZM13 7.41422L6.61353 13.8007C6.1714 14.2428 5.87846 14.8121 5.77567 15.4288L5.21656 18.7835L8.57119 18.2244C9.18795 18.1216 9.75719 17.8286 10.1993 17.3865L16.5858 11L13 7.41422ZM18 9.5858L14.4142 6.00001L14.7071 5.70712C15.6973 4.71693 17.3027 4.71693 18.2929 5.70712C19.2831 6.69731 19.2831 8.30272 18.2929 9.29291L18 9.5858Z" fill="currentColor"></path></svg>
+                                </button>
+                            </div>
+                            <div class="wrap-btn-cancel-send">
+                                <button class="btn-cancel">Cancel</button>
+                                <button class="btn-send">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             
-        
+        <div class="wrap-ai-completed 677093">
+            <div class="chat-box ai-completed">
+                <div class="avatar">
+                    <svg width="28" height="28" viewBox="0 0 41 41" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="icon-sm icon-chatgpt" role="img">
+                        <path d="M37.5324 16.8707C37.9808 15.5241 38.1363 14.0974 37.9886 12.6859C37.8409 11.2744 37.3934 9.91076 36.676 8.68622C35.6126 6.83404 33.9882 5.3676 32.0373 4.4985C30.0864 3.62941 27.9098 3.40259 25.8215 3.85078C24.8796 2.7893 23.7219 1.94125 22.4257 1.36341C21.1295 0.785575 19.7249 0.491269 18.3058 0.500197C16.1708 0.495044 14.0893 1.16803 12.3614 2.42214C10.6335 3.67624 9.34853 5.44666 8.6917 7.47815C7.30085 7.76286 5.98686 8.3414 4.8377 9.17505C3.68854 10.0087 2.73073 11.0782 2.02839 12.312C0.956464 14.1591 0.498905 16.2988 0.721698 18.4228C0.944492 20.5467 1.83612 22.5449 3.268 24.1293C2.81966 25.4759 2.66413 26.9026 2.81182 28.3141C2.95951 29.7256 3.40701 31.0892 4.12437 32.3138C5.18791 34.1659 6.8123 35.6322 8.76321 36.5013C10.7141 37.3704 12.8907 37.5973 14.9789 37.1492C15.9208 38.2107 17.0786 39.0587 18.3747 39.6366C19.6709 40.2144 21.0755 40.5087 22.4946 40.4998C24.6307 40.5054 26.7133 39.8321 28.4418 38.5772C30.1704 37.3223 31.4556 35.5506 32.1119 33.5179C33.5027 33.2332 34.8167 32.6547 35.9659 31.821C37.115 30.9874 38.0728 29.9178 38.7752 28.684C39.8458 26.8371 40.3023 24.6979 40.0789 22.5748C39.8556 20.4517 38.9639 18.4544 37.5324 16.8707ZM22.4978 37.8849C20.7443 37.8874 19.0459 37.2733 17.6994 36.1501C17.7601 36.117 17.8666 36.0586 17.936 36.0161L25.9004 31.4156C26.1003 31.3019 26.2663 31.137 26.3813 30.9378C26.4964 30.7386 26.5563 30.5124 26.5549 30.2825V19.0542L29.9213 20.998C29.9389 21.0068 29.9541 21.0198 29.9656 21.0359C29.977 21.052 29.9842 21.0707 29.9867 21.0902V30.3889C29.9842 32.375 29.1946 34.2791 27.7909 35.6841C26.3872 37.0892 24.4838 37.8806 22.4978 37.8849ZM6.39227 31.0064C5.51397 29.4888 5.19742 27.7107 5.49804 25.9832C5.55718 26.0187 5.66048 26.0818 5.73461 26.1244L13.699 30.7248C13.8975 30.8408 14.1233 30.902 14.3532 30.902C14.583 30.902 14.8088 30.8408 15.0073 30.7248L24.731 25.1103V28.9979C24.7321 29.0177 24.7283 29.0376 24.7199 29.0556C24.7115 29.0736 24.6988 29.0893 24.6829 29.1012L16.6317 33.7497C14.9096 34.7416 12.8643 35.0097 10.9447 34.4954C9.02506 33.9811 7.38785 32.7263 6.39227 31.0064ZM4.29707 13.6194C5.17156 12.0998 6.55279 10.9364 8.19885 10.3327C8.19885 10.4013 8.19491 10.5228 8.19491 10.6071V19.808C8.19351 20.0378 8.25334 20.2638 8.36823 20.4629C8.48312 20.6619 8.64893 20.8267 8.84863 20.9404L18.5723 26.5542L15.206 28.4979C15.1894 28.5089 15.1703 28.5155 15.1505 28.5173C15.1307 28.5191 15.1107 28.516 15.0924 28.5082L7.04046 23.8557C5.32135 22.8601 4.06716 21.2235 3.55289 19.3046C3.03862 17.3858 3.30624 15.3413 4.29707 13.6194ZM31.955 20.0556L22.2312 14.4411L25.5976 12.4981C25.6142 12.4872 25.6333 12.4805 25.6531 12.4787C25.6729 12.4769 25.6928 12.4801 25.7111 12.4879L33.7631 17.1364C34.9967 17.849 36.0017 18.8982 36.6606 20.1613C37.3194 21.4244 37.6047 22.849 37.4832 24.2684C37.3617 25.6878 36.8382 27.0432 35.9743 28.1759C35.1103 29.3086 33.9415 30.1717 32.6047 30.6641C32.6047 30.5947 32.6047 30.4733 32.6047 30.3889V21.188C32.6066 20.9586 32.5474 20.7328 32.4332 20.5338C32.319 20.3348 32.154 20.1698 31.955 20.0556ZM35.3055 15.0128C35.2464 14.9765 35.1431 14.9142 35.069 14.8717L27.1045 10.2712C26.906 10.1554 26.6803 10.0943 26.4504 10.0943C26.2206 10.0943 25.9948 10.1554 25.7963 10.2712L16.0726 15.8858V11.9982C16.0715 11.9783 16.0753 11.9585 16.0837 11.9405C16.0921 11.9225 16.1048 11.9068 16.1207 11.8949L24.1719 7.25025C25.4053 6.53903 26.8158 6.19376 28.2383 6.25482C29.6608 6.31589 31.0364 6.78077 32.2044 7.59508C33.3723 8.40939 34.2842 9.53945 34.8334 10.8531C35.3826 12.1667 35.5464 13.6095 35.3055 15.0128ZM14.2424 21.9419L10.8752 19.9981C10.8576 19.9893 10.8423 19.9763 10.8309 19.9602C10.8195 19.9441 10.8122 19.9254 10.8098 19.9058V10.6071C10.8107 9.18295 11.2173 7.78848 11.9819 6.58696C12.7466 5.38544 13.8377 4.42659 15.1275 3.82264C16.4173 3.21869 17.8524 2.99464 19.2649 3.1767C20.6775 3.35876 22.0089 3.93941 23.1034 4.85067C23.0427 4.88379 22.937 4.94215 22.8668 4.98473L14.9024 9.58517C14.7025 9.69878 14.5366 9.86356 14.4215 10.0626C14.3065 10.2616 14.2466 10.4877 14.2479 10.7175L14.2424 21.9419ZM16.071 17.9991L20.4018 15.4978L24.7325 17.9975V22.9985L20.4018 25.4983L16.071 22.9985V17.9991Z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                <div class="wrap-ai-completed--content">
+                    <div class="message-completed" id="677093"><div class="code-block-wrapper">
+                <pre><code class="hljs language-javascript scrollbar"><span class="hljs-keyword">function</span> <span class="hljs-title function_">wrapText</span>(<span class="hljs-params">text, maxLength = <span class="hljs-number">70</span></span>) {
+  <span class="hljs-keyword">if</span> (!text) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">""</span>; <span class="hljs-comment">// Обработка пустой строки</span>
+  }
+
+  <span class="hljs-keyword">let</span> result = <span class="hljs-string">""</span>;
+  <span class="hljs-keyword">let</span> currentLineLength = <span class="hljs-number">0</span>;
+
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; text.<span class="hljs-property">length</span>; i++) {
+    <span class="hljs-keyword">const</span> char = text[i];
+
+    <span class="hljs-keyword">if</span> (char === <span class="hljs-string">' '</span>) {
+      <span class="hljs-keyword">if</span> (currentLineLength + <span class="hljs-number">1</span> &gt; maxLength) {
+        result += <span class="hljs-string">"\n"</span>; <span class="hljs-comment">// Заменяем пробел переносом строки</span>
+        currentLineLength = <span class="hljs-number">0</span>;
+      } <span class="hljs-keyword">else</span> {
+        result += char; <span class="hljs-comment">// Оставляем пробел</span>
+        currentLineLength++;
+      }
+    } <span class="hljs-keyword">else</span> {
+      result += char;
+      currentLineLength++;
+    }
+
+    <span class="hljs-keyword">if</span> (currentLineLength &gt;= maxLength &amp;&amp; char !== <span class="hljs-string">' '</span>) {
+      <span class="hljs-comment">// Если достигли maxLength и текущий символ не пробел,</span>
+      <span class="hljs-comment">// ищем ближайший пробел назад для переноса</span>
+      <span class="hljs-keyword">let</span> lastSpaceIndex = result.<span class="hljs-title function_">lastIndexOf</span>(<span class="hljs-string">' '</span>, result.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>);
+
+      <span class="hljs-keyword">if</span> (lastSpaceIndex !== -<span class="hljs-number">1</span> &amp;&amp; result.<span class="hljs-property">length</span> - lastSpaceIndex &lt;= maxLength) {
+          <span class="hljs-comment">// Если нашли пробел и он находится достаточно близко,</span>
+          <span class="hljs-comment">// заменяем его переносом строки</span>
+          <span class="hljs-keyword">let</span> temp = result.<span class="hljs-title function_">substring</span>(<span class="hljs-number">0</span>, lastSpaceIndex) + <span class="hljs-string">'\n'</span> + result.<span class="hljs-title function_">substring</span>(lastSpaceIndex + <span class="hljs-number">1</span>);
+          result = temp;
+          currentLineLength = result.<span class="hljs-property">length</span> - lastSpaceIndex -<span class="hljs-number">1</span>;
+      } <span class="hljs-keyword">else</span> {
+          <span class="hljs-comment">// Если пробел не найден или слишком далеко,</span>
+          <span class="hljs-comment">// принудительно разрываем строку</span>
+          result += <span class="hljs-string">'\n'</span>;
+          currentLineLength = <span class="hljs-number">0</span>;
+      }
+    }
+  }
+
+  <span class="hljs-keyword">return</span> result;
+}
+
+<span class="hljs-comment">// Пример использования:</span>
+<span class="hljs-keyword">const</span> longText = <span class="hljs-string">"Это очень длинная строка с множеством слов, которые нужно перенести на новые строки, чтобы каждая строка не превышала 70 символов.  Вот еще немного текста для примера.  И еще чуть-чуть, чтобы убедиться, что функция работает правильно даже с очень длинными словами и предложениями. А вот это слово очень-очень-очень-очень-очень-очень-очень-очень-очень длинное, посмотри, что будет."</span>;
+
+<span class="hljs-keyword">const</span> wrappedText = <span class="hljs-title function_">wrapText</span>(longText);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(wrappedText);
+
+<span class="hljs-comment">// Пример записи в файл:</span>
+<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+
+fs.<span class="hljs-title function_">writeFile</span>(<span class="hljs-string">'wrapped_text.txt'</span>, wrappedText, <span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+  <span class="hljs-keyword">if</span> (err) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">'Ошибка при записи в файл:'</span>, err);
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Файл успешно записан!'</span>);
+  }
+});</code></pre>
+                <div class="code-block-wrapper__footer">
+                    <div>
+                        <button class="btn-copy-code">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="code-block-wrapper__footer--title">
+                        <span>javascript</span>
+                    </div>
+                </div>
+            </div><p><strong>Как работает этот код:</strong></p>
+<ol>
+<li><strong><code>wrapText(text, maxLength = 70)</code>:</strong>  Функция принимает строку <code>text</code> и максимальную длину строки <code>maxLength</code> (по умолчанию 70).</li>
+<li><strong>Инициализация:</strong>  Создается пустая строка <code>result</code> для хранения результата и переменная <code>currentLineLength</code> для отслеживания длины текущей строки.</li>
+<li><strong>Итерация по строке:</strong>  Код перебирает каждый символ в строке <code>text</code>.</li>
+<li><strong>Обработка пробелов:</strong><ul>
+<li>Если текущий символ – пробел, проверяется, превысит ли добавление этого пробела <code>maxLength</code>.</li>
+<li>Если превысит, пробел заменяется на <code>\n</code>, и <code>currentLineLength</code> сбрасывается.</li>
+<li>Иначе пробел добавляется в <code>result</code>, и <code>currentLineLength</code> увеличивается.</li>
+</ul>
+</li>
+<li><strong>Обработка символов, отличных от пробела:</strong>  Если текущий символ не пробел, он добавляется в <code>result</code>, и <code>currentLineLength</code> увеличивается.</li>
+<li><strong>Принудительный перенос строки (если нет пробелов):</strong> Если <code>currentLineLength</code> достигает <code>maxLength</code> и текущий символ <em>не</em> является пробелом,  это означает, что мы дошли до конца строки без пробела. В этом случае код пытается найти ближайший пробел <em>назад</em> в строке <code>result</code>. Если такой пробел найден и он находится не слишком далеко (максимум <code>maxLength</code> символов назад), он заменяется на <code>\n</code>.  Если пробел не найден или он находится слишком далеко, то происходит принудительный перенос строки в текущем месте.</li>
+<li><strong>Возврат результата:</strong>  Функция возвращает строку <code>result</code> с переносами строк.</li>
+</ol>
+<p><strong>Ключевые улучшения и пояснения:</strong></p>
+<ul>
+<li><strong>Обработка длинных слов:</strong> Добавлена логика для обработки случаев, когда в строке встречаются слова, длина которых превышает <code>maxLength</code>. В таких ситуациях код старается найти ближайший пробел <em>до</em> текущей позиции и перенести строку там. Если подходящего пробела нет, происходит принудительный перенос строки.</li>
+<li><strong>Проверка на пустую строку:</strong> Добавлена проверка <code>if (!text)</code> для корректной обработки пустых входных строк.</li>
+<li><strong>Комментарии:</strong> Добавлены подробные комментарии для объяснения логики работы кода.</li>
+<li><strong>Пример записи в файл:</strong> Добавлен пример записи полученной строки в файл с использованием <code>fs.writeFile</code>.</li>
+</ul>
+<p><strong>Как использовать:</strong></p>
+<ol>
+<li>Сохраните код в файл, например, <code>wrap_text.js</code>.</li>
+<li>Запустите код с помощью <code>node wrap_text.js</code>.</li>
+<li>Результат будет выведен в консоль и записан в файл <code>wrapped_text.txt</code>.  Вы можете изменить текст <code>longText</code> и имя выходного файла по своему усмотрению.</li>
+</ol>
+<p class="">Этот код должен работать, даже если в строке есть очень длинные слова, которые не помещаются на одну строку.  Алгоритм будет стараться перенести строку на ближайшем пробеле, если это возможно, и принудительно переносить строку, если пробелов нет.  Это обеспечит, что ни одна строка не будет превышать заданную максимальную длину.</p>
+</div>
+                </div>
+            </div>
+            <div class="ai-completed-footer" style="display: flex;">
+                <div class="ai-completed-footer__left">
+                    <span class="ai-completed-footer__left--item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard ai-completed-footer__left--clipboard" viewBox="0 0 16 16">
+                            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+                            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+                        </svg>
+                    </span>
+                </div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
     
                 <div class="chat-box human">
                     <div class="avatar-img"><img data-savepage-src="https://lh3.googleusercontent.com/a/ACg8ocI6Pv-D_ZJjE5D_lWkPNtygGqjPp_Xi5MH1m5vwRa23zlqu9A=s96-c" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAIAAABt+uBvAAAAA3NCSVQICAjb4U/gAAAABmJLR0QAvwA2AAxChPGzAAAFMklEQVR4nO2aa2xTZRjHT3vWe13Xy85mx+i6CzJhbGKcLBjIAoLxkqlTYzBmS1DDYvTDNJFIAh8mMS6EmEgwI9GEiNHBjHGKDCOBCNMlOOaAhY0K7W7djXWlXe89PX4gnp22sqe17dt9eH7fnifv5Z9fds56znlF52vVFHJ/xNkOsNJBQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAeRkOwBFUZS2tl63abu8sJhWqCiRiPUuhj0uv31s5uxJv92W3WyiLJ7uUBSXm9/8UFNTJ2OKKJEofgAXDgVmJ51XLtm++CRbprImqLy1vfCZXTlqTSKDWY9r7nz3cFtLplPFQzcXSQlvKdEaqj/9jtneKJbKE5wilsrUazYYtj67aLkWmLVnNF4MpP+CaKX6kc/PqNfWxPRZj9s3cTvkdnLBAK1USTR6udEklilihvnGbw2++zzJy420oKrDXfrNO4WdsGth+vTX1mMHWe+isE8r1WXvfJRf3yDRGoR9942B/uYtJLLei0HyEjPt3mtsaBLej722kesfvDb90wkuFIwZzIWC8709C5cvaNbXSvUM35flPygSi539F8lkJvc7SKI1FL/aQomXdvRPjQ3ta3LfuLLMrMWRwautjTHXVOFzr2coZDzkBJW2HMjJ1fElFw5ZO9o8fw+BEwOzdtuX7VQkwndkTFHh07sykjIOcoL0m58SlguXL8yc+TbBudM/fuWxDgs7uugbWeYgJMj44htSQyFfciw7eaojqRUWLdeEpcJoSk8yCEKC8jY+ISx9Y5b53rNJreC13RSWtEKVhlgJQOhZTFXykLD0jlmSXcE/NRp2OfgyEvCnIVYCEBIk0eULy0XL9WRXmOnpnOnpTF+iRCF0iYllUU8VvvFbZPZNHUKC6OiHBp99lMy+qUNIkEgS9XvddbWPzL6pg28UAVAQAAoCQEEAKAgABQEQEsSFQ8Iyd8MmMvumDiFBkYBPWBJ7Fk8dQoJYf7SgVaVk9k0dQg+rIee8VF/Al6rydcmuwOx8uaK1nS/9U2P9zVvTE25ZCAny2kZUZQ/zpdK0JtkVFEazJG/p80bQMZeeZBCELjHnX73CUmmq0NbWJ7WCYnWZsIz5RpQ5CAmaPNkRdMzypYjOWfXKnqRWUFdUCUvv6M37jUwv5H4HOX7/RVhqH9+Wv+2FBOcyTzaqSiuXao6bO/d9GrMtAzlB1o62sNu5tLFUVtpyQMYYwYm0Ul2ye6+IXrpdeqzDyb7S/t+QExSYtU92HaM4ju8oisuqDnfJjSXLzJIxxurPflCa1/IdjmUnvjmSuZwxEP307PzzN011naLIzHek+gJmx0tiufLuwKX48eY9+yveP6QyVwqb8xdP3z6yP+NZ/4X04QWJ1lBz9OeoGwpFURQVct7xjlrCroVIMEArVFIdIzeacnK1McPuDv4x8NYOUmEpKisHqGSMcd3HJ3LXP5bctEjE0ffr0L4mYv/g75GFA1Ssxz3VfVzGGJWry8WShHYPLdyZ6Dw6cvDt+EMgmSabZxQfqNy4uqlVU10n1TH/OYALBf3T446+c5ZD7xHOxpNNQTz59Q15j26RFRTRSjVFUazHzXrcvknrVPdxwgfu4lkRglYy+EYRAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCCAfwDgjXVc/01o7wAAAABJRU5ErkJggg==" class="image-avatar" alt="avatar" width="35" height="35"></div>
@@ -2352,7 +2552,75 @@ fs.<span class="hljs-title function_">writeFile</span>(<span class="hljs-string"
     </div>
             </div>
         </div>
-        
+        <div class="footer">
+            <div class="wrap-chat-form">
+                <div id="chat-form" class="input-box">
+                    
+                    <form class="chat-form-container" data-gtm-form-interact-id="0">
+                        <div class="form-data">
+                            <div class="form-data--files scrollbar" attachments="">
+
+                            </div>
+                            <div class="container-prompt">
+                                <textarea class="textarea scrollbar" id="chat-input" role="textbox" aria-label="chat-input-prompt" aria-labelledby="chat-input-prompt" placeholder="Ask ChatGPT" contenteditable="true" rows="1" cols="50" style="height: auto; text-indent: 0px;" data-gtm-form-interact-field-id="0"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="chat-form_btns">
+                            <div class="chat-form__btns--left">
+                                <div class="wrap-file-attach">
+                                    <button type="button" class="file-attach-button" data-toggle="tooltip" aria-label="File attach" data-bs-original-title="File attach">
+                                        <input multiple="" type="file" tabindex="-1" aria-label="File attach" value="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path fill="currentColor" fill-rule="evenodd" d="M9 7a5 5 0 0 1 10 0v8a7 7 0 1 1-14 0V9a1 1 0 0 1 2 0v6a5 5 0 0 0 10 0V7a3 3 0 1 0-6 0v8a1 1 0 1 0 2 0V9a1 1 0 1 1 2 0v6a3 3 0 1 1-6 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="wrap-btn-hint-tools">
+                                                                                                                                                            <button class="item-btn-hint-tool" tool="generateImage" data-toggle="tooltip" type="button" aria-pressed="true" data-state="on" aria-label="Transform your text prompts into stunning visuals with AI-powered image generation." tabindex="0" data-bs-original-title="Generate image">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="23" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
+    <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"></path>
+    <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z"></path>
+</svg>
+                                            <span class="item-btn-hint-tool--title">Generate image</span>
+                                        </button>
+                                                                    </div>
+                            </div>
+                            
+                            <div class="chat-form__btns--right">
+                                <div class="wrap-count-word" style="display: none;">
+                                    <span id="length-text-chat-input" style="color: rgb(229, 172, 0);">100</span>/<span id="max-length">4500</span>
+                                </div>
+                                <button class="btn-open-microphone" data-toggle="tooltip" type="button" aria-label="Voice chat" data-bs-original-title="Voice chat" style="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+                                        <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"></path>
+                                        <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"></path>
+                                    </svg>
+                                </button>
+                                <button id="btn-send-message" class="btn-send-message" data-toggle="tooltip" type="button" aria-label="Send" data-bs-original-title="Send" style="display: none;">
+                                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1.3em" width="1.3em" xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                    </svg>
+                                </button>
+                                <button class="btn-stop-response" data-toggle="tooltip" type="button" aria-label="Stop" data-bs-original-title="Stop" style="display: none;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" fill="currentColor" class="bi bi-stop-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"></path>
+                                        <path d="M5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="chat-form-footer">
+                        <p class="chat-form-footer__des">
+                            Experience
+                            <strong>ChatGPT</strong>, fast and simple. Smart Chatbot with a huge knowledge base spanning all fields.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <span id="btn-back-to-top">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16" style="color: white;">
