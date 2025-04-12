@@ -2,6 +2,8 @@ const { extractContextsFromChatPrompts } = require('../apiScan/scan');
 const { PATH_FILE_NAME_NEW, PATH_FILE_TEMP_NEW } = require('../../config');
 const { saveListedHTML } = require('../subsidiary/deleteBlokScaner');
 const { replaceFile } = require('../subsidiary/fileUtils');
+const { saveFilterHTML } = require('../subsidiary/deleteAllScaner');
+
 /**
  * @module delete_select
  * @description Модуль, предоставляющий функцию для выбора конкретных элементов из результата анализа чат-промптов.
@@ -102,5 +104,34 @@ async function delete_select(array) {
   return true; // Все операции выполнены успешно.
 }
 
+async function lave_selected(array) {
+  let contexts;
+
+  try {
+    contexts = array_select(array);
+  } catch (error) {
+    console.error("Ошибка при вызове array_select:", error);
+    return false; // Ошибка при выборе элементов.
+  }
+  console.log(contexts);
+
+  try {
+    await saveFilterHTML(PATH_FILE_NAME_NEW, PATH_FILE_TEMP_NEW, contexts); // Добавлено await
+  } catch (error) {
+    console.error("Ошибка при сохранении HTML:", error);
+    return false; // Ошибка при сохранении HTML.
+  }
+
+  try {
+    replaceFile(PATH_FILE_TEMP_NEW, PATH_FILE_NAME_NEW);
+  } catch (error) {
+    console.error("Ошибка при изменениях имен файлов:", error);
+    return false; // Ошибка при изменениях имен файлов
+  }
+
+  return true; // Все операции выполнены успешно.
+}
+
+module.exports.lave_selected = lave_selected;
 module.exports.array_select = array_select;
 module.exports.delete_select = delete_select;

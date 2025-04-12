@@ -7,7 +7,7 @@ const { saveNewFile } = require('./function/subsidiary/deleteNavBlock');
 const cors = require('cors'); // Импортируем cors
 const { IP , FULL_PATH , PATH_ILE_NAME_NEW , PATH_FILE_NAME_NEW } = require('./config'); // Импортируем переменные
 const { doesFileSyncExist } = require('./function/subsidiary/fileUtils');
-const { delete_select } = require('./function/apiDeleteList/array_select');
+const { delete_select, lave_selected } = require('./function/apiDeleteList/array_select');
 const app = express();
 const port = 3000;
 
@@ -136,7 +136,35 @@ app.post('/delete_select', async (req, res) => {
   }
 });
 
+app.post('/lave_selected', async (req, res) => {
+  try {
+    const selectedIds = req.body; // Получаем массив ID напрямую из req.body
 
+    console.log('Полученные ID:', selectedIds); // Выводим массив ID для отладки
+
+    // Вызываем асинхронную функцию delete_select и ждем её завершения
+    const success = await lave_selected(selectedIds); // Передаем selectedIds
+
+    if (success) {
+      const responseData = {
+        message: 'Элементы успешно удалены'
+      };
+      return res.json(responseData); // Добавлено return
+    } else {
+      return res.status(500).json({ // Добавлено return
+        message: 'Произошла ошибка при обработке запроса (lave_selected)',
+        error: 'Ошибка внутри lave_selected'
+      });
+    }
+
+  } catch (error) {
+    console.error('Error:', error);
+    return res.status(500).json({ // Добавлено return
+      message: 'Произошла ошибка при обработке запроса',
+      error: error.message
+    });
+  }
+});
 
 //--------------------------------------
 ///open-folder

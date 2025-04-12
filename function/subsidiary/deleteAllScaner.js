@@ -81,17 +81,23 @@ function filterHTMLElementsByText(htmlContent, targetTexts) {
         console.error(`Ошибка при обработке файла: ${error}`);
     }
 }
-function saveFilterHTML(pathFile, pathFileNew,targetTexts){
-    readFile = readFileContent(pathFile);
-    filterHTML = filterHTMLElementsByText(readFile,targetTexts);
-    // console.log(filterHTML);
-    console.log('---------------');
-    console.log('saveFilterHTML',pathFileNew);
-    saveHtmlToFile(pathFileNew,filterHTML);
-    // console.log("путь из saveFilterHTML");
-    // console.log(pathFileNew);
-   
-}
+
+async function saveFilterHTML(pathFile, pathFileNew, targetTexts) {
+    try {
+      const readFile = await readFileContent(pathFile);
+      const filterHTML = filterHTMLElementsByText(readFile, targetTexts);
+      // console.log(filterHTML);
+  
+      await saveHtmlToFile(pathFileNew, filterHTML);
+  
+    } catch (error) {
+      console.error(`Ошибка при обработке и сохранении файла: ${error}`);
+      throw error; //  Пробрасываем ошибку, чтобы ее можно было обработать выше.
+    }
+  
+  }
+
+
 
 // Экспорт функции
 module.exports.saveFilterHTML =  saveFilterHTML;
