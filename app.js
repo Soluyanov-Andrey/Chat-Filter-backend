@@ -5,9 +5,9 @@ const express = require('express');
 
 const { saveNewFile } = require('./function/subsidiary/deleteNavBlock');
 const cors = require('cors'); // Импортируем cors
-const { IP , FULL_PATH , PATH_ILE_NAME_NEW , PATH_FILE_NAME_NEW } = require('./config'); // Импортируем переменные
+const { IP , FULL_PATH , PATH_FILE_NAME_NEW } = require('./config'); // Импортируем переменные
 const { doesFileSyncExist } = require('./function/subsidiary/fileUtils');
-const { deleteSelect, laveSelected } = require('./function/apiDeleteList/arraySelect');
+const { deleteSelect, laveSelected, lookPageBtn } = require('./function/apiDeleteList/arraySelect');
 const app = express();
 const port = 3000;
 
@@ -22,6 +22,7 @@ app.use(cors(corsOptions)); // Применяем middleware cors  <---- ЭТО 
 // Middleware для разбора JSON-тел запросов
 app.use(express.json());
 app.use(express.static('rootDocument'));  // Важно: нужно создать папку "public";
+
 
 
 
@@ -108,7 +109,7 @@ app.post('/create-folder', async (req, res) => {
 });
 
 
-app.post('/lookPageBtn', async (req, res) => {
+app.post('/delete_select', async (req, res) => {
   try {
     const selectedIds = req.body; // Получаем массив ID напрямую из req.body
 
@@ -138,8 +139,6 @@ app.post('/lookPageBtn', async (req, res) => {
   }
 });
 
-
-
 app.post('/lave_selected', async (req, res) => {
   try {
     const selectedIds = req.body; // Получаем массив ID напрямую из req.body
@@ -170,15 +169,14 @@ app.post('/lave_selected', async (req, res) => {
   }
 });
 
-
-app.post('/lave_selected', async (req, res) => {
+app.post('/lookPageBtn', async (req, res) => {
   try {
     const selectedIds = req.body; // Получаем массив ID напрямую из req.body
 
     console.log('Полученные ID:', selectedIds); // Выводим массив ID для отладки
 
     // Вызываем асинхронную функцию delete_select и ждем её завершения
-    const success = await laveSelected(selectedIds); // Передаем selectedIds
+    const success = await lookPageBtn(selectedIds); // Передаем selectedIds
 
     if (success) {
       const responseData = {
@@ -187,8 +185,8 @@ app.post('/lave_selected', async (req, res) => {
       return res.json(responseData); // Добавлено return
     } else {
       return res.status(500).json({ // Добавлено return
-        message: 'Произошла ошибка при обработке запроса (lave_selected)',
-        error: 'Ошибка внутри lave_selected'
+        message: 'Произошла ошибка при обработке запроса (look_selected)',
+        error: 'Ошибка внутри look_selected'
       });
     }
 

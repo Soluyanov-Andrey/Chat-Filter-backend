@@ -1,7 +1,3 @@
-/**
- * Оставляем указаные строки остальное удаляем
- */
-
 const fs = require('fs/promises');
 const path = require('path');
 const cheerio = require('cheerio');
@@ -11,6 +7,8 @@ const { saveHtmlToFile } = require('../subsidiary/fileUtils.js');
 const { readFileContent } = require('../subsidiary/fileUtils.js');
 
 /**
+ * Оставляем указаные строки остальное удаляем
+ * 
  * Фильтрует блоки .chat-box__human--prompt, оставляя блоки
  * .wrap-ai-completed и .chat-box human, содержащие текст из массива targetTexts.
  * Ищет .wrap-ai-completed следующий за .chat-box human
@@ -81,6 +79,35 @@ function filterHTMLElementsByText(htmlContent, targetTexts) {
         console.error(`Ошибка при обработке файла: ${error}`);
     }
 }
+
+/**
+ * Фильтрует HTML-файл оставляя выбранные строки и сохраняет результат в новый файл
+ * 
+ * @async
+ * @function saveFilterHTML
+ * @param {string} pathFile - Путь к исходному HTML-файлу для обработки
+ * @param {string} pathFileNew - Путь для сохранения отфильтрованного HTML-файла
+ * @param {string|string[]} targetTexts - Текст или массив текстов для поиска в файле
+ * @returns {Promise<void>}
+ * 
+ * @description Выполняет последовательно:
+ *   1. Чтение исходного HTML-файла
+ *   2. Фильтрацию содержимого через filterHTMLElementsByText()
+ *   3. Сохранение результата в новый файл
+ * 
+ * @throws {Error} Если возникает ошибка:
+ *   - При чтении исходного файла
+ *   - При обработке HTML
+ *   - При сохранении нового файла
+ * 
+ * @example
+ * // Базовое использование
+ * await saveFilterHTML('input.html', 'output.html', ['текст1', 'текст2']);
+ * 
+ * @see {@link filterHTMLElementsByText} - Функция фильтрации HTML
+ * @see {@link readFileContent} - Функция чтения файла
+ * @see {@link saveHtmlToFile} - Функция сохранения файла
+ */
 
 async function saveFilterHTML(pathFile, pathFileNew, targetTexts) {
     try {

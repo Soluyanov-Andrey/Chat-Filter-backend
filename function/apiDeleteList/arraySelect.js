@@ -1,5 +1,5 @@
 const { extractContextsFromChatPrompts } = require('../apiScan/scan');
-const { PATH_FILE_NAME_NEW, PATH_FILE_TEMP_NEW } = require('../../config');
+const { PATH_FILE_NAME_NEW, PATH_FILE_TEMP_NEW, PATH_FILE_NAME_LOOK} = require('../../config');
 const { saveListedHTML } = require('../subsidiary/deleteBlokScaner');
 const { replaceFile } = require('../subsidiary/fileUtils');
 const { saveFilterHTML } = require('../subsidiary/deleteAllScaner');
@@ -121,7 +121,11 @@ async function laveSelected(array) {
     console.error("Ошибка при сохранении HTML:", error);
     return false; // Ошибка при сохранении HTML.
   }
-
+// Сначала реализовал запись во временный файл, а затем переименование в PATH_FILE_NAME_NEW.
+// Это сделано из-за опасения конфликтов, так как PATH_FILE_NAME_NEW читается фронтендом,
+// и производить изменения в этом же файле - плохое решение. 
+// Изменения асинхронно выполняются во временном файле, а затем он переименовывается,
+// что исключает возможные конфликты доступа.
   try {
     replaceFile(PATH_FILE_TEMP_NEW, PATH_FILE_NAME_NEW);
   } catch (error) {
@@ -132,6 +136,28 @@ async function laveSelected(array) {
   return true; // Все операции выполнены успешно.
 }
 
+
+async function lookPageBtn(array) {
+  let contexts;
+
+  try {
+    contexts = arraySelect(array);
+  } catch (error) {
+    console.error("Ошибка при вызове arraySelect:", error);
+    return false; // Ошибка при выборе элементов.
+  }
+  console.log(contexts);
+
+  try {
+    await saveFilterHTML (PATH_FILE_NAME_NEW, PATH_FILE_NAME_LOOK, contexts); // Добавлено await
+  } catch (error) {
+    console.error("Ошибка при сохранении HTML:", error);
+    return false; // Ошибка при сохранении HTML.
+  }
+  return true; // Все операции выполнены успешно.
+}
+
+module.exports.lookPageBtn = lookPageBtn;
 module.exports.laveSelected = laveSelected;
 module.exports.arraySelect = arraySelect;
 module.exports.deleteSelect = deleteSelect;

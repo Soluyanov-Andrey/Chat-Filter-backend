@@ -9,6 +9,7 @@ const FILE_NAME  = 'ChatGPT _ ChatGPT 4o Free _ Support all countries.html'
 const FILE_NAME_NEW  = 'ChatGPT_NEW.html'
 const FILE_NAME_TEMP = 'ChatGPT_NEW_TEMP.html'
 const FILE_NAME_TEST = 'C_test.html'
+const FILE_NAME_LOOK = 'LOOK.html'
 
 const ROOT_DOCUMENT = path.join(ROOT_DIR, 'rootDocument');
 const FOLDER_DOCUMENT =  path.join(ROOT_DIR, 'document');
@@ -17,9 +18,14 @@ const IP = 'http://localhost:9070';
 
 const FULL_PATH = path.join(ROOT_DIR,'rootDocument', FILE_NAME);
 const FULL_PATH_FILE_TEST = path.join(ROOT_DIR,'rootDocument', FILE_NAME_TEST);
+
+/**
+ * В конце будет ChatGPT_NEW.html, делаем изменения в нем чтоб в случии проблем не испортить основной
+ * @constant {string}
+ */
 const PATH_FILE_NAME_NEW = path.join(ROOT_DIR,'rootDocument', FILE_NAME_NEW);
 const PATH_FILE_TEMP_NEW = path.join(ROOT_DIR,'rootDocument', FILE_NAME_TEMP);
-
+const PATH_FILE_NAME_LOOK = path.join(ROOT_DIR,'rootDocument', FILE_NAME_LOOK);
 module.exports = {
     ROOT_DIR,
     DATA_DIR,
@@ -31,5 +37,6 @@ module.exports = {
     FULL_PATH,
     PATH_FILE_NAME_NEW,
     PATH_FILE_TEMP_NEW,
-    FULL_PATH_FILE_TEST
+    FULL_PATH_FILE_TEST,
+    PATH_FILE_NAME_LOOK
 };
