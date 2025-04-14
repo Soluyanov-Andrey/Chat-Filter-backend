@@ -7,7 +7,7 @@ const { saveNewFile } = require('./function/subsidiary/deleteNavBlock');
 const cors = require('cors'); // Импортируем cors
 const { IP , FULL_PATH , PATH_ILE_NAME_NEW , PATH_FILE_NAME_NEW } = require('./config'); // Импортируем переменные
 const { doesFileSyncExist } = require('./function/subsidiary/fileUtils');
-const { delete_select, lave_selected } = require('./function/apiDeleteList/array_select');
+const { deleteSelect, laveSelected } = require('./function/apiDeleteList/arraySelect');
 const app = express();
 const port = 3000;
 
@@ -17,11 +17,13 @@ const corsOptions = {
   methods: 'GET,POST,OPTIONS', // Разрешенные методы
   allowedHeaders: ['Content-Type', 'Authorization'] // Разрешенные заголовки
 };
+
 app.use(cors(corsOptions)); // Применяем middleware cors  <---- ЭТО ОЧЕНЬ ВАЖНО!
 // Middleware для разбора JSON-тел запросов
 app.use(express.json());
+app.use(express.static('rootDocument'));  // Важно: нужно создать папку "public";
 
-app.use(express.static('public'));  // Важно: Создайте папку "public";
+
 
 //--------------------------------------
 ///folder-structure
@@ -106,14 +108,14 @@ app.post('/create-folder', async (req, res) => {
 });
 
 
-app.post('/delete_select', async (req, res) => {
+app.post('/lookPageBtn', async (req, res) => {
   try {
     const selectedIds = req.body; // Получаем массив ID напрямую из req.body
 
     console.log('Полученные ID:', selectedIds); // Выводим массив ID для отладки
 
     // Вызываем асинхронную функцию delete_select и ждем её завершения
-    const success = await delete_select(selectedIds); // Передаем selectedIds
+    const success = await deleteSelect(selectedIds); // Передаем selectedIds
 
     if (success) {
       const responseData = {
@@ -136,6 +138,8 @@ app.post('/delete_select', async (req, res) => {
   }
 });
 
+
+
 app.post('/lave_selected', async (req, res) => {
   try {
     const selectedIds = req.body; // Получаем массив ID напрямую из req.body
@@ -143,7 +147,38 @@ app.post('/lave_selected', async (req, res) => {
     console.log('Полученные ID:', selectedIds); // Выводим массив ID для отладки
 
     // Вызываем асинхронную функцию delete_select и ждем её завершения
-    const success = await lave_selected(selectedIds); // Передаем selectedIds
+    const success = await laveSelected(selectedIds); // Передаем selectedIds
+
+    if (success) {
+      const responseData = {
+        message: 'Элементы успешно удалены'
+      };
+      return res.json(responseData); // Добавлено return
+    } else {
+      return res.status(500).json({ // Добавлено return
+        message: 'Произошла ошибка при обработке запроса (lave_selected)',
+        error: 'Ошибка внутри lave_selected'
+      });
+    }
+
+  } catch (error) {
+    console.error('Error:', error);
+    return res.status(500).json({ // Добавлено return
+      message: 'Произошла ошибка при обработке запроса',
+      error: error.message
+    });
+  }
+});
+
+
+app.post('/lave_selected', async (req, res) => {
+  try {
+    const selectedIds = req.body; // Получаем массив ID напрямую из req.body
+
+    console.log('Полученные ID:', selectedIds); // Выводим массив ID для отладки
+
+    // Вызываем асинхронную функцию delete_select и ждем её завершения
+    const success = await laveSelected(selectedIds); // Передаем selectedIds
 
     if (success) {
       const responseData = {

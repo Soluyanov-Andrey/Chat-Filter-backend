@@ -16,7 +16,7 @@ const { saveFilterHTML } = require('../subsidiary/deleteAllScaner');
  * @returns {string[]} - Массив выбранных контекстов.
  */
 
-function array_select(array) {
+function arraySelect(array) {
  
   const contexts = extractContextsFromChatPrompts(PATH_FILE_NAME_NEW);
 
@@ -76,13 +76,13 @@ function array_select(array) {
  * example();
  */
 
-async function delete_select(array) {
+async function deleteSelect(array) {
   let contexts;
 
   try {
-    contexts = array_select(array);
+    contexts = arraySelect(array);
   } catch (error) {
-    console.error("Ошибка при вызове array_select:", error);
+    console.error("Ошибка при вызове arraySelect:", error);
     return false; // Ошибка при выборе элементов.
   }
   console.log(contexts);
@@ -104,19 +104,19 @@ async function delete_select(array) {
   return true; // Все операции выполнены успешно.
 }
 
-async function lave_selected(array) {
+async function laveSelected(array) {
   let contexts;
 
   try {
-    contexts = array_select(array);
+    contexts = arraySelect(array);
   } catch (error) {
-    console.error("Ошибка при вызове array_select:", error);
+    console.error("Ошибка при вызове arraySelect:", error);
     return false; // Ошибка при выборе элементов.
   }
   console.log(contexts);
 
   try {
-    await saveFilterHTML(PATH_FILE_NAME_NEW, PATH_FILE_TEMP_NEW, contexts); // Добавлено await
+    await saveFilterHTML (PATH_FILE_NAME_NEW, PATH_FILE_TEMP_NEW, contexts); // Добавлено await
   } catch (error) {
     console.error("Ошибка при сохранении HTML:", error);
     return false; // Ошибка при сохранении HTML.
@@ -132,6 +132,6 @@ async function lave_selected(array) {
   return true; // Все операции выполнены успешно.
 }
 
-module.exports.lave_selected = lave_selected;
-module.exports.array_select = array_select;
-module.exports.delete_select = delete_select;
+module.exports.laveSelected = laveSelected;
+module.exports.arraySelect = arraySelect;
+module.exports.deleteSelect = deleteSelect;

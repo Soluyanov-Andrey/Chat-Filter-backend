@@ -1,4 +1,4 @@
-const { array_select } = require('./array_select');
+const { arraySelect } = require('./array_select');
 const { delete_select } = require('./array_select');
 
 
@@ -10,14 +10,14 @@ describe('array_select with real path', () => {
   
     const indicesToSelect = [1, 2, 3];
   
-    console.log(array_select(indicesToSelect));
+    console.log(arraySelect(indicesToSelect));
    
   });
 
   it('delete_select with real path ', () => {
   
     const indicesToSelect = [5];
-    success = delete_select(indicesToSelect);
+    success = deleteSelect(indicesToSelect);
     if (success) {
       console.log("delete_select в файле выполнена успешно");
     } else {

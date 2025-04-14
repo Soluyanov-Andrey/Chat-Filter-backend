@@ -372,7 +372,39 @@ paths:
                   }
         '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
           $ref: '#/components/responses/InternalServerError'
-
+  /lookPageBtn:
+    post:
+      summary: На выделеные чексбуксы формируем страницы для просмотра
+      description: На выделеные чексбуксы формируем страницы для просмотра
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+             type: array  # Изменяем тип на array
+             items:  # Описываем элементы массива
+              type: string
+      responses:
+        '201':
+          description: Страница сформирована
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  message:
+                    type: string
+                    example: "File modified"
+                example:
+                  {
+                    "status": "success",
+                    "message": "File create"
+                  }
+        '500':
+          $ref: '#/components/responses/InternalServerError'
 
 components:
   schemas:
