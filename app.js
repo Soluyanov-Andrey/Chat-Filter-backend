@@ -180,7 +180,7 @@ app.post('/lookPageBtn', async (req, res) => {
 
     if (success) {
       const responseData = {
-        message: 'Элементы успешно удалены'
+        message: 'Страница из выбранных элементов создана'
       };
       return res.json(responseData); // Добавлено return
     } else {
