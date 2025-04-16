@@ -109,7 +109,7 @@ app.post('/create-folder', async (req, res) => {
 });
 
 
-app.post('/delete_select', async (req, res) => {
+app.post('/delete-select', async (req, res) => {
   try {
     const selectedIds = req.body; // Получаем массив ID напрямую из req.body
 
@@ -139,7 +139,7 @@ app.post('/delete_select', async (req, res) => {
   }
 });
 
-app.post('/lave_selected', async (req, res) => {
+app.post('/lave-selected', async (req, res) => {
   try {
     const selectedIds = req.body; // Получаем массив ID напрямую из req.body
 
@@ -169,7 +169,7 @@ app.post('/lave_selected', async (req, res) => {
   }
 });
 
-app.post('/lookPageBtn', async (req, res) => {
+app.post('/look-page', async (req, res) => {
   try {
     const selectedIds = req.body; // Получаем массив ID напрямую из req.body
 

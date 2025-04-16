@@ -44,6 +44,7 @@ function saveHtmlToFile(filePath, htmlContent) {
  * @returns {string} Содержимое текстового файла.
  * @throws {Error} Если путь к файлу не является строкой или является
  * пустым.
+ * @returns {string} Вернет считаный из файла content
  * @throws {Error} Если не удалось прочитать файл или содержимое файла
  * не является строкой.  Сообщение об ошибке будет содержать детали
  * произошедшей ошибки.
@@ -65,6 +66,7 @@ function readFileContent(path, encoding = 'utf8') {
           }
           
           return content;
+
       } catch (error) {
           // Логируем ошибку
           console.error('Ошибка при чтении файла:', error.message);

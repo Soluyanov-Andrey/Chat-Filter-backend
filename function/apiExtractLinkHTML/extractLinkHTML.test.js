@@ -1,4 +1,5 @@
 const { extractLinkTextFromHTML } = require('./extractLinkHTML'); 
+const { readFileTextFromHTML } = require('./extractLinkHTML'); 
 
 describe('extractLinkTextFromHTML', () => {
   it('should extract link texts from HTML with multiple links', () => {
@@ -108,4 +109,22 @@ describe('extractLinkTextFromHTML', () => {
     
   });
 
+});
+
+describe('readFileTextFromHTML', () => {
+  it('Тест просто выводит результат работы функции readFileTextFromHTML', async () => {
+    // 1. Подготовка (Arrange)
+    const existingFilePath = '/media/andrey/project/project/servers/SERVER-node-chatGPT/document/root.html'; // Путь к существующему файлу
+
+    // 2. Действие (Act)
+    let result;
+    try {
+      result =  readFileTextFromHTML(existingFilePath);
+
+      console.log(result); // Выводим результат в консоль
+    } catch (error) {
+      console.error('Ошибка при выполнении теста:', error);
+      return; // Важно выйти из теста, если произошла ошибка
+    }
+  });
 });
