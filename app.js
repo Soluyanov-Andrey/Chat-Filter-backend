@@ -41,12 +41,73 @@ app.get('/folder-structure',async  (req, res) => {
      console.log('Полученный и декодированный path:', path);
   
     const responseData = {
-      message: 'Данные /folder-structure!',
+      message: 'folder-structure:',
       receivedData: await scanFoldersForDocs(path)
     };
     res.json(responseData);
 });
 
+//--------------------------------------
+///open-document
+//--------------------------------------
+
+app.get('/open-document',async  (req, res) => {
+
+  // 1. Получаем параметр path из req.query
+  const encodedPath = req.query.path;
+//    console.log(req.query);
+  // 2. URL-декодируем значение параметра
+  const path = decodeURIComponent(encodedPath);
+
+//    console.log('Полученный и декодированный path:', path);
+
+ const responseData = {
+   message: '/create-folder',
+   receivedData: 'папака создана'
+ };
+ res.json(responseData);
+});
+
+//--------------------------------------
+//scan
+//--------------------------------------
+app.get('/scan',async  (req, res) => {
+
+  const encodedPath = req.query.path;
+  const path = decodeURIComponent(encodedPath);
+
+
+  try {
+    // 1. Проверяем, существует ли файл
+    const fileExists = await doesFileSyncExist(PATH_FILE_NAME_NEW);
+
+    // 2. Выполняем saveNewFile, если файл не существует (или пропускаем)
+    if (!fileExists) {
+      await saveNewFile(FULL_PATH, PATH_FILE_NAME_NEW);
+      console.log(`saveNewFile успешно завершена для path: ${path}`);
+    }  else {
+      console.log(`Файл по пути ${FULL_PATH} уже существует, saveNewFile пропущен.`);
+    }
+
+    // 3. Независимо от того, был ли файл обработан, извлекаем контексты
+    const extractContexts = extractContextsFromChatPrompts(PATH_FILE_NAME_NEW);
+
+    const responseData = {
+      status: 'Scan completed',
+      message: extractContexts,
+    };
+    res.json(responseData);
+
+  } catch (error) {
+    console.error('Ошибка при обработке /scan:', error);
+    res.status(500).json({
+      message: 'Произошла ошибка при обработке запроса',
+      error: error.message,
+    });
+  }
+
+
+});
 
 //--------------------------------------
 //delete-list
@@ -72,6 +133,10 @@ app.get('/delete-list', async (req, res) => {
     });
   }
 });
+
+
+
+
 
 
 //--------------------------------------
@@ -199,67 +264,8 @@ app.post('/look-page', async (req, res) => {
   }
 });
 
-//--------------------------------------
-///open-folder
-//--------------------------------------
-
-app.get('/open-folder',async  (req, res) => {
-
-  // 1. Получаем параметр path из req.query
-  const encodedPath = req.query.path;
-//    console.log(req.query);
-  // 2. URL-декодируем значение параметра
-  const path = decodeURIComponent(encodedPath);
-
-//    console.log('Полученный и декодированный path:', path);
-
- const responseData = {
-   message: '/create-folder',
-   receivedData: 'папака создана'
- };
- res.json(responseData);
-});
-
-//--------------------------------------
-//scan
-//--------------------------------------
-app.get('/scan',async  (req, res) => {
-
-  const encodedPath = req.query.path;
-  const path = decodeURIComponent(encodedPath);
 
 
-  try {
-    // 1. Проверяем, существует ли файл
-    const fileExists = await doesFileSyncExist(PATH_FILE_NAME_NEW);
-
-    // 2. Выполняем saveNewFile, если файл не существует (или пропускаем)
-    if (!fileExists) {
-      await saveNewFile(FULL_PATH, PATH_FILE_NAME_NEW);
-      console.log(`saveNewFile успешно завершена для path: ${path}`);
-    }  else {
-      console.log(`Файл по пути ${FULL_PATH} уже существует, saveNewFile пропущен.`);
-    }
-
-    // 3. Независимо от того, был ли файл обработан, извлекаем контексты
-    const extractContexts = extractContextsFromChatPrompts(PATH_FILE_NAME_NEW);
-
-    const responseData = {
-      message: 'Данные обработаны успешно',
-      receivedData: extractContexts,
-    };
-    res.json(responseData);
-
-  } catch (error) {
-    console.error('Ошибка при обработке /scan:', error);
-    res.status(500).json({
-      message: 'Произошла ошибка при обработке запроса',
-      error: error.message,
-    });
-  }
-
-
-});
 
 
 

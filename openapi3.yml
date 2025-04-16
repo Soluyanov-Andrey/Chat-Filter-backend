@@ -47,46 +47,9 @@ paths:
                     }
                   ]
                 }
-
         '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
           $ref: '#/components/responses/InternalServerError'
 
-  /delete-list:
-    get:
-      summary: Удаляем тему по ID
-      description: Удаляем тему по ID
-      parameters:
-        - in: query
-          name: id
-          schema:
-            type: integer
-            format: int64 #  (или int32, в зависимости от диапазона ваших ID)
-            description: Идентификатор папки (должен быть числом).
-            example: 123
-          required: true
-      responses:
-        '200':
-          description: Папка успешно открыта.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                    example: "success"
-                  message:
-                    type: string
-                    example: "Folder open"
-                example:
-                  {
-                    "status": "success",
-                    "message": "Folder open"
-                  }
-        '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
-          $ref: '#/components/responses/InternalServerError'
-
- 
   /open-document:
     get:
       summary: Открыть document
@@ -111,67 +74,42 @@ paths:
                 - "строка 1"
                 - "строка 2"
                 - "и т.д."
-
         '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
           $ref: '#/components/responses/InternalServerError'
 
   /scan:
     get:
       summary: Сканируем документ
-      description: Сканируем документ в конкретной папки и выводим в форме li
+      description: Сканируем документ и возвращаем результат обработки.
       responses:
-        '200': # Успешное открытие папки
-          description: Папка успешно открыта для анализа.
+        '200':
+          description: Документ успешно отсканирован и обработан. Возвращает объект с сообщением об успехе и массивом обработанных строк.
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  status:
-                    type: string
-                    example: "success"
                   message:
                     type: string
-                    example: "Folder open"
-                example:
-                  {
-                    "status": "success",
-                    "message": "Folder open"
-                  }
-
-  /create-page:
-    get:
-      summary: Создаем страницу
-      description: создает папку в выбранном пути копируя по шаблону
-      parameters:
-        - in: query
-          name: path
-          schema:
-            type: string
-          required: true
-          description: Абсолютный или относительный путь к новой папке.
-      responses:
-        '201': # Обычно для создания ресурса используют 201 Created
-          description: Папка успешно создана.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                    example: "success"
-                  message:
-                    type: string
-                    example: "Folder created successfully"
+                    example: "Данные обработаны успешно"
+                    description: Сообщение об успехе операции.
+                  receivedData:
+                    type: array
+                    items:
+                      type: string
+                      description: Строка, полученная после обработки сканированного документа.
+                    description: Массив строк, полученных в результате обработки сканированного документа.
+                required:
+                  - status
+                  - receivedData
               example:
                 {
-                  "status": "success",
-                  "message": "Folder open"
+                  "status": "Scan completed",
+                  "message": [
+                    "мне кажится алгоритм немного запутаный давай попробуеме по другому у нас есто некие переменые start и end когда мы начинаем перебирать строку мы имеем start=0 считаем 70 символов и после этого идем далее и ищем пробел. Если пробе найден фиксируем это как конечную точку и копируем строку от позиции start до этой точки в масив. В следующем просчоте start станет точкой которуюя мы нашли а новая опять высчитается . Таким образом мы собирем в масив из строк которые будут больше 70 . Потом останется только собрать все элементы масива поставив знак переноса. Мне кажится этот код легче отлаживать в случии каких то не учтных ошибок. Мы будем иметь масив выписаных кусков который можим посмотреть",
+                    "добавь если нужна закругка модулей, и сделай документацию к функции в виде коментария"
+                  ]
                 }
-
-        '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
-          $ref: '#/components/responses/InternalServerError'
 
   /view-page:
     get:
@@ -248,6 +186,45 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
 
+  /create-page:
+    post: # Изменено с GET на POST
+      summary: Создаем страницу
+      description: создает папку в выбранном пути копируя по шаблону
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                path:
+                  type: string
+                  description: Абсолютный или относительный путь к новой папке.
+                  example: "/путь/к/новой/папке"
+              required:
+                - path
+      responses:
+        '201': # Обычно для создания ресурса используют 201 Created
+          description: Папка успешно создана.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  message:
+                    type: string
+                    example: "Folder created successfully"
+              example:
+                {
+                  "status": "success",
+                  "message": "Folder created successfully"
+                }
+        '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
+          $ref: '#/components/responses/InternalServerError'
+
   /create_topic:
     post:
       summary: Создает новую тему
@@ -291,6 +268,46 @@ paths:
                     "message": "Folder open"
                   }
         '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /delete-list:
+    post:
+      summary: Удаляем тему по ID
+      description: Удаляем тему по ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                  description: Идентификатор папки (должен быть числом).
+                  example: 123
+              required:
+                - id
+      responses:
+        '200':
+          description: Папка успешно открыта.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  message:
+                    type: string
+                    example: "Folder open"
+                example:
+                  {
+                    "status": "success",
+                    "message": "Folder open"
+                  }
+        '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
           $ref: '#/components/responses/InternalServerError'
 
   /delete-select:
