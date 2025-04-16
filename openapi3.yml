@@ -30,22 +30,62 @@ paths:
               schema:
                 type: object
                 properties:
-                  folders:
-                    type: array
-                    items:
-                      $ref: '#/components/responses/InternalServerError'
+                  message:
+                    type: string
+                    example: "folder-structure:"
+                    description: Сообщение, подтверждающее успешное получение структуры папок.
+                  receivedData:
+                    type: object
+                    description: Объект, содержащий структуру папок.
+                    properties:
+                      folders:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              description: Имя папки.
+                              example: "sh скрипты"
+                            type:
+                              type: string
+                              description: Тип папки.
+                              example: "folder-"
+                        description: Массив объектов, представляющих папки.
+                required:
+                  - status
+                  - message
               example:
                 {
-                  "folders": [
-                    {
-                      "name": "папка1",
-                      "type": "folder+"
-                    },
-                    {
-                      "name": "папка2",
-                      "type": "folder"
-                    }
-                  ]
+                  "status": "folder-structure:",
+                  "message": {
+                    "folders": [
+                      {
+                        "name": "sh скрипты",
+                        "type": "folder-"
+                      },
+                      {
+                        "name": "7zip",
+                        "type": "folder-"
+                      },
+                      {
+                        "name": "UFW сетевой экран",
+                        "type": "folder-"
+                      },
+                      {
+                        "name": "скаченые",
+                        "type": "folder-"
+                      },
+                      {
+                        "name": "утилиты",
+                        "type": "folder-"
+                      },
+                      {
+                        "name": "чат_gpt",
+                        "type": "folder-"
+                      }
+                    ]
+                  }
                 }
         '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
           $ref: '#/components/responses/InternalServerError'
@@ -100,12 +140,12 @@ paths:
                       description: Строка, полученная после обработки сканированного документа.
                     description: Массив строк, полученных в результате обработки сканированного документа.
                 required:
-                  - status
+                  - message
                   - receivedData
               example:
                 {
-                  "status": "Scan completed",
-                  "message": [
+                  "message": "Данные обработаны успешно",
+                  "receivedData": [
                     "мне кажится алгоритм немного запутаный давай попробуеме по другому у нас есто некие переменые start и end когда мы начинаем перебирать строку мы имеем start=0 считаем 70 символов и после этого идем далее и ищем пробел. Если пробе найден фиксируем это как конечную точку и копируем строку от позиции start до этой точки в масив. В следующем просчоте start станет точкой которуюя мы нашли а новая опять высчитается . Таким образом мы собирем в масив из строк которые будут больше 70 . Потом останется только собрать все элементы масива поставив знак переноса. Мне кажится этот код легче отлаживать в случии каких то не учтных ошибок. Мы будем иметь масив выписаных кусков который можим посмотреть",
                     "добавь если нужна закругка модулей, и сделай документацию к функции в виде коментария"
                   ]
