@@ -29,12 +29,15 @@ paths:
             application/json:
               schema:
                 type: object
+                
                 properties:
+                  status:
+                    type: string
                   message:
                     type: string
                     example: "folder-structure:"
                     description: Сообщение, подтверждающее успешное получение структуры папок.
-                  receivedData:
+                  data:
                     type: object
                     description: Объект, содержащий структуру папок.
                     properties:
@@ -55,10 +58,12 @@ paths:
                 required:
                   - status
                   - message
+                  - data
               example:
                 {
-                  "status": "folder-structure:",
-                  "message": {
+                  "status": "folder-structure: completed",
+                  "message": "",
+                  "data": {
                     "folders": [
                       {
                         "name": "sh скрипты",
@@ -140,7 +145,7 @@ paths:
                       description: Строка, полученная после обработки сканированного документа.
                     description: Массив строк, полученных в результате обработки сканированного документа.
                 required:
-                  - message
+                  - status
                   - receivedData
               example:
                 {

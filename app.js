@@ -41,8 +41,9 @@ app.get('/folder-structure',async  (req, res) => {
      console.log('Полученный и декодированный path:', path);
   
     const responseData = {
-      message: 'folder-structure:',
-      receivedData: await scanFoldersForDocs(path)
+      status: "folder-structure: completed",
+      message: 'Папка отсканирована',
+      data: await scanFoldersForDocs(path)
     };
     res.json(responseData);
 });
