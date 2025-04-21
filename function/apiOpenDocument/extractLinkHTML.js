@@ -26,7 +26,13 @@ function readFileTextFromHTML(path) {
   try {
     const fileContent = readFileContent(path); // Используем await, т.к. readFileContent вероятно асинхронная
     const linkTexts = extractLinkTextFromHTML(fileContent);
-    return linkTexts;
+
+
+    return linkTexts.map(str => ({
+      name: str,
+      type: 'folder-'
+    }));
+
   } catch (error) {
     console.error(`Ошибка при чтении или обработке файла ${path}:`, error);
     throw new Error(`Не удалось прочитать или обработать файл ${path}`); // Пробрасываем ошибку дальше

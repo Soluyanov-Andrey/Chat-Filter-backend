@@ -5,9 +5,18 @@ const express = require('express');
 
 const { saveNewFile } = require('./function/subsidiary/deleteNavBlock');
 const cors = require('cors'); // Импортируем cors
-const { IP , FULL_PATH , PATH_FILE_NAME_NEW } = require('./config'); // Импортируем переменные
+
+const { 
+   IP , 
+   FULL_PATH ,
+   PATH_FILE_NAME_NEW, 
+   DOCUMENT_ROOT,
+   DOCUMENT_PAGE
+  } = require('./config'); // Импортируем переменные
+
 const { doesFileSyncExist } = require('./function/subsidiary/fileUtils');
 const { deleteSelect, laveSelected, lookPageBtn } = require('./function/apiDeleteList/arraySelect');
+const { readFileTextFromHTML } = require('./function/apiOpenDocument/extractLinkHTML'); 
 const app = express();
 const port = 3000;
 
@@ -49,7 +58,7 @@ app.get('/folder-structure',async  (req, res) => {
 });
 
 //--------------------------------------
-///open-document
+// open-document
 //--------------------------------------
 
 app.get('/open-document',async  (req, res) => {
@@ -59,12 +68,13 @@ app.get('/open-document',async  (req, res) => {
 //    console.log(req.query);
   // 2. URL-декодируем значение параметра
   const path = decodeURIComponent(encodedPath);
+  console.log('Полученный и декодированный path:', path);
 
-//    console.log('Полученный и декодированный path:', path);
-
+  
  const responseData = {
-   message: '/create-folder',
-   receivedData: 'папака создана'
+  status: 'open-document',
+  message: 'читаем root фаил',
+  data: readFileTextFromHTML(path + DOCUMENT_ROOT)
  };
  res.json(responseData);
 });
@@ -94,8 +104,9 @@ app.get('/scan',async  (req, res) => {
     const extractContexts = extractContextsFromChatPrompts(PATH_FILE_NAME_NEW);
 
     const responseData = {
-      status: 'Scan completed',
-      message: extractContexts,
+      status: 'scan: completed',
+      message: "Данные обработаны успешно",
+      data: extractContexts,
     };
     res.json(responseData);
 

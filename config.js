@@ -5,11 +5,15 @@ const ROOT_DIR = process.cwd(); // Корневая директория про�
 
 const DATA_DIR = path.join(ROOT_DIR, 'data');
 
-const FILE_NAME  = 'ChatGPT _ ChatGPT 4o Free _ Support all countries.html'
-const FILE_NAME_NEW  = 'ChatGPT_NEW.html'
-const FILE_NAME_TEMP = 'ChatGPT_NEW_TEMP.html'
-const FILE_NAME_TEST = 'C_test.html'
-const FILE_NAME_LOOK = 'LOOK.html'
+const FILE_NAME  = 'ChatGPT _ ChatGPT 4o Free _ Support all countries.html';
+const FILE_NAME_NEW  = 'ChatGPT_NEW.html';
+const FILE_NAME_TEMP = 'ChatGPT_NEW_TEMP.html';
+const FILE_NAME_TEST = 'C_test.html';
+const FILE_NAME_LOOK = 'LOOK.html';
+
+//Пути для файлов внутри document
+const DOCUMENT_ROOT = '/document/root.html';
+const DOCUMENT_PAGE = '/document/themes/in1.html';
 
 const ROOT_DOCUMENT = path.join(ROOT_DIR, 'rootDocument');
 const FOLDER_DOCUMENT =  path.join(ROOT_DIR, 'document');
@@ -38,5 +42,7 @@ module.exports = {
     PATH_FILE_NAME_NEW,
     PATH_FILE_TEMP_NEW,
     FULL_PATH_FILE_TEST,
-    PATH_FILE_NAME_LOOK
+    PATH_FILE_NAME_LOOK,
+    DOCUMENT_ROOT,
+    DOCUMENT_PAGE
 };
