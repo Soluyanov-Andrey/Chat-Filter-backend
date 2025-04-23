@@ -30,7 +30,7 @@ function readFileTextFromHTML(path) {
 
     return linkTexts.map(str => ({
       name: str,
-      type: 'folder-'
+      type: ''
     }));
 
   } catch (error) {
