@@ -122,6 +122,33 @@ paths:
         '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
           $ref: '#/components/responses/InternalServerError'
 
+  /open-themes:
+    get:
+      summary: Открыть document/themes и читает файлы in1.html и тд
+      description: Открыть document/themes и читает файлы in1.html и тд
+      parameters:
+        - in: query
+          name: path
+          schema:
+            type: string
+          required: true
+          description: Абсолютный или относительный путь к новой папке.
+      responses:
+        '201': # Обычно для создания ресурса используют 201 Created
+          description: Возвращает массив строк с именами файлов.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+              example:
+                - "строка 1"
+                - "строка 2"
+                - "и т.д."
+        '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
+          $ref: '#/components/responses/InternalServerError'
+
   /scan:
     get:
       summary: Сканируем документ

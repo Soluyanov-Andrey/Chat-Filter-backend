@@ -13,6 +13,7 @@ const FILE_NAME_LOOK = 'LOOK.html';
 
 //Пути для файлов внутри document
 const DOCUMENT_ROOT = '/document/root.html';
+const DOCUMENT_PAGE_HREF = 'root.html';
 const DOCUMENT_PAGE = '/document/themes/in1.html';
 
 const ROOT_DOCUMENT = path.join(ROOT_DIR, 'rootDocument');
@@ -44,5 +45,5 @@ module.exports = {
     FULL_PATH_FILE_TEST,
     PATH_FILE_NAME_LOOK,
     DOCUMENT_ROOT,
-    DOCUMENT_PAGE
+    DOCUMENT_PAGE_HREF
 };

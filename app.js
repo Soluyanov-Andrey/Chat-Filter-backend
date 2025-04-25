@@ -2,7 +2,7 @@ const { scanFoldersForDocs } = require('./function/apiFolderStructure/folderStru
 const copyDirectory = require('./function/apiCreateFolder/createFolder'); 
 const { extractContextsFromChatPrompts } = require('./function/apiScan/scan');
 const express = require('express');
-
+const { getHrefFromHTML } = require('./function/apiOpenDocument/getHrefByIndex'); 
 const { saveNewFile } = require('./function/subsidiary/deleteNavBlock');
 const cors = require('cors'); // Импортируем cors
 
@@ -11,7 +11,7 @@ const {
    FULL_PATH ,
    PATH_FILE_NAME_NEW, 
    DOCUMENT_ROOT,
-   DOCUMENT_PAGE
+   DOCUMENT_PAGE_HREF
   } = require('./config'); // Импортируем переменные
 
 const { doesFileSyncExist } = require('./function/subsidiary/fileUtils');
@@ -74,10 +74,38 @@ app.get('/open-document',async  (req, res) => {
  const responseData = {
   status: 'open-document',
   message: 'читаем root фаил',
-  data: readFileTextFromHTML(path + DOCUMENT_ROOT)
+  data: readFileTextFromHTML(path + '/' + DOCUMENT_PAGE_HREF)
  };
  res.json(responseData);
 });
+
+//--------------------------------------
+//open-themes
+//--------------------------------------
+app.get('/open-themes', async (req, res) => {
+
+ const encodedPath = req.query.path;
+ const encodedIndex = req.query.index;
+
+   const path = decodeURIComponent(encodedPath);
+   const pathHref = path  + '/' + DOCUMENT_PAGE_HREF;
+
+   console.log('Полученный и декодированный path:', path);
+
+ 
+  let hrefPath =  getHrefFromHTML(pathHref, encodedIndex);
+  
+  
+
+  const responseData = {
+   status: '/open-themes',
+   message: 'читаем in файл',
+   data: readFileTextFromHTML(path + '/' + hrefPath)
+  };
+  res.json(responseData);
+
+});
+
 
 //--------------------------------------
 //scan
@@ -117,8 +145,6 @@ app.get('/scan',async  (req, res) => {
       error: error.message,
     });
   }
-
-
 });
 
 //--------------------------------------
@@ -145,9 +171,6 @@ app.get('/delete-list', async (req, res) => {
     });
   }
 });
-
-
-
 
 
 

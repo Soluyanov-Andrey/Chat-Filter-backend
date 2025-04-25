@@ -1,5 +1,8 @@
 const cheerio = require('cheerio');
 const { readFileContent } = require('../subsidiary/fileUtils');
+
+
+
 /**
  * Извлекает текст ссылок из HTML-строки, содержащей список <ul> с id="list".
  * @param {string} htmlString - HTML-строка, содержащая список.
@@ -15,6 +18,9 @@ function extractLinkTextFromHTML(htmlString) {
 
   return linkTexts; // Возвращаем массив текста ссылок
 }
+
+
+
 
 /**
  * Читает содержимое файла, извлекает текст ссылок из HTML, содержащегося в файле.
@@ -38,5 +44,7 @@ function readFileTextFromHTML(path) {
     throw new Error(`Не удалось прочитать или обработать файл ${path}`); // Пробрасываем ошибку дальше
   }
 }
+
+
 module.exports.readFileTextFromHTML = readFileTextFromHTML;
 module.exports.extractLinkTextFromHTML = extractLinkTextFromHTML;

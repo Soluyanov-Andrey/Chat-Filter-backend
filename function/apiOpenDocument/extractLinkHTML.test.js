@@ -1,6 +1,7 @@
 const { extractLinkTextFromHTML } = require('./extractLinkHTML'); 
 const { readFileTextFromHTML } = require('./extractLinkHTML'); 
 
+
 describe('extractLinkTextFromHTML', () => {
   it('should extract link texts from HTML with multiple links', () => {
     const htmlContent = `
@@ -128,3 +129,4 @@ describe('readFileTextFromHTML', () => {
     }
   });
 });
+
