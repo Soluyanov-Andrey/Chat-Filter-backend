@@ -19,7 +19,7 @@ const { extractContextsFromChatPrompts } = require('../apiScan/scan');
 async function createPageWrapper(filePath, scanDerectory, outputDir) { // Обертка для асинхронного вызова
     try {
       const initialFileNumber = await findMaxNumberInFilenames(scanDerectory);
-      await createPage(filePath, outputDir, initialFileNumber + 1); // Передаем увеличенный номер
+      await createPage(filePath, outputDir, initialFileNumber + 1,nameFile); // Передаем увеличенный номер
     } catch (error) {
       console.error("Ошибка при создании страниц:", error);
       throw error; // Пробрасываем ошибку дальше, чтобы ее можно было обработать
@@ -38,7 +38,7 @@ async function createPageWrapper(filePath, scanDerectory, outputDir) { // Обе
  * @throws {Error} Если происходит ошибка при извлечении контекстов или сохранении отфильтрованных HTML файлов, ошибка пробрасывается дальше для обработки.
  * @returns {Promise<Array<any>>} - Promise, который разрешается с массивом извлеченных контекстов (`arrayResult`) после успешного создания и сохранения всех файлов.
  */
-async function createPage(filePath, outputDir, initialFileNumber) {
+async function createPage(filePath, outputDir, initialFileNumber,nameFile) {
 
 
     try {
@@ -47,7 +47,7 @@ async function createPage(filePath, outputDir, initialFileNumber) {
       let currentFileNumber = initialFileNumber;
   
       for (const element of arrayResult) { // Используем for...of
-        const newFileName = `C${currentFileNumber}.html`;
+        const newFileName = `${nameFile}${currentFileNumber}.html`;
         const pathFileNew = path.join(outputDir, newFileName);
         console.log('---------------');
         console.log('createPage', pathFileNew);
