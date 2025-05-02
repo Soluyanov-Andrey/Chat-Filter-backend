@@ -2,7 +2,7 @@ const { scanFoldersForDocs } = require('./function/apiFolderStructure/folderStru
 const copyDirectory = require('./function/apiCreateFolder/createFolder'); 
 const { extractContextsFromChatPrompts } = require('./function/apiScan/scan');
 const express = require('express');
-const { getHrefFromHTML } = require('./function/apiOpenDocument/getHrefByIndex'); 
+const { getHrefFromHTMLFiles } = require('./function/apiOpenDocument/getHrefByIndex'); 
 const { saveNewFile } = require('./function/subsidiary/deleteNavBlock');
 const cors = require('cors'); // Импортируем cors
 
@@ -93,7 +93,7 @@ app.get('/open-themes', async (req, res) => {
    console.log('Полученный и декодированный path:', path);
 
  
-  let hrefPath =  getHrefFromHTML(pathHref, encodedIndex);
+  let hrefPath =  getHrefFromHTMLFiles(pathHref, encodedIndex);
   
   
 
@@ -299,6 +299,28 @@ app.post('/look-page', async (req, res) => {
   }
 });
 
+
+app.post('/create-page', async (req, res) => {
+ 
+    try {
+      const { path, indexTheme } = req.body; // Получаем path и indexTheme из req.body
+  
+      console.log('Полученный path:', path); // Выводим path для отладки
+      console.log('Полученный indexTheme:', indexTheme); // Выводим indexTheme для отладки
+  
+      const responseData = {
+        message: 'create-page'
+      };
+      return res.json(responseData); // Отправляем ответ с сообщением 'create-page'
+  
+    } catch (error) {
+      console.error('Error:', error);
+      return res.status(500).json({
+        message: 'Произошла ошибка при обработке запроса',
+        error: error.message
+      });
+    }
+});
 
 
 

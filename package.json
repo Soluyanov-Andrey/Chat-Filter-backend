@@ -19,7 +19,8 @@
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "fs-extra": "^11.3.0",
-    "marked": "^15.0.6"
+    "marked": "^15.0.6",
+    "node-dir": "^0.1.17"
   },
   "devDependencies": {
     "jest": "^29.7.0",

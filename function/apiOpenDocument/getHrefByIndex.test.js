@@ -1,5 +1,5 @@
 const { getHrefByIndex } = require('./getHrefByIndex.js'); 
-const { getHrefFromHTML } = require('./getHrefByIndex.js'); 
+const { getHrefFromHTMLFiles} = require('./getHrefByIndex.js'); 
 
 describe('getHrefByIndex', () => {
     const html = `
@@ -49,7 +49,7 @@ describe('getHrefByIndex', () => {
     const html1 = `/media/andrey/project/project/servers/SERVER-node-chatGPT/document/root.html`;
     const html = `/media/andrey/Рабочий/flash/linux/manul/7zip/document/root.html`;
     test('возвращает href для индекса ', () => {
-        console.log(getHrefFromHTML(html, 1));
+        console.log(getHrefFromHTMLFiles(html, 1));
         console.log('сработало');
     });
   

@@ -6,10 +6,11 @@ const filePath= '/media/andrey/project/project/servers/SERVER-node-chatGPT/rootD
 const outputDir = '/media/andrey/project/project/servers/SERVER-node-chatGPT/test/'; // Базовый путь к папке, где будут сохраняться файлы
 const scanDerectory = '/media/andrey/project/project/servers/SERVER-node-chatGPT/test/document/themes/pages';
 const nameFile = 'in1-';
+
 describe('createPage', () => {
   it('createPage', () => {
 
-    createPageWrapper(filePath, scanDerectory, outputDir,nameFile );
+    createPageWrapper(filePath, scanDerectory, outputDir, nameFile);
 
 
   });

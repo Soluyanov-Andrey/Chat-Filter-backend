@@ -21,7 +21,7 @@ describe('findMaxNumberAfterDash', () => {
       // Arrange: Prepare the directory to test (you still need to create this directory and files)
     
       const directoryPath = '/media/andrey/project/project/servers/SERVER-node-chatGPT/document/themes/pages'; 
-      const prefixToSearch = 'in2';
+      const prefixToSearch = 'pg1';
       maxNumber = findMaxNumberAfterDash(directoryPath, prefixToSearch);
       console.log(maxNumber);
       

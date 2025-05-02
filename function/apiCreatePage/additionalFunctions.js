@@ -3,7 +3,7 @@ const path = require('path');
 
 /**
  * Находит максимальную цифру в именах файлов в указанной директории и выводит результат в консоль.
- *
+ * имена файлов  без префикса просто цифры  1 2 3 4 и тд
  * @param {string} directory - Путь к директории с файлами.
  */
 function findMaxNumberInFilenames(directory) {

@@ -21,15 +21,35 @@ const FOLDER_DOCUMENT =  path.join(ROOT_DIR, 'document');
 const SCANNED_FOLDER = '/media/andrey/Рабочий/flash/linux/manul';
 const IP = 'http://localhost:9070';
 
+/**
+ * В конце файл будет исходный файл ChatGPT _ ChatGPT 4o Free _ Support all countries.html
+ * @constant {string}
+ */
+
 const FULL_PATH = path.join(ROOT_DIR,'rootDocument', FILE_NAME);
+
+/**
+ * В конце файл будет C_test.html
+ * @constant {string}
+ */
 const FULL_PATH_FILE_TEST = path.join(ROOT_DIR,'rootDocument', FILE_NAME_TEST);
 
 /**
- * В конце будет ChatGPT_NEW.html, делаем изменения в нем чтоб в случии проблем не испортить основной
+ * В конце файл будет ChatGPT_NEW.html
  * @constant {string}
  */
 const PATH_FILE_NAME_NEW = path.join(ROOT_DIR,'rootDocument', FILE_NAME_NEW);
-const PATH_FILE_TEMP_NEW = path.join(ROOT_DIR,'rootDocument', FILE_NAME_TEMP);
+
+/**
+ * В конце файл будет ChatGPT_NEW_TEMP.html
+ * @constant {string}
+ */
+const PATH_FILE_TEMP_NEW = path.join(ROOT_DIR,'rootDocument', FILE_NAME_TEMP); 
+
+/**
+ * В конце файл будет LOOK.html
+ * @constant {string}
+ */
 const PATH_FILE_NAME_LOOK = path.join(ROOT_DIR,'rootDocument', FILE_NAME_LOOK);
 module.exports = {
     ROOT_DIR,

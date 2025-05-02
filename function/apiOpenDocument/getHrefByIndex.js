@@ -31,8 +31,31 @@ function getHrefByIndex(htmlString, index) {
     
     return $(listItems[index - 1]).attr('href');
   }
+/**
+ * Возвращает URL из указанного элемента списка в HTML-файле.
+ *
+ * @param {string} path - Путь к HTML-файлу.
+ * @param {number} index - Индекс нужного элемента списка (начинается с 1).
+ * @returns {string} Значение атрибута href из соответствующей ссылки.
+ * @throws {Error} Если не удается прочитать файл или индекс выходит за границы допустимого диапазона.
+ *
+ * @example
+ * // Возвращает './themes/in1.html', если в файле по пути 'myFile.html'
+ * // первый элемент списка имеет href="./themes/in1.html"
+ * getHrefFromHTML('myFile.html', 1);
+ *
+ * @example
+ * // Выбрасывает ошибку: "Не удалось прочитать или обработать файл myFile.html",
+ * // если файл 'myFile.html' не существует.
+ * getHrefFromHTML('myFile.html', 1);
+ *
+ * @example
+ * // Выбрасывает ошибку: "Index 0 out of range (1-4)", если в файле 'myFile.html'
+ * // всего 4 элемента списка.
+ * getHrefFromHTML('myFile.html', 0);
+ */
 
-function getHrefFromHTML(path, index) {
+function getHrefFromHTMLFiles(path, index) {
 try {
     const fileContent = readFileContent(path); 
     const linkTexts = getHrefByIndex(fileContent, index);
@@ -45,4 +68,4 @@ try {
 }
 
 module.exports.getHrefByIndex = getHrefByIndex;
-module.exports.getHrefFromHTML = getHrefFromHTML;
+module.exports.getHrefFromHTMLFiles = getHrefFromHTMLFiles;

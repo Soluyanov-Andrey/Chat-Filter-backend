@@ -264,8 +264,8 @@ paths:
 
   /create-page:
     post: # Изменено с GET на POST
-      summary: Создаем страницу
-      description: создает папку в выбранном пути копируя по шаблону
+      summary: Создаем страницы и темы из доукумента
+      description: создает папку в выбранном пути, копируя по шаблону.  Использует указанный шаблон (indexTheme) при создании страницы.
       requestBody:
         required: true
         content:
@@ -277,8 +277,13 @@ paths:
                   type: string
                   description: Абсолютный или относительный путь к новой папке.
                   example: "/путь/к/новой/папке"
+                indexTheme:
+                  type: integer  # Изменено на integer, если это всегда целое число
+                  description: Индекс темы, используемой для создания страницы.  Соответствует определенному шаблону.
+                  example: 1 # Пример значения индекса темы
               required:
                 - path
+                - indexTheme  # Добавлено требование к indexTheme
       responses:
         '201': # Обычно для создания ресурса используют 201 Created
           description: Папка успешно создана.
@@ -293,11 +298,11 @@ paths:
                   message:
                     type: string
                     example: "Folder created successfully"
-              example:
-                {
-                  "status": "success",
-                  "message": "Folder created successfully"
-                }
+                example:
+                  {
+                    "status": "success",
+                    "message": "Folder created successfully"
+                  }
         '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
           $ref: '#/components/responses/InternalServerError'
 

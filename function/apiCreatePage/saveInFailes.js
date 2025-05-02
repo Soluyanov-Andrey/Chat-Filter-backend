@@ -1,5 +1,6 @@
 const cheerio = require('cheerio');
-
+const findMaxNumberAfterDash = require('./additionalFunctions');
+const { getHrefFromHTMLFiles } = require('./../apiOpenDocument/getHrefByIndex'); 
 /**
  * Добавляет новые элементы li в HTML-код с переносом строки между ними.
  *
@@ -32,12 +33,17 @@ function addListItems(html, linkTexts, startNumber) {
       return $.html();
 }
 
+function apiCreatePage(path, indexTheme){
+//Берем ссылку из файла root 
+getHrefFromHTMLFiles(path+);
+//1 Читаем файлы pg и вычисляем последний
+findMaxNumberAfterDash();
+//2 читаем в масив содежимое сканируемого файла
 
-function apiCreatePage(){
+//3 проходим по масиву и сокращаем до определенной длины строк
 
-//1 -Читаем файлы in и вычисляем последний
-//2- читаем в масив содежимое сканируемого файла
-
+//4 записываем addListItems в выбраном файле типа in1.html
+//5 сохранем все файлы
 
 }
 

@@ -1,5 +1,5 @@
-const { arraySelect } = require('./array_select');
-const { delete_select } = require('./array_select');
+const { arraySelect } = require('./arraySelect');
+const { deleteSelect } = require('./arraySelect');
 
 
 /**
