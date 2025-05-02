@@ -5,7 +5,7 @@ describe('POST /create-folder (подключение к существующе�
 
   it('должен возвращать 200 OK', async () => { //  Добавил проверку на 200 OK
     const testData = {
-      "path": "/media/andrey/Рабочий/flash/linux/manul/7zip"
+      "path": "/media/andrey/project/project/servers/SERVER-node-chatGPT/test"
   };
   console.log('Отправляемые данные (JSON):', JSON.stringify(testData));
 

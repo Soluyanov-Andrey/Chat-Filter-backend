@@ -1,5 +1,5 @@
 const { scanFoldersForDocs } = require('./function/apiFolderStructure/folderStructure'); 
-const copyDirectory = require('./function/apiCreateFolder/createFolder'); 
+const { apiCreateFolder } = require('./function/apiCreateFolder/apiCreateFolder'); 
 const { extractContextsFromChatPrompts } = require('./function/apiScan/scan');
 const express = require('express');
 const { getHrefFromHTMLFiles } = require('./function/apiOpenDocument/getHrefByIndex'); 
@@ -183,15 +183,15 @@ app.post('/create-folder', async (req, res) => {
   try {
     const filePath = req.body.path; // Получаем значение свойства "path" из req.body
 
-        console.log('Полученный путь:', filePath); // Выводим только путь
+    console.log('Полученный путь:', filePath); // Выводим только путь
     // console.log(' /folder-structure called');
     // // Вызываем асинхронную функцию и ждем её завершения
     // source = './test';
     // destination = '';
     source = './document';
 
-      copyDirectory(source, filePath );
-
+    apiCreateFolder(source, filePath );
+      
       const responseData = {
       message: 'Папка создана'
     };

@@ -225,8 +225,8 @@ paths:
   # POST запросы
   /create-folder:
     post:
-      summary: Создает новую папку
-      description: Создает новую папку по указанному пути.
+      summary: Создает новую папку по указанному пути.
+      description: Создает новую папку по указанному пути копируя из исходника.
       requestBody:
         required: true
         content:
