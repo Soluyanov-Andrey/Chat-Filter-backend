@@ -1,6 +1,7 @@
 const { apiCreateFolder } = require('./function/apiCreateFolder/apiCreateFolder'); 
 const { apiScan } = require('./function/apiScan/apiScan');
 const { apiFolderStructure } = require('./function/apiFolderStructure/apiFolderStructure');
+const { apiOpenDocument } = require('./function/apiOpenDocument/apiOpenDocument');
 
 const express = require('express');
 const app = express();
@@ -83,17 +84,29 @@ app.get('/open-document',async  (req, res) => {
 //    console.log(req.query);
   // 2. URL-декодируем значение параметра
   const path = decodeURIComponent(encodedPath);
+
+  console.log('сработало- /open-document');
   console.log('Полученный и декодированный path:', path);
 
-  
- const responseData = {
-  status: 'open-document',
-  message: 'читаем root фаил',
-  data: readFileTextFromHTML(path + '/' + DOCUMENT_PAGE_HREF)
- };
- res.json(responseData);
+  try {
+    
+    const extractFolder = await apiOpenDocument(path, DOCUMENT_PAGE_HREF);
+    console.log(extractFolder);
 
+    const responseData = {
+      status: 'folder-structure: completed',
+      message: "Папка отсканирована",
+      data: extractFolder,
+    };
+    res.json(responseData);
 
+  } catch (error) {
+    console.error('Ошибка при обработке /open-document:', error);
+    res.status(500).json({
+      message: 'Произошла ошибка при обработке запроса',
+      error: error.message,
+    });
+  }
  
 });
 
