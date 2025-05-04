@@ -1,5 +1,5 @@
 const cheerio = require('cheerio');
-const { readFileContent } = require('../subsidiary/fileUtils');
+const { readFileContent } = require('../subsidiaryFunction/fileUtils');
 
 
 

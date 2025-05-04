@@ -1,10 +1,10 @@
 const fs = require('fs/promises');
 const path = require('path');
 const cheerio = require('cheerio');
-const isSimilar = require('../subsidiary/isSimilar');
+const isSimilar = require('../subsidiaryFunction/isSimilar');
 
-const { saveHtmlToFile } = require('../subsidiary/fileUtils.js'); 
-const { readFileContent } = require('../subsidiary/fileUtils.js');
+const { saveHtmlToFile } = require('../subsidiaryFunction/fileUtils.js'); 
+const { readFileContent } = require('../subsidiaryFunction/fileUtils.js');
 
 /**
  * Оставляем указаные строки остальное удаляем

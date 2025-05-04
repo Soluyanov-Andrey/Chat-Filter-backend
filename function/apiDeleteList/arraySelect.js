@@ -1,8 +1,8 @@
 const { extractContextsFromChatPrompts } = require('../apiScan/scan');
 const { PATH_FILE_NAME_NEW, PATH_FILE_TEMP_NEW, PATH_FILE_NAME_LOOK} = require('../../config');
-const { saveListedHTML } = require('../subsidiary/deleteBlokScaner');
-const { replaceFile } = require('../subsidiary/fileUtils');
-const { saveFilterHTML } = require('../subsidiary/deleteAllScaner');
+const { saveListedHTML } = require('../subsidiaryFunction/deleteBlokScaner');
+const { replaceFile } = require('../subsidiaryFunction/fileUtils');
+const { saveFilterHTML } = require('../subsidiaryFunction/deleteAllScaner');
 
 /**
  * @module delete_select

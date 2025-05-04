@@ -7,10 +7,10 @@ const fs = require('fs/promises');
 const path = require('path');
 const cheerio = require('cheerio');
 
-const isSimilar = require('../subsidiary/isSimilar');
+const isSimilar = require('./isSimilar.js');
 
-const { saveHtmlToFile } = require('../subsidiary/fileUtils.js');
-const { readFileContent } = require('../subsidiary/fileUtils.js');
+const { saveHtmlToFile } = require('./fileUtils.js');
+const { readFileContent } = require('./fileUtils.js');
 
 
 /**

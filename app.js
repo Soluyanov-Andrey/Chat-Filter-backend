@@ -1,10 +1,14 @@
-const { scanFoldersForDocs } = require('./function/apiFolderStructure/folderStructure'); 
 const { apiCreateFolder } = require('./function/apiCreateFolder/apiCreateFolder'); 
-const { extractContextsFromChatPrompts } = require('./function/apiScan/scan');
+const { apiScan } = require('./function/apiScan/apiScan');
+
 const express = require('express');
+const app = express();
+const port = 3000;
+
+const { scanFoldersForDocs } = require('./function/apiFolderStructure/folderStructure'); 
 const { getHrefFromHTMLFiles } = require('./function/apiOpenDocument/getHrefByIndex'); 
-const { saveNewFile } = require('./function/subsidiary/deleteNavBlock');
-const cors = require('cors'); // Импортируем cors
+const { deleteSelect, laveSelected, lookPageBtn } = require('./function/apiDeleteList/arraySelect');
+const { readFileTextFromHTML } = require('./function/apiOpenDocument/extractLinkHTML'); 
 
 const { 
    IP , 
@@ -14,11 +18,8 @@ const {
    DOCUMENT_PAGE_HREF
   } = require('./config'); // Импортируем переменные
 
-const { doesFileSyncExist } = require('./function/subsidiary/fileUtils');
-const { deleteSelect, laveSelected, lookPageBtn } = require('./function/apiDeleteList/arraySelect');
-const { readFileTextFromHTML } = require('./function/apiOpenDocument/extractLinkHTML'); 
-const app = express();
-const port = 3000;
+
+const cors = require('cors'); // Импортируем cors
 
 // Настройка CORS с помощью пакета cors
 const corsOptions = {
@@ -26,6 +27,8 @@ const corsOptions = {
   methods: 'GET,POST,OPTIONS', // Разрешенные методы
   allowedHeaders: ['Content-Type', 'Authorization'] // Разрешенные заголовки
 };
+
+
 
 app.use(cors(corsOptions)); // Применяем middleware cors  <---- ЭТО ОЧЕНЬ ВАЖНО!
 // Middleware для разбора JSON-тел запросов
@@ -63,6 +66,7 @@ app.get('/folder-structure',async  (req, res) => {
 
 app.get('/open-document',async  (req, res) => {
 
+  
   // 1. Получаем параметр path из req.query
   const encodedPath = req.query.path;
 //    console.log(req.query);
@@ -77,6 +81,9 @@ app.get('/open-document',async  (req, res) => {
   data: readFileTextFromHTML(path + '/' + DOCUMENT_PAGE_HREF)
  };
  res.json(responseData);
+
+
+ 
 });
 
 //--------------------------------------
@@ -115,21 +122,9 @@ app.get('/scan',async  (req, res) => {
   const encodedPath = req.query.path;
   const path = decodeURIComponent(encodedPath);
 
-
   try {
-    // 1. Проверяем, существует ли файл
-    const fileExists = await doesFileSyncExist(PATH_FILE_NAME_NEW);
-
-    // 2. Выполняем saveNewFile, если файл не существует (или пропускаем)
-    if (!fileExists) {
-      await saveNewFile(FULL_PATH, PATH_FILE_NAME_NEW);
-      console.log(`saveNewFile успешно завершена для path: ${path}`);
-    }  else {
-      console.log(`Файл по пути ${FULL_PATH} уже существует, saveNewFile пропущен.`);
-    }
-
-    // 3. Независимо от того, был ли файл обработан, извлекаем контексты
-    const extractContexts = extractContextsFromChatPrompts(PATH_FILE_NAME_NEW);
+    // 3. Извлекаем контексты, включая проверку файла и сохранение, если нужно
+    const extractContexts = await apiScan(PATH_FILE_NAME_NEW, FULL_PATH, path);
 
     const responseData = {
       status: 'scan: completed',
