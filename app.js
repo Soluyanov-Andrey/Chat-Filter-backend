@@ -1,11 +1,11 @@
 const { apiCreateFolder } = require('./function/apiCreateFolder/apiCreateFolder'); 
 const { apiScan } = require('./function/apiScan/apiScan');
+const { apiFolderStructure } = require('./function/apiFolderStructure/apiFolderStructure');
 
 const express = require('express');
 const app = express();
 const port = 3000;
 
-const { scanFoldersForDocs } = require('./function/apiFolderStructure/folderStructure'); 
 const { getHrefFromHTMLFiles } = require('./function/apiOpenDocument/getHrefByIndex'); 
 const { deleteSelect, laveSelected, lookPageBtn } = require('./function/apiDeleteList/arraySelect');
 const { readFileTextFromHTML } = require('./function/apiOpenDocument/extractLinkHTML'); 
@@ -43,21 +43,32 @@ app.use(express.static('rootDocument'));  // Важно: нужно создат
 //--------------------------------------
 
 app.get('/folder-structure',async  (req, res) => {
-
-  // 1. Получаем параметр path из req.query
-  const encodedPath = req.query.path;
-  //    console.log(req.query);
-     // 2. URL-декодируем значение параметра
-     const path = decodeURIComponent(encodedPath);
-   
-     console.log('Полученный и декодированный path:', path);
   
+  
+  const encodedPath = req.query.path;
+  const path = decodeURIComponent(encodedPath);
+  console.log('Полученный и декодированный path:', path);
+
+  try {
+   
+    const extractFolder = await apiFolderStructure(path);
+
     const responseData = {
-      status: "folder-structure: completed",
-      message: 'Папка отсканирована',
-      data: await scanFoldersForDocs(path)
+      status: 'folder-structure: completed',
+      message: "Папка отсканирована",
+      data: extractFolder,
     };
     res.json(responseData);
+
+  } catch (error) {
+    console.error('Ошибка при обработке /folder-structure:', error);
+    res.status(500).json({
+      message: 'Произошла ошибка при обработке запроса',
+      error: error.message,
+    });
+  }
+
+
 });
 
 //--------------------------------------
@@ -123,7 +134,7 @@ app.get('/scan',async  (req, res) => {
   const path = decodeURIComponent(encodedPath);
 
   try {
-    // 3. Извлекаем контексты, включая проверку файла и сохранение, если нужно
+   
     const extractContexts = await apiScan(PATH_FILE_NAME_NEW, FULL_PATH, path);
 
     const responseData = {
