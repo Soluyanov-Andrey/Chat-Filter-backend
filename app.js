@@ -120,19 +120,28 @@ app.get('/open-themes', async (req, res) => {
    const path = decodeURIComponent(encodedPath);
    const pathHref = path  + '/' + DOCUMENT_PAGE_HREF;
 
-   console.log('Полученный и декодированный path:', path);
 
- 
-  let hrefPath =  await apiOpenThemes(path, pathHref, encodedIndex);
-  
-  console.log('/open-themes:', hrefPath);
+  try {
+    
+    let hrefPath =  await apiOpenThemes(path, pathHref, encodedIndex);
+    
+    const responseData = {
+      status: 'open-themes: completed',
+      message: "Темы прочитаны",
+      data: hrefPath ,
+    };
+    console.log(hrefPath);
+    
+    res.json(responseData);
 
-  const responseData = {
-   status: '/open-themes',
-   message: 'читаем in файл',
-   data: hrefPath,
-  };
-  res.json(responseData);
+  } catch (error) {
+    console.error('Ошибка при обработке /open-themes:', error);
+    res.status(500).json({
+      message: 'Произошла ошибка при обработке запроса',
+      error: error.message,
+    });
+  }
+
 
 });
 
