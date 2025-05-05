@@ -2,14 +2,13 @@ const { apiCreateFolder } = require('./function/apiCreateFolder/apiCreateFolder'
 const { apiScan } = require('./function/apiScan/apiScan');
 const { apiFolderStructure } = require('./function/apiFolderStructure/apiFolderStructure');
 const { apiOpenDocument } = require('./function/apiOpenDocument/apiOpenDocument');
+const { apiOpenThemes } = require('./function/apiOpenThemes/apiOpenThemes');
 
 const express = require('express');
 const app = express();
 const port = 3000;
 
-const { getHrefFromHTMLFiles } = require('./function/apiOpenDocument/getHrefByIndex'); 
 const { deleteSelect, laveSelected, lookPageBtn } = require('./function/apiDeleteList/arraySelect');
-const { readFileTextFromHTML } = require('./function/apiOpenDocument/extractLinkHTML'); 
 
 const { 
    IP , 
@@ -124,14 +123,14 @@ app.get('/open-themes', async (req, res) => {
    console.log('Полученный и декодированный path:', path);
 
  
-  let hrefPath =  getHrefFromHTMLFiles(pathHref, encodedIndex);
+  let hrefPath =  await apiOpenThemes(path, pathHref, encodedIndex);
   
-  
+  console.log('/open-themes:', hrefPath);
 
   const responseData = {
    status: '/open-themes',
    message: 'читаем in файл',
-   data: readFileTextFromHTML(path + '/' + hrefPath)
+   data: hrefPath,
   };
   res.json(responseData);
 
