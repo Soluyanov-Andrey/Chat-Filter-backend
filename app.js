@@ -4,6 +4,8 @@ const { apiFolderStructure } = require('./function/apiFolderStructure/apiFolderS
 const { apiOpenDocument } = require('./function/apiOpenDocument/apiOpenDocument');
 const { apiOpenThemes } = require('./function/apiOpenThemes/apiOpenThemes');
 const { apiDeleteSelect } = require('./function/apiDeleteSelect/apiDeleteSelect');
+const { apiLaveSelect } = require('./function/apiLaveSelected/apiLaveSelected');
+const { apiLookPage } = require('./function/apiLookPage/apiLookPage');
 
 const express = require('express');
 const app = express();
@@ -266,63 +268,58 @@ app.post('/delete-select', async (req, res) => {
 });
 
 app.post('/lave-selected', async (req, res) => {
+
+ const selectedIds = req.body; // Получаем массив ID напрямую из req.body
+ console.log('сработал /lave-selected'); 
+ console.log('Полученные ID:', selectedIds); // Выводим массив ID для отладки
+
   try {
-    const selectedIds = req.body; // Получаем массив ID напрямую из req.body
+   
+    const success = await apiLaveSelect(selectedIds); // Передаем selectedIds
 
-    console.log('Полученные ID:', selectedIds); // Выводим массив ID для отладки
-
-    // Вызываем асинхронную функцию delete_select и ждем её завершения
-    const success = await laveSelected(selectedIds); // Передаем selectedIds
-
-    if (success) {
-      const responseData = {
-        message: 'Элементы успешно удалены'
-      };
-      return res.json(responseData); // Добавлено return
-    } else {
-      return res.status(500).json({ // Добавлено return
-        message: 'Произошла ошибка при обработке запроса (lave_selected)',
-        error: 'Ошибка внутри lave_selected'
-      });
-    }
+    const responseData = {
+      status: 'lave-selected: completed',
+      message: "Элементы успешно удалены",
+      data: [],
+    };
+    res.json(responseData);
 
   } catch (error) {
-    console.error('Error:', error);
-    return res.status(500).json({ // Добавлено return
-      message: 'Произошла ошибка при обработке запроса',
-      error: error.message
+    console.error('Ошибка при обработке /lave-selected:', error);
+    res.status(500).json({
+      message: 'Произошла ошибка при обработке запроса (lave_selected)',
+      error: error.message,
     });
   }
+
 });
 
 app.post('/look-page', async (req, res) => {
+
+  const selectedIds = req.body; // Получаем массив ID напрямую из req.body
+  console.log('Полученные ID:', selectedIds); // Выводим массив ID для отладки
+
   try {
-    const selectedIds = req.body; // Получаем массив ID напрямую из req.body
-
-    console.log('Полученные ID:', selectedIds); // Выводим массив ID для отладки
-
-    // Вызываем асинхронную функцию delete_select и ждем её завершения
-    const success = await lookPageBtn(selectedIds); // Передаем selectedIds
-
-    if (success) {
-      const responseData = {
-        message: 'Страница из выбранных элементов создана'
-      };
-      return res.json(responseData); // Добавлено return
-    } else {
-      return res.status(500).json({ // Добавлено return
-        message: 'Произошла ошибка при обработке запроса (look_selected)',
-        error: 'Ошибка внутри look_selected'
-      });
-    }
+   
+   const success = await apiLookPage(selectedIds); // Передаем selectedIds
+   if (success) {
+    const responseData = {
+      status: '/apiLookPage: completed',
+      message: "Страница из выбранных элементов создана",
+      data: [],
+    };
+    res.json(responseData);
+  }
+    
 
   } catch (error) {
-    console.error('Error:', error);
-    return res.status(500).json({ // Добавлено return
-      message: 'Произошла ошибка при обработке запроса',
-      error: error.message
+    console.error('Ошибка при обработке /look-page:', error);
+    res.status(500).json({
+      message: 'Произошла ошибка при обработке запроса (look-page',
+      error: error.message,
     });
   }
+
 });
 
 
