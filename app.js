@@ -3,12 +3,13 @@ const { apiScan } = require('./function/apiScan/apiScan');
 const { apiFolderStructure } = require('./function/apiFolderStructure/apiFolderStructure');
 const { apiOpenDocument } = require('./function/apiOpenDocument/apiOpenDocument');
 const { apiOpenThemes } = require('./function/apiOpenThemes/apiOpenThemes');
+const { apiDeleteSelect } = require('./function/apiDeleteSelect/apiDeleteSelect');
 
 const express = require('express');
 const app = express();
 const port = 3000;
 
-const { deleteSelect, laveSelected, lookPageBtn } = require('./function/apiDeleteList/arraySelect');
+const { deleteSelect, laveSelected, lookPageBtn } = require('./function/apiDeleteSelect/arraySelect');
 
 const { 
    IP , 
@@ -237,33 +238,31 @@ app.post('/create-folder', async (req, res) => {
 
 
 app.post('/delete-select', async (req, res) => {
+
+  const selectedIds = req.body; // Получаем массив ID напрямую из req.body
+
+  console.log('сработал delete-select:'); 
+  console.log('Полученные ID:', selectedIds);
+
   try {
-    const selectedIds = req.body; // Получаем массив ID напрямую из req.body
+   
+    const success = await apiDeleteSelect(selectedIds); // Передаем selectedIds
 
-    console.log('Полученные ID:', selectedIds); // Выводим массив ID для отладки
-
-    // Вызываем асинхронную функцию delete_select и ждем её завершения
-    const success = await deleteSelect(selectedIds); // Передаем selectedIds
-
-    if (success) {
-      const responseData = {
-        message: 'Элементы успешно удалены'
-      };
-      return res.json(responseData); // Добавлено return
-    } else {
-      return res.status(500).json({ // Добавлено return
-        message: 'Произошла ошибка при обработке запроса (delete_select)',
-        error: 'Ошибка внутри delete_select'
-      });
-    }
+    const responseData = {
+      status: 'delete-select: completed',
+      message: "Элементы успешно удалены",
+      data: success,
+    };
+    res.json(responseData);
 
   } catch (error) {
-    console.error('Error:', error);
-    return res.status(500).json({ // Добавлено return
+    console.error('Ошибка при обработке /delete-select:', error);
+    res.status(500).json({
       message: 'Произошла ошибка при обработке запроса',
-      error: error.message
+      error: error.message,
     });
   }
+
 });
 
 app.post('/lave-selected', async (req, res) => {
