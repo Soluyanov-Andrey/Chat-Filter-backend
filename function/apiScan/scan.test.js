@@ -34,7 +34,7 @@ describe('extractContextsFromChatPromptsConsole', () => {
       try {
           const actualContexts = extractContextsFromChatPrompts(path);
           
-          console.log(actualContexts[0]);  // Просто выводим результат в консоль
+          console.log(actualContexts);  // Просто выводим результат в консоль
   
       } catch (error) {
           console.error("Error during test:", error);

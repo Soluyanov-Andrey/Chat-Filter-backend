@@ -6,12 +6,11 @@ const { apiOpenThemes } = require('./function/apiOpenThemes/apiOpenThemes');
 const { apiDeleteSelect } = require('./function/apiDeleteSelect/apiDeleteSelect');
 const { apiLaveSelect } = require('./function/apiLaveSelected/apiLaveSelected');
 const { apiLookPage } = require('./function/apiLookPage/apiLookPage');
+const { apiCreatePage } = require('./function/apiCreatePage/apiCreatePage');
 
 const express = require('express');
 const app = express();
 const port = 3000;
-
-const { deleteSelect, laveSelected, lookPageBtn } = require('./function/apiDeleteSelect/arraySelect');
 
 const { 
    IP , 
