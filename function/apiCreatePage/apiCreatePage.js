@@ -1,10 +1,10 @@
 
 const { getHrefFromHTMLFiles } = require('./../apiOpenDocument/getHrefByIndex'); 
-
-
 const { readFileContent } = require('./../subsidiaryFunction/fileUtils'); 
 const { hasLiElementsInsideList } = require('./../apiCreatePage/additionalFunctions'); 
 const { findMaxPgNumber , extractAndTransformHrefs , findMaxSecondDigitInFilenames } = require('./../apiCreatePage/additionalFunctions'); 
+const { FULL_PATH } = require('./../../config'); // Импортируем переменные
+
 
 //faileName будет передоватся в главном файле app из файла config, faileName = 'root.html'
 
@@ -34,7 +34,7 @@ function apiCreatePage(path, faileName, indexTheme){
     const content = readFileContent(pathRead);
     
 
-    
+
     //-------------------------------------------------------------------------------------------------------------------
     // 2 По файлу in определяем это новая тема или в ней уже есть записи.
     // Проверяем наличие тегов li в файле in

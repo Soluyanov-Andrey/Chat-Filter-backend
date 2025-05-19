@@ -9,7 +9,7 @@ const findMaxNumberAfterDash = require('./additionalFunctions');
  * @param {number} startNumber - Начальное число для формирования href.
  * @returns {string} - HTML-код с добавленными элементами li.
  */
-function addListItems(html, linkTexts, startNumber) {
+function addListItemsArray(html, linkTexts, startNumber) {
     const $ = cheerio.load(html);
     const $list = $('ul#list');
   
@@ -34,6 +34,36 @@ function addListItems(html, linkTexts, startNumber) {
 }
 
 
+/**
+ * Добавляет новые элементы li в HTML-код с переносом строки между ними.
+ *
+ * @param {string} html - Исходный HTML-код.
+ * @param {string[]} linkTexts - Массив текстов ссылок для новых элементов li.
+ * @param {number} startNumber - Начальное число для формирования href.
+ * @returns {string} - HTML-код с добавленными элементами li.
+ */
+function addListItems(html, text, startNumber){
+  const $ = cheerio.load(html);
+  const $list = $('ul#list');
+
+  if (!$list.length) {
+    console.warn('Элемент ul#list не найден в HTML.');
+    return html; // Возвращаем исходный HTML, если список не найден.
+  }
+
+ 
+ 
+    const href = `in${startNumber}.html`;
+    const newListItem = `\n    <li><a href="${href}" target="leftframe">${text}</a></li>`; // Добавляем перенос строки и отступ
+ 
+  
+    //Добавляем в конец  UL
+
+  $list.append(newListItem); // Append all new items at once
+    return $.html();
+}
+
 
 
 module.exports.addListItems = addListItems;
+module.exports.addListItemsArray = addListItemsArray;

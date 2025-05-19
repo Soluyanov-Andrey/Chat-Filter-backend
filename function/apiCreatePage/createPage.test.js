@@ -8,7 +8,7 @@ const scanDerectory = '/media/andrey/project/project/servers/SERVER-node-chatGPT
 const nameFile = 'in1-';
 
 describe('createPage1', () => {
- const initialFileNumber = 1;
+ const initialFileNumber = 4;
  const nameFile ="in";
   const arrayResult = [
     'как в текстовом фармате обозначется перенос на следующую строку,',
@@ -25,6 +25,5 @@ describe('createPage1', () => {
   it('createPage', () => {
     createPage(outputDir,filePath, initialFileNumber,nameFile, arrayResult)
    
-
   });
 });
