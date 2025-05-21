@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const cheerio = require('cheerio');
 
+
+
 /**
  * Проверяет, содержит ли HTML-фрагмент теги <li> внутри тега <ul id="list">.
  *
@@ -25,9 +27,10 @@ function hasLiElementsInsideList(htmlString) {
   }
 }
 
+
+
 /**
  * Находит максимальную цифру в префиксе имени файла "pg" в указанной папке.
- *
  * @param {string} directoryPath Путь к папке для сканирования.
  * @returns {number} Максимальная цифра в префиксе "pg" или 0, если файлов с таким префиксом не найдено.
  */
@@ -51,6 +54,8 @@ function findMaxPgNumber(directoryPath) {
     return 0; // Возвращаем 0 в случае ошибки.
   }
 }
+
+
 
 
 /**
@@ -109,6 +114,8 @@ function findMaxNumberInFilenames(directory) {
         console.error(`Ошибка при чтении директории: ${err.message}`);
     }
 }
+
+
 
 /**
  * Находит максимальную цифру после дефиса в именах файлов, начинающихся с определенной строки, в указанной директории.
@@ -175,6 +182,8 @@ function findMaxNumberAfterDash(directory, prefix) {
     }
   }
 
+
+
 /**
  * Удаляет указанную строку из текста.  Если нужно удалить все вхождения,
  * то значение 'removeAll' для параметра options.occurrence удалит все вхождения.
@@ -205,6 +214,8 @@ function removeStringFromText(text, stringToRemove, options = {}) {
 
   return text.replace(regex, '');
 }
+
+
 
 /**
  * Извлекает все значения атрибутов `href` из элементов `<a>`, находящихся внутри элемента `<ul id="list">` в HTML-строке,
@@ -240,6 +251,8 @@ function extractAndTransformHrefs(htmlString) {
     return [];
   }
 }
+
+
 
 /**
  * Анализирует массив имен файлов, имеющих вид 'pg[цифра]-[цифра].html', где первая цифра одинакова для всех файлов.
@@ -290,6 +303,40 @@ function findMaxSecondDigitInFilenames(filenames) {
 
   return [firstDigit, maxSecondDigit];
 }
+
+
+
+/**
+ * Добавляет новые элементы li в HTML-код с переносом строки между ними.
+ *
+ * @param {string} html - Исходный HTML-код.
+ * @param {string[]} linkTexts - Массив текстов ссылок для новых элементов li.
+ * @param {number} startNumber - Начальное число для формирования href.
+ * @returns {string} - HTML-код с добавленными элементами li.
+ */
+function addListItems(html, text, startNumber){
+  const $ = cheerio.load(html);
+  const $list = $('ul#list');
+
+  if (!$list.length) {
+    console.warn('Элемент ul#list не найден в HTML.');
+    return html; // Возвращаем исходный HTML, если список не найден.
+  }
+
+ 
+ 
+    const href = `in${startNumber}.html`;
+    const newListItem = `\n    <li><a href="${href}" target="leftframe">${text}</a></li>`; // Добавляем перенос строки и отступ
+ 
+  
+    //Добавляем в конец  UL
+
+  $list.append(newListItem); // Append all new items at once
+    return $.html();
+}
+
+
+module.exports.addListItems = addListItems;
 
 module.exports.findMaxSecondDigitInFilenames = findMaxSecondDigitInFilenames;
 module.exports.extractAndTransformHrefs = extractAndTransformHrefs;
