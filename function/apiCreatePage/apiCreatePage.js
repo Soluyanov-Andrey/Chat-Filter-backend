@@ -6,6 +6,10 @@ const { extractContextsFromChatPrompts } = require('./../apiScan/scan');
 const { findMaxPgNumber , extractAndTransformHrefs , findMaxSecondDigitInFilenames } = require('./additionalFunctions'); 
 const { shortenStrings } = require('./../subsidiaryFunction/shortenStrings'); 
 
+const { saveFilterHTML } = require('../subsidiaryFunction/deleteAllScaner');
+const { addListItems } = require('./additionalFunctions'); 
+const { saveHtmlToFile } = require('../subsidiaryFunction/fileUtils'); 
+
 const { FULL_PATH , DOCUMENT_PAGE_HREF } = require('./../../config'); // Импортируем переменные
 
 
@@ -36,6 +40,9 @@ function initPath(path, indexTheme){
     // Читаем файл In
     const contentIn = readFileContent(pathRead);
 
+    //В конце файл будет исходный файл ChatGPT _ ChatGPT 4o Free _ Support all countries.html
+    const filePath = FULL_PATH;
+
     // По файлу in определяем это новая тема или в ней уже есть записи. true если ссылки есть
     bool = hasLiElementsInsideList(contentIn);
 
@@ -52,7 +59,7 @@ function initPath(path, indexTheme){
 
           //и возвращает массив первая цифра имя файла pg[цифра] вторая задаем по умолчанию 1 
           // так как с нее начнем создавать файлы +1 потомучто конечный файл например pg4 создавать начинаем новую серию pg5
-          pgNumber =[pgNumber+1,1];
+          pgNumber = [pgNumber+1,1];
           console.log('элементов li нет');
           
           
@@ -65,13 +72,20 @@ function initPath(path, indexTheme){
     
           console.log('элементы li есть');
           const arrayHref = extractAndTransformHrefs(contentIn);
-           pgNumber = findMaxSecondDigitInFilenames(arrayHref);
+
+          pgNumber = findMaxSecondDigitInFilenames(arrayHref);
     
+          fileNameIterator =  createFileNameIterator(pgNumber);
           
       }
+      // хранит ссылку на функцию, при повторном вызове 
+      const element = createArrayIterator(shortenStringsContexts);
 
     // Возвращаем объект с переменными
     return {
+        fileNameIterator: fileNameIterator,
+        filePath: filePath,
+        element: element,
         pathFull: pathFull,
         pathPage: pathPage,
         pathInFailes: pathInFailes,
@@ -88,6 +102,51 @@ function initPath(path, indexTheme){
 
 
 /**
+ * Создает функцию-итератор, которая при каждом вызове увеличивает последний элемент
+ * переданного при создании массива на единицу.
+ *
+ * @param {Array<number>} initialArray Массив из двух чисел, переданный при создании итератора.
+ * @returns {Function} Функция-итератор, которая при каждом вызове возвращает новый массив,
+ *                     где последний элемент увеличен на единицу.
+ */
+function createFileNameIterator(initialArray) {
+  let [first, last] = initialArray; // Деструктуризация при создании
+
+  return function() {
+    last++; // Увеличиваем последний элемент
+    return [first, last]; // Возвращаем новый массив
+  };
+}
+
+/**
+ * Создает функцию-итератор для последовательного перебора элементов массива.
+ *
+ * @param {Array} arr Массив, элементы которого будут последовательно возвращаться при каждом вызове итератора.
+ * @returns {Function} Функция-итератор, которая при каждом вызове возвращает следующий элемент массива.
+ *                     Если массив закончился, возвращает `false`.
+ *
+ * @example
+ * const myArray = [1, 2, 3];
+ * const getNext = createArrayIterator(myArray);
+ *
+ * console.log(getNext()); // Выведет: 1
+ * console.log(getNext()); // Выведет: 2
+ * console.log(getNext()); // Выведет: 3
+ * console.log(getNext()); // Выведет: false
+ */
+function createArrayIterator(arr) {
+    let currentIndex = 0;
+  
+    return function() {
+      if (currentIndex < arr.length) {
+        return arr[currentIndex++];
+      } else {
+        return false;
+      }
+    };
+  }
+
+/**
  * Асинхронно создает  HTML файлы на основе извлеченных контекстов из исходного файла.
  *
  * @async
@@ -98,19 +157,30 @@ function initPath(path, indexTheme){
  * @throws {Error} Если происходит ошибка при извлечении контекстов или сохранении отфильтрованных HTML файлов, ошибка пробрасывается дальше для обработки.
  * @returns {Promise<Array<any>>} - Promise, который разрешается с массивом извлеченных контекстов (`arrayResult`) после успешного создания и сохранения всех файлов.
  */
- function createPage(path,indexTheme) {
-    
-    let myObject;
+ async function createPage(obj) {
 
-    try {
-        myObject = initPath(path,indexTheme);
- 
-    } catch (error) {
-      console.error("Произошла ошибка при вызове initPath:", error);
-      throw error;
-    }
-   
-    return myObject.extractContexts;
+    const element = obj.element();
+  
+    const filePath = obj.filePath;
+    const arrayIntegrator = obj.fileNameIterator();
+
+    // создаем имя например pg1-1.html
+    const newFileName = `pg${arrayIntegrator[0]}-${arrayIntegrator[1]}.html`;
+    const pathFileNew = obj.pathPage + '/' + newFileName;
+
+    const html = obj.html;
+    const linkTexts = obj.linkTexts;
+    const startNumber = obj.startNumber;
+    const htmlContent = obj.htmlContent;
+
+    console.log("element---",element);
+    console.log("pathFileNew---",pathFileNew);
+    console.log("filePath---",filePath);
+
+   // await saveFilterHTML(filePath, pathFileNew, element); // Используем импортированную функцию
+      
+    // addListItems(html, linkTexts, startNumber);
+    // saveHtmlToFile(filePath, htmlContent);
 
   }
 
@@ -122,6 +192,8 @@ function apiCreatePage(path, indexTheme){
 //Для тестов
 module.exports.initPath = initPath;
 module.exports.createPage = createPage;  
+module.exports.createArrayIterator = createArrayIterator;  
+module.exports.createFileNameIterator = createFileNameIterator;
 
 //Для экспорта
 module.exports.apiCreatePage = apiCreatePage;

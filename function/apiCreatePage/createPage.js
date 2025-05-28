@@ -1,13 +1,14 @@
 const fs = require('fs');
 const path = require('path'); // Импортируем модуль 'path' для работы с путями
 const { saveFilterHTML } = require('../subsidiaryFunction/deleteAllScaner');
-
+const { addListItems } = require('./saveInFailes'); 
+const { saveHtmlToFile } = require('../subsidiaryFunction/fileUtils'); 
 
 const { findMaxNumberInFilenames } = require('./additionalFunctions');
 const { extractContextsFromChatPrompts } = require('../apiScan/scan');
 const { shortenStrings } = require('../subsidiaryFunction/shortenStrings'); 
-const { addListItems } = require('./saveInFailes'); 
-const { saveHtmlToFile } = require('../subsidiaryFunction/fileUtils'); 
+
+
 
 
 
