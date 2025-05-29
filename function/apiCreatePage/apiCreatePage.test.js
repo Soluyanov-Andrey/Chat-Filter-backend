@@ -54,9 +54,10 @@ const extractContexts = [
     let getNextContext = createArrayIterator(extractContexts);
 
     console.log(getNextContext()); // Выведет: 1 элемент массива
-    console.log(getNextContext()); 
-    console.log(getNextContext()); 
-    console.log(getNextContext());  // Выведет: false так как это конечный элемент
+    // console.log(getNextContext()); 
+    // console.log(getNextContext()); 
+    // console.log(getNextContext());  // Выведет: false так как это конечный элемент
+    
   });
 });
 

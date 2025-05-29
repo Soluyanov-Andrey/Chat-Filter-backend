@@ -162,33 +162,45 @@ function createArrayIterator(arr) {
     const element = obj.element();
   
     const filePath = obj.filePath;
+
+    //При вызове obj.fileNameIterator();  увеличивает последний элемент переданного при создании массива на единицу
     const arrayIntegrator = obj.fileNameIterator();
 
     // создаем имя например pg1-1.html
     const newFileName = `pg${arrayIntegrator[0]}-${arrayIntegrator[1]}.html`;
     const pathFileNew = obj.pathPage + '/' + newFileName;
 
-    const html = obj.html;
-    const linkTexts = obj.linkTexts;
-    const startNumber = obj.startNumber;
-    const htmlContent = obj.htmlContent;
+  
 
     console.log("element---",element);
     console.log("pathFileNew---",pathFileNew);
     console.log("filePath---",filePath);
 
-   // await saveFilterHTML(filePath, pathFileNew, element); // Используем импортированную функцию
+    await saveFilterHTML(filePath, pathFileNew, element); // Используем импортированную функцию
       
-    // addListItems(html, linkTexts, startNumber);
-    // saveHtmlToFile(filePath, htmlContent);
+    
 
   }
 
+ async function createPageAndListItems(obj) {
+
+    const html = obj.html;
+    const linkTexts = obj.linkTexts;
+    const startNumber = obj.startNumber;
+    const htmlContent = obj.htmlContent;
+
+      await createPage(obj);
+     addListItems(html, linkTexts, startNumber);
+    //  saveHtmlToFile(filePath, htmlContent);
+
+  } 
 
 function apiCreatePage(path, indexTheme){
 
 
+
 }
+
 //Для тестов
 module.exports.initPath = initPath;
 module.exports.createPage = createPage;  

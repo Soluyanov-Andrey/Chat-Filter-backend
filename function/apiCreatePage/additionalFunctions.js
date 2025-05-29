@@ -323,11 +323,8 @@ function addListItems(html, text, startNumber){
     return html; // Возвращаем исходный HTML, если список не найден.
   }
 
- 
- 
     const href = `in${startNumber}.html`;
     const newListItem = `\n    <li><a href="${href}" target="leftframe">${text}</a></li>`; // Добавляем перенос строки и отступ
- 
   
     //Добавляем в конец  UL
 
