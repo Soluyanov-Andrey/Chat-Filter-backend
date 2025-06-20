@@ -2,7 +2,7 @@ const fs = require('fs/promises');
 const path = require('path');
 const cheerio = require('cheerio');
 const isSimilar = require('../subsidiaryFunction/isSimilar');
-
+const { deleteBlock } = require('../subsidiaryFunction/deleteNavBlock.js');
 const { saveHtmlToFile } = require('../subsidiaryFunction/fileUtils.js'); 
 const { readFileContent } = require('../subsidiaryFunction/fileUtils.js');
 
@@ -113,9 +113,11 @@ async function saveFilterHTML(pathFile, pathFileNew, targetTexts) {
     try {
       const readFile = await readFileContent(pathFile);
       const filterHTML = filterHTMLElementsByText(readFile, targetTexts);
-      // console.log(filterHTML);
-  
-      await saveHtmlToFile(pathFileNew, filterHTML);
+   
+
+     const pageNew = await deleteBlock(filterHTML);
+    
+       await saveHtmlToFile(pathFileNew, pageNew);
   
     } catch (error) {
       console.error(`Ошибка при обработке и сохранении файла: ${error}`);

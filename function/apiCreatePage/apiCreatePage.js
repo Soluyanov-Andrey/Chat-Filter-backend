@@ -3,11 +3,17 @@ const { getHrefFromHTMLFiles } = require('./../apiOpenDocument/getHrefByIndex');
 const { readFileContent } = require('./../subsidiaryFunction/fileUtils'); 
 const { hasLiElementsInsideList } = require('./../apiCreatePage/additionalFunctions'); 
 const { extractContextsFromChatPrompts } = require('./../apiScan/scan'); 
-const { findMaxPgNumber , extractAndTransformHrefs , findMaxSecondDigitInFilenames } = require('./additionalFunctions'); 
-const { shortenStrings } = require('./../subsidiaryFunction/shortenStrings'); 
+const { findMaxPgNumber ,
+        extractAndTransformHrefs , 
+        findMaxSecondDigitInFilenames ,
+        filterFilesByPage,
+        extractNumberFromPath ,
+        getFileNamesInDirectory ,
+        addListItemsIn } = require('./additionalFunctions'); 
 
+
+const { shortenStrings } = require('./../subsidiaryFunction/shortenStrings'); 
 const { saveFilterHTML } = require('../subsidiaryFunction/deleteAllScaner');
-const { addListItems } = require('./additionalFunctions'); 
 const { saveHtmlToFile } = require('../subsidiaryFunction/fileUtils'); 
 
 const { FULL_PATH , DOCUMENT_PAGE_HREF } = require('./../../config'); // Импортируем переменные
@@ -16,19 +22,24 @@ const { FULL_PATH , DOCUMENT_PAGE_HREF } = require('./../../config'); // Имп�
 function initPath(path, indexTheme){
 
     // Берем изначальный путь до папки document
-    // media/andrey/project/project/servers/SERVER-node-chatGPT/document
-
+    // media/andrey/project/project/servers/SERVER-node-chatGPT/document + root.html
+    // путь будет подобным
+    // media/andrey/project/project/servers/SERVER-node-chatGPT/document/root.html
     const pathFull = path + '/' + DOCUMENT_PAGE_HREF;
 
+    // путь будет подобным
+    // media/andrey/project/project/servers/SERVER-node-chatGPT/document/themes/pages
     // формируем путь до папки themes/pages внутри document
     const pathPage = path + '/' + 'themes/pages';
 
     //-------------------------------------------------------------------------------------------------------------------
     // 1 Берем ссылку из файла root это ссылка будет указывать файл in в который будем производить запись
     // вернет из файла root содержание сылки a href="in3.html", какую по счёту  брать ссылку будет зависит от indexTheme
+    // вернет подобное  themes/in1.html
     const pathInFailes = getHrefFromHTMLFiles(pathFull, indexTheme);
 
-     // создаем полный путь до файла in будет в итоге подобен /media/andrey/project/project/servers/SERVER-node-chatGPT/document/themes/in1.html
+     // создаем полный путь до файла in будет в итоге подобен 
+     // /media/andrey/project/project/servers/SERVER-node-chatGPT/document/themes/in1.html
     const pathRead = path + '/' + pathInFailes;
 
     // Извлекаем из файла основного массив тем, из которых будем формировать страницы
@@ -43,58 +54,40 @@ function initPath(path, indexTheme){
     //В конце файл будет исходный файл ChatGPT _ ChatGPT 4o Free _ Support all countries.html
     const filePath = FULL_PATH;
 
-    // По файлу in определяем это новая тема или в ней уже есть записи. true если ссылки есть
-    bool = hasLiElementsInsideList(contentIn);
+    // Вернет массив из имен файлов в папке pages
+    const arrayFileNames = getFileNamesInDirectory(pathPage);
 
-    // В итоге будет хранить массив из двух числес например [5 , 4]первая цифра говорит что имя файла будет начинаться  pg5 
-    // а префикс pg5-4 будет 4.
-    let pgNumber;
+    // Извлекает число из пути к файлу, следующего за сегментом "themes/in
+    const numberIn = extractNumberFromPath(pathInFailes);
 
-    if (!bool) {
-        // Обработка случая, когда hasLiElementsInsideList вернула false
-        // Когда элементов li нет
-        //a) если новая тема то в папке pages нужно определить какое имя файла pg[цифра будем формировать]
-        //Если темы в in файле нет, то надо из папки pages опредлить найти pg[max] и оттуда начать формировать страницы
-          pgNumber = findMaxPgNumber(pathPage, 'pg');
+    // выберем все нужные pg в массив
+    const pageSelect = filterFilesByPage(arrayFileNames ,numberIn);
 
-          //и возвращает массив первая цифра имя файла pg[цифра] вторая задаем по умолчанию 1 
-          // так как с нее начнем создавать файлы +1 потомучто конечный файл например pg4 создавать начинаем новую серию pg5
-          pgNumber = [pgNumber+1,1];
-          console.log('элементов li нет');
-          
-          
-    
-      } else {
-          // Обработка случая, когда hasLiElementsInsideList вернула true
-          // Когда есть li элементы
-          //b) если тема есть то нужно определит какой файл pg[цифра] брать, и какая цифра последняя pg[цифра]- цифра
-          //Если тема есть то из файла in[цифра] прочитать сылку на файл и определить pg[цифру] и максемальный pg[цифру]- max.html
-    
-          console.log('элементы li есть');
-          const arrayHref = extractAndTransformHrefs(contentIn);
-
-          pgNumber = findMaxSecondDigitInFilenames(arrayHref);
-    
-          fileNameIterator =  createFileNameIterator(pgNumber);
-          
-      }
-      // хранит ссылку на функцию, при повторном вызове 
-      const element = createArrayIterator(shortenStringsContexts);
+    let arrayMax;
+    if(!pageSelect){
+       arrayMax = [numberIn, 1];
+    } else {
+      // вернет массив содержащий два значения например [1,5] что соотведственно pg[1]-5.html
+       arrayMax = findMaxSecondDigitInFilenames(pageSelect);
+    }
+   
 
     // Возвращаем объект с переменными
     return {
-        fileNameIterator: fileNameIterator,
         filePath: filePath,
-        element: element,
         pathFull: pathFull,
         pathPage: pathPage,
         pathInFailes: pathInFailes,
         pathRead: pathRead,
         extractContexts: extractContexts,
         contentIn: contentIn,
-        bool: bool,
-        pgNumber: pgNumber,
-        shortenStringsContexts: shortenStringsContexts
+        shortenStringsContexts: shortenStringsContexts,
+        arrayFileNames: arrayFileNames,
+        numberIn: numberIn,
+        pageSelect: pageSelect,
+        arrayMax: arrayMax,
+        topic: createArrayIterator(extractContexts),
+        fileNameIterator: createFileNameIterator(arrayMax)
     };
 
 
@@ -133,6 +126,11 @@ function createFileNameIterator(initialArray) {
  * console.log(getNext()); // Выведет: 2
  * console.log(getNext()); // Выведет: 3
  * console.log(getNext()); // Выведет: false
+ * 
+ *  Используем для перебора тем которые хранятся в shortenStringsContexts пример масива тем написан ниже
+ * 'как в текстовом фармате обозначется перенос на следующую строку,',
+ * 'На node js например у меня есть переменнаяя text = "привет мир", ее надо записать в файл и между словами привет и мир поставить знак разделитель',
+ * '. Используя fs.writeFile (простой, но не подходит для больших файлов): Почему неподходит и какой критерий большого файла конкретно в размерах'
  */
 function createArrayIterator(arr) {
     let currentIndex = 0;
@@ -157,14 +155,9 @@ function createArrayIterator(arr) {
  * @throws {Error} Если происходит ошибка при извлечении контекстов или сохранении отфильтрованных HTML файлов, ошибка пробрасывается дальше для обработки.
  * @returns {Promise<Array<any>>} - Promise, который разрешается с массивом извлеченных контекстов (`arrayResult`) после успешного создания и сохранения всех файлов.
  */
- async function createPage(obj) {
+ async function createPage(obj, arrayIntegrator, topic) {
 
-    const element = obj.element();
-  
     const filePath = obj.filePath;
-
-    //При вызове obj.fileNameIterator();  увеличивает последний элемент переданного при создании массива на единицу
-    const arrayIntegrator = obj.fileNameIterator();
 
     // создаем имя например pg1-1.html
     const newFileName = `pg${arrayIntegrator[0]}-${arrayIntegrator[1]}.html`;
@@ -172,36 +165,80 @@ function createArrayIterator(arr) {
 
   
 
-    console.log("element---",element);
-    console.log("pathFileNew---",pathFileNew);
-    console.log("filePath---",filePath);
+    // console.log("topic---",topic);
+    // console.log("pathFileNew---",pathFileNew);
+    // console.log("filePath---",filePath);
+    // console.log("arrayIntegrator ---",arrayIntegrator);
 
-    await saveFilterHTML(filePath, pathFileNew, element); // Используем импортированную функцию
+     await saveFilterHTML(filePath, pathFileNew, topic); // Используем импортированную функцию
       
-    
-
   }
 
- async function createPageAndListItems(obj) {
+ async function createPageAndListItems(obj, arrayIntegrator, topic) {
 
-    const html = obj.html;
-    const linkTexts = obj.linkTexts;
-    const startNumber = obj.startNumber;
-    const htmlContent = obj.htmlContent;
+ 
+    const filePath = obj.pathRead;
+    const html = obj.contentIn;
+    const pgIndex = arrayIntegrator[0];
+    const indexHtml = arrayIntegrator[1];
+    
 
-      await createPage(obj);
-     addListItems(html, linkTexts, startNumber);
-    //  saveHtmlToFile(filePath, htmlContent);
+    // console.log("topic---", topic);
+    // console.log("html---", html);
+    // console.log("pgIndex---", pgIndex);
+    // console.log("indexHtml ---", indexHtml);
+
+    // console.log("arrayIntegrator ---", arrayIntegrator);
+    // console.log("filePath ---", filePath);
+
+      
+      
+        try {
+          await createPage(obj,arrayIntegrator, topic );
+        } catch (error) {
+          
+          console.error("Ошибка при обработки createPage:", error);
+         
+        }
+
+       try {
+          const htmlContent = addListItemsIn(html, topic, pgIndex, indexHtml);
+          await saveHtmlToFile(filePath, htmlContent); // Предполагаем, что saveHtmlToFile - асинхронная функция (как правило)
+          obj.contentIn = htmlContent;
+        } catch (error) {
+          // Обработка ошибок, если saveHtmlToFile не удалось
+          console.error("Ошибка при сохранении HTML в файл:", error);
+          //  Можно также:
+          //  1.  Записать ошибку в лог файл
+          //  2.  Вывести сообщение об ошибке пользователю (если это UI-код)
+          //  3.  Выполнить другие действия по обработке ошибки
+        }
 
   } 
 
-function apiCreatePage(path, indexTheme){
+async function apiCreatePage(path, indexTheme){
 
 
+    const obj = initPath(path, indexTheme);
+    const filePath = obj.pathRead;
+    const extractContexts = obj.extractContexts;
+
+  for (const context of extractContexts) {
+   //При вызове obj.fileNameIterator();  увеличивает последний элемент переданного при создании массива на единицу
+     let arrayIntegrator = obj.fileNameIterator();
+     let topic = obj.topic();
+
+    // console.log("arrayIntegrator---", arrayIntegrator);
+    // console.log("topic---", topic);
+    // console.log("---------------------------------------", topic);
+     await createPageAndListItems(obj, arrayIntegrator, topic);
+  }
 
 }
 
 //Для тестов
+
+module.exports.createPageAndListItems = createPageAndListItems;
 module.exports.initPath = initPath;
 module.exports.createPage = createPage;  
 module.exports.createArrayIterator = createArrayIterator;  

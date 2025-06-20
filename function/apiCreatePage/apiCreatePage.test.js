@@ -1,23 +1,37 @@
 
-const { apiCreatePage , initPath , createPage , createArrayIterator , createFileNameIterator } = require('./apiCreatePage');
+const { apiCreatePage , 
+        initPath , 
+        createPage ,
+        createArrayIterator , 
+        createFileNameIterator ,
+        createPageAndListItems
+      } = require('./apiCreatePage');
 
 
 //Путь где находится файл  root.html приедт с фронта
 const path ='/media/andrey/project/project/servers/SERVER-node-chatGPT/document';
 
-const fileName = 'root.html';
 
-//Тема на которой нажали в файле root.html
-let indexTheme =2;
+
 
 describe('apiCreatePage', () => {
   it('apiCreatePage', () => {
+    //Тема на которой нажали в файле root.html
+    let indexTheme = 2;
+     apiCreatePage(path,indexTheme);
 
-    // let b = apiCreatePage(path, fileName, indexTheme);
-    // console.log(b);
+  });
+});
+
+
+describe('createPageAndListItems', () => {
+  it('createPageAndListItems', () => {
+
+
  
   });
 });
+
 
 describe('createFileNameIterator}', () => {
   it('createFileNameIterator}', () => {
@@ -30,13 +44,17 @@ describe('createFileNameIterator}', () => {
 });
 
 
-indexTheme =1;
+
 describe('initPath', () => {
   it('initPath', () => {
-
+indexTheme = 3;
     let b = initPath(path,indexTheme);
-    console.log(b);
-    console.log("file name interator", b.fileNameIterator());
+     console.log(b);
+    console.log('topic', b.topic());
+    console.log('topic', b.topic());
+    console.log('fileNameIterator', b.fileNameIterator());
+    console.log('fileNameIterator', b.fileNameIterator());
+    // console.log("file name interator", b.fileNameIterator());
   });
 });
 
@@ -61,15 +79,25 @@ const extractContexts = [
   });
 });
 
-
-
 describe('createPage', () => {
   it('createPage', () => {
-
-    let obj = initPath(path,indexTheme);
+    const arrayIntegrator =[3,5];
+    const topic = 'как в текстовом фармате обозначется перенос на следующую строку,';
+    const indexTheme = 3;
+    const obj = initPath(path,indexTheme);
     // console.log(obj);
-     createPage(obj);
-     createPage(obj);
-     createPage(obj);
+     createPage(obj,arrayIntegrator);
+
   });
 });
+
+describe('createPageAndListItems', () => {
+  it('createPageAndListItems', () => {
+    const indexTheme = 3;
+    const obj = initPath(path,indexTheme);
+     // console.log(obj);
+     createPageAndListItems(obj);
+     createPageAndListItems(obj);
+  });
+});
+

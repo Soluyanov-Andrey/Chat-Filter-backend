@@ -1,6 +1,6 @@
 const { readFileContent } = require('./fileUtils');
 const { saveHtmlToFile } = require('./fileUtils');
-const { removeSidebarNav , removeFooterNav ,removeheaderNav ,saveNewFile} = require('./deleteNavBlock');
+const { removeSidebarNav , removeFooterNav ,removeheaderNav ,saveNewFile , deleteBlock} = require('./deleteNavBlock');
 const { IP , FULL_PATH } = require('../../config'); // Импортируем cors
 const fs = require('fs');
 const path = require('path'); // Import the 'path' module
@@ -139,5 +139,26 @@ describe('Интеграционный тест: removeSidebarNav с реаль�
 
   });
 
+ it('проверяем конечный saveNewFile', () => {
+    // 1. Прочитать HTML-файл
+    console.log("sourceDir-",sourceDir);
+    console.log("baseDir-",baseDir);
 
+    const read = readFileContent(path);
+
+    async function main() {
+      try {
+       const re = await deleteBlock(read);
+         console.log(re);
+      } catch (error) {
+        console.error("Произошла ошибка при обработке файла:", error);
+        // Здесь можно выполнить другие действия по обработке ошибки,
+        // например, логирование или отображение сообщения пользователю.
+      }
+    }
+    
+    main();
+
+
+  });
 });

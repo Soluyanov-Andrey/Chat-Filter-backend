@@ -84,14 +84,38 @@ async function saveNewFile(rootDocument, pathNew){
   }
 }
 
+/**
+ * Выполняет последовательную обработку HTML-файла, удаляя из него боковую навигацию,
+ * футер и хедер, а затем сохраняет измененный HTML в новый файл.
+ *
+ * @param {string} rootDocument уэе готовый документ в виде строки
+ *
+ * @returns {string} Вернет html с удаленными блоками
+ */
+
+async function deleteBlock(rootDocument){
+  try {
+  
+  const contDel = removeSidebarNav(rootDocument);
+  const footerNav = removeFooterNav(contDel);
+  const headerNav = removeheaderNav(footerNav);
+  
+  return headerNav;
+
+  } catch (error) {
+  // Обработка ошибок: пробрасываем ошибку дальше, чтобы ее мог обработать вызывающий код.
+  console.error("Ошибка в deleteBlock:", error);
+  throw error; // Пробрасываем ошибку
+  }
+}
 
 
 
 
 module.exports.saveNewFile = saveNewFile;
-
-; // Экспортируем для тестов
-module.exports.removeSidebarNav = removeSidebarNav
+module.exports.deleteBlock = deleteBlock;
+// Экспортируем для тестов
+module.exports.removeSidebarNav = removeSidebarNav;
 module.exports.removeFooterNav =  removeFooterNav;
 module.exports.removeheaderNav =  removeheaderNav;
 

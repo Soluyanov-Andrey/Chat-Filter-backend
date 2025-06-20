@@ -26,7 +26,7 @@ function getHrefByIndex(htmlString, index) {
     const listItems = $('#list li a');
     
     if (index < 1 || index > listItems.length) {
-        throw new Error(`Index ${index} out of range (1-${listItems.length})`);
+        throw new Error(`В getHrefByIndex возникла ошибка Index ${index} out of range (1-${listItems.length})`);
     }
     
     return $(listItems[index - 1]).attr('href');

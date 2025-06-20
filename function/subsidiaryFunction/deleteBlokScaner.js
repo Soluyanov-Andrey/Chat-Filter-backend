@@ -14,6 +14,7 @@ const { readFileContent } = require('./fileUtils.js');
 
 
 /**
+ * Удаляем заданные темы остальные оставляем
  * Фильтрует HTML-контент, удаляя блоки `.chat-box__human--prompt`,
  * `.wrap-ai-completed` и `.chat-box.human`, если текст в `.chat-box__human--prompt`
  * подобен одному из целевых текстов из массива `targetTexts`.

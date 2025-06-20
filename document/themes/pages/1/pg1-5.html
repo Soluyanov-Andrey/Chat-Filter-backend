@@ -1339,13 +1339,262 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
 
     <div class="wrapper d-flex align-items-stretch">
         <!-- Sidebar -->
+        <nav class="flex-shrink-0 overflow-x-hidden bg-token-sidebar-surface-primary" id="sidebar">
+    <div class="flex h-full min-h-0 flex-col">
+        <div class="px-2 wrap-header-sidebar">
+            <div class="flex justify-between flex h-14 items-center">
+                <span>
+                    <button type="button" id="sidebarCollapse" title="Close or open sidebar" class="btn-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="open-close-sidebar-computer">
+                            <path fill="currentColor" fill-rule="evenodd" d="M8.857 3h6.286c1.084 0 1.958 0 2.666.058.729.06 1.369.185 1.961.487a5 5 0 0 1 2.185 2.185c.302.592.428 1.233.487 1.961.058.708.058 1.582.058 2.666v3.286c0 1.084 0 1.958-.058 2.666-.06.729-.185 1.369-.487 1.961a5 5 0 0 1-2.185 2.185c-.592.302-1.232.428-1.961.487C17.1 21 16.227 21 15.143 21H8.857c-1.084 0-1.958 0-2.666-.058-.728-.06-1.369-.185-1.96-.487a5 5 0 0 1-2.186-2.185c-.302-.592-.428-1.232-.487-1.961C1.5 15.6 1.5 14.727 1.5 13.643v-3.286c0-1.084 0-1.958.058-2.666.06-.728.185-1.369.487-1.96A5 5 0 0 1 4.23 3.544c.592-.302 1.233-.428 1.961-.487C6.9 3 7.773 3 8.857 3M6.354 5.051c-.605.05-.953.142-1.216.276a3 3 0 0 0-1.311 1.311c-.134.263-.226.611-.276 1.216-.05.617-.051 1.41-.051 2.546v3.2c0 1.137 0 1.929.051 2.546.05.605.142.953.276 1.216a3 3 0 0 0 1.311 1.311c.263.134.611.226 1.216.276.617.05 1.41.051 2.546.051h.6V5h-.6c-1.137 0-1.929 0-2.546.051M11.5 5v14h3.6c1.137 0 1.929 0 2.546-.051.605-.05.953-.142 1.216-.276a3 3 0 0 0 1.311-1.311c.134-.263.226-.611.276-1.216.05-.617.051-1.41.051-2.546v-3.2c0-1.137 0-1.929-.051-2.546-.05-.605-.142-.953-.276-1.216a3 3 0 0 0-1.311-1.311c-.263-.134-.611-.226-1.216-.276C17.029 5.001 16.236 5 15.1 5zM5 8.5a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1M5 12a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1" clip-rule="evenodd"></path>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="open-close-sidebar-mobi">
+                            <path fill="currentColor" fill-rule="evenodd" d="M3 8a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1m0 8a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </span>
+                <span>
+                    <button type="button" data-toggle="tooltip" data-bs-placement="bottom" class="btn-svg btn-new-chat" aria-label="New chat" data-bs-original-title="New chat">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M15.673 3.913a3.121 3.121 0 1 1 4.414 4.414l-5.937 5.937a5 5 0 0 1-2.828 1.415l-2.18.31a1 1 0 0 1-1.132-1.13l.311-2.18A5 5 0 0 1 9.736 9.85zm3 1.414a1.12 1.12 0 0 0-1.586 0l-5.937 5.937a3 3 0 0 0-.849 1.697l-.123.86.86-.122a3 3 0 0 0 1.698-.849l5.937-5.937a1.12 1.12 0 0 0 0-1.586M11 4A1 1 0 0 1 10 5c-.998 0-1.702.008-2.253.06-.54.052-.862.141-1.109.267a3 3 0 0 0-1.311 1.311c-.134.263-.226.611-.276 1.216C5.001 8.471 5 9.264 5 10.4v3.2c0 1.137 0 1.929.051 2.546.05.605.142.953.276 1.216a3 3 0 0 0 1.311 1.311c.263.134.611.226 1.216.276.617.05 1.41.051 2.546.051h3.2c1.137 0 1.929 0 2.546-.051.605-.05.953-.142 1.216-.276a3 3 0 0 0 1.311-1.311c.126-.247.215-.569.266-1.108.053-.552.06-1.256.06-2.255a1 1 0 1 1 2 .002c0 .978-.006 1.78-.069 2.442-.064.673-.192 1.27-.475 1.827a5 5 0 0 1-2.185 2.185c-.592.302-1.232.428-1.961.487C15.6 21 14.727 21 13.643 21h-3.286c-1.084 0-1.958 0-2.666-.058-.728-.06-1.369-.185-1.96-.487a5 5 0 0 1-2.186-2.185c-.302-.592-.428-1.233-.487-1.961C3 15.6 3 14.727 3 13.643v-3.286c0-1.084 0-1.958.058-2.666.06-.729.185-1.369.487-1.961A5 5 0 0 1 5.73 3.545c.556-.284 1.154-.411 1.827-.475C8.22 3.007 9.021 3 10 3A1 1 0 0 1 11 4">
+                            </path>
+                        </svg>
+                    </button>
+                </span>
+            </div>
+        </div>
+
+        <ul class="wrap-history-messages scrollbar" style="flex-grow: 4; order: 2;"><div class="history-message-item">
+
+                            <ul class="history-message-item__container">
+            <li class="history-message-list-item active" id="396158">
+                <a href="javascript:void(0)" class="history-message-link-item">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">
+                            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
+                        </svg>
+                        <div class="history-message-name animated-text" id="vwqujdlf" contenteditable="false">как в текстовом фармате обозначется перенос на следующую строку,</div>
+                    </div>
+                    <div class="history-message__action">
+                        <button type="button" title="Rename" class="btn-edit-history-message">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                                <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"></path>
+                            </svg>
+                        </button>
+                        <button type="button" title="Delete" class="btn-delete-history-message">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"></path>
+                                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </a>
+            </li></ul></div></ul>
+
+
         
+        <ul class="px-2 list-unstyled components menu-components mb-5" style="order: 3;">
+            <li class="ai-chat active">
+                <a data-savepage-href="https://chatgptchatapp.com" href="https://chatgptchatapp.com/">AI Chat</a>
+            </li>
+            
+            <li class="about ">
+                <a href="https://chatgptchatapp.com/en/about">About</a>
+            </li>
+            <li class="contact ">
+                <a href="https://chatgptchatapp.com/en/contact">Contact</a>
+            </li>
+            <li class="upgrade ">
+                <a href="https://chatgptchatapp.com/en/pricing">Upgrade</a>
+            </li>
+            
+            
+        </ul>
+
+        <div class="px-2 footer">
+            
+
+            <p class="footer__copyright">
+                ©
+                Copyright 2023-2025 Free ChatGPT platform
+            </p>
+            <!-- translate -->
+            
+            <div>
+                <a target="_blank" rel="noreferrer" href="https://t.me/chatgptchatapp" title="Group telegram ChatGPTChatApp">
+                    <svg class="hover:scale-125 ease-in duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="28px" height="28px">
+                        <path fill="#29b6f6" d="M24 4A20 20 0 1 0 24 44A20 20 0 1 0 24 4Z"></path>
+                        <path fill="#fff" d="M33.95,15l-3.746,19.126c0,0-0.161,0.874-1.245,0.874c-0.576,0-0.873-0.274-0.873-0.274l-8.114-6.733 l-3.97-2.001l-5.095-1.355c0,0-0.907-0.262-0.907-1.012c0-0.625,0.933-0.923,0.933-0.923l21.316-8.468 c-0.001-0.001,0.651-0.235,1.126-0.234C33.667,14,34,14.125,34,14.5C34,14.75,33.95,15,33.95,15z">
+                        </path>
+                        <path fill="#b0bec5" d="M23,30.505l-3.426,3.374c0,0-0.149,0.115-0.348,0.12c-0.069,0.002-0.143-0.009-0.219-0.043 l0.964-5.965L23,30.505z">
+                        </path>
+                        <path fill="#cfd8dc" d="M29.897,18.196c-0.169-0.22-0.481-0.26-0.701-0.093L16,26c0,0,2.106,5.892,2.427,6.912 c0.322,1.021,0.58,1.045,0.58,1.045l0.964-5.965l9.832-9.096C30.023,18.729,30.064,18.416,29.897,18.196z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
 
         <!-- Page Content  -->
         <main id="content">
                         <script data-savepage-type="text/javascript" type="text/plain"></script>
         <div class="wrap-container container wrap-chat-message-gpt">
-        
+        <div class="header wrap-header-chat-message-gpt">
+    <div class="wrap-btn-sidebar" style="display: none;">
+        <span>
+            <button type="button" id="sidebarCollapse" title="Close or open sidebar" class="btn-svg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="open-close-sidebar-computer">
+                    <path fill="currentColor" fill-rule="evenodd" d="M8.857 3h6.286c1.084 0 1.958 0 2.666.058.729.06 1.369.185 1.961.487a5 5 0 0 1 2.185 2.185c.302.592.428 1.233.487 1.961.058.708.058 1.582.058 2.666v3.286c0 1.084 0 1.958-.058 2.666-.06.729-.185 1.369-.487 1.961a5 5 0 0 1-2.185 2.185c-.592.302-1.232.428-1.961.487C17.1 21 16.227 21 15.143 21H8.857c-1.084 0-1.958 0-2.666-.058-.728-.06-1.369-.185-1.96-.487a5 5 0 0 1-2.186-2.185c-.302-.592-.428-1.232-.487-1.961C1.5 15.6 1.5 14.727 1.5 13.643v-3.286c0-1.084 0-1.958.058-2.666.06-.728.185-1.369.487-1.96A5 5 0 0 1 4.23 3.544c.592-.302 1.233-.428 1.961-.487C6.9 3 7.773 3 8.857 3M6.354 5.051c-.605.05-.953.142-1.216.276a3 3 0 0 0-1.311 1.311c-.134.263-.226.611-.276 1.216-.05.617-.051 1.41-.051 2.546v3.2c0 1.137 0 1.929.051 2.546.05.605.142.953.276 1.216a3 3 0 0 0 1.311 1.311c.263.134.611.226 1.216.276.617.05 1.41.051 2.546.051h.6V5h-.6c-1.137 0-1.929 0-2.546.051M11.5 5v14h3.6c1.137 0 1.929 0 2.546-.051.605-.05.953-.142 1.216-.276a3 3 0 0 0 1.311-1.311c.134-.263.226-.611.276-1.216.05-.617.051-1.41.051-2.546v-3.2c0-1.137 0-1.929-.051-2.546-.05-.605-.142-.953-.276-1.216a3 3 0 0 0-1.311-1.311c-.263-.134-.611-.226-1.216-.276C17.029 5.001 16.236 5 15.1 5zM5 8.5a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1M5 12a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1" clip-rule="evenodd"></path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="open-close-sidebar-mobi">
+                    <path fill="currentColor" fill-rule="evenodd" d="M3 8a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1m0 8a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </span>
+        <span>
+            <button type="button" data-toggle="tooltip" data-bs-placement="bottom" class="btn-svg btn-new-chat" aria-label="New chat" data-bs-original-title="New chat">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M15.673 3.913a3.121 3.121 0 1 1 4.414 4.414l-5.937 5.937a5 5 0 0 1-2.828 1.415l-2.18.31a1 1 0 0 1-1.132-1.13l.311-2.18A5 5 0 0 1 9.736 9.85zm3 1.414a1.12 1.12 0 0 0-1.586 0l-5.937 5.937a3 3 0 0 0-.849 1.697l-.123.86.86-.122a3 3 0 0 0 1.698-.849l5.937-5.937a1.12 1.12 0 0 0 0-1.586M11 4A1 1 0 0 1 10 5c-.998 0-1.702.008-2.253.06-.54.052-.862.141-1.109.267a3 3 0 0 0-1.311 1.311c-.134.263-.226.611-.276 1.216C5.001 8.471 5 9.264 5 10.4v3.2c0 1.137 0 1.929.051 2.546.05.605.142.953.276 1.216a3 3 0 0 0 1.311 1.311c.263.134.611.226 1.216.276.617.05 1.41.051 2.546.051h3.2c1.137 0 1.929 0 2.546-.051.605-.05.953-.142 1.216-.276a3 3 0 0 0 1.311-1.311c.126-.247.215-.569.266-1.108.053-.552.06-1.256.06-2.255a1 1 0 1 1 2 .002c0 .978-.006 1.78-.069 2.442-.064.673-.192 1.27-.475 1.827a5 5 0 0 1-2.185 2.185c-.592.302-1.232.428-1.961.487C15.6 21 14.727 21 13.643 21h-3.286c-1.084 0-1.958 0-2.666-.058-.728-.06-1.369-.185-1.96-.487a5 5 0 0 1-2.186-2.185c-.302-.592-.428-1.233-.487-1.961C3 15.6 3 14.727 3 13.643v-3.286c0-1.084 0-1.958.058-2.666.06-.729.185-1.369.487-1.961A5 5 0 0 1 5.73 3.545c.556-.284 1.154-.411 1.827-.475C8.22 3.007 9.021 3 10 3A1 1 0 0 1 11 4">
+                    </path>
+                </svg>
+            </button>
+        </span>
+    </div>
+
+    <div>
+                    <div class="btn-group wrap-dropdown wrap-chatgpt-model">
+                <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" title="Change model">
+                    <h1 id="model-name">ChatGPT</h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"></path>
+</svg>
+                </button>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item-model" id="model-chatgpt-4">
+                        <div class="dropdown-item">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path fill="currentColor" fill-rule="evenodd" d="M12 7.42a22 22 0 0 0-2.453 2.127A22 22 0 0 0 7.42 12a22 22 0 0 0 2.127 2.453c.807.808 1.636 1.52 2.453 2.128a22 22 0 0 0 2.453-2.128A22 22 0 0 0 16.58 12a22 22 0 0 0-2.127-2.453A22 22 0 0 0 12 7.42m1.751-1.154a25 25 0 0 1 2.104 1.88 25 25 0 0 1 1.88 2.103c.316-.55.576-1.085.779-1.59.35-.878.507-1.625.503-2.206-.003-.574-.16-.913-.358-1.111-.199-.199-.537-.356-1.112-.36-.58-.003-1.328.153-2.205.504-.506.203-1.04.464-1.59.78Zm3.983 7.485a25 25 0 0 1-1.88 2.104 25 25 0 0 1-2.103 1.88 13 13 0 0 0 1.59.779c.878.35 1.625.507 2.206.503.574-.003.913-.16 1.111-.358.199-.199.356-.538.36-1.112.003-.58-.154-1.328-.504-2.205a13 13 0 0 0-.78-1.59ZM12 18.99c.89.57 1.768 1.03 2.605 1.364 1.026.41 2.036.652 2.955.646.925-.006 1.828-.267 2.5-.94.673-.672.934-1.575.94-2.5.006-.919-.236-1.929-.646-2.954A15.7 15.7 0 0 0 18.99 12a15.6 15.6 0 0 0 1.364-2.606c.41-1.025.652-2.035.646-2.954-.006-.925-.267-1.828-.94-2.5-.672-.673-1.575-.934-2.5-.94-.919-.006-1.929.235-2.954.646-.838.335-1.716.795-2.606 1.364a15.7 15.7 0 0 0-2.606-1.364C8.37 3.236 7.36 2.994 6.44 3c-.925.006-1.828.267-2.5.94-.673.672-.934 1.575-.94 2.5-.006.919.235 1.929.646 2.955A15.7 15.7 0 0 0 5.01 12c-.57.89-1.03 1.768-1.364 2.605-.41 1.026-.652 2.036-.646 2.955.006.925.267 1.828.94 2.5.672.673 1.575.934 2.5.94.92.006 1.93-.235 2.955-.646A15.7 15.7 0 0 0 12 18.99m-1.751-1.255a25 25 0 0 1-2.104-1.88 25 25 0 0 1-1.88-2.104c-.315.55-.576 1.085-.779 1.59-.35.878-.507 1.625-.503 2.206.003.574.16.913.359 1.111.198.199.537.356 1.111.36.58.003 1.328-.153 2.205-.504.506-.203 1.04-.463 1.59-.78Zm-3.983-7.486a25 25 0 0 1 1.88-2.104 25 25 0 0 1 2.103-1.88 13 13 0 0 0-1.59-.779c-.878-.35-1.625-.507-2.206-.503-.574.003-.913.16-1.111.359-.199.198-.356.537-.36 1.111-.003.58.153 1.328.504 2.205.203.506.464 1.04.78 1.59Z" clip-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            <div class="info-model">
+                                <h2 class="info-model--title">ChatGPT 4o</h2>
+                                <p>Smart and fast for everyday tasks</p>
+                            </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="svg-checked">
+            <path fill="currentColor" fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12m14.076-4.068a1 1 0 0 1 .242 1.393l-4.75 6.75a1 1 0 0 1-1.558.098l-2.5-2.75a1 1 0 0 1 1.48-1.346l1.66 1.827 4.032-5.73a1 1 0 0 1 1.394-.242" clip-rule="evenodd"></path>
+        </svg></div>
+                    </li>
+                    <li class="dropdown-item-model" id="model-chatgpt-3-5">
+                        <div class="dropdown-item">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-layers-half" viewBox="0 0 16 16">
+                                    <path d="M8.235 1.559a.5.5 0 0 0-.47 0l-7.5 4a.5.5 0 0 0 0 .882L3.188 8 .264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l2.922-1.559a.5.5 0 0 0 0-.882zM8 9.433 1.562 6 8 2.567 14.438 6z"></path>
+                                </svg>
+                            </span>
+                            <div class="info-model">
+                                <h2 class="info-model--title">ChatGPT 3.5</h2>
+                                <p>Perfect for everyday tasks</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown-item-model" id="model-mistral-large">
+                        <div class="dropdown-item">
+                            <span>
+                                <svg width="36px" height="36px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" stroke-width="3" stroke="currentColor" fill="currentColor" style="font-size: 18px; margin-left: 7px; margin-top: -1px;">
+                                    <circle cx="34.52" cy="11.43" r="5.82"></circle>
+                                    <circle cx="53.63" cy="31.6" r="5.82"></circle>
+                                    <circle cx="34.52" cy="50.57" r="5.82"></circle>
+                                    <circle cx="15.16" cy="42.03" r="5.82"></circle>
+                                    <circle cx="15.16" cy="19.27" r="5.82"></circle>
+                                    <circle cx="34.51" cy="29.27" r="4.7"></circle>
+                                    <line x1="20.17" y1="16.3" x2="28.9" y2="12.93"></line>
+                                    <line x1="38.6" y1="15.59" x2="49.48" y2="27.52"></line>
+                                    <line x1="50.07" y1="36.2" x2="38.67" y2="46.49"></line>
+                                    <line x1="18.36" y1="24.13" x2="30.91" y2="46.01"></line>
+                                    <line x1="20.31" y1="44.74" x2="28.7" y2="48.63"></line>
+                                    <line x1="17.34" y1="36.63" x2="31.37" y2="16.32"></line>
+                                    <line x1="20.52" y1="21.55" x2="30.34" y2="27.1"></line>
+                                    <line x1="39.22" y1="29.8" x2="47.81" y2="30.45"></line>
+                                    <line x1="34.51" y1="33.98" x2="34.52" y2="44.74"></line>
+                                </svg>
+                            </span>
+                            <div class="info-model">
+                                <h2 class="info-model--title">Mistral large 2</h2>
+                                <p>Top reasoning capabilities</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown-item-model" id="model-pixtral">
+                        <div class="dropdown-item">
+                            <span>
+                                <svg fill="currentColor" width="36px" height="36px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22.365 8.729c.9 0 1.635-.735 1.635-1.635s-.735-1.636-1.635-1.636-1.636.735-1.636 1.636.723 1.635 1.636 1.635m-4.907 5.452a3.27 3.27 0 1 0 0-6.542 3.27 3.27 0 0 0 0 6.542m0 8.722c2.105 0 3.816-1.711 3.816-3.829s-1.711-3.816-3.829-3.816a3.82 3.82 0 0 0-3.816 3.816 3.825 3.825 0 0 0 3.829 3.83M6.542 14.18a6.542 6.542 0 1 0 0-13.084 6.542 6.542 0 1 0 0 13.084"></path>
+                                </svg>
+                            </span>
+                            <div class="info-model">
+                                <h2 class="info-model--title">Pixtral</h2>
+                                <p>Prompt text and images</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown-item-model" id="model-codestral">
+                        <div class="dropdown-item">
+                            <span>
+                                <svg width="36px" height="36px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size: 23px; margin-left: 5px; margin-top: -1px;">
+                                    <path d="M9 8L5 11.6923L9 16M15 8L19 11.6923L15 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </span>
+                            <div class="info-model">
+                                <h2 class="info-model--title">Codestral</h2>
+                                <p>Fast and specialized in code</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            </div>
+
+    <div>
+        <div class="btn-group wrap-dropdown wrap-dropdown-action-user">
+            <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" title="Action account">
+                                    <img data-savepage-src="https://lh3.googleusercontent.com/a/ACg8ocI6Pv-D_ZJjE5D_lWkPNtygGqjPp_Xi5MH1m5vwRa23zlqu9A=s96-c" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAIAAABt+uBvAAAAA3NCSVQICAjb4U/gAAAABmJLR0QAvwA2AAxChPGzAAAFMklEQVR4nO2aa2xTZRjHT3vWe13Xy85mx+i6CzJhbGKcLBjIAoLxkqlTYzBmS1DDYvTDNJFIAh8mMS6EmEgwI9GEiNHBjHGKDCOBCNMlOOaAhY0K7W7djXWlXe89PX4gnp22sqe17dt9eH7fnifv5Z9fds56znlF52vVFHJ/xNkOsNJBQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAaAgABQEgIIAUBAACgJAQQAoCAAFAeRkOwBFUZS2tl63abu8sJhWqCiRiPUuhj0uv31s5uxJv92W3WyiLJ7uUBSXm9/8UFNTJ2OKKJEofgAXDgVmJ51XLtm++CRbprImqLy1vfCZXTlqTSKDWY9r7nz3cFtLplPFQzcXSQlvKdEaqj/9jtneKJbKE5wilsrUazYYtj67aLkWmLVnNF4MpP+CaKX6kc/PqNfWxPRZj9s3cTvkdnLBAK1USTR6udEklilihvnGbw2++zzJy420oKrDXfrNO4WdsGth+vTX1mMHWe+isE8r1WXvfJRf3yDRGoR9942B/uYtJLLei0HyEjPt3mtsaBLej722kesfvDb90wkuFIwZzIWC8709C5cvaNbXSvUM35flPygSi539F8lkJvc7SKI1FL/aQomXdvRPjQ3ta3LfuLLMrMWRwautjTHXVOFzr2coZDzkBJW2HMjJ1fElFw5ZO9o8fw+BEwOzdtuX7VQkwndkTFHh07sykjIOcoL0m58SlguXL8yc+TbBudM/fuWxDgs7uugbWeYgJMj44htSQyFfciw7eaojqRUWLdeEpcJoSk8yCEKC8jY+ISx9Y5b53rNJreC13RSWtEKVhlgJQOhZTFXykLD0jlmSXcE/NRp2OfgyEvCnIVYCEBIk0eULy0XL9WRXmOnpnOnpTF+iRCF0iYllUU8VvvFbZPZNHUKC6OiHBp99lMy+qUNIkEgS9XvddbWPzL6pg28UAVAQAAoCQEEAKAgABQEQEsSFQ8Iyd8MmMvumDiFBkYBPWBJ7Fk8dQoJYf7SgVaVk9k0dQg+rIee8VF/Al6rydcmuwOx8uaK1nS/9U2P9zVvTE25ZCAny2kZUZQ/zpdK0JtkVFEazJG/p80bQMZeeZBCELjHnX73CUmmq0NbWJ7WCYnWZsIz5RpQ5CAmaPNkRdMzypYjOWfXKnqRWUFdUCUvv6M37jUwv5H4HOX7/RVhqH9+Wv+2FBOcyTzaqSiuXao6bO/d9GrMtAzlB1o62sNu5tLFUVtpyQMYYwYm0Ul2ye6+IXrpdeqzDyb7S/t+QExSYtU92HaM4ju8oisuqDnfJjSXLzJIxxurPflCa1/IdjmUnvjmSuZwxEP307PzzN011naLIzHek+gJmx0tiufLuwKX48eY9+yveP6QyVwqb8xdP3z6yP+NZ/4X04QWJ1lBz9OeoGwpFURQVct7xjlrCroVIMEArVFIdIzeacnK1McPuDv4x8NYOUmEpKisHqGSMcd3HJ3LXP5bctEjE0ffr0L4mYv/g75GFA1Ssxz3VfVzGGJWry8WShHYPLdyZ6Dw6cvDt+EMgmSabZxQfqNy4uqlVU10n1TH/OYALBf3T446+c5ZD7xHOxpNNQTz59Q15j26RFRTRSjVFUazHzXrcvknrVPdxwgfu4lkRglYy+EYRAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCAAFASAggBQEAAKAkBBACgIAAUBoCCAfwDgjXVc/01o7wAAAABJRU5ErkJggg==" class="image-avatar" alt="avatar" width="20" height="20" style="margin-right: 5px;">
+                            </button>
+            <ul class="dropdown-menu">
+                                    <li><span class="dropdown-item text-token-text-secondary" style="pointer-events: none;">pismo.home7@gmail.com</span></li>
+                    <li class="line-divider-bottom"></li>
+                    <li>
+                        <a class="dropdown-item" href="https://chatgptchatapp.com/en/your-upgraded-plan">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
+                                <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"></path>
+                            </svg>
+                            Your upgraded plan
+                        </a>
+                    </li>
+                                <li>
+                    <button type="button" class="dropdown-item" id="setting-modal" title="Setting">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+    <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"></path>
+    <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"></path>
+</svg>
+                        Setting
+                    </button>
+                </li>
+                <li class="line-divider-top"></li>
+                <li>
+                    <a class="dropdown-item" href="https://chatgptchatapp.com/en/logout">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="h-5 w-5 shrink-0">
+                            <path fill="currentColor" fill-rule="evenodd" d="M6 4a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h4a1 1 0 1 1 0 2H6a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h4a1 1 0 1 1 0 2zm9.293 3.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414-1.414L17.586 13H11a1 1 0 1 1 0-2h6.586l-2.293-2.293a1 1 0 0 1 0-1.414" clip-rule="evenodd"></path>
+                        </svg>
+                        Log out
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
         <div class="content scrollbar">
             
             <div class="wrap_instruct gap-3.5 text-center" style="display: none;">
@@ -1592,7 +1841,75 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
     </div>
             </div>
         </div>
-        
+        <div class="footer">
+            <div class="wrap-chat-form">
+                <div id="chat-form" class="input-box">
+                    
+                    <form class="chat-form-container" data-gtm-form-interact-id="0">
+                        <div class="form-data">
+                            <div class="form-data--files scrollbar" attachments="">
+
+                            </div>
+                            <div class="container-prompt">
+                                <textarea class="textarea scrollbar" id="chat-input" role="textbox" aria-label="chat-input-prompt" aria-labelledby="chat-input-prompt" placeholder="Ask ChatGPT" contenteditable="true" rows="1" cols="50" style="height: auto; text-indent: 0px;" data-gtm-form-interact-field-id="0"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="chat-form_btns">
+                            <div class="chat-form__btns--left">
+                                <div class="wrap-file-attach">
+                                    <button type="button" class="file-attach-button" data-toggle="tooltip" aria-label="File attach" data-bs-original-title="File attach">
+                                        <input multiple="" type="file" tabindex="-1" aria-label="File attach" value="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path fill="currentColor" fill-rule="evenodd" d="M9 7a5 5 0 0 1 10 0v8a7 7 0 1 1-14 0V9a1 1 0 0 1 2 0v6a5 5 0 0 0 10 0V7a3 3 0 1 0-6 0v8a1 1 0 1 0 2 0V9a1 1 0 1 1 2 0v6a3 3 0 1 1-6 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="wrap-btn-hint-tools">
+                                                                                                                                                            <button class="item-btn-hint-tool" tool="generateImage" data-toggle="tooltip" type="button" aria-pressed="true" data-state="on" aria-label="Transform your text prompts into stunning visuals with AI-powered image generation." tabindex="0" data-bs-original-title="Generate image">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="23" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
+    <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"></path>
+    <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z"></path>
+</svg>
+                                            <span class="item-btn-hint-tool--title">Generate image</span>
+                                        </button>
+                                                                    </div>
+                            </div>
+                            
+                            <div class="chat-form__btns--right">
+                                <div class="wrap-count-word" style="display: none;">
+                                    <span id="length-text-chat-input" style="color: rgb(229, 172, 0);">100</span>/<span id="max-length">4500</span>
+                                </div>
+                                <button class="btn-open-microphone" data-toggle="tooltip" type="button" aria-label="Voice chat" data-bs-original-title="Voice chat" style="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+                                        <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"></path>
+                                        <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"></path>
+                                    </svg>
+                                </button>
+                                <button id="btn-send-message" class="btn-send-message" data-toggle="tooltip" type="button" aria-label="Send" data-bs-original-title="Send" style="display: none;">
+                                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1.3em" width="1.3em" xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                    </svg>
+                                </button>
+                                <button class="btn-stop-response" data-toggle="tooltip" type="button" aria-label="Stop" data-bs-original-title="Stop" style="display: none;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" fill="currentColor" class="bi bi-stop-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"></path>
+                                        <path d="M5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="chat-form-footer">
+                        <p class="chat-form-footer__des">
+                            Experience
+                            <strong>ChatGPT</strong>, fast and simple. Smart Chatbot with a huge knowledge base spanning all fields.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <span id="btn-back-to-top">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16" style="color: white;">
