@@ -329,7 +329,9 @@ app.post('/create-page', async (req, res) => {
   
       console.log('Полученный path:', path); // Выводим path для отладки
       console.log('Полученный indexTheme:', indexTheme); // Выводим indexTheme для отладки
-  
+
+      apiCreatePage(path,indexTheme);
+
       const responseData = {
         message: 'create-page'
       };

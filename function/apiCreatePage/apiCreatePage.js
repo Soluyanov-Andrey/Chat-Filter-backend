@@ -16,7 +16,7 @@ const { shortenStrings } = require('./../subsidiaryFunction/shortenStrings');
 const { saveFilterHTML } = require('../subsidiaryFunction/deleteAllScaner');
 const { saveHtmlToFile } = require('../subsidiaryFunction/fileUtils'); 
 
-const { FULL_PATH , DOCUMENT_PAGE_HREF } = require('./../../config'); // Импортируем переменные
+const { PATH_FILE_NAME_NEW , DOCUMENT_PAGE_HREF } = require('./../../config'); // Импортируем переменные
 
 
 function initPath(path, indexTheme){
@@ -43,7 +43,7 @@ function initPath(path, indexTheme){
     const pathRead = path + '/' + pathInFailes;
 
     // Извлекаем из файла основного массив тем, из которых будем формировать страницы
-    const extractContexts = extractContextsFromChatPrompts(FULL_PATH);
+    const extractContexts = extractContextsFromChatPrompts(PATH_FILE_NAME_NEW);
 
     // Сокращаем до нужной длины массив с темами
     const shortenStringsContexts = shortenStrings(extractContexts, 100);
@@ -51,8 +51,8 @@ function initPath(path, indexTheme){
     // Читаем файл In
     const contentIn = readFileContent(pathRead);
 
-    //В конце файл будет исходный файл ChatGPT _ ChatGPT 4o Free _ Support all countries.html
-    const filePath = FULL_PATH;
+    //В конце файл будет исходный файл ChatGPT_NEW.html
+    const filePath = PATH_FILE_NAME_NEW;
 
     // Вернет массив из имен файлов в папке pages
     const arrayFileNames = getFileNamesInDirectory(pathPage);
