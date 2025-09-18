@@ -135,7 +135,7 @@ paths:
           description: Абсолютный или относительный путь к новой папке.
       responses:
         '201': # Обычно для создания ресурса используют 201 Created
-          description: Возвращает массив строк с именами файлов.
+          description: Отправляет массив строк из которых создатся файл
           content:
             application/json:
               schema:
@@ -146,6 +146,32 @@ paths:
                 - "строка 1"
                 - "строка 2"
                 - "и т.д."
+        '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
+          $ref: '#/components/responses/InternalServerError'
+
+  /open-themes-ready:
+    get:
+      summary: Открыть уже готовые темы созданные для просмотра
+      description: Открыть уже готовые темы созданные для просмотра
+      parameters:
+        - in: query
+          name: path
+          schema:
+            type: string
+          required: true
+          description: Абсолютный или относительный путь к новой папке.
+      responses:
+        '201': # Обычно для создания ресурса используют 201 Created
+          description: Возвращает имя файла который считается и отобразится в браузере
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+              example:
+                - "Содержание файла"
+              
         '500': # Ошибка на сервере (например, не удалось создать папку из-за проблем с файловой системой)
           $ref: '#/components/responses/InternalServerError'
 

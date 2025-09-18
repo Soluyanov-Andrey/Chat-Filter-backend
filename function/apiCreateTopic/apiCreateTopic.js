@@ -1,8 +1,10 @@
-const { copyDirectory } = require('./createFolder'); // Замените 'your-file-name'
+const { createTopic } = require('./createTopic'); // Замените 'your-file-name'
 
+const { DOCUMENT_PAGE_HREF } = require('./../../config'); 
 
-function apiCreatePage(pash) {
-
+function apiCreateTopic(path,topicValue) {
+    path = path + '/' + DOCUMENT_PAGE_HREF;
+  createTopic(path,topicValue);
 }
 
-module.exports.apiCreatePage = apiCreatePage;
+module.exports.apiCreateTopic = apiCreateTopic;

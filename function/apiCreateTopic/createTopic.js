@@ -1,7 +1,7 @@
 const cheerio = require('cheerio');
 const fs = require('fs');
-const { readFileContent } = require('../subsidiary/fileUtils');
-const { saveHtmlToFile } = require('../subsidiary/fileUtils');
+const { readFileContent } = require('../subsidiaryFunction/fileUtils');
+const { saveHtmlToFile } = require('../subsidiaryFunction/fileUtils');
 
 
 /**
@@ -30,7 +30,9 @@ function extractLastHrefNumber(htmlCode, patternType) {
 
       switch (patternType) {
           case 'inTheme':
-              regex = /\.\/themes\/in(\d+)\.html/;
+            
+              regex = /(?:\.\/)?themes\/in(\d+)\.html/;
+              
               break;
           case 'html':
               regex = /(\d+)\.html/; // Извлекаем цифры перед ".html"
@@ -55,7 +57,7 @@ function extractLastHrefNumber(htmlCode, patternType) {
 }
 
 /**
- * Добавляет новую ссылку после последнего элемента <a> в HTML.
+ * Добавляет новую ссылку после последнего элемента <li> в HTML.
  *
  * @param {string} htmlCode  Исходный HTML-код.
  * @param {number} number  Цифра для вставки в href новой ссылки.
@@ -64,26 +66,28 @@ function extractLastHrefNumber(htmlCode, patternType) {
 
 function insertNewLinkAfterLast(htmlCode, number, topic) {
     try {
-      const $ = cheerio.load(htmlCode, { decodeEntities: false });
-      const aElements = $('a'); // Находим все элементы <a>
-  
-      const newLink = `
-    <br>
-    <a href="./themes/in${number}.html" target="leftframe">${topic}`; // Формируем HTML новой ссылки
-  
-      if (aElements.length > 0) {
-        aElements.last().after(newLink); // Вставляем новую ссылку после последнего <a>
-      } else {
-        // Если нет существующих <a>, добавляем ссылку в конец <body>
-        $('body').append(newLink);
-      }
-  
-      return $.html(); // Возвращаем измененный HTML-код
+        const $ = cheerio.load(htmlCode, { decodeEntities: false });
+        
+        // Находим последний элемент li в списке
+        const lastLi = $('#list li').last();
+        
+        // Формируем корректный HTML новой ссылки
+        const newLink = `\n <li><a href="./themes/in${number}.html" target="leftframe">${topic}</a></li>`;
+        
+        // Вставляем новую ссылку после последнего li
+        if (lastLi.length > 0) {
+            lastLi.after(newLink);
+        } else {
+            // Если нет существующих li, добавляем ссылку в список
+            $('#list').append(newLink);
+        }
+
+        return $.html(); // Возвращаем измененный HTML-код
     } catch (error) {
-      console.error("Ошибка при обработке HTML:", error);
-      return htmlCode; // Возвращаем исходный HTML в случае ошибки
+        console.error("Ошибка при обработке HTML:", error);
+        return htmlCode; // Возвращаем исходный HTML в случае ошибки
     }
-  }
+}
 
 /**
  * Добавляет новую ссылку после последнего элемента <a> в HTML.
@@ -94,9 +98,9 @@ function insertNewLinkAfterLast(htmlCode, number, topic) {
 
 function createTopic(path,topic){
     let htmlContent = readFileContent(path);
-console.log(htmlContent);
+    console.log(htmlContent);
 
-    let extractnumber = extractLastHrefNumber(htmlContent);
+    let extractnumber = extractLastHrefNumber(htmlContent,'inTheme');
 
     console.log(extractnumber);
     let insert = insertNewLinkAfterLast(htmlContent, extractnumber+1, topic);

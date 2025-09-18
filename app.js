@@ -7,6 +7,7 @@ const { apiDeleteSelect } = require('./function/apiDeleteSelect/apiDeleteSelect'
 const { apiLaveSelect } = require('./function/apiLaveSelected/apiLaveSelected');
 const { apiLookPage } = require('./function/apiLookPage/apiLookPage');
 const { apiCreatePage } = require('./function/apiCreatePage/apiCreatePage');
+const { apiCreateTopic } = require('./function/apiCreateTopic/apiCreateTopic');
 
 const express = require('express');
 const app = express();
@@ -346,7 +347,29 @@ app.post('/create-page', async (req, res) => {
     }
 });
 
+app.post('/create-topic', async (req, res) => {
+ 
+    try {
+      const { path, topicValue } = req.body; // Получаем path и indexTheme из req.body
+  
+      console.log('Полученный path:', path); // Выводим path для отладки
+      console.log('Полученный topicValue:', topicValue); // Выводим topicValue для отладки
 
+       apiCreateTopic(path,topicValue);
+
+      const responseData = {
+        message: 'createTopic'
+      };
+      return res.json(responseData); // Отправляем ответ с сообщением 'create-page'
+  
+    } catch (error) {
+      console.error('Error:', error);
+      return res.status(500).json({
+        message: 'Произошла ошибка при обработке запроса',
+        error: error.message
+      });
+    }
+});
 
 
 
