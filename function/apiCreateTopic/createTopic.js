@@ -4,6 +4,7 @@ const { readFileContent } = require('../subsidiaryFunction/fileUtils');
 const { saveHtmlToFile } = require('../subsidiaryFunction/fileUtils');
 
 
+
 /**
  * Извлекает числовой идентификатор из href последней ссылки в HTML-коде.
  *
@@ -90,23 +91,59 @@ function insertNewLinkAfterLast(htmlCode, number, topic) {
 }
 
 /**
- * Добавляет новую ссылку после последнего элемента <a> в HTML.
- *
- * @param {string} path  путь к файлу в который нужно добавить тему.
- * @param {string} topic добавляемая тема
+ * создаем файл in1.html в дериктории где добавляем тему читая его из document на сервер
+ * по сути делаем копирование, сначало читаем потом копируем
  */
 
-function createTopic(path,topic){
+function createInFile(pathDocument,pathNew){
+
+    let htmlContent = readFileContent(pathDocument);
+    
+    
+    // let htmlContent = readFileContent('document/themes/in1.html');
+
+    console.log("--------------------------", htmlContent);
+    console.log("pathDocument",pathDocument);
+    console.log("pathNew",pathNew);
+    console.log("htmlContent", htmlContent);
+    console.log("--------------------------", htmlContent);
+    saveHtmlToFile(pathNew ,htmlContent);
+
+}
+
+
+
+function extractNumberAndContent(path){
+
     let htmlContent = readFileContent(path);
     console.log(htmlContent);
 
-    let extractnumber = extractLastHrefNumber(htmlContent,'inTheme');
+    let extractNumber = extractLastHrefNumber(htmlContent,'inTheme');
 
-    console.log(extractnumber);
-    let insert = insertNewLinkAfterLast(htmlContent, extractnumber+1, topic);
-    saveHtmlToFile(path, insert);
+    return { 
+        htmlContent: htmlContent,
+        extractedNumber: extractNumber 
+    }
+}
+
+/**
+ * Добавляет новую ссылку после последнего элемента <a> в HTML.в root файле
+ *
+ * @param {object} extract  объект содержит извлеченный htmlContent и extractedNumber
+ * @param {string} path путь к папке
+ * @param {string} topic добавляемая тема
+ */
+
+function createTopic(extract, path, topic){
+
+   
+    let insert = insertNewLinkAfterLast(extract.htmlContent,  extract.extractedNumber +1, topic);
+    console.log("insert",insert);
+
+     saveHtmlToFile(path, insert);
 
 }
+
 
 //Экспортируем для тестов
 
@@ -114,4 +151,6 @@ module.exports.extractLastHrefNumber = extractLastHrefNumber;
 module.exports.insertNewLinkAfterLast = insertNewLinkAfterLast;
 
 //Экспортируем для приложения
+module.exports.extractNumberAndContent = extractNumberAndContent;
 module.exports.createTopic = createTopic;
+module.exports.createInFile = createInFile;
