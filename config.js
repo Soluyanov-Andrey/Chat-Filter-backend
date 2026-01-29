@@ -19,7 +19,7 @@ const PATH_THEMES = '/themes/in1.html';
 
 const ROOT_DOCUMENT = path.join(ROOT_DIR, 'rootDocument');
 const FOLDER_DOCUMENT =  path.join(ROOT_DIR, 'document');
-const SCANNED_FOLDER = '/media/andrey/project/flash/linux/manul';
+const SCANNED_FOLDER = '/media/andrey/backap/test_all';
 const IP = 'http://localhost:9070';
 
 /**

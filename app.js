@@ -9,6 +9,8 @@ const { apiLookPage } = require('./function/apiLookPage/apiLookPage');
 const { apiCreatePage } = require('./function/apiCreatePage/apiCreatePage');
 const { apiCreateTopic } = require('./function/apiCreateTopic/apiCreateTopic');
 
+const { uploadHtmlFileMiddleware } = require('./function/apiUploadHtmlFile/multerConfig'); // Предполагаем, что multerConfig.js находится в корне проекта
+
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -369,6 +371,24 @@ app.post('/create-topic', async (req, res) => {
         error: error.message
       });
     }
+});
+
+
+app.post('/upload', uploadHtmlFileMiddleware, (req, res) => {
+    // req.file будет доступен, если multer успешно обработал файл
+    if (!req.file) {
+        return res.status(400).json({ message: 'Файл не был отправлен или возникла ошибка при его обработке.' });
+    }
+
+    console.log('Файл успешно обработан Multer (upload-html-file):', req.file);
+
+    res.status(200).json({
+        message: 'Файл успешно сохранен на сервере!',
+        fileName: req.file.filename,
+        filePath: `/rootDocument/${req.file.filename}`, 
+        originalName: req.file.originalname,
+        size: req.file.size
+    });
 });
 
 
